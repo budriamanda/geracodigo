@@ -4,6 +4,7 @@ import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import WebVitalsReporter from '@/components/WebVitalsReporter'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
@@ -12,7 +13,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'GeraCode — Gerador de Código de Barras e QR Code Pix Grátis',
+    default: 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
     template: '%s | GeraCode',
   },
   description: 'Gerador grátis de código de barras, QR Code e QR Code Pix. Ferramentas online para lojistas brasileiros. 100% privado, sem cadastro.',
@@ -45,25 +46,23 @@ export default function RootLayout({
       <head>
         {GA_ID && (
           <>
-            <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
-            <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
             <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
             <link rel="dns-prefetch" href="https://www.google-analytics.com" />
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
             <Script
               src="/scripts/ga4-init.js"
               data-ga-id={GA_ID}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
           </>
         )}
         {ADSENSE_CLIENT && (
           <Script
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             crossOrigin="anonymous"
           />
         )}
@@ -74,7 +73,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <Script src="/scripts/sw-register.js" strategy="afterInteractive" />
+        <WebVitalsReporter />
+        <Script src="/scripts/sw-register.js" strategy="lazyOnload" />
       </body>
     </html>
   )

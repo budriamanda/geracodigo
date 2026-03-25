@@ -4,6 +4,7 @@ import { useState, useCallback, useRef, useEffect } from 'react'
 import QRCode from 'qrcode'
 import { generatePixPayload, PixParams } from '@/lib/pix'
 import { trackGenerate, trackDownload, trackCopy } from '@/lib/analytics'
+import { downloadDataUrl, downloadBlob } from '@/lib/download'
 
 type KeyType = PixParams['keyType']
 
@@ -147,30 +148,19 @@ export default function PixGenerator() {
 
   const handleDownloadPng = () => {
     if (!qrDataUrl) return
-    const a = document.createElement('a')
-    a.href = qrDataUrl
-    a.download = 'qr-pix.png'
-    a.style.display = 'none'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    downloadDataUrl(qrDataUrl, 'qr-pix.png')
     trackDownload('pix_generator', 'pix', 'png')
   }
 
   const handleDownloadSvg = async () => {
     if (!payload) return
-    const svgString = await QRCode.toString(payload, { type: 'svg', width: 400, margin: 2 })
-    const blob = new Blob([svgString], { type: 'image/svg+xml' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'qr-pix.svg'
-    a.style.display = 'none'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-    trackDownload('pix_generator', 'pix', 'svg')
+    try {
+      const svgString = await QRCode.toString(payload, { type: 'svg', width: 400, margin: 2 })
+      downloadBlob(new Blob([svgString], { type: 'image/svg+xml' }), 'qr-pix.svg')
+      trackDownload('pix_generator', 'pix', 'svg')
+    } catch {
+      setError('Erro ao gerar SVG. Tente baixar em PNG.')
+    }
   }
 
   return (
@@ -279,7 +269,7 @@ export default function PixGenerator() {
           <div>
             <label htmlFor="pix-value" className="block text-sm font-medium text-gray-700 mb-1">
               Valor (R$){' '}
-              <span className="text-gray-400 font-normal">(opcional — deixe vazio para valor aberto)</span>
+              <span className="text-gray-400 font-normal">(opcional, deixe vazio para valor aberto)</span>
             </label>
             <input
               id="pix-value"
@@ -355,7 +345,7 @@ export default function PixGenerator() {
               />
               {isValid && (
                 <span className="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">
-                  ✓ QR válido — testado com o padrão Banco Central
+                  ✓ QR válido, testado com o padrão Banco Central
                 </span>
               )}
               {error && <p className="text-red-500 text-xs text-center">{error}</p>}

@@ -1,23 +1,30 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import QrGenerator from './QrGenerator'
+import dynamic from 'next/dynamic'
 import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
+import LastUpdated from '@/components/LastUpdated'
+import GeneratorSkeleton from '@/components/GeneratorSkeleton'
+import { LAST_UPDATED } from '@/lib/constants'
+
+const QrGenerator = dynamic(() => import('./QrGenerator'), {
+  loading: () => <GeneratorSkeleton />,
+})
 
 const schemas = [
   {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': ['WebApplication', 'SoftwareApplication'],
     name: 'Gerador de QR Code',
     description: 'Gere QR Code para links, textos e qualquer conteúdo. Color picker, seletor de tamanho, download PNG e SVG. Gratuito, sem cadastro.',
     url: 'https://www.geracodigo.com.br/gerador-de-qr-code',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@type': 'Organization', name: 'GeraCode', url: 'https://www.geracodigo.com.br' },
+    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
     inLanguage: 'pt-BR',
     isAccessibleForFree: true,
     featureList: ['QR Code para links e textos', 'Color picker', 'Seletor de tamanho (200–500px)', 'Download PNG e SVG', 'Preview em tempo real', '100% client-side'],
@@ -29,12 +36,23 @@ const schemas = [
     description: 'Passo a passo para criar QR Code personalizado para qualquer conteúdo.',
     totalTime: 'PT1M',
     inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode — Gerador de QR Code' },
+    tool: { '@type': 'HowToTool', name: 'GeraCode: Gerador de QR Code' },
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Digite o conteúdo', text: 'Cole um link, escreva um texto, número de telefone, e-mail ou qualquer informação.', url: 'https://www.geracodigo.com.br/gerador-de-qr-code#passo-1' },
       { '@type': 'HowToStep', position: 2, name: 'Personalize', text: 'Escolha o tamanho e as cores para combinar com sua identidade visual.', url: 'https://www.geracodigo.com.br/gerador-de-qr-code#passo-2' },
       { '@type': 'HowToStep', position: 3, name: 'Baixe e use', text: 'Faça download em PNG para uso digital ou SVG para impressão profissional.', url: 'https://www.geracodigo.com.br/gerador-de-qr-code#passo-3' },
     ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Gerador de QR Code Grátis Online',
+    description: 'Gere QR Code para links, textos e qualquer conteúdo. Color picker, seletor de tamanho, download PNG e SVG. Gratuito, sem cadastro.',
+    url: 'https://www.geracodigo.com.br/gerador-de-qr-code',
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
+    about: { '@type': 'Thing', name: 'QR Code' },
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
@@ -59,7 +77,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-qr-code/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Grátis — GeraCode' }],
+    images: [{ url: '/gerador-de-qr-code/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Grátis | GeraCode' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -80,7 +98,8 @@ export default function QrPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de QR Code Grátis Online</h1>
         <p className="text-gray-600">Gere QR Code para links, textos e qualquer conteúdo. Gratuito, sem cadastro.</p>
-        <p className="text-sm text-indigo-600 mt-1">🔒 Gerado direto no seu navegador — seus dados nunca saem do seu computador</p>
+        <p className="text-sm text-indigo-600 mt-1">🔒 Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
+        <LastUpdated date={LAST_UPDATED} />
       </div>
       <QrGenerator />
 
@@ -90,7 +109,7 @@ export default function QrPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { step: '1', title: 'Digite o conteúdo', desc: 'Cole um link, escreva um texto, número de telefone, e-mail ou qualquer informação que queira codificar no QR Code.' },
-            { step: '2', title: 'Personalize', desc: 'Escolha o tamanho do QR Code e as cores — escura e de fundo — para combinar com a identidade visual do seu negócio.' },
+            { step: '2', title: 'Personalize', desc: 'Escolha o tamanho do QR Code e as cores (escura e de fundo) para combinar com a identidade visual do seu negócio.' },
             { step: '3', title: 'Baixe e use', desc: 'Faça download em PNG para uso digital ou SVG para impressão profissional em alta qualidade.' },
           ].map(({ step, title, desc }) => (
             <article key={step} className="bg-white rounded-xl border border-gray-200 p-6">

@@ -124,7 +124,11 @@ export default function BarcodeReader() {
       trackCopy('barcode_reader', 'scanned_code')
       if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
       copyTimeoutRef.current = setTimeout(() => setCopied(null), 2000)
-    } catch { /* noop */ }
+    } catch {
+      setError('Não foi possível copiar. Selecione o texto manualmente.')
+      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+      copyTimeoutRef.current = setTimeout(() => setError(''), 3000)
+    }
   }
 
   const handleManualAdd = () => {
@@ -151,7 +155,7 @@ export default function BarcodeReader() {
     <div className="space-y-6">
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         {/* Camera area */}
-        <div className="relative bg-gray-900 rounded-lg overflow-hidden mb-4" style={{ minHeight: 300 }}>
+        <div className="relative bg-gray-900 rounded-lg overflow-hidden mb-4 min-h-[300px]">
           <video
             ref={videoRef}
             className={`w-full ${isScanning ? '' : 'hidden'}`}

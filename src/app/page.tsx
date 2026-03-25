@@ -7,18 +7,22 @@ const schemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': 'https://www.geracodigo.com.br/#website',
     name: 'GeraCode',
     url: 'https://www.geracodigo.com.br',
     description: 'Ferramentas gratuitas de geração de código de barras, QR Code Pix, leitor de código de barras e gerador de SKU para lojistas brasileiros',
     inLanguage: 'pt-BR',
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://www.geracodigo.com.br/#organization',
     name: 'GeraCode',
     url: 'https://www.geracodigo.com.br',
     logo: 'https://www.geracodigo.com.br/logo.svg',
     description: 'Ferramentas gratuitas de geração de código de barras, QR Code Pix e SKU para lojistas brasileiros',
+    foundingDate: '2026',
   },
   {
     '@context': 'https://schema.org',
@@ -38,23 +42,23 @@ const schemas = [
 ]
 
 export const metadata: Metadata = {
-  title: 'GeraCode — Gerador de Código de Barras, QR Code Pix, Leitor e SKU Grátis',
+  title: 'GeraCode | Gerador de Código de Barras, QR Code Pix, Leitor e SKU Grátis',
   description: 'Gerador grátis de código de barras (12+ formatos), QR Code Pix, leitor de código de barras via câmera e gerador de SKU. Geração em lote, PDF, etiquetas. 100% privado, sem cadastro.',
   alternates: {
     canonical: 'https://www.geracodigo.com.br/',
   },
   openGraph: {
-    title: 'GeraCode — Gerador de Código de Barras, QR Code Pix e SKU Grátis',
+    title: 'GeraCode | Gerador de Código de Barras, QR Code Pix e SKU Grátis',
     description: 'Ferramentas gratuitas para lojistas brasileiros. 12+ formatos de código de barras, QR Code Pix, leitor via câmera e SKU. Sem cadastro.',
     url: 'https://www.geracodigo.com.br',
     type: 'website',
     locale: 'pt_BR',
     siteName: 'GeraCode',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'GeraCode — Gerador de Código de Barras e QR Code Pix' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'GeraCode | Gerador de Código de Barras e QR Code Pix' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GeraCode — Gerador de Código de Barras e QR Code Pix Grátis',
+    title: 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
     description: 'Ferramentas gratuitas para lojistas brasileiros. Sem cadastro, sem servidor.',
     images: ['/opengraph-image'],
   },
@@ -123,10 +127,10 @@ export default function HomePage() {
         </h1>
         <p className="text-xl text-gray-600 mb-2 max-w-2xl mx-auto">
           6 ferramentas online gratuitas para lojistas e empreendedores brasileiros.
-          Gere códigos de barras em 12+ formatos, QR Code Pix, leia códigos pela câmera e crie SKUs — tudo em segundos.
+          Gere códigos de barras em 12+ formatos, QR Code Pix, leia códigos pela câmera e crie SKUs. Tudo em segundos.
         </p>
         <p className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mt-4">
-          <span aria-hidden="true">{'\u{1F512}'}</span> 100% privado — seus dados nunca saem do seu navegador
+          <span aria-hidden="true">{'\u{1F512}'}</span> 100% privado. Seus dados nunca saem do seu navegador
         </p>
       </section>
 
@@ -189,14 +193,14 @@ export default function HomePage() {
         <h2 id="about-geracode" className="text-2xl font-bold text-gray-900 mb-4">O que é o GeraCode?</h2>
         <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
           <p>
-            O <strong>GeraCode</strong> é o conjunto mais completo de ferramentas online gratuitas para <strong>lojistas, empreendedores e pequenos negócios brasileiros</strong>.
+            O <strong>GeraCode</strong> reúne 6 ferramentas gratuitas de códigos para <strong>lojistas, empreendedores e pequenos negócios brasileiros</strong>.
             Com 6 ferramentas integradas, você pode gerar códigos de barras em 12 formatos (EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais),
             QR Codes genéricos, <strong>QR Code Pix</strong> com payload BR Code EMV válido, ler códigos de barras pela câmera e criar códigos SKU padronizados.
           </p>
           <p>
-            Diferente de outras ferramentas, o GeraCode processa tudo localmente no seu dispositivo. Nenhuma informação é enviada para servidores.
-            Isso garante <strong>total privacidade e segurança</strong>. Funcionalidades exclusivas como <strong>geração em lote, download em PDF, impressão de etiquetas,
-            cálculo automático do dígito verificador</strong> e <strong>histórico local</strong> colocam o GeraCode à frente de qualquer concorrente.
+            Diferente de outras ferramentas, o GeraCode processa tudo localmente no seu dispositivo. Nenhuma informação é enviada para servidores,
+            garantindo <strong>total privacidade e segurança</strong>. Inclui funcionalidades como <strong>geração em lote, download em PDF, impressão de etiquetas,
+            cálculo automático do dígito verificador (CRC16 para Pix)</strong> e <strong>histórico local</strong>. Tudo 100% no navegador, sem depender de servidores externos.
           </p>
         </div>
       </section>

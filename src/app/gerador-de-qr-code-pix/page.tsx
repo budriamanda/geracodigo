@@ -1,22 +1,29 @@
 import type { Metadata } from 'next'
-import PixGenerator from './PixGenerator'
+import dynamic from 'next/dynamic'
 import AdSlot from '@/components/AdSlot'
 import FAQSection from '@/components/FAQSection'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
+import LastUpdated from '@/components/LastUpdated'
+import GeneratorSkeleton from '@/components/GeneratorSkeleton'
+import { LAST_UPDATED } from '@/lib/constants'
+
+const PixGenerator = dynamic(() => import('./PixGenerator'), {
+  loading: () => <GeneratorSkeleton />,
+})
 
 const schemas = [
   {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': ['WebApplication', 'SoftwareApplication'],
     name: 'Gerador de QR Code Pix',
     description: 'Gere QR Code para pagamento via Pix com chave CPF, CNPJ, e-mail ou aleatória. Payload BR Code EMV válido, gerado no navegador sem cadastro.',
     url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@type': 'Organization', name: 'GeraCode', url: 'https://www.geracodigo.com.br' },
+    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
     inLanguage: 'pt-BR',
     isAccessibleForFree: true,
     featureList: ['QR Code Pix estático', 'Payload BR Code EMV', 'CPF, CNPJ, e-mail, telefone, chave aleatória', 'Download PNG e SVG', 'Preview em tempo real', '100% client-side'],
@@ -28,12 +35,23 @@ const schemas = [
     description: 'Passo a passo para criar um QR Code Pix estático válido com payload BR Code.',
     totalTime: 'PT2M',
     inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode — Gerador de QR Code Pix' },
+    tool: { '@type': 'HowToTool', name: 'GeraCode: Gerador de QR Code Pix' },
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Informe sua chave Pix', text: 'Selecione o tipo de chave (CPF, CNPJ, e-mail, telefone ou aleatória) e insira o valor da chave cadastrada no seu banco.', url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix#passo-1' },
       { '@type': 'HowToStep', position: 2, name: 'Preencha nome, cidade e valor', text: 'Digite o nome do recebedor (até 25 caracteres), a cidade e opcionalmente um valor fixo.', url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix#passo-2' },
       { '@type': 'HowToStep', position: 3, name: 'Baixe o QR Code', text: 'Faça download em PNG ou SVG e use onde quiser.', url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix#passo-3' },
     ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Gerador de QR Code Pix Grátis Online',
+    description: 'Gere QR Code para pagamento via Pix com chave CPF, CNPJ, e-mail ou aleatória. Payload BR Code EMV válido, gerado no navegador sem cadastro.',
+    url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
+    about: { '@type': 'Thing', name: 'Pix (Sistema de Pagamentos Instantâneos do Banco Central)' },
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
@@ -46,19 +64,19 @@ const schemas = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Gerador de QR Code Pix Grátis — Crie seu QR Pix Online',
+  title: 'Gerador de QR Code Pix Grátis | Crie seu QR Pix Online',
   description: 'Gere seu QR Code Pix grátis em segundos. CPF, CNPJ, e-mail ou chave aleatória. Payload BR Code EMV válido. Sem cadastro, 100% privado.',
   alternates: {
     canonical: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
   },
   openGraph: {
-    title: 'Gerador de QR Code Pix Grátis — Crie seu QR Pix Online | GeraCode',
+    title: 'Gerador de QR Code Pix Grátis | Crie seu QR Pix Online | GeraCode',
     description: 'Gere seu QR Code Pix grátis em segundos. CPF, CNPJ, e-mail ou chave aleatória. Payload BR Code EMV válido. Sem cadastro, 100% privado.',
     url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
     type: 'website',
     locale: 'pt_BR',
     siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-qr-code-pix/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Pix Grátis — GeraCode' }],
+    images: [{ url: '/gerador-de-qr-code-pix/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Pix Grátis | GeraCode' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -80,7 +98,8 @@ export default function PixPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de QR Code Pix Grátis Online</h1>
         <p className="text-gray-600">Gere QR Code Pix estático válido (payload BR Code EMV, padrão Banco Central do Brasil)</p>
-        <p className="text-sm text-indigo-600 mt-1">🔒 Gerado direto no seu navegador — seus dados nunca saem do seu computador</p>
+        <p className="text-sm text-indigo-600 mt-1">🔒 Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
+        <LastUpdated date={LAST_UPDATED} />
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -122,8 +141,8 @@ export default function PixPage() {
       <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">O que é o QR Code Pix?</h2>
         <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
-          <p>O <strong>QR Code Pix</strong> é uma forma de receber pagamentos instantâneos pelo sistema Pix do Banco Central do Brasil. Ao escanear o QR Code com qualquer aplicativo bancário, o pagador é direcionado automaticamente para a tela de pagamento com os dados do recebedor preenchidos.</p>
-          <p>O payload gerado segue o padrão <strong>BR Code EMV</strong>, especificação oficial do Banco Central, compatível com todos os bancos e fintechs participantes do Pix no Brasil — incluindo Nubank, Itaú, Bradesco, Caixa, Banco do Brasil, Inter, PagSeguro, Mercado Pago e outros.</p>
+          <p>O <strong>QR Code Pix</strong> é uma forma de receber pagamentos instantâneos pelo <a href="https://www.bcb.gov.br/estabilidadefinanceira/pix" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800">sistema Pix do Banco Central do Brasil</a>. Ao escanear o QR Code com qualquer aplicativo bancário, o pagador é direcionado automaticamente para a tela de pagamento com os dados do recebedor preenchidos.</p>
+          <p>O payload gerado segue o padrão <strong>BR Code EMV</strong>, <a href="https://www.bcb.gov.br/estabilidadefinanceira/pagamentosinstantaneos" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800">especificação oficial do Banco Central</a>, compatível com todos os bancos e fintechs participantes do Pix no Brasil, incluindo Nubank, Itaú, Bradesco, Caixa, Banco do Brasil, Inter, PagSeguro, Mercado Pago e outros.</p>
           <p>O GeraCode gera <strong>QR Codes estáticos</strong>, ideais para cobranças com valor fixo ou aberto (o pagador digita o valor). Para cobranças dinâmicas com confirmação automática e geração de comprovante, é necessário utilizar a API Pix do seu banco.</p>
         </div>
       </section>
@@ -151,7 +170,7 @@ export default function PixPage() {
       <section className="mt-16">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Bancos e Fintechs Compatíveis</h2>
         <p className="text-gray-600 mb-6">
-          O QR Code Pix gerado pelo GeraCode segue o padrão BR Code EMV do Banco Central e é compatível com <strong>todos</strong> os bancos e fintechs participantes do sistema Pix, incluindo:
+          O QR Code Pix gerado pelo GeraCode segue o <a href="https://www.bcb.gov.br/estabilidadefinanceira/pix" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800">padrão BR Code EMV do Banco Central</a> e é compatível com <strong>todos</strong> os bancos e fintechs participantes do sistema Pix, incluindo:
         </p>
         <div className="flex flex-wrap gap-3">
           {['Nubank', 'Itaú', 'Bradesco', 'Banco do Brasil', 'Caixa Econômica', 'Santander', 'Inter', 'PagSeguro', 'Mercado Pago', 'C6 Bank', 'BTG Pactual', 'Sicoob', 'Sicredi', 'Banrisul', 'Original', 'Neon', 'PicPay', 'Iti'].map((bank) => (
@@ -177,7 +196,7 @@ export default function PixPage() {
 
       <FAQSection items={[
         { question: 'O QR Code Pix gerado aqui é válido?', answer: 'Sim. O payload segue o padrão BR Code EMV definido pelo Banco Central do Brasil. O QR Code é testado com o algoritmo CRC16 e funciona em todos os bancos participantes do Pix.' },
-        { question: 'Meus dados ficam salvos em algum servidor?', answer: 'Não. Todo o processamento acontece no seu navegador (client-side). Nenhum dado — chave Pix, nome, valor — é enviado para servidores externos.' },
+        { question: 'Meus dados ficam salvos em algum servidor?', answer: 'Não. Todo o processamento acontece no seu navegador (client-side). Nenhum dado (chave Pix, nome, valor) é enviado para servidores externos.' },
         { question: 'Qual é a diferença entre QR Code estático e dinâmico?', answer: 'O QR Code estático, gerado aqui, é fixo e pode ser usado múltiplas vezes. O QR Code dinâmico é gerado pela API do banco para cada cobrança, com controle de pagamento e notificação automática.' },
         { question: 'Posso usar este QR Code no meu e-commerce?', answer: 'Sim, para cobranças simples. Basta inserir o QR Code como imagem no seu site ou imprimir para uso físico. Para integração automática com confirmação de pedido, use a API Pix do seu banco.' },
         { question: 'O gerador funciona para Pix com CPF, CNPJ, e-mail e telefone?', answer: 'Sim, todos os tipos de chave Pix são suportados: CPF, CNPJ, e-mail, telefone (com +55) e chave aleatória (UUID).' },

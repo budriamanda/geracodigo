@@ -25,7 +25,7 @@ export default function FAQSection({ items }: FAQSectionProps) {
     <section className="mt-16" aria-labelledby="faq-heading">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, '\\u003c') }}
       />
       <h2 id="faq-heading" className="text-2xl font-bold text-gray-900 mb-8">Perguntas Frequentes</h2>
       <div className="space-y-4">

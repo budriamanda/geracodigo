@@ -1,4 +1,4 @@
-function triggerDownload(url: string, filename: string): void {
+export function triggerDownload(url: string, filename: string): void {
   const a = document.createElement('a')
   a.href = url
   a.download = filename
@@ -6,6 +6,16 @@ function triggerDownload(url: string, filename: string): void {
   document.body.appendChild(a)
   a.click()
   document.body.removeChild(a)
+}
+
+export function downloadDataUrl(dataUrl: string, filename: string): void {
+  triggerDownload(dataUrl, filename)
+}
+
+export function downloadBlob(blob: Blob, filename: string): void {
+  const url = URL.createObjectURL(blob)
+  triggerDownload(url, filename)
+  setTimeout(() => URL.revokeObjectURL(url), 100)
 }
 
 export function downloadSvgFromElement(
@@ -16,7 +26,7 @@ export function downloadSvgFromElement(
   const blob = new Blob([svgStr], { type: 'image/svg+xml' })
   const url = URL.createObjectURL(blob)
   triggerDownload(url, filename)
-  setTimeout(() => URL.revokeObjectURL(url), 1000)
+  setTimeout(() => URL.revokeObjectURL(url), 100)
 }
 
 export function downloadPngFromElement(

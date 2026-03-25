@@ -20,7 +20,8 @@ export default function Footer() {
             <h2 className="font-semibold text-gray-900 mb-3">GeraCode</h2>
             <ul className="space-y-2">
               <li><Link href="/sobre" className="hover:text-indigo-600">Sobre</Link></li>
-              <li><Link href="/termos-e-privacidade" className="hover:text-indigo-600">Termos e Privacidade</Link></li>
+              <li><Link href="/privacidade" className="hover:text-indigo-600">Privacidade</Link></li>
+              <li><Link href="/termos" className="hover:text-indigo-600">Termos de Uso</Link></li>
             </ul>
             <p className="text-gray-500 text-xs leading-relaxed mt-3">
               Ferramentas gratuitas de geração de código de barras e QR Code Pix para lojistas brasileiros. 100% privado, sem cadastro.
@@ -28,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-gray-200 text-center text-xs text-gray-400">
-          © {new Date().getFullYear()} GeraCode · Ferramentas gratuitas para lojistas brasileiros
+          © <span suppressHydrationWarning>{new Date().getFullYear()}</span> GeraCode · Ferramentas gratuitas para lojistas brasileiros
         </div>
       </div>
     </footer>

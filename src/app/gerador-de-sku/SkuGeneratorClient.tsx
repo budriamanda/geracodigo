@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useCallback, useMemo, useRef } from 'react'
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { generateSku, generateSkuBatch, type SkuConfig } from '@/lib/sku-generator'
 import { trackGenerate, trackBatchGenerate, trackCopy, trackDownload } from '@/lib/analytics'
+import { downloadBlob } from '@/lib/download'
 
 const SEPARATORS = [
   { value: '-', label: 'Hífen (-)' },
@@ -13,12 +14,14 @@ const SEPARATORS = [
 
 const inputNormal = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors'
 
+function genAttrId() { return `attr-${Date.now()}-${Math.random().toString(36).slice(2, 8)}` }
+
 export default function SkuGeneratorClient() {
   const [prefix, setPrefix] = useState('')
   const [category, setCategory] = useState('')
   const [attributes, setAttributes] = useState(() => [
-    { id: crypto.randomUUID(), value: '' },
-    { id: crypto.randomUUID(), value: '' },
+    { id: genAttrId(), value: '' },
+    { id: genAttrId(), value: '' },
   ])
   const [sequential, setSequential] = useState(1)
   const [separator, setSeparator] = useState('-')
@@ -27,6 +30,10 @@ export default function SkuGeneratorClient() {
   const [copied, setCopied] = useState(false)
   const [copyError, setCopyError] = useState(false)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => () => {
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+  }, [])
 
   const filteredAttributes = useMemo(
     () => attributes.map(a => a.value).filter(v => v.trim()),
@@ -38,7 +45,7 @@ export default function SkuGeneratorClient() {
     [prefix, category, filteredAttributes, sequential, separator],
   )
 
-  const preview = generateSku(config)
+  const preview = useMemo(() => generateSku(config), [config])
 
   const handleGenerate = useCallback(() => {
     const skus = batchCount > 1
@@ -52,7 +59,7 @@ export default function SkuGeneratorClient() {
     }
   }, [config, batchCount])
 
-  const addAttribute = () => setAttributes(prev => [...prev, { id: crypto.randomUUID(), value: '' }])
+  const addAttribute = () => setAttributes(prev => [...prev, { id: genAttrId(), value: '' }])
 
   const updateAttribute = (index: number, value: string) => {
     setAttributes(prev => prev.map((a, i) => i === index ? { ...a, value } : a))
@@ -78,16 +85,7 @@ export default function SkuGeneratorClient() {
 
   const handleDownloadCsv = () => {
     const csv = '\uFEFF' + 'SKU\n' + results.join('\n')
-    const blob = new Blob([csv], { type: 'text/csv' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'skus.csv'
-    a.style.display = 'none'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
+    downloadBlob(new Blob([csv], { type: 'text/csv' }), 'skus.csv')
     trackDownload('sku_generator', 'sku', 'csv')
   }
 

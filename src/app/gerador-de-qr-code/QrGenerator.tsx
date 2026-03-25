@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import QRCode from 'qrcode'
 import { trackGenerate, trackDownload } from '@/lib/analytics'
+import { downloadDataUrl, downloadBlob } from '@/lib/download'
 
 const SIZES = [200, 300, 400, 500]
 
@@ -43,13 +44,7 @@ export default function QrGenerator() {
 
   const downloadPng = () => {
     if (!qrDataUrl) return
-    const a = document.createElement('a')
-    a.href = qrDataUrl
-    a.download = 'qrcode.png'
-    a.style.display = 'none'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    downloadDataUrl(qrDataUrl, 'qrcode.png')
     trackDownload('qr_code_generator', 'qr_code', 'png')
   }
 
@@ -57,16 +52,7 @@ export default function QrGenerator() {
     if (!input.trim()) return
     try {
       const svgStr = await QRCode.toString(input.trim(), { type: 'svg', width: size, margin: 2, color: { dark: darkColor, light: lightColor } })
-      const blob = new Blob([svgStr], { type: 'image/svg+xml' })
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = 'qrcode.svg'
-      a.style.display = 'none'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
+      downloadBlob(new Blob([svgStr], { type: 'image/svg+xml' }), 'qrcode.svg')
       trackDownload('qr_code_generator', 'qr_code', 'svg')
     } catch {
       setError('Erro ao gerar SVG. Tente baixar em PNG.')
@@ -83,6 +69,7 @@ export default function QrGenerator() {
             value={input}
             onChange={e => setInput(e.target.value)}
             placeholder="https://seusite.com.br ou qualquer texto..."
+            aria-required="true"
             className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 h-24 resize-none"
           />
         </div>
@@ -113,7 +100,7 @@ export default function QrGenerator() {
             </div>
           </div>
         </div>
-        {error && <p className="text-red-500 text-xs">{error}</p>}
+        {error && <p className="text-red-500 text-xs" role="alert">{error}</p>}
       </div>
 
       <div className="flex-1 bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center gap-4">

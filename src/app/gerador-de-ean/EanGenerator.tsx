@@ -1,11 +1,16 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import JsBarcode from 'jsbarcode'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { downloadSvgFromElement, downloadPngFromElement } from '@/lib/download'
 import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-check-digit'
 import { addToHistory } from '@/lib/barcode-history'
 import { trackGenerate, trackDownload } from '@/lib/analytics'
+
+type JsBarcodeFn = (
+  element: SVGSVGElement | string | null,
+  data: string,
+  options?: Record<string, unknown>,
+) => void
 
 export default function EanGenerator() {
   const [input, setInput] = useState('')
@@ -14,7 +19,16 @@ export default function EanGenerator() {
   const [generated, setGenerated] = useState(false)
   const [checkDigitHint, setCheckDigitHint] = useState('')
   const [isExporting, setIsExporting] = useState(false)
+  const [barcodeReady, setBarcodeReady] = useState(false)
   const svgRef = useRef<SVGSVGElement>(null)
+  const jsBarcodeRef = useRef<JsBarcodeFn | null>(null)
+
+  useEffect(() => {
+    import('jsbarcode').then(mod => {
+      jsBarcodeRef.current = mod.default as JsBarcodeFn
+      setBarcodeReady(true)
+    })
+  }, [])
 
   const expectedDigits = format === 'EAN13' ? 13 : 8
   const shortDigits = format === 'EAN13' ? 12 : 7
@@ -24,13 +38,13 @@ export default function EanGenerator() {
       const cd = format === 'EAN13'
         ? calculateEan13CheckDigit(input)
         : calculateEan8CheckDigit(input)
-      setCheckDigitHint(`Dígito verificador calculado: ${cd} — código completo: ${input}${cd}`)
+      setCheckDigitHint(`Dígito verificador calculado: ${cd}. Código completo: ${input}${cd}`)
     } else {
       setCheckDigitHint('')
     }
   }, [input, format, shortDigits])
 
-  const resolveInput = (): string => {
+  const resolveInput = useCallback((): string => {
     const trimmed = input.trim()
     if (/^\d+$/.test(trimmed) && trimmed.length === shortDigits) {
       const cd = format === 'EAN13'
@@ -39,13 +53,14 @@ export default function EanGenerator() {
       return trimmed + cd
     }
     return trimmed
-  }
+  }, [input, format, shortDigits])
 
-  const generate = () => {
+  const generate = useCallback(() => {
+    if (!jsBarcodeRef.current || !svgRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     const val = resolveInput()
     if (!val) { setError('Digite o número EAN.'); return }
     try {
-      JsBarcode(svgRef.current, val, {
+      jsBarcodeRef.current(svgRef.current, val, {
         format,
         lineColor: '#000',
         width: 2,
@@ -60,7 +75,7 @@ export default function EanGenerator() {
       setError(`Valor inválido para ${format}. Verifique o número de dígitos.`)
       setGenerated(false)
     }
-  }
+  }, [resolveInput, format])
 
   const downloadSvg = () => {
     if (svgRef.current) {
@@ -70,13 +85,15 @@ export default function EanGenerator() {
   }
 
   const downloadPng = async () => {
-    if (svgRef.current) {
-      try {
-        await downloadPngFromElement(svgRef.current, `${format.toLowerCase()}-barcode.png`)
-        trackDownload('ean_generator', format, 'png')
-      } catch {
-        setError('Erro ao gerar PNG. Tente baixar em SVG.')
-      }
+    if (!svgRef.current) return
+    setIsExporting(true)
+    try {
+      await downloadPngFromElement(svgRef.current, `${format.toLowerCase()}-barcode.png`)
+      trackDownload('ean_generator', format, 'png')
+    } catch {
+      setError('Erro ao gerar PNG. Tente baixar em SVG.')
+    } finally {
+      setIsExporting(false)
     }
   }
 
@@ -165,9 +182,10 @@ export default function EanGenerator() {
 
       <button
         onClick={generate}
-        className="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+        disabled={!barcodeReady}
+        className="w-full bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
       >
-        Gerar {format === 'EAN13' ? 'EAN-13' : 'EAN-8'}
+        {barcodeReady ? `Gerar ${format === 'EAN13' ? 'EAN-13' : 'EAN-8'}` : 'Carregando…'}
       </button>
 
       <div className="border border-gray-100 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-4 min-h-[160px] justify-center">

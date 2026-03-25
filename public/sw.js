@@ -1,4 +1,6 @@
-var CACHE_NAME = 'geracode-v5';
+// BUMP this version string whenever sw.js or precached assets change
+var CACHE_VERSION = '2026-03-25';
+var CACHE_NAME = 'geracode-' + CACHE_VERSION;
 
 var PRECACHE_URLS = [
   '/favicon.svg',

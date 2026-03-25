@@ -1,22 +1,29 @@
 import type { Metadata } from 'next'
-import BarcodeReader from './BarcodeReader'
+import dynamic from 'next/dynamic'
 import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
+import LastUpdated from '@/components/LastUpdated'
+import GeneratorSkeleton from '@/components/GeneratorSkeleton'
+import { LAST_UPDATED } from '@/lib/constants'
+
+const BarcodeReader = dynamic(() => import('./BarcodeReader'), {
+  loading: () => <GeneratorSkeleton />,
+})
 
 const schemas = [
   {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': ['WebApplication', 'SoftwareApplication'],
     name: 'Leitor de Código de Barras Online',
     description: 'Leia códigos de barras e QR Codes usando a câmera do seu dispositivo. Suporta EAN-13, Code 128, QR Code e mais. Gratuito, sem instalar nada.',
     url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@type': 'Organization', name: 'GeraCode', url: 'https://www.geracodigo.com.br' },
+    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
     inLanguage: 'pt-BR',
     isAccessibleForFree: true,
     featureList: [
@@ -32,12 +39,23 @@ const schemas = [
     description: 'Use a câmera do celular para ler códigos de barras diretamente no navegador, sem instalar nenhum app.',
     totalTime: 'PT1M',
     inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode — Leitor de Código de Barras' },
+    tool: { '@type': 'HowToTool', name: 'GeraCode: Leitor de Código de Barras' },
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Abra o leitor', text: 'Acesse o leitor de código de barras do GeraCode no navegador do celular ou computador.' },
       { '@type': 'HowToStep', position: 2, name: 'Permita acesso à câmera', text: 'Clique em "Iniciar Câmera" e permita o acesso quando solicitado pelo navegador.' },
       { '@type': 'HowToStep', position: 3, name: 'Aponte para o código', text: 'Posicione o código de barras ou QR Code na frente da câmera. A leitura é automática.' },
     ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Leitor de Código de Barras Online Grátis',
+    description: 'Leia códigos de barras e QR Codes usando a câmera do seu dispositivo. Suporta EAN-13, Code 128, QR Code e mais. Gratuito, sem instalar nada.',
+    url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
+    about: { '@type': 'Thing', name: 'Leitor de código de barras' },
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
@@ -50,7 +68,7 @@ const schemas = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Leitor de Código de Barras Online Grátis — Leia pela Câmera',
+  title: 'Leitor de Código de Barras Online Grátis | Leia pela Câmera',
   description: 'Leitor de código de barras online grátis. Use a câmera do celular ou computador para ler EAN-13, Code 128, QR Code e mais. Sem instalar aplicativo, 100% no navegador.',
   alternates: {
     canonical: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
@@ -62,7 +80,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'pt_BR',
     siteName: 'GeraCode',
-    images: [{ url: '/leitor-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Leitor de Código de Barras Online — GeraCode' }],
+    images: [{ url: '/leitor-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Leitor de Código de Barras Online | GeraCode' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -83,8 +101,9 @@ export default function BarcodeReaderPage() {
 
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Leitor de Código de Barras Online Grátis</h1>
-        <p className="text-gray-600">Use a câmera do celular ou computador para ler códigos de barras e QR Codes — sem instalar nada</p>
-        <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador — nenhum dado é enviado para servidores</p>
+        <p className="text-gray-600">Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada</p>
+        <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador. Nenhum dado é enviado para servidores</p>
+        <LastUpdated date={LAST_UPDATED} />
       </div>
 
       <BarcodeReader />

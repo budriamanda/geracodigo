@@ -1,23 +1,30 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import SkuGeneratorClient from './SkuGeneratorClient'
+import dynamic from 'next/dynamic'
 import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
+import LastUpdated from '@/components/LastUpdated'
+import GeneratorSkeleton from '@/components/GeneratorSkeleton'
+import { LAST_UPDATED } from '@/lib/constants'
+
+const SkuGeneratorClient = dynamic(() => import('./SkuGeneratorClient'), {
+  loading: () => <GeneratorSkeleton />,
+})
 
 const schemas = [
   {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': ['WebApplication', 'SoftwareApplication'],
     name: 'Gerador de SKU',
     description: 'Gere códigos SKU padronizados para seus produtos. Defina prefixo, categoria, atributos e sequencial. Geração em lote com exportação CSV.',
     url: 'https://www.geracodigo.com.br/gerador-de-sku',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@type': 'Organization', name: 'GeraCode', url: 'https://www.geracodigo.com.br' },
+    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
     inLanguage: 'pt-BR',
     isAccessibleForFree: true,
     featureList: [
@@ -34,12 +41,23 @@ const schemas = [
     description: 'Passo a passo para gerar SKUs padronizados para controle de estoque.',
     totalTime: 'PT3M',
     inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode — Gerador de SKU' },
+    tool: { '@type': 'HowToTool', name: 'GeraCode: Gerador de SKU' },
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Defina o padrão', text: 'Escolha um prefixo para sua marca, uma abreviação para a categoria e atributos como cor e tamanho.' },
       { '@type': 'HowToStep', position: 2, name: 'Configure a quantidade', text: 'Defina o número sequencial inicial e quantos SKUs deseja gerar de uma vez.' },
       { '@type': 'HowToStep', position: 3, name: 'Gere e exporte', text: 'Clique em Gerar, copie os SKUs ou exporte em CSV para importar no seu sistema.' },
     ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Gerador de SKU Grátis Online',
+    description: 'Gere códigos SKU padronizados para seus produtos. Defina prefixo, categoria, atributos e sequencial. Geração em lote com exportação CSV.',
+    url: 'https://www.geracodigo.com.br/gerador-de-sku',
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
+    about: { '@type': 'Thing', name: 'SKU (Stock Keeping Unit)' },
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
@@ -52,19 +70,19 @@ const schemas = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Gerador de SKU Grátis — Crie Códigos SKU para Produtos',
+  title: 'Gerador de SKU Grátis | Crie Códigos SKU para Produtos',
   description: 'Gerador de SKU grátis para controle de estoque. Defina prefixo, categoria, cor, tamanho e gere até 500 SKUs de uma vez. Exportação CSV. Sem cadastro.',
   alternates: {
     canonical: 'https://www.geracodigo.com.br/gerador-de-sku',
   },
   openGraph: {
-    title: 'Gerador de SKU Grátis — Códigos para Controle de Estoque | GeraCode',
+    title: 'Gerador de SKU Grátis | Códigos para Controle de Estoque | GeraCode',
     description: 'Gere SKUs padronizados para seus produtos. Lote, CSV, sem cadastro.',
     url: 'https://www.geracodigo.com.br/gerador-de-sku',
     type: 'website',
     locale: 'pt_BR',
     siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-sku/opengraph-image', width: 1200, height: 630, alt: 'Gerador de SKU Grátis — GeraCode' }],
+    images: [{ url: '/gerador-de-sku/opengraph-image', width: 1200, height: 630, alt: 'Gerador de SKU Grátis | GeraCode' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -86,7 +104,8 @@ export default function SkuPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de SKU Grátis Online</h1>
         <p className="text-gray-600">Crie códigos SKU padronizados para organizar seu estoque. Geração em lote com exportação CSV.</p>
-        <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador — nenhum dado sai do seu dispositivo</p>
+        <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador. Nenhum dado sai do seu dispositivo</p>
+        <LastUpdated date={LAST_UPDATED} />
       </div>
 
       <SkuGeneratorClient />
@@ -169,7 +188,7 @@ export default function SkuPage() {
 
       <FAQSection items={[
         { question: 'O que é SKU e para que serve?', answer: 'SKU (Stock Keeping Unit) é um código interno de identificação de produtos criado pela própria empresa. Serve para organizar o estoque, facilitar a localização de produtos e controlar variações (cor, tamanho, modelo).' },
-        { question: 'SKU é o mesmo que código de barras?', answer: 'Não. SKU é um código interno definido pelo lojista. Código de barras (EAN) é um padrão universal registrado na GS1. Um produto pode ter ambos — o SKU para gestão interna e o EAN para identificação no mercado.' },
+        { question: 'SKU é o mesmo que código de barras?', answer: 'Não. SKU é um código interno definido pelo lojista. Código de barras (EAN) é um padrão universal registrado na GS1. Um produto pode ter ambos: o SKU para gestão interna e o EAN para identificação no mercado.' },
         { question: 'Quantos SKUs posso gerar de uma vez?', answer: 'Você pode gerar até 500 SKUs de uma vez no GeraCode. Todos são exibidos na tela e podem ser copiados ou exportados em CSV.' },
         { question: 'Posso exportar os SKUs para Excel?', answer: 'Sim. Use o botão CSV para baixar os SKUs em formato CSV, que pode ser aberto diretamente no Excel, Google Sheets ou importado em sistemas ERP e plataformas de e-commerce.' },
         { question: 'Como devo abreviar categorias e atributos?', answer: 'Use 2 a 4 letras maiúsculas que sejam intuitivas: CAM para camiseta, CAL para calça, AZL para azul, VRM para vermelho, P/M/G para tamanhos. O importante é manter a consistência.' },

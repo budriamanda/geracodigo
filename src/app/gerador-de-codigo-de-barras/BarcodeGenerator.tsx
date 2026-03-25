@@ -1,16 +1,22 @@
 'use client'
 
 import { useState, useRef, useCallback, useEffect } from 'react'
-import JsBarcode from 'jsbarcode'
-import { downloadSvgFromElement, downloadPngFromElement } from '@/lib/download'
+import { downloadSvgFromElement, downloadPngFromElement, downloadBlob } from '@/lib/download'
 import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-check-digit'
 import { addToHistory, getHistory, removeFromHistory, clearHistory, type BarcodeHistoryItem } from '@/lib/barcode-history'
 import { trackGenerate, trackBatchGenerate, trackDownload, trackPrint } from '@/lib/analytics'
+import ConfirmDialog from '@/components/ConfirmDialog'
+
+type JsBarcodeFn = (
+  element: SVGSVGElement | string | null,
+  data: string,
+  options?: Record<string, unknown>,
+) => void
 
 const FORMATS = [
   { value: 'EAN13', label: 'EAN-13', placeholder: '7891234567890', hint: '13 dígitos' },
   { value: 'EAN8', label: 'EAN-8', placeholder: '12345670', hint: '8 dígitos' },
-  { value: 'CODE128', label: 'Code 128', placeholder: 'GeraCode2025', hint: 'Texto alfanumérico' },
+  { value: 'CODE128', label: 'Code 128', placeholder: 'GeraCode2026', hint: 'Texto alfanumérico' },
   { value: 'CODE39', label: 'Code 39', placeholder: 'GERACODE', hint: 'Letras maiúsculas e números' },
   { value: 'CODE93', label: 'Code 93', placeholder: 'GERACODE93', hint: 'Alfanumérico compacto' },
   { value: 'UPC', label: 'UPC-A', placeholder: '012345678905', hint: '12 dígitos' },
@@ -47,9 +53,19 @@ export default function BarcodeGenerator() {
 
   const [history, setHistoryState] = useState<BarcodeHistoryItem[]>([])
   const [isExporting, setIsExporting] = useState(false)
+  const [barcodeReady, setBarcodeReady] = useState(false)
+  const [showClearConfirm, setShowClearConfirm] = useState(false)
 
   const svgRef = useRef<SVGSVGElement>(null)
   const batchContainerRef = useRef<HTMLDivElement>(null)
+  const jsBarcodeRef = useRef<JsBarcodeFn | null>(null)
+
+  useEffect(() => {
+    import('jsbarcode').then(mod => {
+      jsBarcodeRef.current = mod.default as JsBarcodeFn
+      setBarcodeReady(true)
+    })
+  }, [])
 
   useEffect(() => {
     if (tab === 'history') setHistoryState(getHistory())
@@ -96,10 +112,11 @@ export default function BarcodeGenerator() {
   }, [format])
 
   const generate = useCallback(() => {
+    if (!jsBarcodeRef.current || !svgRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     const val = resolveInput(input)
     if (!val) { setError('Digite um valor para o código de barras.'); return }
     try {
-      JsBarcode(svgRef.current, val, getBarcodeOptions())
+      jsBarcodeRef.current(svgRef.current, val, getBarcodeOptions())
       setGenerated(true)
       setError('')
       addToHistory(val, format)
@@ -113,17 +130,19 @@ export default function BarcodeGenerator() {
   const MAX_BATCH = 200
 
   const generateBatch = useCallback(() => {
+    if (!jsBarcodeRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     const lines = batchInput.split('\n').map(l => l.trim()).filter(Boolean)
     if (lines.length === 0) { setError('Insira pelo menos um código.'); return }
     if (lines.length > MAX_BATCH) { setError(`Máximo de ${MAX_BATCH} códigos por vez. Você inseriu ${lines.length}.`); return }
     setError('')
 
+    const renderBarcode = jsBarcodeRef.current
     const results = lines.map((line, i) => {
       const val = resolveInput(line)
       const id = `${Date.now()}-${i}`
-      const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as unknown as SVGSVGElement
+      const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGSVGElement
       try {
-        JsBarcode(tempSvg, val, getBarcodeOptions())
+        renderBarcode(tempSvg, val, getBarcodeOptions())
         return { id, value: val }
       } catch {
         return { id, value: val, error: `Valor inválido: ${val}` }
@@ -139,12 +158,13 @@ export default function BarcodeGenerator() {
   }, [batchInput, format, getBarcodeOptions, resolveInput])
 
   useEffect(() => {
-    if (batchResults.length === 0 || !batchContainerRef.current) return
+    if (batchResults.length === 0 || !batchContainerRef.current || !jsBarcodeRef.current) return
+    const renderBarcode = jsBarcodeRef.current
     const svgs = batchContainerRef.current.querySelectorAll<SVGSVGElement>('[data-batch-value]')
     svgs.forEach(el => {
       const val = el.getAttribute('data-batch-value')
       if (val) {
-        try { JsBarcode(el, val, getBarcodeOptions()) } catch { /* skip */ }
+        try { renderBarcode(el, val, getBarcodeOptions()) } catch { /* skip */ }
       }
     })
   }, [batchResults, getBarcodeOptions])
@@ -163,15 +183,7 @@ export default function BarcodeGenerator() {
         zip.file(`${val}.svg`, svgStr)
       }
       const blob = await zip.generateAsync({ type: 'blob' })
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = 'codigos-de-barras.zip'
-      a.style.display = 'none'
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      URL.revokeObjectURL(url)
+      downloadBlob(blob, 'codigos-de-barras.zip')
       trackDownload('barcode_generator', format, 'zip')
     } catch {
       setError('Erro ao gerar ZIP. Tente novamente.')
@@ -206,7 +218,7 @@ export default function BarcodeGenerator() {
         const ctx = canvas.getContext('2d')
         if (!ctx) continue
 
-        await new Promise<void>((resolve) => {
+        const loaded = await new Promise<boolean>((resolve) => {
           const img = new Image()
           const blob = new Blob([svgStr], { type: 'image/svg+xml' })
           const url = URL.createObjectURL(blob)
@@ -215,11 +227,13 @@ export default function BarcodeGenerator() {
             ctx.fillRect(0, 0, 800, 300)
             ctx.drawImage(img, 0, 0, 800, 300)
             URL.revokeObjectURL(url)
-            resolve()
+            resolve(true)
           }
-          img.onerror = () => { URL.revokeObjectURL(url); resolve() }
+          img.onerror = () => { URL.revokeObjectURL(url); resolve(false) }
           img.src = url
         })
+
+        if (!loaded) continue
 
         const imgData = canvas.toDataURL('image/png')
         const x = (pageW - barcodeW) / 2
@@ -242,7 +256,10 @@ export default function BarcodeGenerator() {
       : svgRef.current ? [svgRef.current] : []
 
     const printWindow = window.open('', '_blank')
-    if (!printWindow) return
+    if (!printWindow) {
+      setError('O navegador bloqueou a janela de impressão. Permita pop-ups para este site e tente novamente.')
+      return
+    }
 
     const svgHtmls = Array.from(svgs).map(svg =>
       new XMLSerializer().serializeToString(svg)
@@ -303,9 +320,14 @@ ${pages.join('\n')}
   }
 
   const handleClearHistory = () => {
+    setShowClearConfirm(true)
+  }
+
+  const confirmClearHistory = useCallback(() => {
     clearHistory()
     setHistoryState([])
-  }
+    setShowClearConfirm(false)
+  }, [])
 
   return (
     <div className="space-y-6">
@@ -435,9 +457,10 @@ ${pages.join('\n')}
 
           <button
             onClick={generate}
-            className="w-full bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-700 active:bg-indigo-800 transition-colors"
+            disabled={!barcodeReady}
+            className="w-full bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-700 active:bg-indigo-800 transition-colors disabled:opacity-50"
           >
-            Gerar Código de Barras
+            {barcodeReady ? 'Gerar Código de Barras' : 'Carregando gerador…'}
           </button>
 
           <div className="border border-gray-100 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-4 min-h-[160px] justify-center">
@@ -511,9 +534,10 @@ ${pages.join('\n')}
 
           <button
             onClick={generateBatch}
-            className="w-full bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+            disabled={!barcodeReady}
+            className="w-full bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50"
           >
-            Gerar Todos
+            {barcodeReady ? 'Gerar Todos' : 'Carregando gerador…'}
           </button>
 
           {batchResults.length > 0 && (
@@ -590,6 +614,16 @@ ${pages.join('\n')}
           )}
         </div>
       )}
+
+      <ConfirmDialog
+        open={showClearConfirm}
+        title="Limpar histórico"
+        message="Tem certeza que deseja limpar todo o histórico? Esta ação não pode ser desfeita."
+        confirmLabel="Limpar tudo"
+        cancelLabel="Cancelar"
+        onConfirm={confirmClearHistory}
+        onCancel={() => setShowClearConfirm(false)}
+      />
     </div>
   )
 }

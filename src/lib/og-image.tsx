@@ -43,7 +43,7 @@ export function makeOGImage(title: string, description: string, accent = '#4f46e
           {/* Badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ fontSize: 18, color: '#10b981', fontWeight: 600 }}>
-              Gerado direto no navegador — seus dados nunca saem do seu computador
+              Gerado direto no navegador. Seus dados nunca saem do seu computador
             </div>
           </div>
         </div>

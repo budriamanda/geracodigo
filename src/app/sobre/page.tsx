@@ -10,14 +10,10 @@ const schemas = [
     name: 'Sobre o GeraCode',
     description: 'Conheça o GeraCode, plataforma gratuita de geração de código de barras e QR Code Pix para lojistas brasileiros.',
     url: 'https://www.geracodigo.com.br/sobre',
-    mainEntity: {
-      '@type': 'Organization',
-      name: 'GeraCode',
-      url: 'https://www.geracodigo.com.br',
-      logo: 'https://www.geracodigo.com.br/logo.svg',
-      description: 'Ferramentas gratuitas de geração de código de barras e QR Code Pix para lojistas brasileiros',
-      foundingDate: '2025',
-    },
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
+    mainEntity: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
@@ -30,13 +26,13 @@ const schemas = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Sobre o GeraCode — Ferramentas Gratuitas para Lojistas Brasileiros',
+  title: 'Sobre o GeraCode | Ferramentas Gratuitas para Lojistas Brasileiros',
   description: 'Conheça o GeraCode: plataforma gratuita e 100% privada de geração de código de barras e QR Code Pix para lojistas e empreendedores brasileiros.',
   alternates: {
     canonical: 'https://www.geracodigo.com.br/sobre',
   },
   openGraph: {
-    title: 'Sobre o GeraCode — Ferramentas Gratuitas para Lojistas Brasileiros',
+    title: 'Sobre o GeraCode | Ferramentas Gratuitas para Lojistas Brasileiros',
     description: 'Conheça o GeraCode: plataforma gratuita e 100% privada de geração de código de barras e QR Code Pix.',
     url: 'https://www.geracodigo.com.br/sobre',
     type: 'website',
@@ -70,7 +66,7 @@ export default function SobrePage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Como Funciona</h2>
           <p>
             Todas as ferramentas do GeraCode utilizam processamento <strong>client-side</strong> (no lado do cliente). Isso significa que nenhum dado
-            que você insere — chave Pix, nome, valor, código de barras — é enviado para servidores externos. O processamento acontece inteiramente
+            que você insere (chave Pix, nome, valor, código de barras) é enviado para servidores externos. O processamento acontece inteiramente
             no seu dispositivo, seja computador, tablet ou smartphone.
           </p>
           <p>
@@ -85,27 +81,27 @@ export default function SobrePage() {
           <ul className="list-disc pl-5 space-y-2">
             <li>
               <Link href="/gerador-de-qr-code-pix" className="text-indigo-600 hover:underline font-medium">Gerador de QR Code Pix</Link>
-              {' '} — Crie QR Codes para pagamento via Pix com payload BR Code EMV válido. Suporta chaves CPF, CNPJ, e-mail, telefone e aleatória.
+              : Crie QR Codes para pagamento via Pix com payload BR Code EMV válido. Suporta chaves CPF, CNPJ, e-mail, telefone e aleatória.
             </li>
             <li>
               <Link href="/gerador-de-codigo-de-barras" className="text-indigo-600 hover:underline font-medium">Gerador de Código de Barras</Link>
-              {' '} — 12 formatos incluindo EAN-13, Code 128, Code 93, UPC-A, ITF-14 e Codabar. Geração em lote, PDF, etiquetas e histórico.
+              : 12 formatos incluindo EAN-13, Code 128, Code 93, UPC-A, ITF-14 e Codabar. Geração em lote, PDF, etiquetas e histórico.
             </li>
             <li>
               <Link href="/gerador-de-ean" className="text-indigo-600 hover:underline font-medium">Gerador de EAN-13 e EAN-8</Link>
-              {' '} — Gerador dedicado com cálculo automático do dígito verificador. Download em PNG, SVG e PDF.
+              : Gerador dedicado com cálculo automático do dígito verificador. Download em PNG, SVG e PDF.
             </li>
             <li>
               <Link href="/gerador-de-qr-code" className="text-indigo-600 hover:underline font-medium">Gerador de QR Code</Link>
-              {' '} — Gere QR Code para links, textos, WhatsApp, Wi-Fi e qualquer conteúdo. Color picker e seletor de tamanho inclusos.
+              : Gere QR Code para links, textos, WhatsApp, Wi-Fi e qualquer conteúdo. Color picker e seletor de tamanho inclusos.
             </li>
             <li>
               <Link href="/leitor-de-codigo-de-barras" className="text-indigo-600 hover:underline font-medium">Leitor de Código de Barras</Link>
-              {' '} — Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar aplicativo.
+              : Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar aplicativo.
             </li>
             <li>
               <Link href="/gerador-de-sku" className="text-indigo-600 hover:underline font-medium">Gerador de SKU</Link>
-              {' '} — Crie códigos SKU padronizados para organizar seu estoque. Geração em lote e exportação CSV.
+              : Crie códigos SKU padronizados para organizar seu estoque. Geração em lote e exportação CSV.
             </li>
           </ul>
         </section>

@@ -1,22 +1,30 @@
 import type { Metadata } from 'next'
-import BarcodeGenerator from './BarcodeGenerator'
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import AdSlot from '@/components/AdSlot'
 import FAQSection from '@/components/FAQSection'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
+import LastUpdated from '@/components/LastUpdated'
+import GeneratorSkeleton from '@/components/GeneratorSkeleton'
+import { LAST_UPDATED } from '@/lib/constants'
+
+const BarcodeGenerator = dynamic(() => import('./BarcodeGenerator'), {
+  loading: () => <GeneratorSkeleton />,
+})
 
 const schemas = [
   {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': ['WebApplication', 'SoftwareApplication'],
     name: 'Gerador de Código de Barras',
     description: 'Gere códigos EAN-13, EAN-8, Code 128, Code 39, Code 93, UPC-A, ITF-14, Codabar, MSI, Pharmacode e ISBN direto no navegador. Geração em lote, download PNG, SVG e PDF. Sem cadastro.',
     url: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web Browser',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@type': 'Organization', name: 'GeraCode', url: 'https://www.geracodigo.com.br' },
+    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
     inLanguage: 'pt-BR',
     isAccessibleForFree: true,
     featureList: [
@@ -34,12 +42,23 @@ const schemas = [
     description: 'Passo a passo para criar código de barras EAN-13, Code 128 e outros formatos com personalização e download em múltiplos formatos.',
     totalTime: 'PT2M',
     inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode — Gerador de Código de Barras' },
+    tool: { '@type': 'HowToTool', name: 'GeraCode: Gerador de Código de Barras' },
     step: [
       { '@type': 'HowToStep', position: 1, name: 'Escolha o formato', text: 'Selecione entre 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Personalize altura, largura e cores.' },
       { '@type': 'HowToStep', position: 2, name: 'Digite o valor', text: 'Insira o número ou texto. Para EAN-13, digite 12 dígitos e o verificador será calculado automaticamente.' },
       { '@type': 'HowToStep', position: 3, name: 'Baixe ou imprima', text: 'Download em PNG, SVG ou PDF. Use o modo lote para gerar múltiplos códigos e baixe tudo em ZIP.' },
     ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Gerador de Código de Barras Grátis Online',
+    description: 'Gere códigos de barras em 12 formatos: Code 128, Code 39, UPC-A, ITF-14, Codabar e mais. Download PNG, SVG e PDF. Sem cadastro.',
+    url: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
+    inLanguage: 'pt-BR',
+    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
+    about: { '@type': 'Thing', name: 'Código de barras' },
+    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
   {
     '@context': 'https://schema.org',
@@ -52,19 +71,19 @@ const schemas = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Gerador de Código de Barras Grátis — EAN-13, Code 128, UPC-A, ITF-14 e 12+ Formatos',
+  title: 'Gerador de Código de Barras Grátis | EAN-13, Code 128, UPC-A, ITF-14 e 12+ Formatos',
   description: 'Gerador grátis de código de barras com 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar, MSI e mais. Geração em lote, download PNG, SVG e PDF, impressão de etiquetas. Sem cadastro, 100% privado.',
   alternates: {
     canonical: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
   },
   openGraph: {
-    title: 'Gerador de Código de Barras Grátis — 12+ Formatos | GeraCode',
+    title: 'Gerador de Código de Barras Grátis | 12+ Formatos | GeraCode',
     description: 'Gerador grátis com EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Lote, PDF, etiquetas. Sem cadastro.',
     url: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
     type: 'website',
     locale: 'pt_BR',
     siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Gerador de Código de Barras Grátis — GeraCode' }],
+    images: [{ url: '/gerador-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Gerador de Código de Barras Grátis | GeraCode' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -85,8 +104,9 @@ export default function BarcodePage() {
       <Breadcrumb current="Gerador de Código de Barras" />
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de Código de Barras Grátis Online</h1>
-        <p className="text-gray-600">12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais — com geração em lote, PDF e impressão de etiquetas</p>
-        <p className="text-sm text-indigo-600 mt-1">Gerado direto no seu navegador — seus dados nunca saem do seu computador</p>
+        <p className="text-gray-600">12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Geração em lote, PDF e impressão de etiquetas</p>
+        <p className="text-sm text-indigo-600 mt-1">Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
+        <LastUpdated date={LAST_UPDATED} />
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
@@ -145,8 +165,6 @@ export default function BarcodePage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">12 formatos de código de barras suportados</h2>
         <dl className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-600">
           {[
-            { name: 'EAN-13', desc: 'Padrão internacional para produtos de consumo. Usado em supermercados, farmácias e varejo. 13 dígitos.' },
-            { name: 'EAN-8', desc: 'Versão compacta do EAN-13 para embalagens pequenas. 8 dígitos. Comum em cosméticos e alimentos.' },
             { name: 'Code 128', desc: 'Alta densidade, suporta letras, números e caracteres especiais. Usado em logística, etiquetas de envio e controle de estoque.' },
             { name: 'Code 39', desc: 'Formato amplamente suportado. Usado em identificação de ativos, crachás e ambientes industriais.' },
             { name: 'Code 93', desc: 'Evolução do Code 39 com maior densidade de dados. Usado em logística e Canada Post.' },
@@ -164,6 +182,13 @@ export default function BarcodePage() {
             </div>
           ))}
         </dl>
+        <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+          <p className="text-sm text-gray-700">
+            <strong>EAN-13 e EAN-8</strong>: padrões internacionais para produtos de consumo (GTIN), administrados pela GS1.
+            Para detalhes sobre estrutura, dígito verificador, prefixos brasileiros e registro, consulte nosso{' '}
+            <Link href="/gerador-de-ean" className="text-indigo-600 underline hover:text-indigo-800 font-medium">Gerador de EAN-13 e EAN-8</Link>.
+          </p>
+        </div>
       </section>
 
       {/* GS1 e registro */}
@@ -171,7 +196,8 @@ export default function BarcodePage() {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Código de Barras e GS1 Brasil</h2>
         <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
           <p>
-            Para comercializar produtos em <strong>grandes redes varejistas</strong> (supermercados, farmácias, magazines), os códigos EAN devem ser registrados na <strong>GS1 Brasil</strong>,
+            Para comercializar produtos em <strong>grandes redes varejistas</strong> (supermercados, farmácias, magazines), os códigos EAN devem ser registrados na{' '}
+            <a href="https://www.gs1br.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800"><strong>GS1 Brasil</strong></a>,
             a entidade oficial responsável pela atribuição de prefixos de fabricante.
           </p>
           <p>Para diversas situações o GeraCode é a ferramenta ideal, dispensando registro na GS1:</p>

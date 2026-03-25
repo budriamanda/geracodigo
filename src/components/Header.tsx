@@ -15,26 +15,25 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname()
-  const [menuState, setMenuState] = useState({ open: false, path: pathname })
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [trackedPath, setTrackedPath] = useState(pathname)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  if (menuState.path !== pathname) {
-    setMenuState({ open: false, path: pathname })
+  if (trackedPath !== pathname) {
+    setTrackedPath(pathname)
+    setMenuOpen(false)
   }
-
-  const menuOpen = menuState.open
-  const setMenuOpen = (open: boolean) => setMenuState({ open, path: pathname })
 
   useEffect(() => {
     if (!menuOpen) return
     function handleClickOutside(e: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuState(prev => ({ ...prev, open: false }))
+        setMenuOpen(false)
       }
     }
     function handleEscape(e: KeyboardEvent) {
       if (e.key === 'Escape') {
-        setMenuState(prev => ({ ...prev, open: false }))
+        setMenuOpen(false)
       }
     }
     function handleFocusTrap(e: KeyboardEvent) {

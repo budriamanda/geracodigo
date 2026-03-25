@@ -3,7 +3,7 @@ import { makeOGImage, ogSize, ogContentType } from '@/lib/og-image'
 export const size = ogSize
 export const contentType = ogContentType
 export const runtime = 'edge'
-export const alt = 'Gerador de SKU Grátis — GeraCode'
+export const alt = 'Gerador de SKU Grátis | GeraCode'
 
 export default function OGImage() {
   return makeOGImage(

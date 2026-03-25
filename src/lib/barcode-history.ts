@@ -8,12 +8,25 @@ export interface BarcodeHistoryItem {
   createdAt: number
 }
 
+function isValidItem(item: unknown): item is BarcodeHistoryItem {
+  return (
+    typeof item === 'object' &&
+    item !== null &&
+    typeof (item as BarcodeHistoryItem).id === 'string' &&
+    typeof (item as BarcodeHistoryItem).value === 'string' &&
+    typeof (item as BarcodeHistoryItem).format === 'string' &&
+    typeof (item as BarcodeHistoryItem).createdAt === 'number'
+  )
+}
+
 export function getHistory(): BarcodeHistoryItem[] {
   if (typeof window === 'undefined') return []
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return []
-    return JSON.parse(raw) as BarcodeHistoryItem[]
+    const parsed: unknown = JSON.parse(raw)
+    if (!Array.isArray(parsed)) return []
+    return parsed.filter(isValidItem)
   } catch {
     return []
   }
