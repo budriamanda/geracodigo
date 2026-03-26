@@ -61,7 +61,20 @@ export default function PrivacidadePage() {
 
       <div className="bg-white rounded-xl border border-gray-200 p-8">
 
-        <h2 className={sectionTitle}>1. Dados que Coletamos</h2>
+        <h2 className={sectionTitle}>1. Controlador de Dados</h2>
+        <p className={paragraph}>
+          O GeraCode (<a href="https://www.geracodigo.com.br" className="text-indigo-600 hover:underline">www.geracodigo.com.br</a>)
+          é mantido como projeto independente. Para fins da Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD),
+          o controlador dos dados é o responsável pelo GeraCode, que pode ser contactado pelo e-mail:
+        </p>
+        <p className={paragraph}>
+          <strong>E-mail para exercício de direitos:</strong>{' '}
+          <a href="mailto:privacidade@geracodigo.com.br" className="text-indigo-600 hover:underline">
+            privacidade@geracodigo.com.br
+          </a>
+        </p>
+
+        <h2 className={sectionTitle}>2. Dados que Coletamos</h2>
         <p className={paragraph}>
           O GeraCode foi projetado com privacidade como prioridade. Todas as ferramentas processam
           dados exclusivamente no navegador do usuário. <strong>Não coletamos, armazenamos ou
@@ -75,17 +88,50 @@ export default function PrivacidadePage() {
           <li>Dados pessoais como nome, e-mail ou telefone</li>
         </ul>
 
-        <h2 className={sectionTitle}>2. Armazenamento Local</h2>
+        <h2 className={sectionTitle}>3. Base Legal para o Tratamento (Art. 7º da LGPD)</h2>
+        <p className={paragraph}>
+          O tratamento de dados pelo GeraCode ocorre com base nas seguintes hipóteses legais:
+        </p>
+        <ul className={list}>
+          <li>
+            <strong>Consentimento (Art. 7º, I):</strong> Cookies de análise (Google Analytics) e de publicidade
+            (Google AdSense) são ativados <strong>somente após o seu consentimento explícito</strong>, concedido
+            através do banner de cookies exibido no primeiro acesso ao site.
+          </li>
+          <li>
+            <strong>Legítimo interesse (Art. 7º, IX):</strong> Armazenamento local (localStorage) do histórico
+            de códigos gerados, estritamente para melhorar a experiência do usuário. Esses dados não saem
+            do seu dispositivo.
+          </li>
+          <li>
+            <strong>Cookies essenciais:</strong> O Service Worker (cache de arquivos estáticos para funcionamento
+            offline) é estritamente necessário para o funcionamento do site e não requer consentimento.
+          </li>
+        </ul>
+
+        <h2 className={sectionTitle}>4. Armazenamento Local</h2>
         <p className={paragraph}>
           O GeraCode utiliza o <strong>localStorage</strong> do navegador para salvar o histórico de
-          códigos gerados. Esses dados permanecem exclusivamente no dispositivo do usuário e podem
+          códigos gerados (máximo de 30 itens). Esses dados permanecem exclusivamente no dispositivo do usuário e podem
           ser apagados a qualquer momento através da função &quot;Limpar tudo&quot; disponível no histórico
           ou limpando os dados do site nas configurações do navegador.
         </p>
 
-        <h2 className={sectionTitle}>3. Cookies e Tecnologias de Rastreamento</h2>
+        <h2 className={sectionTitle}>5. Cookies e Tecnologias de Rastreamento</h2>
+        <p className={paragraph}>
+          O GeraCode utiliza o <strong>Google Consent Mode v2</strong> para garantir que nenhum cookie
+          não essencial seja ativado sem o seu consentimento prévio. Ao acessar o site pela primeira vez,
+          você verá um banner de cookies onde pode escolher quais categorias permitir.
+        </p>
 
-        <h3 className={subsectionTitle}>3.1. Google Analytics (GA4)</h3>
+        <h3 className={subsectionTitle}>5.1. Cookies Essenciais (sempre ativos)</h3>
+        <p className={paragraph}>
+          Necessários para o funcionamento básico do site. Incluem o Service Worker para cache
+          de arquivos estáticos e o registro das suas preferências de consentimento. Não coletam
+          dados pessoais.
+        </p>
+
+        <h3 className={subsectionTitle}>5.2. Google Analytics (GA4) — requer consentimento</h3>
         <p className={paragraph}>
           Utilizamos o Google Analytics 4 para compreender como os usuários interagem com o site.
           O GA4 coleta dados anonimizados como:
@@ -105,7 +151,7 @@ export default function PrivacidadePage() {
           Não combinamos dados do Analytics com informações pessoais identificáveis.
         </p>
 
-        <h3 className={subsectionTitle}>3.2. Google AdSense</h3>
+        <h3 className={subsectionTitle}>5.3. Google AdSense — requer consentimento</h3>
         <p className={paragraph}>
           O GeraCode pode exibir anúncios fornecidos pelo Google AdSense para manter o serviço
           gratuito. O Google AdSense pode utilizar cookies e tecnologias semelhantes para exibir
@@ -118,55 +164,149 @@ export default function PrivacidadePage() {
           </a>.
         </p>
 
-        <h3 className={subsectionTitle}>3.3. Service Worker (PWA)</h3>
+        <h3 className={subsectionTitle}>5.4. Service Worker (PWA)</h3>
         <p className={paragraph}>
           Utilizamos um Service Worker para permitir o funcionamento offline das ferramentas.
           O Service Worker armazena em cache os arquivos estáticos do site no seu dispositivo.
           Nenhum dado pessoal é armazenado pelo Service Worker.
         </p>
 
-        <h2 className={sectionTitle}>4. Seus Direitos (LGPD)</h2>
-        <p className={paragraph}>De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem direito a:</p>
+        <h2 className={sectionTitle}>6. Transferência Internacional de Dados</h2>
+        <p className={paragraph}>
+          Quando você concede consentimento para cookies de análise e/ou publicidade, os dados
+          coletados pelo Google Analytics e Google AdSense podem ser transferidos e processados
+          pelo Google LLC em servidores localizados nos <strong>Estados Unidos</strong> e em outros
+          países. O Google adota cláusulas contratuais padrão e medidas de segurança conforme
+          descrito na{' '}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
+            Política de Privacidade do Google
+          </a>{' '}
+          e no{' '}
+          <a href="https://privacy.google.com/businesses/processorterms/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
+            Adendo de Tratamento de Dados do Google
+          </a>.
+        </p>
+        <p className={paragraph}>
+          Essa transferência está amparada pelo Art. 33, II da LGPD, que permite transferências
+          quando o controlador oferece garantias adequadas de proteção.
+        </p>
+
+        <h2 className={sectionTitle}>7. Retenção de Dados</h2>
         <ul className={list}>
-          <li><strong>Limpar dados locais:</strong> Apague o histórico de códigos a qualquer momento pela interface ou limpando os dados do site no navegador</li>
-          <li><strong>Desativar cookies:</strong> Configure seu navegador para bloquear cookies de terceiros (Google Analytics e AdSense)</li>
-          <li><strong>Opt-out do Analytics:</strong> Instale o{' '}
+          <li>
+            <strong>localStorage (histórico de códigos):</strong> Permanece no dispositivo até ser
+            excluído manualmente pelo usuário ou pela limpeza dos dados do navegador. Máximo de 30 itens.
+          </li>
+          <li>
+            <strong>Google Analytics:</strong> Os dados são retidos pelo Google por 14 meses (configuração
+            padrão do GA4), após os quais são automaticamente excluídos.
+          </li>
+          <li>
+            <strong>Google AdSense:</strong> Os cookies de publicidade são gerenciados pelo Google conforme
+            sua política de retenção. Você pode excluí-los a qualquer momento pelas configurações do navegador.
+          </li>
+          <li>
+            <strong>Preferências de consentimento:</strong> Armazenadas no localStorage do navegador
+            sem prazo de expiração. Podem ser revogadas a qualquer momento pelo banner de cookies.
+          </li>
+        </ul>
+
+        <h2 className={sectionTitle}>8. Seus Direitos (Art. 18 da LGPD)</h2>
+        <p className={paragraph}>
+          De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem os seguintes direitos:
+        </p>
+        <ul className={list}>
+          <li>
+            <strong>Confirmação e acesso (Art. 18, I e II):</strong> Confirmar a existência de tratamento
+            e acessar seus dados. O GeraCode não armazena dados pessoais em servidores — o histórico
+            é local e pode ser visualizado no próprio navegador.
+          </li>
+          <li>
+            <strong>Correção (Art. 18, III):</strong> Solicitar a correção de dados incompletos ou
+            desatualizados. Dados locais podem ser editados diretamente no navegador.
+          </li>
+          <li>
+            <strong>Anonimização, bloqueio ou eliminação (Art. 18, IV):</strong> Apague o histórico
+            de códigos a qualquer momento pela interface (&quot;Limpar tudo&quot;) ou limpando os dados do site
+            nas configurações do navegador.
+          </li>
+          <li>
+            <strong>Portabilidade (Art. 18, V):</strong> Os dados armazenados localmente podem ser
+            exportados pelo próprio navegador. Dados do Google Analytics são anonimizados e não
+            permitem identificação individual.
+          </li>
+          <li>
+            <strong>Eliminação com consentimento (Art. 18, VI):</strong> Dados tratados com base no
+            consentimento podem ser eliminados revogando-o pelo banner de cookies.
+          </li>
+          <li>
+            <strong>Informação sobre compartilhamento (Art. 18, VII):</strong> Os dados de análise
+            e publicidade são compartilhados exclusivamente com o Google LLC, conforme descrito nas
+            seções 5 e 6 desta política.
+          </li>
+          <li>
+            <strong>Revogação do consentimento (Art. 18, IX):</strong> Você pode revogar seu consentimento
+            a qualquer momento clicando no link &quot;Preferências de Cookies&quot; no rodapé do site.
+            A revogação não afeta o tratamento realizado anteriormente.
+          </li>
+          <li>
+            <strong>Opt-out do Analytics:</strong> Instale o{' '}
             <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
               complemento de desativação do Google Analytics
             </a>
           </li>
-          <li><strong>Anúncios personalizados:</strong> Gerencie preferências nas{' '}
-            <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
-              Configurações de Anúncios do Google
-            </a>
+          <li>
+            <strong>Petição à ANPD (Art. 18, §1º):</strong> Você tem o direito de peticionar à
+            Autoridade Nacional de Proteção de Dados (ANPD) em relação aos seus dados pessoais.
+            Acesse{' '}
+            <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline">
+              www.gov.br/anpd
+            </a>.
           </li>
         </ul>
 
-        <h2 className={sectionTitle}>5. Segurança</h2>
+        <h2 className={sectionTitle}>9. Segurança</h2>
         <p className={paragraph}>
           O GeraCode implementa as seguintes medidas de segurança:
         </p>
         <ul className={list}>
           <li><strong>HTTPS:</strong> Toda a comunicação é criptografada via TLS/SSL</li>
           <li><strong>Content Security Policy (CSP):</strong> Restringe a execução de scripts a domínios autorizados</li>
+          <li><strong>Google Consent Mode v2:</strong> Cookies não essenciais bloqueados por padrão até consentimento explícito</li>
           <li><strong>Processamento local:</strong> Dados sensíveis (chaves Pix, códigos) nunca trafegam pela rede</li>
           <li><strong>Sem cadastro:</strong> Nenhuma conta de usuário é criada ou armazenada</li>
         </ul>
 
-        <h2 className={sectionTitle}>6. Alterações nesta Política</h2>
+        <h2 className={sectionTitle}>10. Alterações nesta Política</h2>
         <p className={paragraph}>
           Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento.
           Alterações significativas serão comunicadas através de aviso no site. O uso continuado
           do GeraCode após alterações constitui aceitação da nova política.
         </p>
 
-        <h2 className={sectionTitle}>7. Contato</h2>
+        <h2 className={sectionTitle}>11. Contato e Encarregado de Dados</h2>
         <p className={paragraph}>
-          Para dúvidas sobre como seus dados são tratados, acesse
-          a página{' '}
+          Para exercer qualquer um dos seus direitos previstos na LGPD, esclarecer dúvidas sobre
+          o tratamento dos seus dados ou apresentar reclamações, entre em contato conosco:
+        </p>
+        <ul className={list}>
+          <li>
+            <strong>E-mail:</strong>{' '}
+            <a href="mailto:privacidade@geracodigo.com.br" className="text-indigo-600 hover:underline">
+              privacidade@geracodigo.com.br
+            </a>
+          </li>
+          <li>
+            <strong>Prazo de resposta:</strong> Responderemos às solicitações em até 15 dias úteis,
+            conforme previsto na LGPD.
+          </li>
+        </ul>
+        <p className={paragraph}>
+          Consulte também nossos{' '}
+          <Link href="/termos" className="text-indigo-600 hover:underline">Termos de Uso</Link>{' '}
+          e a página{' '}
           <Link href="/sobre" className="text-indigo-600 hover:underline">Sobre</Link>{' '}
-          para mais informações sobre o GeraCode. Consulte também nossos{' '}
-          <Link href="/termos" className="text-indigo-600 hover:underline">Termos de Uso</Link>.
+          para mais informações sobre o GeraCode.
         </p>
       </div>
     </div>

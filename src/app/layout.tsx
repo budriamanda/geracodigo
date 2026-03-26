@@ -5,11 +5,26 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WebVitalsReporter from '@/components/WebVitalsReporter'
+import CookieConsent from '@/components/CookieConsent'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
 
 const inter = Inter({ subsets: ['latin'] })
+
+const consentModeScript = `
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  'analytics_storage':'denied',
+  'ad_storage':'denied',
+  'ad_user_data':'denied',
+  'ad_personalization':'denied',
+  'wait_for_update':500
+});
+gtag('set','ads_data_redaction',true);
+gtag('set','url_passthrough',true);
+`
 
 export const metadata: Metadata = {
   title: {
@@ -48,6 +63,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        <Script
+          id="consent-mode"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: consentModeScript }}
+        />
         {GA_ID && (
           <>
             <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
@@ -80,6 +100,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WebVitalsReporter />
+        <CookieConsent />
         <Script src="/scripts/sw-register.js" strategy="lazyOnload" />
       </body>
     </html>

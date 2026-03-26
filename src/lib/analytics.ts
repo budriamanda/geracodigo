@@ -1,3 +1,5 @@
+import { hasAnalyticsConsent } from '@/lib/consent'
+
 type GtagFn = (...args: unknown[]) => void
 
 function gtag(...args: unknown[]) {
@@ -8,6 +10,7 @@ function gtag(...args: unknown[]) {
 }
 
 function sendEvent(name: string, params: Record<string, unknown>) {
+  if (!hasAnalyticsConsent()) return
   gtag('event', name, params)
 }
 

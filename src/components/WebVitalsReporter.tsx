@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import type { Metric } from 'web-vitals'
+import { hasAnalyticsConsent } from '@/lib/consent'
 
 declare global {
   interface Window {
@@ -10,6 +11,7 @@ declare global {
 }
 
 function sendToGA4(metric: Metric) {
+  if (!hasAnalyticsConsent()) return
   if (typeof window.gtag !== 'function') return
 
   window.gtag('event', metric.name, {

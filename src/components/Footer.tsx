@@ -1,6 +1,15 @@
+'use client'
+
 import Link from 'next/link'
+import { useCallback } from 'react'
+import { revokeConsent } from '@/lib/consent'
 
 export default function Footer() {
+  const handleCookiePreferences = useCallback(() => {
+    revokeConsent()
+    window.location.reload()
+  }, [])
+
   return (
     <footer className="bg-gray-50 border-t border-gray-200 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -22,6 +31,14 @@ export default function Footer() {
               <li><Link href="/sobre" className="hover:text-indigo-600">Sobre</Link></li>
               <li><Link href="/privacidade" className="hover:text-indigo-600">Privacidade</Link></li>
               <li><Link href="/termos" className="hover:text-indigo-600">Termos de Uso</Link></li>
+              <li>
+                <button
+                  onClick={handleCookiePreferences}
+                  className="hover:text-indigo-600 cursor-pointer text-left"
+                >
+                  Preferências de Cookies
+                </button>
+              </li>
             </ul>
             <p className="text-gray-500 text-xs leading-relaxed mt-3">
               Ferramentas gratuitas de geração de código de barras e QR Code Pix para lojistas brasileiros. 100% privado, sem cadastro.
