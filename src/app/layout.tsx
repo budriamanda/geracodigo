@@ -10,6 +10,7 @@ import ToastContainer from '@/components/Toast'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? 'AW-18071358338'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -78,6 +79,12 @@ export default function RootLayout({
             <link rel="dns-prefetch" href="https://www.google-analytics.com" />
           </>
         )}
+        {GOOGLE_ADS_ID && (
+          <>
+            <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="anonymous" />
+            <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+          </>
+        )}
       </head>
       <body className={inter.className}>
         <Header />
@@ -106,6 +113,13 @@ export default function RootLayout({
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
             strategy="lazyOnload"
             crossOrigin="anonymous"
+          />
+        )}
+        {GOOGLE_ADS_ID && (
+          <Script
+            src="/scripts/ads-init.js"
+            data-ads-id={GOOGLE_ADS_ID}
+            strategy="lazyOnload"
           />
         )}
         <Script src="/scripts/sw-register.js" strategy="lazyOnload" />
