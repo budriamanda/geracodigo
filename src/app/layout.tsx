@@ -119,7 +119,7 @@ export default function RootLayout({
           <Script
             src="/scripts/ads-init.js"
             data-ads-id={GOOGLE_ADS_ID}
-            strategy="lazyOnload"
+            strategy="afterInteractive"
           />
         )}
         <Script src="/scripts/sw-register.js" strategy="lazyOnload" />
