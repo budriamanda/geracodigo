@@ -1,0 +1,5 @@
+slug: ean-registrar-gs1
+pergunta: "Preciso registrar o EAN na GS1 para vender no varejo?"
+resposta: "Sim. Para vender em supermercados, farmácias e grandes redes varejistas, o código EAN deve ser registrado na GS1 Brasil. O GeraCode é ideal para testes, uso interno e e-commerce próprio."
+pagina: ean
+ordem: 2

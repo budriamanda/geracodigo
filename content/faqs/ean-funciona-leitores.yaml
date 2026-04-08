@@ -1,0 +1,5 @@
+slug: ean-funciona-leitores
+pergunta: "O código gerado funciona em leitores de código de barras?"
+resposta: "Sim, desde que o número informado seja válido. O código gerado em PNG ou SVG pode ser impresso e lido por qualquer leitor de código de barras compatível com EAN."
+pagina: ean
+ordem: 4

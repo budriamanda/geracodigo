@@ -1,0 +1,5 @@
+slug: qr-validade
+pergunta: "O QR Code gerado tem validade?"
+resposta: "Não. QR Codes estáticos não expiram. Enquanto o conteúdo codificado (link, texto) existir, o QR Code funcionará para sempre."
+pagina: qr-code
+ordem: 1

@@ -1,0 +1,5 @@
+slug: ean-calcular-digito
+pergunta: "Como calcular o dígito verificador do EAN-13?"
+resposta: "O dígito verificador é o 13° dígito, calculado com base nos 12 anteriores usando o algoritmo de módulo 10. Ferramentas online e a própria GS1 fornecem calculadoras. Nosso gerador valida automaticamente."
+pagina: ean
+ordem: 3

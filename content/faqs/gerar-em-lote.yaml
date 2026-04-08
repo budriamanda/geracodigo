@@ -1,0 +1,5 @@
+slug: gerar-em-lote
+pergunta: "Posso gerar códigos em lote?"
+resposta: "Sim. O gerador de código de barras tem modo lote onde você cola uma lista (um por linha) e gera todos de uma vez. Baixe em ZIP (SVG) ou PDF. Imprima etiquetas em layouts 2x5 ou 3x5."
+pagina: home
+ordem: 5

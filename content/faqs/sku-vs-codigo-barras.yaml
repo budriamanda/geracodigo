@@ -1,0 +1,5 @@
+slug: sku-vs-codigo-barras
+pergunta: "SKU é o mesmo que código de barras?"
+resposta: "Não. SKU é um código interno definido pelo lojista. Código de barras (EAN) é um padrão universal registrado na GS1. Um produto pode ter ambos: o SKU para gestão interna e o EAN para identificação no mercado."
+pagina: sku
+ordem: 2

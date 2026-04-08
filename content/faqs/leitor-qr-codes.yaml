@@ -1,0 +1,5 @@
+slug: leitor-qr-codes
+pergunta: "Posso ler QR Codes também?"
+resposta: "Sim. O leitor detecta automaticamente tanto códigos de barras lineares (EAN-13, Code 128, etc.) quanto QR Codes."
+pagina: leitor
+ordem: 5

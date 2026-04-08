@@ -9,6 +9,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import { reader } from '@/lib/content'
 
 const BarcodeGenerator = dynamic(() => import('./BarcodeGenerator'), {
   loading: () => <GeneratorSkeleton />,
@@ -72,30 +73,42 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Gerador de Código de Barras Grátis | 12 Formatos',
-  description: 'Gerador grátis de código de barras com 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar, MSI e mais. Geração em lote, download PNG, SVG e PDF, impressão de etiquetas. Sem cadastro, 100% privado.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
-  },
-  openGraph: {
-    title: 'Gerador de Código de Barras Grátis | 12+ Formatos | GeraCode',
-    description: 'Gerador grátis com EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Lote, PDF, etiquetas. Sem cadastro.',
-    url: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Gerador de Código de Barras Grátis | GeraCode' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gerador de Código de Barras Grátis | GeraCode',
-    description: '12+ formatos, geração em lote, PDF, etiquetas. Sem cadastro.',
-    images: ['/gerador-de-codigo-de-barras/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await reader.collections.ferramentas.read('gerador-de-codigo-de-barras')
+  return {
+    title: tool?.title ?? 'Gerador de Código de Barras Grátis | 12 Formatos',
+    description: tool?.metaDescription ?? 'Gerador grátis de código de barras com 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar, MSI e mais. Geração em lote, download PNG, SVG e PDF, impressão de etiquetas. Sem cadastro, 100% privado.',
+    alternates: {
+      canonical: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
+    },
+    openGraph: {
+      title: tool?.ogTitle ?? 'Gerador de Código de Barras Grátis | 12+ Formatos | GeraCode',
+      description: tool?.ogDescription ?? 'Gerador grátis com EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Lote, PDF, etiquetas. Sem cadastro.',
+      url: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'GeraCode',
+      images: [{ url: '/gerador-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Gerador de Código de Barras Grátis | GeraCode' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool?.twitterTitle ?? 'Gerador de Código de Barras Grátis | GeraCode',
+      description: tool?.twitterDescription ?? '12+ formatos, geração em lote, PDF, etiquetas. Sem cadastro.',
+      images: ['/gerador-de-codigo-de-barras/opengraph-image'],
+    },
+  }
 }
 
-export default function BarcodePage() {
+export default async function BarcodePage() {
+  const [tool, faqsAll] = await Promise.all([
+    reader.collections.ferramentas.read('gerador-de-codigo-de-barras'),
+    reader.collections.faqs.all(),
+  ])
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'codigo-de-barras')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
@@ -105,8 +118,8 @@ export default function BarcodePage() {
 
       <Breadcrumb current="Gerador de Código de Barras" />
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de Código de Barras Grátis Online</h1>
-        <p className="text-gray-600">12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Geração em lote, PDF e impressão de etiquetas</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Gerador de Código de Barras Grátis Online'}</h1>
+        <p className="text-gray-600">{tool?.subtitle ?? '12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Geração em lote, PDF e impressão de etiquetas'}</p>
         <p className="text-sm text-indigo-600 mt-1">Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
         <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
       </div>
@@ -232,15 +245,7 @@ export default function BarcodePage() {
         </div>
       </section>
 
-      <FAQSection items={[
-        { question: 'Quantos formatos de código de barras o GeraCode suporta?', answer: 'O GeraCode suporta 12 formatos: EAN-13, EAN-8, Code 128, Code 39, Code 93, UPC-A, UPC-E, ITF-14, MSI Plessey, Codabar, Pharmacode e ISBN. Cobrimos os principais padrões usados no varejo, logística, indústria farmacêutica e editorial.' },
-        { question: 'Posso gerar códigos de barras em lote?', answer: 'Sim. No modo "Em Lote", você pode digitar ou colar do Excel até dezenas de códigos (um por linha). Todos são gerados de uma vez e você pode baixar em ZIP (SVG) ou PDF.' },
-        { question: 'O GeraCode calcula o dígito verificador do EAN-13?', answer: 'Sim. Se você digitar 12 dígitos no formato EAN-13, o GeraCode calcula automaticamente o 13.º dígito (verificador) usando o algoritmo de módulo 10. O mesmo vale para EAN-8 com 7 dígitos.' },
-        { question: 'Posso imprimir etiquetas diretamente?', answer: 'Sim. Após gerar os códigos (individual ou em lote), use os botões de impressão de etiquetas com layouts 2x5 ou 3x5 por página A4. Uma janela de impressão será aberta automaticamente.' },
-        { question: 'Qual formato de código de barras devo usar para meu produto?', answer: 'Para produtos vendidos em supermercados e varejo brasileiro, use EAN-13. Para controle interno de estoque, Code 128 é mais flexível. Para exportar para os EUA, use UPC-A. Para caixas de transporte e logística, use ITF-14.' },
-        { question: 'Os dados ficam salvos no servidor?', answer: 'Não. O GeraCode processa tudo no seu navegador. O histórico de códigos gerados fica salvo apenas no localStorage do seu dispositivo e não é enviado para nenhum servidor.' },
-        { question: 'Qual a diferença entre PNG, SVG e PDF?', answer: 'PNG é uma imagem raster ideal para uso digital. SVG é vetorial, ideal para impressão profissional sem perda de qualidade. PDF é ideal para documentos e envio para gráficas.' },
-      ]} />
+      <FAQSection items={faqs} />
 
       <RelatedTools currentPath="/gerador-de-codigo-de-barras" />
     </div>

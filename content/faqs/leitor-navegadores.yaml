@@ -1,0 +1,5 @@
+slug: leitor-navegadores
+pergunta: "Quais navegadores são compatíveis?"
+resposta: "O leitor usa a API BarcodeDetector, disponível no Chrome 83+, Edge 83+ e Opera 69+. No Safari e Firefox, a API ainda não é suportada nativamente, mas você pode digitar o código manualmente."
+pagina: leitor
+ordem: 2

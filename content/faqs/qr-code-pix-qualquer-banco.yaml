@@ -1,0 +1,5 @@
+slug: qr-code-pix-qualquer-banco
+pergunta: "O QR Code Pix funciona em qualquer banco?"
+resposta: "Sim. O payload BR Code EMV segue o padrão oficial do Banco Central, com checksum CRC16 válido. Compatível com todos os bancos participantes do Pix."
+pagina: home
+ordem: 4

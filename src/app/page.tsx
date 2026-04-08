@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
+import { reader } from '@/lib/content'
 
 const schemas = [
   {
@@ -50,81 +51,59 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: { absolute: 'GeraCode | Código de Barras, QR Code Pix, EAN, Leitor e SKU Grátis' },
-  description: 'Gerador grátis de código de barras (12+ formatos), QR Code Pix, leitor de código de barras via câmera e gerador de SKU. Geração em lote, PDF, etiquetas. 100% privado, sem cadastro.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/',
-  },
-  openGraph: {
-    title: 'GeraCode | Gerador de Código de Barras, QR Code Pix e SKU Grátis',
-    description: 'Ferramentas gratuitas para lojistas brasileiros. 12+ formatos de código de barras, QR Code Pix, leitor via câmera e SKU. Sem cadastro.',
-    url: 'https://www.geracodigo.com.br/',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'GeraCode | Gerador de Código de Barras e QR Code Pix' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
-    description: 'Ferramentas gratuitas para lojistas brasileiros. Sem cadastro, sem servidor.',
-    images: ['/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const config = await reader.singletons.siteConfig.read()
+  return {
+    title: { absolute: 'GeraCode | Código de Barras, QR Code Pix, EAN, Leitor e SKU Grátis' },
+    description: config?.siteDescription ?? 'Gerador grátis de código de barras (12+ formatos), QR Code Pix, leitor de código de barras via câmera e gerador de SKU. Geração em lote, PDF, etiquetas. 100% privado, sem cadastro.',
+    alternates: {
+      canonical: 'https://www.geracodigo.com.br/',
+    },
+    openGraph: {
+      title: 'GeraCode | Gerador de Código de Barras, QR Code Pix e SKU Grátis',
+      description: 'Ferramentas gratuitas para lojistas brasileiros. 12+ formatos de código de barras, QR Code Pix, leitor via câmera e SKU. Sem cadastro.',
+      url: 'https://www.geracodigo.com.br/',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: config?.siteName ?? 'GeraCode',
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'GeraCode | Gerador de Código de Barras e QR Code Pix' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
+      description: 'Ferramentas gratuitas para lojistas brasileiros. Sem cadastro, sem servidor.',
+      images: ['/opengraph-image'],
+    },
+  }
 }
 
-const tools = [
-  {
-    href: '/gerador-de-qr-code-pix',
-    title: 'Gerador de QR Code Pix',
-    description: 'Gere QR Code para pagamento via Pix com chave CPF, CNPJ, e-mail ou aleatória. Payload BR Code EMV 100% válido, compatível com todos os bancos.',
-    badge: 'Mais popular',
-    badgeColor: 'bg-green-100 text-green-800',
-    icon: '\u{1F4F1}',
-  },
-  {
-    href: '/gerador-de-codigo-de-barras',
-    title: 'Gerador de Código de Barras',
-    description: 'Crie códigos em 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Geração em lote, PDF, impressão de etiquetas e histórico.',
-    badge: '12+ formatos',
-    badgeColor: 'bg-indigo-100 text-indigo-800',
-    icon: '\u{1F4CA}',
-  },
-  {
-    href: '/gerador-de-ean',
-    title: 'Gerador de EAN-13 e EAN-8',
-    description: 'Gerador dedicado para códigos EAN com cálculo automático do dígito verificador. Ideal para produtos, e-commerce e varejo.',
-    badge: null,
-    badgeColor: '',
-    icon: '\u{1F3F7}\uFE0F',
-  },
-  {
-    href: '/gerador-de-qr-code',
-    title: 'Gerador de QR Code',
-    description: 'Gere QR Code para links, textos e qualquer conteúdo. Color picker e seletor de tamanho inclusos.',
-    badge: null,
-    badgeColor: '',
-    icon: '\u2B1B',
-  },
-  {
-    href: '/leitor-de-codigo-de-barras',
-    title: 'Leitor de Código de Barras',
-    description: 'Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nenhum aplicativo.',
-    badge: 'Novo',
-    badgeColor: 'bg-amber-100 text-amber-800',
-    icon: '\u{1F4F7}',
-  },
-  {
-    href: '/gerador-de-sku',
-    title: 'Gerador de SKU',
-    description: 'Crie códigos SKU padronizados para organizar seu estoque. Prefixo, categoria, atributos e sequencial. Exportação CSV.',
-    badge: 'Novo',
-    badgeColor: 'bg-amber-100 text-amber-800',
-    icon: '\u{1F4E6}',
-  },
-]
+export default async function HomePage() {
+  const [ferramentasAll, faqsAll, publicosAll] = await Promise.all([
+    reader.collections.ferramentas.all(),
+    reader.collections.faqs.all(),
+    reader.collections.publicosAlvo.all(),
+  ])
 
-export default function HomePage() {
+  const tools = ferramentasAll
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((t) => ({
+      href: `/${t.entry.slug}`,
+      title: t.entry.h1,
+      description: t.entry.cardDescription,
+      badge: t.entry.badge || null,
+      badgeColor: t.entry.badgeColor || '',
+      icon: t.entry.icon,
+    }))
+
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'home')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
+  const publicos = publicosAll
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((p) => ({ title: p.entry.titulo, desc: p.entry.descricao }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <SchemaMarkup schema={schemas} />
@@ -249,12 +228,7 @@ export default function HomePage() {
       <section aria-labelledby="who-is-it-for" className="mb-16">
         <h2 id="who-is-it-for" className="text-2xl font-bold text-gray-900 mb-6">Para quem é o GeraCode?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { title: 'Lojas virtuais (e-commerce)', desc: 'Gere códigos EAN-13 em lote para seu catálogo, crie SKUs padronizados e ofereça QR Code Pix como opção de pagamento.' },
-            { title: 'Lojas físicas e varejo', desc: 'Imprima etiquetas de código de barras direto do navegador. Use o leitor para conferir estoque sem equipamento dedicado.' },
-            { title: 'Restaurantes e food service', desc: 'QR Code Pix para receber pagamentos no balcão. QR Code genérico para cardápios digitais. Tudo grátis.' },
-            { title: 'Prestadores de serviço e MEIs', desc: 'QR Code Pix profissional com seu nome e chave. Gerador de SKU para organizar seus serviços e materiais.' },
-          ].map(({ title, desc }) => (
+          {publicos.map(({ title, desc }) => (
             <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
               <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
               <p className="text-sm text-gray-500">{desc}</p>
@@ -268,15 +242,7 @@ export default function HomePage() {
       </div>
 
       {/* FAQ */}
-      <FAQSection items={[
-        { question: 'O GeraCode é realmente gratuito?', answer: 'Sim. O GeraCode é 100% gratuito, sem limite de uso, sem cadastro e sem pegadinhas. Todas as 6 ferramentas, incluindo geração em lote, PDF, etiquetas e leitor de código de barras, são totalmente grátis.' },
-        { question: 'Meus dados ficam seguros?', answer: 'Totalmente. Todas as ferramentas funcionam 100% no seu navegador (client-side). Nenhum dado é enviado para servidores externos. Seus dados nunca saem do seu computador.' },
-        { question: 'Quantos formatos de código de barras são suportados?', answer: '12 formatos: EAN-13, EAN-8, Code 128, Code 39, Code 93, UPC-A, UPC-E, ITF-14, MSI Plessey, Codabar, Pharmacode e ISBN.' },
-        { question: 'O QR Code Pix funciona em qualquer banco?', answer: 'Sim. O payload BR Code EMV segue o padrão oficial do Banco Central, com checksum CRC16 válido. Compatível com todos os bancos participantes do Pix.' },
-        { question: 'Posso gerar códigos em lote?', answer: 'Sim. O gerador de código de barras tem modo lote onde você cola uma lista (um por linha) e gera todos de uma vez. Baixe em ZIP (SVG) ou PDF. Imprima etiquetas em layouts 2x5 ou 3x5.' },
-        { question: 'O que é SKU e como difere do código de barras?', answer: 'SKU (Stock Keeping Unit) é um código interno criado por você para organizar seu estoque. Código de barras (EAN) é um padrão universal registrado na GS1. O GeraCode gera ambos.' },
-        { question: 'O GeraCode funciona no celular?', answer: 'Sim. Totalmente responsivo e funciona em smartphones, tablets e computadores. O leitor de código de barras usa a câmera do celular diretamente no navegador.' },
-      ]} />
+      <FAQSection items={faqs} />
     </div>
   )
 }

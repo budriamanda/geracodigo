@@ -1,0 +1,5 @@
+slug: cb-dados-no-servidor
+pergunta: "Os dados ficam salvos no servidor?"
+resposta: "Não. O GeraCode processa tudo no seu navegador. O histórico de códigos gerados fica salvo apenas no localStorage do seu dispositivo e não é enviado para nenhum servidor."
+pagina: codigo-de-barras
+ordem: 6

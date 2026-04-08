@@ -1,0 +1,5 @@
+slug: pix-qr-code-valido
+pergunta: "O QR Code Pix gerado aqui é válido?"
+resposta: "Sim. O payload segue o padrão BR Code EMV definido pelo Banco Central do Brasil. O QR Code é testado com o algoritmo CRC16 e funciona em todos os bancos participantes do Pix."
+pagina: qr-code-pix
+ordem: 1

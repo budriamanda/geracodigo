@@ -1,0 +1,5 @@
+slug: qr-tamanho-minimo
+pergunta: "Qual tamanho mínimo para imprimir um QR Code?"
+resposta: "Para impressão, o tamanho mínimo recomendado é 2 × 2 cm. Para garantir leitura em qualquer smartphone, prefira 3 × 3 cm ou mais."
+pagina: qr-code
+ordem: 3

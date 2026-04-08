@@ -1,0 +1,5 @@
+slug: qr-funciona-sem-internet
+pergunta: "O QR Code funciona sem internet?"
+resposta: "O escaneamento funciona offline, mas o conteúdo (como um link) pode exigir conexão para ser acessado. Textos simples e contatos funcionam completamente offline."
+pagina: qr-code
+ordem: 4

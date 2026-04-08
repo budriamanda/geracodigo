@@ -1,0 +1,5 @@
+slug: cb-png-svg-pdf
+pergunta: "Qual a diferença entre PNG, SVG e PDF?"
+resposta: "PNG é uma imagem raster ideal para uso digital. SVG é vetorial, ideal para impressão profissional sem perda de qualidade. PDF é ideal para documentos e envio para gráficas."
+pagina: codigo-de-barras
+ordem: 7

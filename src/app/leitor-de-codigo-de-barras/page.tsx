@@ -8,6 +8,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import { reader } from '@/lib/content'
 
 const BarcodeReader = dynamic(() => import('./BarcodeReader'), {
   loading: () => <GeneratorSkeleton />,
@@ -69,30 +70,40 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Leitor de Código de Barras Online Grátis',
-  description: 'Leitor de código de barras online grátis. Use a câmera do celular ou computador para ler EAN-13, Code 128, QR Code e mais. Sem instalar aplicativo, 100% no navegador.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
-  },
-  openGraph: {
-    title: 'Leitor de Código de Barras Online Grátis | GeraCode',
-    description: 'Leia códigos de barras e QR Codes pela câmera do celular. Sem app, sem cadastro, 100% gratuito.',
-    url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/leitor-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Leitor de Código de Barras Online | GeraCode' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Leitor de Código de Barras Online | GeraCode',
-    description: 'Leia códigos pela câmera. Sem app, sem cadastro.',
-    images: ['/leitor-de-codigo-de-barras/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await reader.collections.ferramentas.read('leitor-de-codigo-de-barras')
+  return {
+    title: tool?.title ?? 'Leitor de Código de Barras Online Grátis',
+    description: tool?.metaDescription ?? 'Leitor de código de barras online grátis. Use a câmera do celular ou computador para ler EAN-13, Code 128, QR Code e mais. Sem instalar aplicativo, 100% no navegador.',
+    alternates: { canonical: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras' },
+    openGraph: {
+      title: tool?.ogTitle ?? 'Leitor de Código de Barras Online Grátis | GeraCode',
+      description: tool?.ogDescription ?? 'Leia códigos de barras e QR Codes pela câmera do celular. Sem app, sem cadastro, 100% gratuito.',
+      url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'GeraCode',
+      images: [{ url: '/leitor-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Leitor de Código de Barras Online | GeraCode' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool?.twitterTitle ?? 'Leitor de Código de Barras Online | GeraCode',
+      description: tool?.twitterDescription ?? 'Leia códigos pela câmera. Sem app, sem cadastro.',
+      images: ['/leitor-de-codigo-de-barras/opengraph-image'],
+    },
+  }
 }
 
-export default function BarcodeReaderPage() {
+export default async function BarcodeReaderPage() {
+  const [tool, faqsAll] = await Promise.all([
+    reader.collections.ferramentas.read('leitor-de-codigo-de-barras'),
+    reader.collections.faqs.all(),
+  ])
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'leitor')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
@@ -102,8 +113,8 @@ export default function BarcodeReaderPage() {
       <Breadcrumb current="Leitor de Código de Barras" />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Leitor de Código de Barras Online Grátis</h1>
-        <p className="text-gray-600">Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Leitor de Código de Barras Online Grátis'}</h1>
+        <p className="text-gray-600">{tool?.subtitle ?? 'Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada'}</p>
         <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador. Nenhum dado é enviado para servidores</p>
         <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
       </div>
@@ -170,13 +181,7 @@ export default function BarcodeReaderPage() {
         </div>
       </section>
 
-      <FAQSection items={[
-        { question: 'Preciso instalar algum aplicativo?', answer: 'Não. O leitor funciona diretamente no navegador do seu celular ou computador. Basta acessar a página, permitir o acesso à câmera e apontar para o código.' },
-        { question: 'Quais navegadores são compatíveis?', answer: 'O leitor usa a API BarcodeDetector, disponível no Chrome 83+, Edge 83+ e Opera 69+. No Safari e Firefox, a API ainda não é suportada nativamente, mas você pode digitar o código manualmente.' },
-        { question: 'Meus dados de leitura ficam salvos?', answer: 'Não. Toda a leitura acontece localmente no seu navegador. Nenhuma imagem da câmera ou código lido é enviado para servidores. Os resultados existem apenas durante a sessão.' },
-        { question: 'Funciona com a câmera frontal?', answer: 'Sim, mas a câmera traseira é preferível por ter melhor foco e resolução. Em computadores, a webcam integrada funciona normalmente.' },
-        { question: 'Posso ler QR Codes também?', answer: 'Sim. O leitor detecta automaticamente tanto códigos de barras lineares (EAN-13, Code 128, etc.) quanto QR Codes.' },
-      ]} />
+      <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">
         <AdSlot slot="reader-bottom" format="horizontal" />

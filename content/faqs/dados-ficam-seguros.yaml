@@ -1,0 +1,5 @@
+slug: dados-ficam-seguros
+pergunta: "Meus dados ficam seguros?"
+resposta: "Totalmente. Todas as ferramentas funcionam 100% no seu navegador (client-side). Nenhum dado é enviado para servidores externos. Seus dados nunca saem do seu computador."
+pagina: home
+ordem: 2

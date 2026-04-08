@@ -8,6 +8,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import { reader } from '@/lib/content'
 
 const PixGenerator = dynamic(() => import('./PixGenerator'), {
   loading: () => <GeneratorSkeleton />,
@@ -65,30 +66,42 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Gerador de QR Code Pix Grátis | Crie seu QR Pix',
-  description: 'Gere seu QR Code Pix grátis em segundos. CPF, CNPJ, e-mail ou chave aleatória. Payload BR Code EMV válido. Sem cadastro, 100% privado.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
-  },
-  openGraph: {
-    title: 'Gerador de QR Code Pix Grátis | Crie seu QR Pix Online | GeraCode',
-    description: 'Gere seu QR Code Pix grátis em segundos. CPF, CNPJ, e-mail ou chave aleatória. Payload BR Code EMV válido. Sem cadastro, 100% privado.',
-    url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-qr-code-pix/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Pix Grátis | GeraCode' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gerador de QR Code Pix Grátis | GeraCode',
-    description: 'Gere QR Code para pagamento via Pix. Payload BR Code EMV válido. Sem cadastro.',
-    images: ['/gerador-de-qr-code-pix/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await reader.collections.ferramentas.read('gerador-de-qr-code-pix')
+  return {
+    title: tool?.title ?? 'Gerador de QR Code Pix Grátis | Crie seu QR Pix',
+    description: tool?.metaDescription ?? 'Gere seu QR Code Pix grátis em segundos. CPF, CNPJ, e-mail ou chave aleatória. Payload BR Code EMV válido. Sem cadastro, 100% privado.',
+    alternates: {
+      canonical: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
+    },
+    openGraph: {
+      title: tool?.ogTitle ?? 'Gerador de QR Code Pix Grátis | Crie seu QR Pix Online | GeraCode',
+      description: tool?.ogDescription ?? 'Gere seu QR Code Pix grátis em segundos. CPF, CNPJ, e-mail ou chave aleatória. Payload BR Code EMV válido. Sem cadastro, 100% privado.',
+      url: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'GeraCode',
+      images: [{ url: '/gerador-de-qr-code-pix/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Pix Grátis | GeraCode' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool?.twitterTitle ?? 'Gerador de QR Code Pix Grátis | GeraCode',
+      description: tool?.twitterDescription ?? 'Gere QR Code para pagamento via Pix. Payload BR Code EMV válido. Sem cadastro.',
+      images: ['/gerador-de-qr-code-pix/opengraph-image'],
+    },
+  }
 }
 
-export default function PixPage() {
+export default async function PixPage() {
+  const [tool, faqsAll] = await Promise.all([
+    reader.collections.ferramentas.read('gerador-de-qr-code-pix'),
+    reader.collections.faqs.all(),
+  ])
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'qr-code-pix')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
@@ -98,8 +111,8 @@ export default function PixPage() {
 
       <Breadcrumb current="Gerador de QR Code Pix" />
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de QR Code Pix Grátis Online</h1>
-        <p className="text-gray-600">Gere QR Code Pix estático válido (payload BR Code EMV, padrão Banco Central do Brasil)</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Gerador de QR Code Pix Grátis Online'}</h1>
+        <p className="text-gray-600">{tool?.subtitle ?? 'Gere QR Code Pix estático válido (payload BR Code EMV, padrão Banco Central do Brasil)'}</p>
         <p className="text-sm text-indigo-600 mt-1"><span aria-hidden="true">{'\u{1F512}'}</span> Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
         <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
       </div>
@@ -200,7 +213,7 @@ export default function PixPage() {
         </div>
       </section>
 
-      <FAQSection items={[
+      <FAQSection items={faqs.length > 0 ? faqs : [
         { question: 'O QR Code Pix gerado aqui é válido?', answer: 'Sim. O payload segue o padrão BR Code EMV definido pelo Banco Central do Brasil. O QR Code é testado com o algoritmo CRC16 e funciona em todos os bancos participantes do Pix.' },
         { question: 'Meus dados ficam salvos em algum servidor?', answer: 'Não. Todo o processamento acontece no seu navegador (client-side). Nenhum dado (chave Pix, nome, valor) é enviado para servidores externos.' },
         { question: 'Qual é a diferença entre QR Code estático e dinâmico?', answer: 'O QR Code estático, gerado aqui, é fixo e pode ser usado múltiplas vezes. O QR Code dinâmico é gerado pela API do banco para cada cobrança, com controle de pagamento e notificação automática.' },

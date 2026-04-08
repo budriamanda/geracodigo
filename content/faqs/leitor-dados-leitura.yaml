@@ -1,0 +1,5 @@
+slug: leitor-dados-leitura
+pergunta: "Meus dados de leitura ficam salvos?"
+resposta: "Não. Toda a leitura acontece localmente no seu navegador. Nenhuma imagem da câmera ou código lido é enviado para servidores. Os resultados existem apenas durante a sessão."
+pagina: leitor
+ordem: 3

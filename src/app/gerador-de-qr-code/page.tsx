@@ -9,6 +9,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import { reader } from '@/lib/content'
 
 const QrGenerator = dynamic(() => import('./QrGenerator'), {
   loading: () => <GeneratorSkeleton />,
@@ -66,30 +67,40 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Gerador de QR Code Grátis Online',
-  description: 'Gere QR Code grátis para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro, 100% privado.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/gerador-de-qr-code',
-  },
-  openGraph: {
-    title: 'Gerador de QR Code Grátis Online | GeraCode',
-    description: 'Gere QR Code para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro.',
-    url: 'https://www.geracodigo.com.br/gerador-de-qr-code',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-qr-code/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Grátis | GeraCode' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gerador de QR Code Grátis | GeraCode',
-    description: 'Links, textos e qualquer conteúdo. Color picker incluso. Download PNG e SVG. Sem cadastro.',
-    images: ['/gerador-de-qr-code/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await reader.collections.ferramentas.read('gerador-de-qr-code')
+  return {
+    title: tool?.title ?? 'Gerador de QR Code Grátis Online',
+    description: tool?.metaDescription ?? 'Gere QR Code grátis para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro, 100% privado.',
+    alternates: { canonical: 'https://www.geracodigo.com.br/gerador-de-qr-code' },
+    openGraph: {
+      title: tool?.ogTitle ?? 'Gerador de QR Code Grátis Online | GeraCode',
+      description: tool?.ogDescription ?? 'Gere QR Code para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro.',
+      url: 'https://www.geracodigo.com.br/gerador-de-qr-code',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'GeraCode',
+      images: [{ url: '/gerador-de-qr-code/opengraph-image', width: 1200, height: 630, alt: 'Gerador de QR Code Grátis | GeraCode' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool?.twitterTitle ?? 'Gerador de QR Code Grátis | GeraCode',
+      description: tool?.twitterDescription ?? 'Links, textos e qualquer conteúdo. Color picker incluso. Download PNG e SVG. Sem cadastro.',
+      images: ['/gerador-de-qr-code/opengraph-image'],
+    },
+  }
 }
 
-export default function QrPage() {
+export default async function QrPage() {
+  const [tool, faqsAll] = await Promise.all([
+    reader.collections.ferramentas.read('gerador-de-qr-code'),
+    reader.collections.faqs.all(),
+  ])
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'qr-code')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
@@ -98,8 +109,8 @@ export default function QrPage() {
       </div>
       <Breadcrumb current="Gerador de QR Code" />
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de QR Code Grátis Online</h1>
-        <p className="text-gray-600">Gere QR Code para links, textos e qualquer conteúdo. Gratuito, sem cadastro.</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Gerador de QR Code Grátis Online'}</h1>
+        <p className="text-gray-600">{tool?.subtitle ?? 'Gere QR Code para links, textos e qualquer conteúdo. Gratuito, sem cadastro.'}</p>
         <p className="text-sm text-indigo-600 mt-1"><span aria-hidden="true">{'\u{1F512}'}</span> Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
         <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
       </div>
@@ -204,13 +215,7 @@ export default function QrPage() {
         </div>
       </section>
 
-      <FAQSection items={[
-        { question: 'O QR Code gerado tem validade?', answer: 'Não. QR Codes estáticos não expiram. Enquanto o conteúdo codificado (link, texto) existir, o QR Code funcionará para sempre.' },
-        { question: 'Posso personalizar as cores do QR Code?', answer: 'Sim. O GeraCode permite escolher a cor escura (dos módulos) e a cor de fundo. Atenção: mantenha contraste suficiente entre as cores para garantir a leitura correta.' },
-        { question: 'Qual tamanho mínimo para imprimir um QR Code?', answer: 'Para impressão, o tamanho mínimo recomendado é 2 × 2 cm. Para garantir leitura em qualquer smartphone, prefira 3 × 3 cm ou mais.' },
-        { question: 'O QR Code funciona sem internet?', answer: 'O escaneamento funciona offline, mas o conteúdo (como um link) pode exigir conexão para ser acessado. Textos simples e contatos funcionam completamente offline.' },
-        { question: 'Qual a diferença entre PNG e SVG?', answer: 'PNG é um arquivo de imagem com resolução fixa, ideal para uso digital. SVG é vetorial e pode ser ampliado infinitamente sem perder qualidade, ideal para impressão profissional.' },
-      ]} />
+      <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">
         <AdSlot slot="qr-bottom" format="horizontal" />

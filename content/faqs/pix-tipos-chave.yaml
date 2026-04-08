@@ -1,0 +1,5 @@
+slug: pix-tipos-chave
+pergunta: "O gerador funciona para Pix com CPF, CNPJ, e-mail e telefone?"
+resposta: "Sim, todos os tipos de chave Pix são suportados: CPF, CNPJ, e-mail, telefone (com +55) e chave aleatória (UUID)."
+pagina: qr-code-pix
+ordem: 5

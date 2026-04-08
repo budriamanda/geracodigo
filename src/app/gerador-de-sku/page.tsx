@@ -9,6 +9,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import { reader } from '@/lib/content'
 
 const SkuGeneratorClient = dynamic(() => import('./SkuGeneratorClient'), {
   loading: () => <GeneratorSkeleton />,
@@ -71,30 +72,40 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Gerador de SKU Grátis | Códigos para Estoque',
-  description: 'Gerador de SKU grátis para controle de estoque. Defina prefixo, categoria, cor, tamanho e gere até 500 SKUs de uma vez. Exportação CSV. Sem cadastro.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/gerador-de-sku',
-  },
-  openGraph: {
-    title: 'Gerador de SKU Grátis | Códigos para Controle de Estoque | GeraCode',
-    description: 'Gere SKUs padronizados para seus produtos. Lote, CSV, sem cadastro.',
-    url: 'https://www.geracodigo.com.br/gerador-de-sku',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-sku/opengraph-image', width: 1200, height: 630, alt: 'Gerador de SKU Grátis | GeraCode' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gerador de SKU Grátis | GeraCode',
-    description: 'Crie SKUs padronizados para controle de estoque. Lote e CSV.',
-    images: ['/gerador-de-sku/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await reader.collections.ferramentas.read('gerador-de-sku')
+  return {
+    title: tool?.title ?? 'Gerador de SKU Grátis | Códigos para Estoque',
+    description: tool?.metaDescription ?? 'Gerador de SKU grátis para controle de estoque. Defina prefixo, categoria, cor, tamanho e gere até 500 SKUs de uma vez. Exportação CSV. Sem cadastro.',
+    alternates: { canonical: 'https://www.geracodigo.com.br/gerador-de-sku' },
+    openGraph: {
+      title: tool?.ogTitle ?? 'Gerador de SKU Grátis | Códigos para Controle de Estoque | GeraCode',
+      description: tool?.ogDescription ?? 'Gere SKUs padronizados para seus produtos. Lote, CSV, sem cadastro.',
+      url: 'https://www.geracodigo.com.br/gerador-de-sku',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'GeraCode',
+      images: [{ url: '/gerador-de-sku/opengraph-image', width: 1200, height: 630, alt: 'Gerador de SKU Grátis | GeraCode' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool?.twitterTitle ?? 'Gerador de SKU Grátis | GeraCode',
+      description: tool?.twitterDescription ?? 'Crie SKUs padronizados para controle de estoque. Lote e CSV.',
+      images: ['/gerador-de-sku/opengraph-image'],
+    },
+  }
 }
 
-export default function SkuPage() {
+export default async function SkuPage() {
+  const [tool, faqsAll] = await Promise.all([
+    reader.collections.ferramentas.read('gerador-de-sku'),
+    reader.collections.faqs.all(),
+  ])
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'sku')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
@@ -104,8 +115,8 @@ export default function SkuPage() {
       <Breadcrumb current="Gerador de SKU" />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de SKU Grátis Online</h1>
-        <p className="text-gray-600">Crie códigos SKU padronizados para organizar seu estoque. Geração em lote com exportação CSV.</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Gerador de SKU Grátis Online'}</h1>
+        <p className="text-gray-600">{tool?.subtitle ?? 'Crie códigos SKU padronizados para organizar seu estoque. Geração em lote com exportação CSV.'}</p>
         <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador. Nenhum dado sai do seu dispositivo</p>
         <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
       </div>
@@ -199,13 +210,7 @@ export default function SkuPage() {
         </div>
       </section>
 
-      <FAQSection items={[
-        { question: 'O que é SKU e para que serve?', answer: 'SKU (Stock Keeping Unit) é um código interno de identificação de produtos criado pela própria empresa. Serve para organizar o estoque, facilitar a localização de produtos e controlar variações (cor, tamanho, modelo).' },
-        { question: 'SKU é o mesmo que código de barras?', answer: 'Não. SKU é um código interno definido pelo lojista. Código de barras (EAN) é um padrão universal registrado na GS1. Um produto pode ter ambos: o SKU para gestão interna e o EAN para identificação no mercado.' },
-        { question: 'Quantos SKUs posso gerar de uma vez?', answer: 'Você pode gerar até 500 SKUs de uma vez no GeraCode. Todos são exibidos na tela e podem ser copiados ou exportados em CSV.' },
-        { question: 'Posso exportar os SKUs para Excel?', answer: 'Sim. Use o botão CSV para baixar os SKUs em formato CSV, que pode ser aberto diretamente no Excel, Google Sheets ou importado em sistemas ERP e plataformas de e-commerce.' },
-        { question: 'Como devo abreviar categorias e atributos?', answer: 'Use 2 a 4 letras maiúsculas que sejam intuitivas: CAM para camiseta, CAL para calça, AZL para azul, VRM para vermelho, P/M/G para tamanhos. O importante é manter a consistência.' },
-      ]} />
+      <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">
         <AdSlot slot="sku-bottom" format="horizontal" />

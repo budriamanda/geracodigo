@@ -1,0 +1,5 @@
+slug: qr-png-vs-svg
+pergunta: "Qual a diferença entre PNG e SVG?"
+resposta: "PNG é um arquivo de imagem com resolução fixa, ideal para uso digital. SVG é vetorial e pode ser ampliado infinitamente sem perder qualidade, ideal para impressão profissional."
+pagina: qr-code
+ordem: 5

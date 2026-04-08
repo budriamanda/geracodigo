@@ -1,0 +1,5 @@
+slug: pix-dados-servidor
+pergunta: "Meus dados ficam salvos em algum servidor?"
+resposta: "Não. Todo o processamento acontece no seu navegador (client-side). Nenhum dado (chave Pix, nome, valor) é enviado para servidores externos."
+pagina: qr-code-pix
+ordem: 2

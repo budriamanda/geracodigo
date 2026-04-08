@@ -19,6 +19,8 @@
     ]
   },
   "dependencies": {
+    "@keystatic/core": "^0.5.50",
+    "@keystatic/next": "^5.0.4",
     "jsbarcode": "^3.12.3",
     "jspdf": "^4.2.1",
     "jszip": "^3.10.1",

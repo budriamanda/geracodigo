@@ -1,0 +1,5 @@
+slug: pix-ecommerce
+pergunta: "Posso usar este QR Code no meu e-commerce?"
+resposta: "Sim, para cobranças simples. Basta inserir o QR Code como imagem no seu site ou imprimir para uso físico. Para integração automática com confirmação de pedido, use a API Pix do seu banco."
+pagina: qr-code-pix
+ordem: 4

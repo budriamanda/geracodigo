@@ -1,0 +1,5 @@
+slug: sku-vs-codigo-de-barras
+pergunta: "O que é SKU e como difere do código de barras?"
+resposta: "SKU (Stock Keeping Unit) é um código interno criado por você para organizar seu estoque. Código de barras (EAN) é um padrão universal registrado na GS1. O GeraCode gera ambos."
+pagina: home
+ordem: 6

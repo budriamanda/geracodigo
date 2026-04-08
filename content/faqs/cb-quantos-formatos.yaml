@@ -1,0 +1,5 @@
+slug: cb-quantos-formatos
+pergunta: "Quantos formatos de código de barras o GeraCode suporta?"
+resposta: "O GeraCode suporta 12 formatos: EAN-13, EAN-8, Code 128, Code 39, Code 93, UPC-A, UPC-E, ITF-14, MSI Plessey, Codabar, Pharmacode e ISBN. Cobrimos os principais padrões usados no varejo, logística, indústria farmacêutica e editorial."
+pagina: codigo-de-barras
+ordem: 1

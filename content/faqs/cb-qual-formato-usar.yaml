@@ -1,0 +1,5 @@
+slug: cb-qual-formato-usar
+pergunta: "Qual formato de código de barras devo usar para meu produto?"
+resposta: "Para produtos vendidos em supermercados e varejo brasileiro, use EAN-13. Para controle interno de estoque, Code 128 é mais flexível. Para exportar para os EUA, use UPC-A. Para caixas de transporte e logística, use ITF-14."
+pagina: codigo-de-barras
+ordem: 5

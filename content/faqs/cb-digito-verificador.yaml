@@ -1,0 +1,5 @@
+slug: cb-digito-verificador
+pergunta: "O GeraCode calcula o dígito verificador do EAN-13?"
+resposta: "Sim. Se você digitar 12 dígitos no formato EAN-13, o GeraCode calcula automaticamente o 13.º dígito (verificador) usando o algoritmo de módulo 10. O mesmo vale para EAN-8 com 7 dígitos."
+pagina: codigo-de-barras
+ordem: 3

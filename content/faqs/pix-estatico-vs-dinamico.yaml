@@ -1,0 +1,5 @@
+slug: pix-estatico-vs-dinamico
+pergunta: "Qual é a diferença entre QR Code estático e dinâmico?"
+resposta: "O QR Code estático, gerado aqui, é fixo e pode ser usado múltiplas vezes. O QR Code dinâmico é gerado pela API do banco para cada cobrança, com controle de pagamento e notificação automática."
+pagina: qr-code-pix
+ordem: 3

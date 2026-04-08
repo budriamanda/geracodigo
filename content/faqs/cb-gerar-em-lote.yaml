@@ -1,0 +1,5 @@
+slug: cb-gerar-em-lote
+pergunta: "Posso gerar códigos de barras em lote?"
+resposta: 'Sim. No modo "Em Lote", você pode digitar ou colar do Excel até dezenas de códigos (um por linha). Todos são gerados de uma vez e você pode baixar em ZIP (SVG) ou PDF.'
+pagina: codigo-de-barras
+ordem: 2

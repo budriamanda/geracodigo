@@ -8,6 +8,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import { reader } from '@/lib/content'
 
 const EanGenerator = dynamic(() => import('./EanGenerator'), {
   loading: () => <GeneratorSkeleton />,
@@ -65,30 +66,42 @@ const schemas = [
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Gerador de EAN-13 e EAN-8 Grátis Online',
-  description: 'Crie códigos EAN-13 e EAN-8 grátis para produtos, e-commerce e varejo. Download instantâneo em PNG, SVG e PDF. Sem cadastro, 100% privado.',
-  alternates: {
-    canonical: 'https://www.geracodigo.com.br/gerador-de-ean',
-  },
-  openGraph: {
-    title: 'Gerador de EAN-13 e EAN-8 Grátis Online | GeraCode',
-    description: 'Crie códigos EAN-13 e EAN-8 grátis para produtos, e-commerce e varejo. Download instantâneo em PNG, SVG e PDF. Sem cadastro.',
-    url: 'https://www.geracodigo.com.br/gerador-de-ean',
-    type: 'website',
-    locale: 'pt_BR',
-    siteName: 'GeraCode',
-    images: [{ url: '/gerador-de-ean/opengraph-image', width: 1200, height: 630, alt: 'Gerador de EAN-13 e EAN-8 Grátis | GeraCode' }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Gerador de EAN-13 e EAN-8 Grátis | GeraCode',
-    description: 'Crie códigos EAN para produtos e varejo. Download PNG, SVG e PDF. Sem cadastro.',
-    images: ['/gerador-de-ean/opengraph-image'],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = await reader.collections.ferramentas.read('gerador-de-ean')
+  return {
+    title: tool?.title ?? 'Gerador de EAN-13 e EAN-8 Grátis Online',
+    description: tool?.metaDescription ?? 'Crie códigos EAN-13 e EAN-8 grátis para produtos, e-commerce e varejo. Download instantâneo em PNG, SVG e PDF. Sem cadastro, 100% privado.',
+    alternates: {
+      canonical: 'https://www.geracodigo.com.br/gerador-de-ean',
+    },
+    openGraph: {
+      title: tool?.ogTitle ?? 'Gerador de EAN-13 e EAN-8 Grátis Online | GeraCode',
+      description: tool?.ogDescription ?? 'Crie códigos EAN-13 e EAN-8 grátis para produtos, e-commerce e varejo. Download instantâneo em PNG, SVG e PDF. Sem cadastro.',
+      url: 'https://www.geracodigo.com.br/gerador-de-ean',
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'GeraCode',
+      images: [{ url: '/gerador-de-ean/opengraph-image', width: 1200, height: 630, alt: 'Gerador de EAN-13 e EAN-8 Grátis | GeraCode' }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: tool?.twitterTitle ?? 'Gerador de EAN-13 e EAN-8 Grátis | GeraCode',
+      description: tool?.twitterDescription ?? 'Crie códigos EAN para produtos e varejo. Download PNG, SVG e PDF. Sem cadastro.',
+      images: ['/gerador-de-ean/opengraph-image'],
+    },
+  }
 }
 
-export default function EanPage() {
+export default async function EanPage() {
+  const [tool, faqsAll] = await Promise.all([
+    reader.collections.ferramentas.read('gerador-de-ean'),
+    reader.collections.faqs.all(),
+  ])
+  const faqs = faqsAll
+    .filter((f) => f.entry.pagina === 'ean')
+    .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
+    .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
@@ -97,8 +110,8 @@ export default function EanPage() {
       </div>
       <Breadcrumb current="Gerador de EAN-13 e EAN-8" />
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Gerador de EAN-13 e EAN-8 Grátis Online</h1>
-        <p className="text-gray-600">Crie códigos EAN para produtos, e-commerce e varejo. Geração instantânea no navegador.</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Gerador de EAN-13 e EAN-8 Grátis Online'}</h1>
+        <p className="text-gray-600">{tool?.subtitle ?? 'Crie códigos EAN para produtos, e-commerce e varejo. Geração instantânea no navegador.'}</p>
         <p className="text-sm text-indigo-600 mt-1"><span aria-hidden="true">{'\u{1F512}'}</span> Gerado direto no seu navegador. Seus dados nunca saem do seu computador</p>
         <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
       </div>
@@ -220,13 +233,7 @@ export default function EanPage() {
         </div>
       </section>
 
-      <FAQSection items={[
-        { question: 'Qual a diferença entre EAN-13 e EAN-8?', answer: 'EAN-13 usa 13 dígitos e é o padrão para a maioria dos produtos de consumo. EAN-8 usa 8 dígitos e foi criado para embalagens pequenas onde não há espaço para 13 dígitos, como balas, chicletes e cosméticos compactos.' },
-        { question: 'Preciso registrar o EAN na GS1 para vender no varejo?', answer: 'Sim. Para vender em supermercados, farmácias e grandes redes varejistas, o código EAN deve ser registrado na GS1 Brasil. O GeraCode é ideal para testes, uso interno e e-commerce próprio.' },
-        { question: 'Como calcular o dígito verificador do EAN-13?', answer: 'O dígito verificador é o 13° dígito, calculado com base nos 12 anteriores usando o algoritmo de módulo 10. Ferramentas online e a própria GS1 fornecem calculadoras. Nosso gerador valida automaticamente.' },
-        { question: 'O código gerado funciona em leitores de código de barras?', answer: 'Sim, desde que o número informado seja válido. O código gerado em PNG ou SVG pode ser impresso e lido por qualquer leitor de código de barras compatível com EAN.' },
-        { question: 'Posso usar EAN-13 para vender no Mercado Livre?', answer: 'Sim. O Mercado Livre aceita EAN-13 como identificador de produto no cadastro. Para itens novos, o código EAN ajuda o sistema a identificar o produto automaticamente.' },
-      ]} />
+      <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">
         <AdSlot slot="ean-bottom" format="horizontal" />

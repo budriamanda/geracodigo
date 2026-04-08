@@ -1,0 +1,5 @@
+slug: qr-personalizar-cores
+pergunta: "Posso personalizar as cores do QR Code?"
+resposta: "Sim. O GeraCode permite escolher a cor escura (dos módulos) e a cor de fundo. Atenção: mantenha contraste suficiente entre as cores para garantir a leitura correta."
+pagina: qr-code
+ordem: 2
