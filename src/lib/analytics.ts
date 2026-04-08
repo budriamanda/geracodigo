@@ -50,12 +50,15 @@ export function trackDownload(tool: ToolName, format: string, fileType: string) 
 
 export function trackScan(format: string) {
   sendEvent('scan', { tool: 'barcode_reader' satisfies ToolName, format })
+  sendConversion()
 }
 
 export function trackPrint(tool: ToolName, layout: string) {
   sendEvent('print_labels', { tool, layout })
+  sendConversion()
 }
 
 export function trackCopy(tool: ToolName, contentType: string) {
   sendEvent('copy', { tool, content_type: contentType })
+  sendConversion()
 }

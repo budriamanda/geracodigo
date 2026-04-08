@@ -87,7 +87,7 @@ export default async function HomePage() {
   const tools = ferramentasAll
     .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
     .map((t) => ({
-      href: `/${t.entry.slug}`,
+      href: `/${t.slug}`,
       title: t.entry.h1,
       description: t.entry.cardDescription,
       badge: t.entry.badge || null,
