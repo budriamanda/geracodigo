@@ -17,7 +17,7 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://pagead2.googlesyndication.com https://*.doubleclick.net https://www.google.com https://www.google.com.br https://googleads.g.doubleclick.net",
       "font-src 'self' https://fonts.gstatic.com",
       "worker-src 'self'",
-      `connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.doubleclick.net https://www.googleadservices.com https://adservice.google.com https://api.indexnow.org https://www.bing.com${isDev ? ' ws://localhost:* http://localhost:*' : ''}`,
+      `connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://*.doubleclick.net https://www.googleadservices.com https://adservice.google.com https://api.indexnow.org https://www.bing.com${isDev ? ' ws://localhost:* http://localhost:*' : ''}`,
       "frame-src 'self' https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://www.google.com https://googleads.g.doubleclick.net",
       "base-uri 'self'",
       "form-action 'self'",

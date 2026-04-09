@@ -13,6 +13,7 @@ import ToastContainer from '@/components/Toast'
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim()
 const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim()
 const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID?.trim() || 'AW-18071358338'
+const GTAG_PRIMARY_ID = GA_ID || GOOGLE_ADS_ID
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -74,21 +75,32 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: consentModeScript }}
         />
-        {GA_ID && (
+        {GTAG_PRIMARY_ID && (
           <>
             <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
             <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
             <link rel="preconnect" href="https://www.google-analytics.com" crossOrigin="anonymous" />
             <link rel="dns-prefetch" href="https://www.google-analytics.com" />
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_PRIMARY_ID}`}
               strategy="beforeInteractive"
             />
+            <Script
+              id="gtag-init"
+              strategy="beforeInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `gtag('js',new Date());`,
+              }}
+            />
+          </>
+        )}
+        {GA_ID && (
+          <>
             <Script
               id="ga4-config"
               strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
-                __html: `gtag('js',new Date());gtag('config','${GA_ID}');`,
+                __html: `gtag('config','${GA_ID}');`,
               }}
             />
           </>
@@ -98,14 +110,10 @@ export default function RootLayout({
             <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="anonymous" />
             <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-              strategy="beforeInteractive"
-            />
-            <Script
               id="google-ads-config"
               strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
-                __html: `gtag('js',new Date());gtag('config','${GOOGLE_ADS_ID}');`,
+                __html: `gtag('config','${GOOGLE_ADS_ID}');`,
               }}
             />
           </>
