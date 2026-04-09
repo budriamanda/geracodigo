@@ -76,11 +76,15 @@ export function revokeConsent(): void {
 }
 
 export function hasAnalyticsConsent(): boolean {
+  // Analytics é opt-out: se o usuário ainda não interagiu com o banner,
+  // o consent default do GA4 já está 'granted', então os eventos devem disparar.
   const prefs = getConsent()
-  return prefs?.analytics === true
+  if (prefs === null) return true
+  return prefs.analytics === true
 }
 
 export function hasAdvertisingConsent(): boolean {
+  // Ads continua opt-in: só dispara após clique explícito em "Aceitar todos".
   const prefs = getConsent()
   return prefs?.advertising === true
 }

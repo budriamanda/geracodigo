@@ -210,8 +210,9 @@ export default function CookieConsent() {
                 Respeitamos sua privacidade
               </h2>
               <p className="text-sm text-gray-600 mt-1 leading-relaxed">
-                Utilizamos cookies para análise de uso e exibição de anúncios.
-                Nenhum cookie não essencial é ativado sem o seu consentimento.{' '}
+                Utilizamos cookies de análise (Google Analytics) para entender
+                como o site é usado — você pode desativar a qualquer momento.
+                Anúncios personalizados só são ativados com o seu consentimento.{' '}
                 <Link href="/privacidade" className="text-indigo-600 hover:underline font-medium">
                   Política de Privacidade
                 </Link>

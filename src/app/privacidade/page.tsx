@@ -12,7 +12,7 @@ const schemas = [
     url: 'https://www.geracodigo.com.br/privacidade',
     inLanguage: 'pt-BR',
     datePublished: '2026-01-15',
-    dateModified: '2026-01-15',
+    dateModified: '2026-04-09',
     isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
     publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
   },
@@ -65,7 +65,7 @@ export default function PrivacidadePage() {
       <Breadcrumb current="Política de Privacidade" />
 
       <h1 className="text-3xl font-bold text-gray-900 mb-2">Política de Privacidade</h1>
-      <p className="text-gray-500 text-sm mb-8">Última atualização: março de 2026</p>
+      <p className="text-gray-500 text-sm mb-8">Última atualização: abril de 2026</p>
 
       <div className="bg-white rounded-xl border border-gray-200 p-8">
 
@@ -102,14 +102,18 @@ export default function PrivacidadePage() {
         </p>
         <ul className={list}>
           <li>
-            <strong>Consentimento (Art. 7º, I):</strong> Cookies de análise (Google Analytics) e de publicidade
-            (Google AdSense) são ativados <strong>somente após o seu consentimento explícito</strong>, concedido
-            através do banner de cookies exibido no primeiro acesso ao site.
+            <strong>Legítimo interesse (Art. 7º, IX):</strong> Cookies de análise (Google Analytics)
+            são ativados por padrão para coletar métricas <strong>agregadas e anonimizadas</strong> de uso,
+            necessárias para avaliar e melhorar o funcionamento do site. O titular tem{' '}
+            <strong>direito de oposição</strong> a qualquer momento através do banner de cookies
+            ou do link &quot;Preferências de Cookies&quot; no rodapé. Também utilizamos legítimo
+            interesse como base para o armazenamento local (localStorage) do histórico de códigos
+            gerados, que não sai do seu dispositivo.
           </li>
           <li>
-            <strong>Legítimo interesse (Art. 7º, IX):</strong> Armazenamento local (localStorage) do histórico
-            de códigos gerados, estritamente para melhorar a experiência do usuário. Esses dados não saem
-            do seu dispositivo.
+            <strong>Consentimento (Art. 7º, I):</strong> Cookies de publicidade (Google AdSense) são
+            ativados <strong>somente após o seu consentimento explícito</strong>, concedido através
+            do banner de cookies. Sem o opt-in, nenhum anúncio personalizado é carregado.
           </li>
           <li>
             <strong>Cookies essenciais:</strong> O Service Worker (cache de arquivos estáticos para funcionamento
@@ -127,9 +131,12 @@ export default function PrivacidadePage() {
 
         <h2 className={sectionTitle}>5. Cookies e Tecnologias de Rastreamento</h2>
         <p className={paragraph}>
-          O GeraCode utiliza o <strong>Google Consent Mode v2</strong> para garantir que nenhum cookie
-          não essencial seja ativado sem o seu consentimento prévio. Ao acessar o site pela primeira vez,
-          você verá um banner de cookies onde pode escolher quais categorias permitir.
+          O GeraCode utiliza o <strong>Google Consent Mode v2</strong> para gerenciar as categorias
+          de cookies. Cookies de <strong>análise</strong> (Google Analytics) são ativados por padrão
+          sob a base de legítimo interesse — você pode desativá-los a qualquer momento pelo banner
+          de cookies ou pelo link &quot;Preferências de Cookies&quot; no rodapé. Cookies de{' '}
+          <strong>publicidade</strong> (Google AdSense) permanecem desativados até o seu consentimento
+          explícito.
         </p>
 
         <h3 className={subsectionTitle}>5.1. Cookies Essenciais (sempre ativos)</h3>
@@ -139,10 +146,12 @@ export default function PrivacidadePage() {
           dados pessoais.
         </p>
 
-        <h3 className={subsectionTitle}>5.2. Google Analytics (GA4) — requer consentimento</h3>
+        <h3 className={subsectionTitle}>5.2. Google Analytics (GA4) — legítimo interesse, com direito de oposição</h3>
         <p className={paragraph}>
-          Utilizamos o Google Analytics 4 para compreender como os usuários interagem com o site.
-          O GA4 coleta dados anonimizados como:
+          Utilizamos o Google Analytics 4 para compreender, de forma agregada e anonimizada, como
+          os usuários interagem com o site. Essa coleta é ativada por padrão sob a base de{' '}
+          <strong>legítimo interesse</strong> (Art. 7º, IX da LGPD) e você pode se opor a qualquer
+          momento pelo banner de cookies. O GA4 coleta dados anonimizados como:
         </p>
         <ul className={list}>
           <li>Páginas visitadas e tempo de permanência</li>
@@ -280,7 +289,7 @@ export default function PrivacidadePage() {
         <ul className={list}>
           <li><strong>HTTPS:</strong> Toda a comunicação é criptografada via TLS/SSL</li>
           <li><strong>Content Security Policy (CSP):</strong> Restringe a execução de scripts a domínios autorizados</li>
-          <li><strong>Google Consent Mode v2:</strong> Cookies não essenciais bloqueados por padrão até consentimento explícito</li>
+          <li><strong>Google Consent Mode v2:</strong> Cookies de publicidade bloqueados até consentimento explícito; analytics sob legítimo interesse com opt-out a qualquer momento</li>
           <li><strong>Processamento local:</strong> Dados sensíveis (chaves Pix, códigos) nunca trafegam pela rede</li>
           <li><strong>Sem cadastro:</strong> Nenhuma conta de usuário é criada ou armazenada</li>
         </ul>

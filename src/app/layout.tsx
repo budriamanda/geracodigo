@@ -14,11 +14,12 @@ const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? 'AW-18071358338'
 
 const inter = Inter({ subsets: ['latin'] })
 
+// Analytics coleta por padrão (opt-out no banner); ads só com opt-in explícito.
 const consentModeScript = `
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{
-  'analytics_storage':'denied',
+  'analytics_storage':'granted',
   'ad_storage':'denied',
   'ad_user_data':'denied',
   'ad_personalization':'denied',
