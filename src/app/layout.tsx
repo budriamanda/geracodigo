@@ -8,9 +8,11 @@ import WebVitalsReporter from '@/components/WebVitalsReporter'
 import CookieConsent from '@/components/CookieConsent'
 import ToastContainer from '@/components/Toast'
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID
-const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
-const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID ?? 'AW-18071358338'
+// .trim() defende contra env vars coladas no Vercel com \n ou espaço no final,
+// que fazem o gtag('config', id) falhar silenciosamente e zerar os relatórios.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim()
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim()
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID?.trim() || 'AW-18071358338'
 
 const inter = Inter({ subsets: ['latin'] })
 
