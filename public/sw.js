@@ -1,5 +1,5 @@
 // BUMP this version string whenever sw.js or precached assets change
-var CACHE_VERSION = '2026-04-09-20-24-58';
+var CACHE_VERSION = '2026-04-10-21-27-20';
 var CACHE_NAME = 'geracode-' + CACHE_VERSION;
 
 var PRECACHE_URLS = [

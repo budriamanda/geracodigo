@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import Breadcrumb from '@/components/Breadcrumb'
+import AdSlot from '@/components/AdSlot'
 
 const schemas = [
   {
@@ -114,6 +115,10 @@ export default function SobrePage() {
             </li>
           </ul>
         </section>
+
+        <div className="flex justify-center my-12">
+          <AdSlot slot="sobre-mid" format="responsive" />
+        </div>
 
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-3">Privacidade e Segurança</h2>

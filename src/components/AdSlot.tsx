@@ -11,13 +11,13 @@ const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT
 
 const layoutMap: Record<AdSlotProps['format'], { style: React.CSSProperties }> = {
   horizontal: {
-    style: { display: 'block', width: '100%', height: '90px' },
+    style: { display: 'block', width: '100%', height: '90px', contain: 'layout size' },
   },
   rectangle: {
-    style: { display: 'block', width: '300px', height: '250px' },
+    style: { display: 'block', width: '300px', height: '250px', contain: 'layout size' },
   },
   responsive: {
-    style: { display: 'block', width: '100%', minHeight: '90px' },
+    style: { display: 'block', width: '100%', minHeight: '100px', contain: 'layout size' },
   },
 }
 
