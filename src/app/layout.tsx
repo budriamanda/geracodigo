@@ -123,6 +123,17 @@ export default function RootLayout({
             />
           </>
         )}
+        {ADSENSE_CLIENT && (
+          <>
+            <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+            <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+            <Script
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+              strategy="afterInteractive"
+              crossOrigin="anonymous"
+            />
+          </>
+        )}
       </head>
       <body className={inter.className}>
         <Header />
@@ -133,13 +144,6 @@ export default function RootLayout({
         <WebVitalsReporter />
         <CookieConsent />
         <ToastContainer />
-        {ADSENSE_CLIENT && (
-          <Script
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
-            strategy="lazyOnload"
-            crossOrigin="anonymous"
-          />
-        )}
         <Script src="/scripts/sw-register.js" strategy="lazyOnload" />
       </body>
     </html>
