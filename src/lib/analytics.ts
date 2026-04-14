@@ -76,6 +76,9 @@ function baseParams(tool?: ToolName): Record<string, unknown> {
   const page_path = getPagePath()
   const base: Record<string, unknown> = {
     page_path,
+    page_location: typeof window !== 'undefined' ? window.location.href : '',
+    page_title: typeof document !== 'undefined' ? document.title : '',
+    page_referrer: typeof document !== 'undefined' ? document.referrer : '',
     page_type: tool ? 'tool' : 'other',
     device_type: getDeviceType(),
     ...getMarketingParams(),
@@ -167,6 +170,18 @@ export function trackPageViewTool(tool: ToolName) {
   recentPageViewToolAt.set(key, now)
   sendEvent('page_view_tool', {
     ...baseParams(tool),
+    event_id: generateEventId(),
+  })
+}
+
+/**
+ * page_view padrão do GA4 — dispara no carregamento inicial e em toda navegação SPA.
+ * Envia page_location (URL completa), page_title e page_referrer para atribuição de canal.
+ */
+export function trackPageView() {
+  if (typeof window === 'undefined') return
+  sendEvent('page_view', {
+    ...baseParams(),
     event_id: generateEventId(),
   })
 }

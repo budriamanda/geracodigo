@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next'
+import { Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WebVitalsReporter from '@/components/WebVitalsReporter'
+import NavigationTracker from '@/components/NavigationTracker'
 import CookieConsent from '@/components/CookieConsent'
 import ToastContainer from '@/components/Toast'
 
@@ -104,8 +106,8 @@ export default function RootLayout({
               strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
                 __html: GA_DEBUG
-                  ? `gtag('config','${GA_ID}',{debug_mode:${true}});`
-                  : `gtag('config','${GA_ID}');`,
+                  ? `gtag('config','${GA_ID}',{debug_mode:${true},send_page_view:false});`
+                  : `gtag('config','${GA_ID}',{send_page_view:false});`,
               }}
             />
           </>
@@ -118,7 +120,7 @@ export default function RootLayout({
               id="google-ads-config"
               strategy="beforeInteractive"
               dangerouslySetInnerHTML={{
-                __html: `gtag('config','${GOOGLE_ADS_ID}');`,
+                __html: `gtag('config','${GOOGLE_ADS_ID}',{send_page_view:false});`,
               }}
             />
           </>
@@ -142,6 +144,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <WebVitalsReporter />
+        <Suspense fallback={null}>
+          <NavigationTracker />
+        </Suspense>
         <CookieConsent />
         <ToastContainer />
         <Script src="/scripts/sw-register.js" strategy="lazyOnload" />
