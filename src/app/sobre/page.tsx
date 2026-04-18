@@ -139,7 +139,7 @@ export default function SobrePage() {
             Dúvidas, sugestões, correções ou denúncias de conteúdo podem ser enviadas para:
           </p>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong>E-mail:</strong> <a href="mailto:contato@geracodigo.com.br" className="text-indigo-600 hover:underline">contato@geracodigo.com.br</a></li>
+            <li><strong>E-mail:</strong> <a href="mailto:amandabudric@gmail.com" className="text-indigo-600 hover:underline">amandabudric@gmail.com</a></li>
             <li><strong>Assuntos técnicos</strong> (código incorreto, erro de leitura, formato não suportado): inclua um print da ferramenta e o dado de entrada utilizado.</li>
             <li><strong>Assuntos editoriais</strong> (correção em guia, FAQ desatualizada, sugestão de tema): indique a URL da página e, se possível, a fonte oficial que embasa a correção.</li>
             <li><strong>Imprensa e parcerias:</strong> use o mesmo e-mail identificando no assunto &quot;Imprensa&quot; ou &quot;Parceria&quot;.</li>
