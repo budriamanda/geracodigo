@@ -217,6 +217,60 @@ export default async function QrPage() {
         </div>
       </section>
 
+      {/* QR Code em marketing */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">QR Code em Campanhas de Marketing</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'Embalagens de produto', desc: 'Adicione QR Code na parte traseira da embalagem apontando para manual em vídeo, receitas ou página de registro de garantia. Reduz a quantidade de texto impresso e aproxima o cliente da marca após a compra.' },
+            { title: 'Cartões de visita', desc: 'Em vez de listar e-mail, telefone e LinkedIn separadamente, um QR Code pode codificar um vCard completo que o cliente salva direto no celular. Também pode apontar para seu portfólio ou calendário de agendamento.' },
+            { title: 'Catálogos impressos', desc: 'Cada produto no catálogo pode ter seu próprio QR Code direcionando para a página de compra no site ou marketplace. Transforma material impresso em funil digital.' },
+            { title: 'Materiais de PDV', desc: 'Adesivos no balcão e totens podem levar clientes ao programa de fidelidade, avaliações no Google ou promoções do momento. Use urgência (&quot;escaneie e ganhe&quot;) para aumentar conversão.' },
+            { title: 'Anúncios em mídia impressa', desc: 'Revistas, outdoors e flyers ganham interatividade com QR Codes. Use URLs com UTM para rastrear conversões por campanha no Google Analytics.' },
+            { title: 'Eventos e feiras', desc: 'QR Code no crachá, stand ou material distribuído leva participantes direto para a página do evento, captação de leads ou download de material rico.' },
+          ].map(({ title, desc }) => (
+            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
+              <p className="text-sm text-gray-500">{desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Erros comuns QR Code */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Erros Comuns em QR Code e Como Evitar</h2>
+        <div className="prose prose-gray max-w-none text-gray-600">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>QR Code em movimento:</strong> colocar QR Code em ônibus, caminhão ou faixa balançando no vento dificulta a leitura pelo smartphone. Prefira posições estáticas.</li>
+            <li><strong>Contraste invertido:</strong> QR Code claro sobre fundo escuro funciona em alguns leitores, mas falha em outros. Prefira sempre escuro sobre claro.</li>
+            <li><strong>Cores muito próximas:</strong> QR Codes em degradê ou com cores similares entre módulos e fundo perdem legibilidade. Mantenha contraste mínimo de 4:1.</li>
+            <li><strong>Logo no centro grande demais:</strong> QR Codes com logotipo funcionam se o logo ocupa até 25% da área central e houver correção de erro alta (nível H). Acima disso, o código quebra.</li>
+            <li><strong>URLs muito longas:</strong> quanto mais dados, mais módulos — o QR fica denso e difícil de ler em tamanhos pequenos. Use encurtadores (com redirecionamento confiável).</li>
+            <li><strong>Não testar antes de imprimir em escala:</strong> sempre escaneie com iPhone e Android diferentes antes de mandar 10 mil flyers para gráfica. Um código quebrado pode inutilizar a tiragem inteira.</li>
+            <li><strong>QR apontando para página desativada:</strong> se você imprimiu materiais duradouros (adesivos de veículo, placas, embalagens), use URL permanente em domínio próprio. Evite links de campanha que podem expirar.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Tamanho e distancia */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Tamanho Ideal do QR Code por Distância de Leitura</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-600">
+          {[
+            { distance: 'Até 30 cm (balcão, mesa, cardápio)', size: '2 × 2 cm (mínimo 1,5 cm)', scenario: 'Cardápios de restaurante, pagamento no balcão, cartões de visita, embalagens pequenas.' },
+            { distance: '1 a 3 metros (cartazes, vitrines)', size: '8 × 8 cm a 15 × 15 cm', scenario: 'Cartazes de promoção em loja, vitrines, totens informativos, adesivos em vidros.' },
+            { distance: 'Mais de 3 metros (outdoors, fachadas)', size: 'Acima de 30 × 30 cm', scenario: 'Outdoors, fachadas, backdrops de evento, painéis em rodovias. Regra prática: altura do QR = distância ÷ 10.' },
+          ].map(({ distance, size, scenario }) => (
+            <article key={distance} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{distance}</h3>
+              <p className="text-indigo-700 font-medium text-sm mb-2">{size}</p>
+              <p className="text-sm text-gray-500">{scenario}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">
