@@ -235,6 +235,50 @@ export default async function EanPage() {
         </div>
       </section>
 
+      {/* EAN em marketplaces */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">EAN (GTIN) em Marketplaces Brasileiros</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
+          <p>
+            Os principais marketplaces do Brasil exigem (ou priorizam na busca) produtos cadastrados com código EAN/GTIN válido. A política varia por categoria:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>Mercado Livre:</strong> GTIN obrigatório para produtos novos em categorias como eletrônicos, beleza, saúde e alimentos. Anúncios sem GTIN perdem relevância no buscador e podem ser pausados.</li>
+            <li><strong>Amazon Brasil:</strong> exige GTIN (EAN-13, UPC-A ou ISBN) para praticamente todos os produtos. Em casos de marca própria, é possível solicitar isenção de GTIN via Brand Registry.</li>
+            <li><strong>Magazine Luiza (Magalu):</strong> EAN obrigatório no cadastro. Produtos sem EAN não são aceitos na plataforma de sellers.</li>
+            <li><strong>Shopee:</strong> GTIN opcional, mas produtos com EAN recebem &quot;selo Shopee Mall&quot; em algumas categorias e aparecem melhor no ranking.</li>
+            <li><strong>Americanas / Submarino (B2W):</strong> exigem EAN cadastrado para o catálogo oficial. Sem EAN, apenas como &quot;produto novo&quot; com revisão manual.</li>
+            <li><strong>Casas Bahia / Ponto:</strong> EAN obrigatório, com validação automática do dígito verificador no momento do cadastro.</li>
+          </ul>
+          <p className="text-sm">
+            <strong>Importante:</strong> usar EAN inventado (sem registro na GS1) em marketplaces pode levar à suspensão da conta. Para vendas
+            em grandes redes, contrate o registro oficial em <a href="https://www.gs1br.org/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800">gs1br.org</a>.
+            Para lojas próprias e controle interno, o código EAN gerado aqui serve normalmente.
+          </p>
+        </div>
+      </section>
+
+      {/* Troubleshooting EAN */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Problemas Comuns com EAN e Como Resolver</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { problem: 'EAN rejeitado no cadastro do marketplace', cause: 'Dígito verificador incorreto ou prefixo não reconhecido.', fix: 'Use nosso gerador, que calcula o dígito automaticamente. Se o EAN não começa com 789 ou 790, pode ser um código estrangeiro válido — confirme com o fabricante.' },
+            { problem: 'Leitor do PDV não reconhece o código', cause: 'Tamanho impresso menor que o mínimo recomendado ou impressão borrada.', fix: 'Imprima EAN-13 com no mínimo 25,93 × 21,31 mm. Use SVG ou PNG com 300 DPI. Evite impressoras térmicas com cabeça suja.' },
+            { problem: 'Códigos duplicados em relatórios', cause: 'Mesmo EAN usado para produtos diferentes no cadastro interno.', fix: 'EAN é único por produto. Dois itens com o mesmo EAN significam que um está cadastrado errado — corrija antes de subir para marketplace, senão o anúncio é bloqueado.' },
+            { problem: 'Produto importado sem EAN', cause: 'Fornecedor estrangeiro nem sempre envia GTIN.', fix: 'Solicite o GTIN ao fabricante. Se não houver, você precisa registrar na GS1 Brasil como &quot;produto de marca própria&quot; (importado/rebranded) para usá-lo legalmente nos marketplaces.' },
+            { problem: 'EAN funciona em um marketplace mas não em outro', cause: 'Alguns marketplaces validam contra a base oficial da GS1; outros apenas o formato.', fix: 'Se o EAN está registrado, abra chamado no marketplace informando o CNPJ detentor do prefixo. Se não está registrado, registre-o ou escolha plataformas menos estritas.' },
+            { problem: 'Leitor lê o código, mas aparece número errado', cause: 'Espelhamento na impressão ou impressão invertida.', fix: 'Confira se a impressora não está configurada para espelhar a imagem. Sempre teste a leitura em um segundo dispositivo antes de imprimir em escala.' },
+          ].map(({ problem, cause, fix }) => (
+            <article key={problem} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{problem}</h3>
+              <p className="text-xs text-gray-400 mb-1"><strong>Causa:</strong> {cause}</p>
+              <p className="text-sm text-gray-500"><strong>Solução:</strong> {fix}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">

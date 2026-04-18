@@ -212,6 +212,71 @@ export default async function SkuPage() {
         </div>
       </section>
 
+      {/* Exemplos por setor */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Exemplos de SKU por Setor</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { sector: 'Moda e vestuário', example: 'LOJA-CAM-AZL-M-0001', explain: 'Loja → categoria (CAM = camiseta) → cor (AZL = azul) → tamanho (M) → sequencial. Inclua tamanho sempre, pois é a variação mais frequente.' },
+            { sector: 'Calçados', example: 'SPT-TEN-PRT-39-0042', explain: 'Marca (SPT = Sport) → tipo (TEN = tênis) → cor (PRT = preto) → numeração (39) → sequencial. Use 2 dígitos para numeração do 34 ao 48.' },
+            { sector: 'Alimentos e bebidas', example: 'MERC-BEB-REFRI-2L-0015', explain: 'Mercado → categoria (BEB = bebida) → subcategoria (REFRI) → volume (2L) → sequencial. Volume/peso costuma ser o diferenciador-chave.' },
+            { sector: 'Cosméticos', example: 'BTQ-BATOM-VRM-MATE-0008', explain: 'Boutique → linha (BATOM) → cor (VRM = vermelho) → acabamento (MATE) → sequencial. Em cosméticos, inclua o acabamento (mate, gloss, cintilante) no SKU.' },
+            { sector: 'Eletrônicos e acessórios', example: 'TECH-CAP-USB-C-2M-0033', explain: 'Marca → tipo (CAP = cabo) → interface (USB-C) → comprimento (2M) → sequencial. Para eletrônicos, padrões técnicos (USB-C, HDMI) substituem cor.' },
+            { sector: 'Livros e mídia', example: 'LIV-ROM-EDIT2-CAPDR-0117', explain: 'Categoria (LIV) → gênero (ROM = romance) → edição (EDIT2) → tipo de capa (CAPDR = capa dura) → sequencial. Use também o ISBN em paralelo ao SKU.' },
+          ].map(({ sector, example, explain }) => (
+            <article key={sector} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{sector}</h3>
+              <code className="block bg-gray-100 px-2 py-1 rounded text-sm text-indigo-700 mb-2">{example}</code>
+              <p className="text-sm text-gray-500">{explain}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Integracao com ERPs e marketplaces */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Integração de SKUs com ERPs e Marketplaces</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
+          <p>
+            A maioria dos sistemas de gestão e plataformas de e-commerce aceita importação de produtos via planilha CSV. O SKU costuma ser a
+            coluna-chave que liga o produto entre sistemas diferentes (estoque, loja virtual, marketplaces, transportadora).
+          </p>
+          <p>Padrões aceitos por plataforma:</p>
+          <ul className="list-disc pl-5 space-y-1 text-sm">
+            <li><strong>Mercado Livre:</strong> SKU até 60 caracteres. Aceita letras maiúsculas, números, hífen e underline. Não aceita espaços.</li>
+            <li><strong>Shopee:</strong> SKU pai + SKU variação. Até 100 caracteres. Necessário quando o produto tem tamanhos ou cores.</li>
+            <li><strong>Amazon (Seller Central):</strong> SKU de até 40 caracteres, case-sensitive. Uma vez definido, não pode ser alterado.</li>
+            <li><strong>Shopify:</strong> Até 255 caracteres. Aceita praticamente qualquer caractere, mas recomenda-se manter padrão simples.</li>
+            <li><strong>WooCommerce / VTEX / Magento:</strong> Sem limite técnico na maioria dos casos, mas o padrão do catálogo deve ser consistente.</li>
+            <li><strong>Bling, Tiny, Omie (ERPs brasileiros):</strong> Aceitam SKUs alfanuméricos padrão. Exportam CSV/XLSX diretamente com a coluna SKU para importação nos marketplaces.</li>
+          </ul>
+          <p className="text-sm">
+            Recomendação: defina o SKU primeiro no ERP e replique para todos os canais de venda. Evite criar SKUs diferentes por canal — isso
+            gera divergência de estoque e erros de expedição.
+          </p>
+        </div>
+      </section>
+
+      {/* Erros comuns na gestao de SKU */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Erros Comuns na Gestão de SKU</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'Reutilizar SKU de produto descontinuado', desc: 'Quando um produto sai de linha, nunca reutilize o mesmo SKU em um item novo. Relatórios históricos e devoluções ficam bagunçados. Bloqueie o código antigo e crie um sequencial novo.' },
+            { title: 'Usar o EAN como SKU', desc: 'EAN é universal e externo; SKU é interno. Se você muda de fornecedor ou recebe o mesmo produto com EAN diferente, seu estoque perde referência. Mantenha os dois em colunas separadas.' },
+            { title: 'SKU com espaços ou caracteres especiais', desc: 'Espaços, acentos, barras (/) e caracteres como # ou & quebram importações em CSV e sistemas legados. Use apenas letras A-Z, números 0-9 e hífen (-) ou underline (_).' },
+            { title: 'Falta de padrão entre equipes', desc: 'Quando compras, estoque e marketing criam SKUs diferentes para o mesmo produto, o controle fica impossível. Defina uma tabela de abreviações e centralize a geração em uma pessoa ou ferramenta.' },
+            { title: 'Comprimento inconsistente', desc: 'SKUs com comprimentos variados (ex: 12 caracteres em uns, 18 em outros) dificultam conferência visual e ordenação. Padronize o número de dígitos em cada bloco.' },
+            { title: 'Sem número sequencial', desc: 'Se dois produtos podem ter mesma categoria, cor e tamanho (ex: mesma camiseta de fornecedores diferentes), a falta de sequencial cria colisão. Inclua sempre um sufixo numérico.' },
+          ].map(({ title, desc }) => (
+            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
+              <p className="text-sm text-gray-500">{desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">

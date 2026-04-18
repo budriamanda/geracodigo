@@ -215,6 +215,68 @@ export default async function PixPage() {
         </div>
       </section>
 
+      {/* Casos de uso por setor */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">QR Code Pix por Tipo de Negócio</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'Comércio de rua e feiras', desc: 'Gere um QR Code estático sem valor fixo, imprima em SVG (3–5 cm) e plastifique. O cliente digita o valor na hora. Ideal para barracas, feiras livres, food trucks e ambulantes legalizados como MEI.' },
+            { title: 'Restaurantes e lanchonetes', desc: 'Coloque o QR Pix com CNPJ da empresa no balcão e nas mesas. Para evitar confusão com o QR do cardápio digital, use um rótulo claro como "Pagar via Pix". Para cobranças com confirmação automática, considere migrar para Pix dinâmico via API do banco.' },
+            { title: 'Prestadores de serviço (autônomos)', desc: 'Profissionais como manicures, cabeleireiros, professores particulares e técnicos podem gerar o QR Pix com CPF ou chave aleatória, imprimir em cartão de visita e apresentar ao cliente ao finalizar o atendimento.' },
+            { title: 'E-commerce simples', desc: 'Para lojas virtuais sem integração com gateway, exiba o QR Pix estático na tela de checkout e solicite o envio do comprovante por e-mail ou WhatsApp. Funciona, mas exige conciliação manual — prefira a API Pix para volumes maiores.' },
+            { title: 'Doações e ONGs', desc: 'Organizações sociais podem gerar um QR Pix institucional (CNPJ) sem valor fixo para receber doações de qualquer valor. Divulgue em redes sociais, sites e materiais impressos. O payload é válido para campanhas nacionais.' },
+            { title: 'Cobranças recorrentes informais', desc: 'Aluguéis, mensalidades de cursos ou serviços fixos podem ter o mesmo QR Pix reutilizado mensalmente. O payload estático é válido por tempo indeterminado, mas atualize o QR sempre que houver troca de chave Pix no banco.' },
+          ].map(({ title, desc }) => (
+            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
+              <p className="text-sm text-gray-500">{desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Erros comuns */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Erros Comuns ao Gerar QR Code Pix</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>Chave Pix não cadastrada no banco:</strong> o QR é gerado corretamente, mas a tentativa de pagamento falha com &quot;chave não encontrada&quot;. Confira no app do seu banco se a chave está ativa antes de imprimir o QR.</li>
+            <li><strong>CPF ou CNPJ com pontuação:</strong> o padrão BR Code aceita apenas dígitos (sem pontos, barras ou traços). Nosso gerador remove automaticamente, mas se você copiar o payload manualmente, garanta que esteja limpo.</li>
+            <li><strong>Nome do recebedor com mais de 25 caracteres:</strong> a especificação do Banco Central limita o campo do nome. Abrevie (ex: &quot;Restaurante Bom Gosto&quot; → &quot;Rest Bom Gosto&quot;). Nossa ferramenta sinaliza quando o limite é ultrapassado.</li>
+            <li><strong>Cidade com acento ou caracteres especiais:</strong> prefira cidade sem acento (&quot;Sao Paulo&quot; em vez de &quot;São Paulo&quot;) por compatibilidade ampla entre bancos. A maioria aceita acento, mas alguns leitores antigos podem falhar.</li>
+            <li><strong>QR impresso muito pequeno ou borrado:</strong> para impressão térmica (cupom), use no mínimo 3 × 3 cm. Em papel sulfite, 4 × 4 cm. Prefira SVG sobre PNG para manter a nitidez.</li>
+            <li><strong>QR parece válido mas nenhum banco lê:</strong> revise se o CRC16 está correto — erros manuais no payload invalidam todo o código. Nossa ferramenta recalcula o CRC automaticamente a cada alteração.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Diferencas Pix estatico vs dinamico */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Quando Usar Pix Estático vs Pix Dinâmico</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article className="bg-white rounded-xl border border-gray-200 p-6">
+            <h3 className="font-semibold text-gray-900 mb-2">Pix Estático (gerado aqui)</h3>
+            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
+              <li>QR Code fixo, reutilizável indefinidamente</li>
+              <li>Valor opcional (fixo ou o pagador digita)</li>
+              <li>Não há confirmação automática — é preciso conferir no extrato</li>
+              <li>Ideal para: comércio de rua, doações, cobranças simples, baixo volume</li>
+              <li>Custo: zero</li>
+            </ul>
+          </article>
+          <article className="bg-white rounded-xl border border-gray-200 p-6">
+            <h3 className="font-semibold text-gray-900 mb-2">Pix Dinâmico (API do banco)</h3>
+            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
+              <li>QR gerado sob demanda para cada cobrança</li>
+              <li>Valor sempre pré-definido pelo emissor</li>
+              <li>Webhook de confirmação automática em segundos</li>
+              <li>Ideal para: e-commerce, assinaturas, SaaS, alto volume</li>
+              <li>Custo: varia por banco (alguns cobram por transação)</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
       <FAQSection items={faqs.length > 0 ? faqs : [
         { question: 'O QR Code Pix gerado aqui é válido?', answer: 'Sim. O payload segue o padrão BR Code EMV definido pelo Banco Central do Brasil. O QR Code é testado com o algoritmo CRC16 e funciona em todos os bancos participantes do Pix.' },
         { question: 'Meus dados ficam salvos em algum servidor?', answer: 'Não. Todo o processamento acontece no seu navegador (client-side). Nenhum dado (chave Pix, nome, valor) é enviado para servidores externos.' },

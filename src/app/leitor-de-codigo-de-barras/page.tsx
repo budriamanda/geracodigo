@@ -183,6 +183,62 @@ export default async function BarcodeReaderPage() {
         </div>
       </section>
 
+      {/* Compatibilidade por dispositivo */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Compatibilidade por Dispositivo</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
+          <p>
+            O leitor do GeraCode usa a <strong>BarcodeDetector API</strong>, nativa dos navegadores modernos. Em dispositivos compatíveis, a
+            detecção acontece em tempo real, sem enviar imagens a nenhum servidor. Resumo de compatibilidade:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-sm">
+            <li><strong>Android (Chrome, Edge, Samsung Internet):</strong> suporte completo a partir de 2020. Usa automaticamente a câmera traseira. Desempenho excelente, especialmente em Snapdragon e MediaTek recentes.</li>
+            <li><strong>iPhone (Safari iOS 17+):</strong> suporte nativo à BarcodeDetector desde setembro de 2023. Em versões mais antigas, a ferramenta usa fallback em JavaScript (mais lento, mas funcional).</li>
+            <li><strong>iPhone (Chrome iOS):</strong> como o Chrome no iOS usa o motor do Safari (WebKit), o suporte depende da versão do iOS instalada, não do navegador.</li>
+            <li><strong>Desktop Windows/Mac (Chrome 83+, Edge 83+):</strong> funciona com webcam conectada. Ideal para conferência de estoque sem comprar leitor físico.</li>
+            <li><strong>Firefox e Safari desktop:</strong> ainda sem suporte nativo à BarcodeDetector. A ferramenta oferece entrada manual como alternativa.</li>
+          </ul>
+          <p className="text-sm">
+            Em qualquer caso, nenhuma imagem da câmera é enviada para servidores — o processamento acontece inteiramente no seu dispositivo.
+            Isso é auditável abrindo as DevTools (F12, aba &quot;Network&quot;) enquanto usa a ferramenta.
+          </p>
+        </div>
+      </section>
+
+      {/* Troubleshooting leitor */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Problemas Comuns ao Usar o Leitor</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { problem: 'Câmera não abre ou fica preta', fix: 'Verifique se você autorizou o acesso à câmera quando o navegador solicitou. No Android, confira Configurações → Aplicativos → Chrome → Permissões → Câmera. No iPhone, Ajustes → Safari → Câmera.' },
+            { problem: 'Código não é detectado', fix: 'Aumente a iluminação, mantenha o código parado na frente da câmera a 10–20 cm, e garanta que o código esteja plano (sem amassados). Use a função de zoom do celular se necessário.' },
+            { problem: 'Detecção muito lenta', fix: 'Celulares antigos (anteriores a 2019) podem ter desempenho reduzido. Feche abas e apps em segundo plano. Em casos extremos, use a entrada manual do código.' },
+            { problem: 'Leitor detecta um formato mas erra o valor', fix: 'Isso é raro e acontece quando o código está parcialmente obstruído ou borrado. Limpe a lente da câmera e tente novamente com o código totalmente visível.' },
+            { problem: 'QR Code Pix não funciona no leitor', fix: 'O leitor retorna o payload do QR Pix como texto. Para efetuar o pagamento, copie o texto e cole no app do seu banco (função "Pix Copia e Cola").' },
+            { problem: 'Câmera frontal em vez da traseira', fix: 'A maioria dos celulares usa a câmera traseira automaticamente. Se o leitor abrir a frontal, verifique as permissões e recarregue a página.' },
+          ].map(({ problem, fix }) => (
+            <article key={problem} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{problem}</h3>
+              <p className="text-sm text-gray-500">{fix}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Por que usar leitor online */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Por Que Usar um Leitor Online em Vez de App?</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-3">
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>Sem instalação:</strong> abra o navegador e use. Ideal para situações pontuais, como conferir um código de barras de um produto importado ou ler um QR de um cartaz.</li>
+            <li><strong>Sem rastreamento:</strong> apps gratuitos de leitor frequentemente coletam localização, histórico de leitura e outros dados. O leitor online do GeraCode não acessa nenhum desses dados.</li>
+            <li><strong>Sem permissões abusivas:</strong> o navegador solicita apenas acesso à câmera. Nenhum app pede acesso a contatos, SMS, fotos ou microfone sem necessidade.</li>
+            <li><strong>Compatível com qualquer dispositivo:</strong> funciona em celular, tablet, notebook com webcam e até terminais públicos — desde que o navegador esteja atualizado.</li>
+            <li><strong>Sem publicidade invasiva:</strong> apps gratuitos de leitor costumam exibir anúncios em tela cheia entre cada leitura. Aqui os anúncios são laterais e não bloqueiam o fluxo de trabalho.</li>
+          </ul>
+        </div>
+      </section>
+
       <FAQSection items={faqs} />
 
       <div className="flex justify-center mt-8">

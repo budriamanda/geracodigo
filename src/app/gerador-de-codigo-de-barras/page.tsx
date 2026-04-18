@@ -247,6 +247,67 @@ export default async function BarcodePage() {
         </div>
       </section>
 
+      {/* Aplicacoes por setor */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Aplicações por Setor</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[
+            { title: 'Varejo e supermercados', desc: 'EAN-13 no produto final; ITF-14 nas caixas de transporte; Code 128 em etiquetas de gôndola e preços. O leitor do PDV identifica automaticamente o formato.' },
+            { title: 'Logística e transporte', desc: 'Code 128 para números de rastreio (18 a 24 dígitos alfanuméricos). Correios usa variações do Code 128 e ITF. Transportadoras privadas (Jadlog, Total Express) seguem o mesmo padrão.' },
+            { title: 'Indústria farmacêutica', desc: 'EAN-13 para medicamentos vendidos ao consumidor (obrigatório pela Anvisa). Pharmacode em embalagens internas de controle de produção. DataMatrix (2D) está sendo adotado para rastreabilidade (SNCM).' },
+            { title: 'Bibliotecas e centros de documentação', desc: 'Codabar tradicionalmente usado em cartões de identificação e etiquetas de livros. Code 39 também é comum. ISBN (baseado em EAN-13) obrigatório em livros comerciais.' },
+            { title: 'Controle de ativos em empresas', desc: 'Code 39 ou Code 128 em patrimônios, equipamentos, crachás de funcionários, mobiliário e itens de TI. Leitores portáteis (pistola USB ou Bluetooth) fazem o inventário.' },
+            { title: 'Eventos e ingressos', desc: 'QR Code ou Code 128 em ingressos para controle de acesso. Gera um código único por participante e valida na entrada. Evita fraude por duplicação.' },
+            { title: 'Saúde (clínicas e hospitais)', desc: 'Code 128 em pulseiras de pacientes, prontuários e amostras laboratoriais. Reduz erros de identificação e acelera atendimento em UTI e coleta.' },
+            { title: 'Educação e escolas', desc: 'Code 39 ou Code 128 em carteirinhas de aluno, empréstimo de livros e controle de merenda. Compatível com leitores USB baratos.' },
+          ].map(({ title, desc }) => (
+            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
+              <p className="text-sm text-gray-500">{desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Qual formato escolher */}
+      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Qual Formato Escolher?</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-3">
+          <p>Se você não sabe qual formato usar, estas são as escolhas mais seguras para cada cenário:</p>
+          <ul className="list-disc pl-5 space-y-2 text-sm">
+            <li><strong>Vou vender em marketplaces ou varejo físico:</strong> use <strong>EAN-13</strong> e registre na GS1 Brasil.</li>
+            <li><strong>Preciso só controlar meu estoque interno:</strong> use <strong>Code 128</strong> — suporta letras e números, tem boa densidade e é lido por qualquer leitor moderno.</li>
+            <li><strong>Etiquetar crachás ou ativos corporativos:</strong> <strong>Code 39</strong> é o mais antigo e mais compatível, mesmo com leitores muito simples.</li>
+            <li><strong>Caixas e pallets de transporte:</strong> <strong>ITF-14</strong> (padrão GS1 para unidade logística).</li>
+            <li><strong>Exportar para os EUA:</strong> <strong>UPC-A</strong> é o padrão norte-americano obrigatório em varejistas como Walmart.</li>
+            <li><strong>Produtos com embalagem muito pequena:</strong> <strong>EAN-8</strong> (varejo) ou <strong>UPC-E</strong> (EUA).</li>
+            <li><strong>Indústria farmacêutica:</strong> <strong>Pharmacode</strong> para controle interno, <strong>EAN-13</strong> para venda ao consumidor.</li>
+            <li><strong>Bibliotecas:</strong> <strong>Codabar</strong> por compatibilidade com sistemas legados de catalogação.</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Compatibilidade leitores */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Compatibilidade com Leitores de Código de Barras</h2>
+        <div className="prose prose-gray max-w-none text-gray-600 space-y-3">
+          <p>
+            Todos os formatos gerados pelo GeraCode seguem as especificações ISO/IEC oficiais, garantindo compatibilidade com leitores de
+            qualquer marca — desde pistolas CCD baratas (Bematech, Zebra, Honeywell, Elgin, Argox) até leitores industriais sem fio e aplicativos
+            de celular.
+          </p>
+          <p>
+            Para <strong>leitores baseados em imagem</strong> (smartphones ou câmeras 2D), todos os formatos 1D e também QR Codes são lidos
+            normalmente. Para <strong>leitores a laser tradicionais</strong>, apenas códigos 1D funcionam — QR Codes (2D) exigem leitores image-based
+            (ZCS, Zebra DS-série, smartphones).
+          </p>
+          <p className="text-sm">
+            Use nosso <Link href="/leitor-de-codigo-de-barras" className="text-indigo-600 hover:underline">Leitor de Código de Barras online</Link> para
+            testar códigos diretamente pelo navegador, sem precisar de hardware adicional.
+          </p>
+        </div>
+      </section>
+
       <FAQSection items={faqs} />
 
       <RelatedTools currentPath="/gerador-de-codigo-de-barras" />
