@@ -1,0 +1,103 @@
+slug: sobre
+title: "Sobre | Ferramentas Gratuitas para Lojistas"
+metaDescription: "Conheça o GeraCode: plataforma gratuita e 100% privada de geração de código de barras e QR Code Pix para lojistas e empreendedores brasileiros."
+h1: "Sobre o GeraCode"
+subtitulo: ""
+ogTitle: "Sobre o GeraCode | Ferramentas Gratuitas para Lojistas Brasileiros"
+ogDescription: "Conheça o GeraCode: plataforma gratuita e 100% privada de geração de código de barras e QR Code Pix."
+twitterTitle: "Sobre o GeraCode | Ferramentas Gratuitas para Lojistas"
+twitterDescription: "Conheça o GeraCode: plataforma gratuita e 100% privada de geração de código de barras e QR Code Pix."
+dataAtualizacao: "2026-03-01"
+schemaType: "AboutPage"
+schemaDatePublished: "2026-01-15"
+schemaDateModified: "2026-03-01"
+breadcrumbLabel: "Sobre"
+containerWidth: "4xl"
+bgCard: false
+showMidAd: true
+robotsNoindex: false
+bodyMarkdown: |
+  ## Nossa Missão
+
+  O **GeraCode** nasceu com uma missão clara: oferecer ferramentas gratuitas, simples e seguras para lojistas e empreendedores brasileiros que precisam gerar códigos de barras e QR Codes no dia a dia.
+
+  Acreditamos que todo pequeno negócio merece acesso a ferramentas profissionais sem custo, sem cadastro e sem complicação. Por isso, criamos uma plataforma que funciona 100% no navegador do usuário, garantindo total privacidade dos dados.
+
+  ## Como Funciona
+
+  Todas as ferramentas do GeraCode utilizam processamento **client-side** (no lado do cliente). Isso significa que nenhum dado que você insere (chave Pix, nome, valor, código de barras) é enviado para servidores externos. O processamento acontece inteiramente no seu dispositivo, seja computador, tablet ou smartphone.
+
+  Utilizamos tecnologias modernas e confiáveis: o gerador de QR Code Pix implementa o padrão **BR Code EMV** definido pelo Banco Central do Brasil, com checksum CRC16 válido. Os códigos de barras são gerados com a biblioteca JsBarcode, amplamente reconhecida no mercado. Os QR Codes utilizam a biblioteca QRCode para Node.js.
+
+  Cada ferramenta é coberta por uma **suíte de testes automatizados** que valida a conformidade com as especificações oficiais — desde o cálculo do dígito verificador EAN (algoritmo módulo 10) até a geração do payload Pix (verificação CRC16-CCITT e validação dos campos EMV obrigatórios). Os códigos gerados podem ser validados por qualquer leitor ou aplicativo bancário padrão de mercado.
+
+  ## Política Editorial e Compromisso com Qualidade
+
+  Todo o conteúdo publicado no GeraCode — textos explicativos, FAQs, guias de uso e referências técnicas — é escrito com base em **fontes oficiais e verificáveis**, como a documentação do Banco Central do Brasil para o Pix, as especificações públicas da GS1 (padrões EAN/GTIN) e as normas ISO/IEC aplicáveis a códigos de barras 1D e 2D.
+
+  Adotamos os seguintes princípios editoriais:
+
+  - **Precisão técnica:** cada afirmação envolvendo padrões (EAN-13, BR Code, Code 128, UPC-A) é verificada contra a especificação oficial antes da publicação.
+  - **Linguagem acessível:** escrevemos para lojistas e empreendedores, não apenas para desenvolvedores. Termos técnicos são sempre explicados na primeira ocorrência.
+  - **Atualização contínua:** revisamos os guias sempre que há mudanças relevantes nas regulamentações (por exemplo, novas regras do Pix publicadas pelo Banco Central) ou nas diretrizes da GS1 Brasil.
+  - **Referências visíveis:** quando citamos uma regra, política ou padrão, incluímos link direto para a fonte oficial para que o leitor possa verificar.
+  - **Sem conteúdo patrocinado disfarçado:** não recebemos pagamento para recomendar bancos, fintechs, marketplaces ou software. Recomendações e comparações refletem apenas critérios técnicos e de adequação ao público brasileiro.
+
+  Erros factuais ou desatualizações podem ser reportados pelo canal de contato abaixo. Correções relevantes são aplicadas em até 7 dias úteis e registradas na data de "última atualização" de cada página.
+
+  ## Quem Mantém o GeraCode
+
+  O GeraCode é mantido por uma pequena equipe brasileira com experiência em desenvolvimento web, e-commerce e integrações de pagamento. O projeto começou como uma ferramenta interna usada por lojistas parceiros que precisavam gerar QR Codes Pix e códigos de barras rapidamente, sem depender de softwares pagos ou sites intrusivos carregados de rastreadores.
+
+  Depois de perceber que a mesma dor atingia milhares de MEIs, autônomos e pequenas empresas no Brasil, decidimos abrir o acesso gratuito, preservando os dois compromissos que consideramos inegociáveis: **privacidade por padrão** (processamento local) e **conformidade técnica** com os padrões oficiais (Banco Central, GS1, ISO/IEC).
+
+  O funcionamento das ferramentas é auditável pelo próprio usuário — basta abrir o DevTools do navegador (F12), aba "Network", e acompanhar que nenhuma requisição é feita para servidores externos durante a geração dos códigos. A única comunicação com a rede acontece para carregar a página inicial, os scripts estáticos e os anúncios que sustentam o projeto gratuito.
+
+  ## Contato
+
+  Dúvidas, sugestões, correções ou denúncias de conteúdo podem ser enviadas para:
+
+  - **E-mail:** [amandabudric@gmail.com](mailto:amandabudric@gmail.com)
+  - **Assuntos técnicos** (código incorreto, erro de leitura, formato não suportado): inclua um print da ferramenta e o dado de entrada utilizado.
+  - **Assuntos editoriais** (correção em guia, FAQ desatualizada, sugestão de tema): indique a URL da página e, se possível, a fonte oficial que embasa a correção.
+  - **Imprensa e parcerias:** use o mesmo e-mail identificando no assunto "Imprensa" ou "Parceria".
+
+  Respondemos em até 3 dias úteis. O GeraCode não oferece suporte para integrações customizadas, APIs de bancos ou desenvolvimento sob demanda — somos apenas uma plataforma de ferramentas prontas para uso.
+
+  ## Como Nos Financiamos
+
+  O GeraCode é gratuito para todos os usuários e não tem plano pago, assinatura, limite de uso ou versão "premium". O projeto é sustentado por **anúncios exibidos nas páginas de ferramentas**, sempre em áreas claramente identificadas e nunca intercalados ao resultado da geração (para evitar confusão entre o código gerado e conteúdo patrocinado).
+
+  Os anúncios são servidos por redes reconhecidas e seguem as boas práticas de transparência: não são exibidos banners que imitam botões das ferramentas, não há pop-ups intrusivos e não há cobrança disfarçada. Usuários podem utilizar bloqueadores de anúncios livremente — as ferramentas continuam funcionando normalmente.
+
+  Coletamos métricas agregadas de uso (página visitada, tempo de engajamento, ferramenta mais utilizada) através do Google Analytics 4 com consentimento prévio, conforme descrito na nossa [Política de Privacidade](/privacidade). Nenhum dado inserido nas ferramentas (chave Pix, códigos, valores, nomes) é coletado — isso é garantido pela arquitetura client-side.
+
+  ## Nossas Ferramentas
+
+  - [Gerador de QR Code Pix](/gerador-de-qr-code-pix): Crie QR Codes para pagamento via Pix com payload BR Code EMV válido. Suporta chaves CPF, CNPJ, e-mail, telefone e aleatória.
+  - [Gerador de Código de Barras](/gerador-de-codigo-de-barras): 12 formatos incluindo EAN-13, Code 128, Code 93, UPC-A, ITF-14 e Codabar. Geração em lote, PDF, etiquetas e histórico.
+  - [Gerador de EAN-13 e EAN-8](/gerador-de-ean): Gerador dedicado com cálculo automático do dígito verificador. Download em PNG, SVG e PDF.
+  - [Gerador de QR Code](/gerador-de-qr-code): Gere QR Code para links, textos, WhatsApp, Wi-Fi e qualquer conteúdo. Color picker e seletor de tamanho inclusos.
+  - [Leitor de Código de Barras](/leitor-de-codigo-de-barras): Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar aplicativo.
+  - [Gerador de SKU](/gerador-de-sku): Crie códigos SKU padronizados para organizar seu estoque. Geração em lote e exportação CSV.
+
+  ## Privacidade e Segurança
+
+  A privacidade dos nossos usuários é prioridade absoluta. O GeraCode:
+
+  - Não coleta dados pessoais
+  - Não exige cadastro ou login
+  - Não armazena nenhuma informação inserida nas ferramentas
+  - Processa tudo localmente no navegador do usuário
+  - Não compartilha dados com terceiros
+  - Utiliza HTTPS em todas as conexões
+
+  ## Para Quem é o GeraCode
+
+  O GeraCode foi projetado para atender diversas necessidades do mercado brasileiro:
+
+  - **Lojistas e e-commerce:** Gere códigos de barras para produtos e QR Code Pix para receber pagamentos.
+  - **MEIs e autônomos:** Crie seu QR Code Pix profissional para cobranças de forma rápida e gratuita.
+  - **Restaurantes e food service:** QR Code para cardápios digitais e QR Pix para pagamentos no balcão.
+  - **Profissionais de marketing:** QR Codes personalizados para campanhas, embalagens e materiais impressos.
+  - **Desenvolvedores:** Teste e valide códigos de barras e payloads Pix durante o desenvolvimento.

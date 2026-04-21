@@ -1,0 +1,44 @@
+headerLinks:
+  - href: "/gerador-de-codigo-de-barras"
+    label: "Código de Barras"
+  - href: "/gerador-de-ean"
+    label: "EAN-13 / EAN-8"
+  - href: "/gerador-de-qr-code-pix"
+    label: "QR Code Pix"
+  - href: "/gerador-de-qr-code"
+    label: "QR Code"
+  - href: "/leitor-de-codigo-de-barras"
+    label: "Leitor"
+  - href: "/gerador-de-sku"
+    label: "SKU"
+  - href: "/blog"
+    label: "Blog"
+
+footerFerramentas:
+  - href: "/gerador-de-codigo-de-barras"
+    label: "Código de Barras"
+  - href: "/gerador-de-ean"
+    label: "EAN-13 / EAN-8"
+  - href: "/gerador-de-qr-code-pix"
+    label: "QR Code Pix"
+  - href: "/gerador-de-qr-code"
+    label: "QR Code"
+  - href: "/leitor-de-codigo-de-barras"
+    label: "Leitor de Código de Barras"
+  - href: "/gerador-de-sku"
+    label: "Gerador de SKU"
+
+footerConteudo:
+  - href: "/blog"
+    label: "Blog"
+
+footerInstitucional:
+  - href: "/sobre"
+    label: "Sobre"
+  - href: "/privacidade"
+    label: "Privacidade"
+  - href: "/termos"
+    label: "Termos de Uso"
+
+footerTagline: "Ferramentas gratuitas de geração de código de barras e QR Code Pix para lojistas brasileiros. 100% privado, sem cadastro."
+copyrightText: "GeraCode · Ferramentas gratuitas para lojistas brasileiros"

@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from './keystatic.config'
 
 const isDev = process.env.NODE_ENV === 'development'
+
+const reader = createReader(process.cwd(), keystaticConfig)
 
 const securityHeaders = [
   { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -27,24 +31,26 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [
+    // Host-level redirect (apex → www) fica hardcoded — é infraestrutura, não conteúdo.
+    const infraRedirects = [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "geracodigo.com.br" }],
+        has: [{ type: "host" as const, value: "geracodigo.com.br" }],
         destination: "https://www.geracodigo.com.br/:path*",
-        statusCode: 301,
+        statusCode: 301 as const,
       },
-      {
-        source: "/gerador-codigo-de-barras",
-        destination: "/gerador-de-codigo-de-barras",
-        statusCode: 301,
-      },
-      {
-        source: "/termos-e-privacidade",
-        destination: "/termos",
-        statusCode: 301,
-      },
-    ];
+    ]
+
+    const cmsConfig = await reader.singletons.redirects.read().catch(() => null)
+    const cmsRedirects = (cmsConfig?.items ?? [])
+      .filter((r) => r.source && r.destination)
+      .map((r) => ({
+        source: r.source,
+        destination: r.destination,
+        permanent: r.permanent !== false,
+      }))
+
+    return [...infraRedirects, ...cmsRedirects]
   },
 
   async headers() {

@@ -6,32 +6,32 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/keystatic/'],
       },
       {
         userAgent: 'GPTBot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/keystatic/'],
       },
       {
         userAgent: 'ChatGPT-User',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/keystatic/'],
       },
       {
         userAgent: 'ClaudeBot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/keystatic/'],
       },
       {
         userAgent: 'PerplexityBot',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/keystatic/'],
       },
       {
         userAgent: 'Google-Extended',
         allow: '/',
-        disallow: ['/api/'],
+        disallow: ['/api/', '/keystatic/'],
       },
     ],
     sitemap: 'https://www.geracodigo.com.br/sitemap.xml',

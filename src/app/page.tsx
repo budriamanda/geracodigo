@@ -3,82 +3,41 @@ import type { Metadata } from 'next'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
+import MarkdownContent from '@/components/MarkdownContent'
 import { reader } from '@/lib/content'
-
-const schemas = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': 'https://www.geracodigo.com.br/#website',
-    name: 'GeraCode',
-    url: 'https://www.geracodigo.com.br',
-    description: 'Ferramentas gratuitas de geração de código de barras, QR Code Pix, leitor de código de barras e gerador de SKU para lojistas brasileiros',
-    inLanguage: 'pt-BR',
-    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': 'https://www.geracodigo.com.br/#organization',
-    name: 'GeraCode',
-    url: 'https://www.geracodigo.com.br',
-    logo: 'https://www.geracodigo.com.br/logo.svg',
-    description: 'Ferramentas gratuitas de geração de código de barras, QR Code Pix e SKU para lojistas brasileiros',
-    foundingDate: '2026-01-01',
-    sameAs: [],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'GeraCode', item: 'https://www.geracodigo.com.br/' },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Ferramentas do GeraCode',
-    description: 'Todas as ferramentas gratuitas de geração de código disponíveis no GeraCode',
-    numberOfItems: 6,
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Gerador de QR Code Pix', item: 'https://www.geracodigo.com.br/gerador-de-qr-code-pix' },
-      { '@type': 'ListItem', position: 2, name: 'Gerador de Código de Barras', item: 'https://www.geracodigo.com.br/gerador-de-codigo-de-barras' },
-      { '@type': 'ListItem', position: 3, name: 'Gerador de EAN-13 e EAN-8', item: 'https://www.geracodigo.com.br/gerador-de-ean' },
-      { '@type': 'ListItem', position: 4, name: 'Gerador de QR Code', item: 'https://www.geracodigo.com.br/gerador-de-qr-code' },
-      { '@type': 'ListItem', position: 5, name: 'Leitor de Código de Barras', item: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras' },
-      { '@type': 'ListItem', position: 6, name: 'Gerador de SKU', item: 'https://www.geracodigo.com.br/gerador-de-sku' },
-    ],
-  },
-]
+import { SITE_URL } from '@/lib/constants'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const config = await reader.singletons.siteConfig.read()
+  const [home, siteCfg] = await Promise.all([
+    reader.singletons.homepage.read(),
+    reader.singletons.siteConfig.read(),
+  ])
   return {
-    title: { absolute: 'GeraCode | Código de Barras, QR Code Pix, EAN, Leitor e SKU Grátis' },
-    description: config?.siteDescription ?? 'Gerador grátis de código de barras (12+ formatos), QR Code Pix, leitor de código de barras via câmera e gerador de SKU. Geração em lote, PDF, etiquetas. 100% privado, sem cadastro.',
-    alternates: {
-      canonical: 'https://www.geracodigo.com.br/',
-    },
+    title: { absolute: home?.title ?? 'GeraCode | Código de Barras, QR Code Pix, EAN, Leitor e SKU Grátis' },
+    description: home?.metaDescription ?? siteCfg?.siteDescription ?? '',
+    alternates: { canonical: `${SITE_URL}/` },
     openGraph: {
-      title: 'GeraCode | Gerador de Código de Barras, QR Code Pix e SKU Grátis',
-      description: 'Ferramentas gratuitas para lojistas brasileiros. 12+ formatos de código de barras, QR Code Pix, leitor via câmera e SKU. Sem cadastro.',
-      url: 'https://www.geracodigo.com.br/',
+      title: home?.ogTitle ?? home?.title ?? 'GeraCode',
+      description: home?.ogDescription ?? home?.metaDescription ?? '',
+      url: `${SITE_URL}/`,
       type: 'website',
       locale: 'pt_BR',
-      siteName: config?.siteName ?? 'GeraCode',
-      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'GeraCode | Gerador de Código de Barras e QR Code Pix' }],
+      siteName: siteCfg?.siteName ?? 'GeraCode',
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: home?.ogTitle ?? 'GeraCode' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
-      description: 'Ferramentas gratuitas para lojistas brasileiros. Sem cadastro, sem servidor.',
+      title: home?.twitterTitle ?? home?.title ?? 'GeraCode',
+      description: home?.twitterDescription ?? home?.metaDescription ?? '',
       images: ['/opengraph-image'],
     },
   }
 }
 
 export default async function HomePage() {
-  const [ferramentasAll, faqsAll, publicosAll] = await Promise.all([
+  const [home, seo, ferramentasAll, faqsAll, publicosAll] = await Promise.all([
+    reader.singletons.homepage.read(),
+    reader.singletons.globalSeo.read(),
     reader.collections.ferramentas.all(),
     reader.collections.faqs.all(),
     reader.collections.publicosAlvo.all(),
@@ -104,6 +63,66 @@ export default async function HomePage() {
     .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
     .map((p) => ({ title: p.entry.titulo, desc: p.entry.descricao }))
 
+  const porqueUsarItems = home?.porqueUsarItems?.length
+    ? home.porqueUsarItems
+    : [
+        { icone: '🔒', titulo: '100% Privado', descricao: 'Tudo gerado no seu navegador. Nenhum dado é enviado para servidores externos.' },
+        { icone: '⚡', titulo: 'Completo e Gratuito', descricao: 'Ferramentas integradas sem limite de uso.' },
+        { icone: '🇧🇷', titulo: 'Feito para o Brasil', descricao: 'QR Code Pix padrão Banco Central.' },
+        { icone: '📦', titulo: 'Geração em Lote', descricao: 'ZIP, PDF, etiquetas direto do navegador.' },
+      ]
+
+  const comoFuncionaSteps = home?.comoFuncionaSteps?.length
+    ? home.comoFuncionaSteps
+    : [
+        { step: '1', titulo: 'Escolha a ferramenta', descricao: 'Selecione o que precisa.' },
+        { step: '2', titulo: 'Preencha os dados', descricao: 'Preview em tempo real.' },
+        { step: '3', titulo: 'Baixe, imprima ou copie', descricao: 'Exporte em diversos formatos.' },
+      ]
+
+  const schemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: seo?.organizationName ?? 'GeraCode',
+      url: SITE_URL,
+      description: home?.metaDescription ?? seo?.defaultDescription ?? '',
+      inLanguage: 'pt-BR',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: seo?.organizationName ?? 'GeraCode',
+      url: SITE_URL,
+      logo: seo?.organizationLogo ?? `${SITE_URL}/logo.svg`,
+      description: home?.metaDescription ?? seo?.defaultDescription ?? '',
+      foundingDate: seo?.organizationFoundingDate ?? '2026-01-01',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'GeraCode', item: `${SITE_URL}/` },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Ferramentas do GeraCode',
+      description: 'Todas as ferramentas gratuitas de geração de código disponíveis no GeraCode',
+      numberOfItems: tools.length,
+      itemListElement: tools.map((t, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: t.title,
+        item: `${SITE_URL}${t.href}`,
+      })),
+    },
+  ]
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <SchemaMarkup schema={schemas} />
@@ -111,28 +130,31 @@ export default async function HomePage() {
       {/* Hero */}
       <section className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Gerador de Código de Barras, QR Code Pix e SKU Grátis
+          {home?.heroH1 ?? 'Gerador de Código de Barras, QR Code Pix e SKU Grátis'}
         </h1>
         <p className="text-xl text-gray-600 mb-2 max-w-2xl mx-auto">
-          6 ferramentas online gratuitas para lojistas e empreendedores brasileiros.
-          Gere códigos de barras em 12+ formatos, QR Code Pix, leia códigos pela câmera e crie SKUs. Tudo em segundos.
+          {home?.heroSubtitle ?? ''}
         </p>
-        <p className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mt-4">
-          <span aria-hidden="true">{'\u{1F512}'}</span> 100% privado. Seus dados nunca saem do seu navegador
-        </p>
-        <div className="mt-6">
-          <a
-            href="#ferramentas"
-            className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-          >
-            Comece a gerar agora
-          </a>
-        </div>
+        {home?.heroBadgeText && (
+          <p className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mt-4">
+            <span aria-hidden="true">{'\u{1F512}'}</span> {home.heroBadgeText}
+          </p>
+        )}
+        {home?.heroCtaText && (
+          <div className="mt-6">
+            <a
+              href={home?.heroCtaHref || '#ferramentas'}
+              className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+            >
+              {home.heroCtaText}
+            </a>
+          </div>
+        )}
       </section>
 
       {/* Ferramentas */}
       <section aria-labelledby="tools-heading" id="ferramentas">
-        <h2 id="tools-heading" className="text-2xl font-bold text-gray-900 mb-6">Ferramentas Disponíveis</h2>
+        <h2 id="tools-heading" className="text-2xl font-bold text-gray-900 mb-6">{home?.ferramentasSectionTitle ?? 'Ferramentas Disponíveis'}</h2>
         <ul role="list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {tools.map((tool) => (
             <li key={tool.href}>
@@ -164,61 +186,37 @@ export default async function HomePage() {
 
       {/* Por que usar o GeraCode */}
       <section aria-labelledby="why-geracode" className="bg-white rounded-xl border border-gray-200 p-8 mb-16">
-        <h2 id="why-geracode" className="text-2xl font-bold text-gray-900 mb-6 text-center">Por que usar o GeraCode?</h2>
+        <h2 id="why-geracode" className="text-2xl font-bold text-gray-900 mb-6 text-center">{home?.porqueUsarTitle ?? 'Por que usar o GeraCode?'}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="flex flex-col gap-2">
-            <span className="text-2xl" aria-hidden="true">{'\u{1F512}'}</span>
-            <h3 className="font-semibold text-gray-900">100% Privado</h3>
-            <p className="text-sm text-gray-500">Tudo gerado no seu navegador. Nenhum dado é enviado para servidores externos. Sua privacidade é total.</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-2xl" aria-hidden="true">{'\u26A1'}</span>
-            <h3 className="font-semibold text-gray-900">Completo e Gratuito</h3>
-            <p className="text-sm text-gray-500">12 formatos de código de barras, geração em lote, PDF, etiquetas, leitor via câmera e gerador de SKU. Tudo grátis, sem limite.</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-2xl" aria-hidden="true">{'\u{1F1E7}\u{1F1F7}'}</span>
-            <h3 className="font-semibold text-gray-900">Feito para o Brasil</h3>
-            <p className="text-sm text-gray-500">QR Code Pix com payload BR Code no padrão do Banco Central. Compatível com Nubank, Itaú, Bradesco e todos os bancos.</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <span className="text-2xl" aria-hidden="true">{'\u{1F4E6}'}</span>
-            <h3 className="font-semibold text-gray-900">Geração em Lote</h3>
-            <p className="text-sm text-gray-500">Gere dezenas de códigos de uma vez. Cole do Excel, baixe em ZIP ou PDF, imprima etiquetas direto do navegador.</p>
-          </div>
+          {porqueUsarItems.map(({ icone, titulo, descricao }) => (
+            <div key={titulo} className="flex flex-col gap-2">
+              {icone && <span className="text-2xl" aria-hidden="true">{icone}</span>}
+              <h3 className="font-semibold text-gray-900">{titulo}</h3>
+              <p className="text-sm text-gray-500">{descricao}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* O que e o GeraCode */}
-      <section aria-labelledby="about-geracode" className="mb-16">
-        <h2 id="about-geracode" className="text-2xl font-bold text-gray-900 mb-4">O que é o GeraCode?</h2>
-        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
-          <p>
-            O <strong>GeraCode</strong> reúne 6 ferramentas gratuitas de códigos para <strong>lojistas, empreendedores e pequenos negócios brasileiros</strong>.
-            Com 6 ferramentas integradas, você pode gerar códigos de barras em 12 formatos (EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais),
-            QR Codes genéricos, <strong>QR Code Pix</strong> com payload BR Code EMV válido, ler códigos de barras pela câmera e criar códigos SKU padronizados.
-          </p>
-          <p>
-            Diferente de outras ferramentas, o GeraCode processa tudo localmente no seu dispositivo. Nenhuma informação é enviada para servidores,
-            garantindo <strong>total privacidade e segurança</strong>. Inclui funcionalidades como <strong>geração em lote, download em PDF, impressão de etiquetas,
-            cálculo automático do dígito verificador (CRC16 para Pix)</strong> e <strong>histórico local</strong>. Tudo 100% no navegador, sem depender de servidores externos.
-          </p>
-        </div>
-      </section>
+      {/* O que é o GeraCode */}
+      {home?.oQueEContent && (
+        <section aria-labelledby="about-geracode" className="mb-16">
+          <h2 id="about-geracode" className="text-2xl font-bold text-gray-900 mb-4">{home?.oQueETitle ?? 'O que é o GeraCode?'}</h2>
+          <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
+            <MarkdownContent content={home.oQueEContent} />
+          </div>
+        </section>
+      )}
 
       {/* Como funciona */}
       <section aria-labelledby="how-it-works" className="bg-white rounded-xl border border-gray-200 p-8 mb-16">
-        <h2 id="how-it-works" className="text-2xl font-bold text-gray-900 mb-6 text-center">Como funciona</h2>
+        <h2 id="how-it-works" className="text-2xl font-bold text-gray-900 mb-6 text-center">{home?.comoFuncionaTitle ?? 'Como funciona'}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { step: '1', title: 'Escolha a ferramenta', desc: 'Selecione o que precisa: código de barras (12 formatos), QR Code Pix, QR Code genérico, leitor de código de barras ou gerador de SKU.' },
-            { step: '2', title: 'Preencha os dados', desc: 'Insira as informações necessárias. Personalize cores, tamanhos e estilos. O preview é gerado automaticamente em tempo real.' },
-            { step: '3', title: 'Baixe, imprima ou copie', desc: 'Download em PNG, SVG ou PDF. Gere em lote e baixe em ZIP. Imprima etiquetas. Copie códigos para a área de transferência.' },
-          ].map(({ step, title, desc }) => (
+          {comoFuncionaSteps.map(({ step, titulo, descricao }) => (
             <div key={step} className="text-center">
               <div className="w-12 h-12 rounded-full bg-indigo-100 text-indigo-700 font-bold text-lg flex items-center justify-center mx-auto mb-4" aria-hidden="true">{step}</div>
-              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
+              <h3 className="font-semibold text-gray-900 mb-2">{titulo}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">{descricao}</p>
             </div>
           ))}
         </div>
@@ -226,7 +224,7 @@ export default async function HomePage() {
 
       {/* Para quem */}
       <section aria-labelledby="who-is-it-for" className="mb-16">
-        <h2 id="who-is-it-for" className="text-2xl font-bold text-gray-900 mb-6">Para quem é o GeraCode?</h2>
+        <h2 id="who-is-it-for" className="text-2xl font-bold text-gray-900 mb-6">{home?.paraQuemTitle ?? 'Para quem é o GeraCode?'}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {publicos.map(({ title, desc }) => (
             <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">

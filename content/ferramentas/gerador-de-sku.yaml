@@ -7,8 +7,184 @@ twitterTitle: "Gerador de SKU Grátis | GeraCode"
 twitterDescription: "Crie SKUs padronizados para controle de estoque. Lote e CSV."
 h1: "Gerador de SKU Grátis Online"
 subtitle: "Crie códigos SKU padronizados para organizar seu estoque. Geração em lote com exportação CSV."
+privacyBadgeText: "Tudo processado no seu navegador. Nenhum dado sai do seu dispositivo"
 badge: "Novo"
 badgeColor: "bg-amber-100 text-amber-800"
 icon: "📦"
 cardDescription: "Crie códigos SKU padronizados para organizar seu estoque. Prefixo, categoria, atributos e sequencial. Exportação CSV."
 ordem: 6
+
+ogAccent: "#7c3aed"
+keywordPrimaria: "gerador sku"
+keywordsSecundarias:
+  - "gerador sku grátis"
+  - "criar sku online"
+  - "código sku produtos"
+  - "sku para estoque"
+dataAtualizacao: "2026-03-27"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "sku"
+
+schemaAppName: "Gerador de SKU"
+schemaAppDescription: "Gere códigos SKU padronizados para seus produtos. Defina prefixo, categoria, atributos e sequencial. Geração em lote com exportação CSV."
+schemaFeatureList:
+  - "Geração de SKU padronizado"
+  - "Prefixo de marca"
+  - "Categoria de produto"
+  - "Atributos customizáveis (cor, tamanho)"
+  - "Número sequencial"
+  - "Geração em lote (até 500)"
+  - "Exportação CSV"
+  - "Preview em tempo real"
+  - "100% client-side"
+schemaHowToName: "Como criar códigos SKU para produtos"
+schemaHowToDescription: "Passo a passo para gerar SKUs padronizados para controle de estoque."
+schemaHowToTotalTime: "PT3M"
+schemaHowToSteps:
+  - nome: "Defina o padrão"
+    texto: "Escolha um prefixo para sua marca, uma abreviação para a categoria e atributos como cor e tamanho."
+  - nome: "Configure a quantidade"
+    texto: "Defina o número sequencial inicial e quantos SKUs deseja gerar de uma vez."
+  - nome: "Gere e exporte"
+    texto: "Clique em Gerar, copie os SKUs ou exporte em CSV para importar no seu sistema."
+schemaAboutName: "SKU (Stock Keeping Unit)"
+schemaDatePublished: "2026-02-10"
+schemaDateModified: "2026-03-27"
+
+secoesConteudo:
+  - tipo: steps
+    titulo: "Como criar códigos SKU"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "purple"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Defina o padrão"
+        descricao: "Escolha um prefixo para identificar sua marca/loja (ex: LOJA), uma abreviação para a categoria (ex: CAM para camiseta) e atributos como cor e tamanho."
+        icone: ""
+      - titulo: "Configure a quantidade"
+        descricao: "Defina o número sequencial inicial e quantos SKUs deseja gerar (até 500 de uma vez). O preview mostra como ficará o SKU em tempo real."
+        icone: ""
+      - titulo: "Gere e exporte"
+        descricao: "Clique em Gerar. Copie os SKUs para a área de transferência ou baixe em CSV para importar no seu ERP, planilha ou plataforma de e-commerce."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "O que é SKU?"
+    subtitulo: ""
+    conteudo: "**SKU (Stock Keeping Unit)** é um código interno criado pela própria empresa para identificar cada variação de produto no estoque. Diferente do código de barras EAN (que é universal e registrado na GS1), o SKU é definido livremente pelo lojista.\n\nUm bom sistema de SKU facilita a **gestão de estoque**, permite localizar produtos rapidamente, evita erros no despacho e melhora a organização geral do catálogo.\n\nExemplo: `LOJA-CAM-AZL-M-0001` identifica a camiseta azul tamanho M, número 0001, da loja."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Boas práticas para criar SKUs"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Seja consistente"
+        descricao: "Defina um padrão e mantenha-o para todos os produtos. Use sempre a mesma quantidade de caracteres para cada campo."
+        icone: ""
+      - titulo: "Use abreviações claras"
+        descricao: "CAM para camiseta, CAL para calça, AZL para azul, VRM para vermelho. Qualquer pessoa da equipe deve entender o código."
+        icone: ""
+      - titulo: "Evite caracteres especiais"
+        descricao: "Use apenas letras maiúsculas, números e separadores simples (hífen ou underline). Evite acentos, espaços e caracteres especiais."
+        icone: ""
+      - titulo: "Inclua número sequencial"
+        descricao: "O sequencial garante unicidade mesmo quando dois produtos compartilham categoria e atributos. Use 4 dígitos (0001-9999)."
+        icone: ""
+      - titulo: "Não confunda com EAN"
+        descricao: "SKU é interno da sua empresa. EAN é universal e registrado na GS1. Um produto pode (e deve) ter ambos."
+        icone: ""
+      - titulo: "Documente o padrão"
+        descricao: "Crie uma tabela de referência com as abreviações usadas. Compartilhe com toda a equipe para manter a consistência."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "SKU vs Código de Barras (EAN): Qual a diferença?"
+    subtitulo: ""
+    conteudo: "O **SKU** é um código interno, definido livremente por cada empresa. Não segue padrão universal e serve para organização interna do estoque, controle de variações (cor, tamanho) e logística interna.\n\nO **EAN (código de barras)** é um padrão global administrado pela GS1. É lido por leitores ópticos no ponto de venda e identifica o produto em qualquer sistema comercial do mundo.\n\n**Na prática:** use SKU para organizar seu estoque internamente e EAN para identificar o produto no mercado. Um produto pode ter ambos. Use o [Gerador de Código de Barras](/gerador-de-codigo-de-barras) para criar os códigos EAN e este gerador para os SKUs."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Exemplos de SKU por Setor"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Moda e vestuário"
+        descricao: "Exemplo: `LOJA-CAM-AZL-M-0001`. Loja → categoria (CAM = camiseta) → cor (AZL = azul) → tamanho (M) → sequencial. Inclua tamanho sempre, pois é a variação mais frequente."
+        icone: ""
+      - titulo: "Calçados"
+        descricao: "Exemplo: `SPT-TEN-PRT-39-0042`. Marca (SPT = Sport) → tipo (TEN = tênis) → cor (PRT = preto) → numeração (39) → sequencial. Use 2 dígitos para numeração do 34 ao 48."
+        icone: ""
+      - titulo: "Alimentos e bebidas"
+        descricao: "Exemplo: `MERC-BEB-REFRI-2L-0015`. Mercado → categoria (BEB = bebida) → subcategoria (REFRI) → volume (2L) → sequencial. Volume/peso costuma ser o diferenciador-chave."
+        icone: ""
+      - titulo: "Cosméticos"
+        descricao: "Exemplo: `BTQ-BATOM-VRM-MATE-0008`. Boutique → linha (BATOM) → cor (VRM = vermelho) → acabamento (MATE) → sequencial. Em cosméticos, inclua o acabamento (mate, gloss, cintilante) no SKU."
+        icone: ""
+      - titulo: "Eletrônicos e acessórios"
+        descricao: "Exemplo: `TECH-CAP-USB-C-2M-0033`. Marca → tipo (CAP = cabo) → interface (USB-C) → comprimento (2M) → sequencial. Para eletrônicos, padrões técnicos (USB-C, HDMI) substituem cor."
+        icone: ""
+      - titulo: "Livros e mídia"
+        descricao: "Exemplo: `LIV-ROM-EDIT2-CAPDR-0117`. Categoria (LIV) → gênero (ROM = romance) → edição (EDIT2) → tipo de capa (CAPDR = capa dura) → sequencial. Use também o ISBN em paralelo ao SKU."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Integração de SKUs com ERPs e Marketplaces"
+    subtitulo: ""
+    conteudo: "A maioria dos sistemas de gestão e plataformas de e-commerce aceita importação de produtos via planilha CSV. O SKU costuma ser a coluna-chave que liga o produto entre sistemas diferentes (estoque, loja virtual, marketplaces, transportadora).\n\nPadrões aceitos por plataforma:\n\n- **Mercado Livre:** SKU até 60 caracteres. Aceita letras maiúsculas, números, hífen e underline. Não aceita espaços.\n- **Shopee:** SKU pai + SKU variação. Até 100 caracteres. Necessário quando o produto tem tamanhos ou cores.\n- **Amazon (Seller Central):** SKU de até 40 caracteres, case-sensitive. Uma vez definido, não pode ser alterado.\n- **Shopify:** Até 255 caracteres. Aceita praticamente qualquer caractere, mas recomenda-se manter padrão simples.\n- **WooCommerce / VTEX / Magento:** Sem limite técnico na maioria dos casos, mas o padrão do catálogo deve ser consistente.\n- **Bling, Tiny, Omie (ERPs brasileiros):** Aceitam SKUs alfanuméricos padrão. Exportam CSV/XLSX diretamente com a coluna SKU para importação nos marketplaces.\n\nRecomendação: defina o SKU primeiro no ERP e replique para todos os canais de venda. Evite criar SKUs diferentes por canal — isso gera divergência de estoque e erros de expedição."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Erros Comuns na Gestão de SKU"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Reutilizar SKU de produto descontinuado"
+        descricao: "Quando um produto sai de linha, nunca reutilize o mesmo SKU em um item novo. Relatórios históricos e devoluções ficam bagunçados. Bloqueie o código antigo e crie um sequencial novo."
+        icone: ""
+      - titulo: "Usar o EAN como SKU"
+        descricao: "EAN é universal e externo; SKU é interno. Se você muda de fornecedor ou recebe o mesmo produto com EAN diferente, seu estoque perde referência. Mantenha os dois em colunas separadas."
+        icone: ""
+      - titulo: "SKU com espaços ou caracteres especiais"
+        descricao: "Espaços, acentos, barras (/) e caracteres como # ou & quebram importações em CSV e sistemas legados. Use apenas letras A-Z, números 0-9 e hífen (-) ou underline (_)."
+        icone: ""
+      - titulo: "Falta de padrão entre equipes"
+        descricao: "Quando compras, estoque e marketing criam SKUs diferentes para o mesmo produto, o controle fica impossível. Defina uma tabela de abreviações e centralize a geração em uma pessoa ou ferramenta."
+        icone: ""
+      - titulo: "Comprimento inconsistente"
+        descricao: "SKUs com comprimentos variados (ex: 12 caracteres em uns, 18 em outros) dificultam conferência visual e ordenação. Padronize o número de dígitos em cada bloco."
+        icone: ""
+      - titulo: "Sem número sequencial"
+        descricao: "Se dois produtos podem ter mesma categoria, cor e tamanho (ex: mesma camiseta de fornecedores diferentes), a falta de sequencial cria colisão. Inclua sempre um sufixo numérico."
+        icone: ""
+    tags: []
+    links: []
+
+faqFallbacks: []

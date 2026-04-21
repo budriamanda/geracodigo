@@ -1,251 +1,121 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
+import FAQSection from '@/components/FAQSection'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import ToolEngagementTracker from '@/components/ToolEngagementTracker'
-import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import ToolPageSections, { type ContentSection } from '@/components/ToolPageSections'
+import { LAST_UPDATED, LAST_UPDATED_ISO, SITE_URL } from '@/lib/constants'
 import { reader } from '@/lib/content'
+import { buildToolSchemas } from '@/lib/tool-schemas'
 
+const SLUG = 'leitor-de-codigo-de-barras'
 const BarcodeReader = dynamic(() => import('./BarcodeReader'), {
   loading: () => <GeneratorSkeleton />,
 })
 
-const schemas = [
-  {
-    '@context': 'https://schema.org',
-    '@type': ['WebApplication', 'SoftwareApplication'],
-    name: 'Leitor de Código de Barras Online',
-    description: 'Leia códigos de barras e QR Codes usando a câmera do seu dispositivo. Suporta EAN-13, Code 128, QR Code e mais. Gratuito, sem instalar nada.',
-    url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web Browser',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
-    inLanguage: 'pt-BR',
-    isAccessibleForFree: true,
-    featureList: [
-      'Leitura via câmera', 'EAN-13', 'EAN-8', 'Code 128', 'Code 39', 'Code 93',
-      'UPC-A', 'UPC-E', 'ITF', 'Codabar', 'QR Code', 'Detecção automática',
-      '100% client-side', 'Sem instalação',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: 'Como ler código de barras pelo celular sem aplicativo',
-    description: 'Use a câmera do celular para ler códigos de barras diretamente no navegador, sem instalar nenhum app.',
-    totalTime: 'PT1M',
-    inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode: Leitor de Código de Barras' },
-    step: [
-      { '@type': 'HowToStep', position: 1, name: 'Abra o leitor', text: 'Acesse o leitor de código de barras do GeraCode no navegador do celular ou computador.' },
-      { '@type': 'HowToStep', position: 2, name: 'Permita acesso à câmera', text: 'Clique em "Iniciar Câmera" e permita o acesso quando solicitado pelo navegador.' },
-      { '@type': 'HowToStep', position: 3, name: 'Aponte para o código', text: 'Posicione o código de barras ou QR Code na frente da câmera. A leitura é automática.' },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Leitor de Código de Barras Online Grátis',
-    description: 'Leia códigos de barras e QR Codes usando a câmera do seu dispositivo. Suporta EAN-13, Code 128, QR Code e mais. Gratuito, sem instalar nada.',
-    url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
-    inLanguage: 'pt-BR',
-    datePublished: '2026-02-10',
-    dateModified: '2026-03-27',
-    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
-    about: { '@type': 'Thing', name: 'Leitor de código de barras' },
-    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'GeraCode', item: 'https://www.geracodigo.com.br/' },
-      { '@type': 'ListItem', position: 2, name: 'Leitor de Código de Barras', item: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras' },
-    ],
-  },
-]
-
 export async function generateMetadata(): Promise<Metadata> {
-  const tool = await reader.collections.ferramentas.read('leitor-de-codigo-de-barras')
+  const tool = await reader.collections.ferramentas.read(SLUG)
+  const canonical = tool?.canonicalOverride?.trim() || `${SITE_URL}/${SLUG}`
   return {
-    title: tool?.title ?? 'Leitor de Código de Barras Online Grátis',
-    description: tool?.metaDescription ?? 'Leitor de código de barras online grátis. Use a câmera do celular ou computador para ler EAN-13, Code 128, QR Code e mais. Sem instalar aplicativo, 100% no navegador.',
-    alternates: { canonical: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras' },
+    title: tool?.title ?? '',
+    description: tool?.metaDescription ?? '',
+    alternates: { canonical },
+    ...(tool?.robotsNoindex ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
-      title: tool?.ogTitle ?? 'Leitor de Código de Barras Online Grátis | GeraCode',
-      description: tool?.ogDescription ?? 'Leia códigos de barras e QR Codes pela câmera do celular. Sem app, sem cadastro, 100% gratuito.',
-      url: 'https://www.geracodigo.com.br/leitor-de-codigo-de-barras',
+      title: tool?.ogTitle ?? tool?.title ?? '',
+      description: tool?.ogDescription ?? tool?.metaDescription ?? '',
+      url: canonical,
       type: 'website',
       locale: 'pt_BR',
       siteName: 'GeraCode',
-      images: [{ url: '/leitor-de-codigo-de-barras/opengraph-image', width: 1200, height: 630, alt: 'Leitor de Código de Barras Online | GeraCode' }],
+      images: [{ url: `/${SLUG}/opengraph-image`, width: 1200, height: 630, alt: tool?.ogTitle ?? '' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: tool?.twitterTitle ?? 'Leitor de Código de Barras Online | GeraCode',
-      description: tool?.twitterDescription ?? 'Leia códigos pela câmera. Sem app, sem cadastro.',
-      images: ['/leitor-de-codigo-de-barras/opengraph-image'],
+      title: tool?.twitterTitle ?? tool?.title ?? '',
+      description: tool?.twitterDescription ?? tool?.metaDescription ?? '',
+      images: [`/${SLUG}/opengraph-image`],
     },
   }
 }
 
 export default async function BarcodeReaderPage() {
   const [tool, faqsAll] = await Promise.all([
-    reader.collections.ferramentas.read('leitor-de-codigo-de-barras'),
+    reader.collections.ferramentas.read(SLUG),
     reader.collections.faqs.all(),
   ])
+  if (!tool) throw new Error(`Ferramenta não encontrada: ${SLUG}`)
+
   const faqs = faqsAll
     .filter((f) => f.entry.pagina === 'leitor')
     .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
     .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
+  const displayFaqs = faqs.length > 0
+    ? faqs
+    : (tool.faqFallbacks || []).map((f) => ({ question: f.pergunta, answer: f.resposta }))
+
+  const schemas = buildToolSchemas({
+    slug: SLUG,
+    h1: tool.h1,
+    schemaAppName: tool.schemaAppName,
+    schemaAppDescription: tool.schemaAppDescription,
+    schemaFeatureList: tool.schemaFeatureList as string[] | undefined,
+    schemaHowToName: tool.schemaHowToName,
+    schemaHowToDescription: tool.schemaHowToDescription,
+    schemaHowToTotalTime: tool.schemaHowToTotalTime,
+    schemaHowToSteps: tool.schemaHowToSteps as { nome: string; texto: string }[] | undefined,
+    schemaAboutName: tool.schemaAboutName,
+    schemaDatePublished: tool.schemaDatePublished,
+    schemaDateModified: tool.schemaDateModified,
+  })
+
+  const adPrefix = tool.adSlotPrefix || 'reader'
+  const sections = (tool.secoesConteudo || []) as unknown as ContentSection[]
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <ToolEngagementTracker toolName="barcode_reader" />
       <SchemaMarkup schema={schemas} />
       <div className="flex justify-center mb-6">
-        <AdSlot slot="reader-top" format="horizontal" />
+        <AdSlot slot={`${adPrefix}-top`} format="horizontal" />
       </div>
       <Breadcrumb current="Leitor de Código de Barras" />
-
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Leitor de Código de Barras Online Grátis'}</h1>
-        <p className="text-gray-600">{tool?.subtitle ?? 'Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada'}</p>
-        <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador. Nenhum dado é enviado para servidores</p>
-        <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool.h1}</h1>
+        <p className="text-gray-600">{tool.subtitle}</p>
+        {tool.privacyBadgeText && (
+          <p className="text-sm text-indigo-600 mt-1"><span aria-hidden="true">{'\u{1F512}'}</span> {tool.privacyBadgeText}</p>
+        )}
+        <LastUpdated date={LAST_UPDATED} isoDate={tool.dataAtualizacao || LAST_UPDATED_ISO} />
       </div>
-
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="flex-1 min-w-0">
           <BarcodeReader />
         </div>
         <aside className="lg:w-[300px] flex justify-center lg:justify-start">
-          <AdSlot slot="reader-sidebar" format="rectangle" />
+          <AdSlot slot={`${adPrefix}-sidebar`} format="rectangle" />
         </aside>
       </div>
 
-      {/* Como funciona */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Como usar o leitor de código de barras</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { step: '1', title: 'Inicie a câmera', desc: 'Clique em "Iniciar Câmera" e permita o acesso quando o navegador solicitar. A câmera traseira é usada automaticamente em celulares.' },
-            { step: '2', title: 'Aponte para o código', desc: 'Posicione o código de barras ou QR Code na frente da câmera, mantendo uma distância de 10-20cm. A detecção é automática.' },
-            { step: '3', title: 'Copie o resultado', desc: 'O valor decodificado aparece na lista. Clique em "Copiar" para usar o código em outras aplicações.' },
-          ].map(({ step, title, desc }) => (
-            <article key={step} className="bg-white rounded-xl border border-gray-200 p-6">
-              <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold text-lg flex items-center justify-center mb-4" aria-hidden="true">{step}</div>
-              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <ToolPageSections sections={sections} />
 
       <div className="flex justify-center mt-16">
-        <AdSlot slot="reader-mid" format="responsive" />
+        <AdSlot slot={`${adPrefix}-mid`} format="responsive" />
       </div>
 
-      {/* Formatos suportados */}
-      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Formatos suportados pelo leitor</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {['EAN-13', 'EAN-8', 'Code 128', 'Code 39', 'Code 93', 'UPC-A', 'UPC-E', 'ITF', 'Codabar', 'QR Code'].map(f => (
-            <div key={f} className="bg-gray-50 rounded-lg px-3 py-2 text-sm text-gray-700 text-center font-medium">{f}</div>
-          ))}
-        </div>
-        <p className="text-sm text-gray-500 mt-4">
-          O leitor utiliza a API BarcodeDetector nativa do navegador, disponível no Chrome 83+, Edge 83+ e Opera 69+. Para navegadores sem suporte, utilize a entrada manual.
-        </p>
-      </section>
-
-      {/* Casos de uso */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Quando usar o leitor de código de barras online</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { title: 'Conferência de estoque', desc: 'Escaneie produtos rapidamente para verificar códigos e quantidades sem precisar de um leitor físico dedicado.' },
-            { title: 'Verificação de etiquetas', desc: 'Após imprimir etiquetas com código de barras, use o leitor para confirmar que os códigos estão corretos e legíveis.' },
-            { title: 'Cadastro de produtos', desc: 'Leia o código de barras de um produto e copie o valor para cadastrar em planilhas, ERPs ou plataformas de e-commerce.' },
-            { title: 'Comparação de preços', desc: 'Escaneie produtos para identificar o código e buscar informações de preço em diferentes fornecedores.' },
-          ].map(({ title, desc }) => (
-            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
-              <p className="text-sm text-gray-500">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Compatibilidade por dispositivo */}
-      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Compatibilidade por Dispositivo</h2>
-        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
-          <p>
-            O leitor do GeraCode usa a <strong>BarcodeDetector API</strong>, nativa dos navegadores modernos. Em dispositivos compatíveis, a
-            detecção acontece em tempo real, sem enviar imagens a nenhum servidor. Resumo de compatibilidade:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-sm">
-            <li><strong>Android (Chrome, Edge, Samsung Internet):</strong> suporte completo a partir de 2020. Usa automaticamente a câmera traseira. Desempenho excelente, especialmente em Snapdragon e MediaTek recentes.</li>
-            <li><strong>iPhone (Safari iOS 17+):</strong> suporte nativo à BarcodeDetector desde setembro de 2023. Em versões mais antigas, a ferramenta usa fallback em JavaScript (mais lento, mas funcional).</li>
-            <li><strong>iPhone (Chrome iOS):</strong> como o Chrome no iOS usa o motor do Safari (WebKit), o suporte depende da versão do iOS instalada, não do navegador.</li>
-            <li><strong>Desktop Windows/Mac (Chrome 83+, Edge 83+):</strong> funciona com webcam conectada. Ideal para conferência de estoque sem comprar leitor físico.</li>
-            <li><strong>Firefox e Safari desktop:</strong> ainda sem suporte nativo à BarcodeDetector. A ferramenta oferece entrada manual como alternativa.</li>
-          </ul>
-          <p className="text-sm">
-            Em qualquer caso, nenhuma imagem da câmera é enviada para servidores — o processamento acontece inteiramente no seu dispositivo.
-            Isso é auditável abrindo as DevTools (F12, aba &quot;Network&quot;) enquanto usa a ferramenta.
-          </p>
-        </div>
-      </section>
-
-      {/* Troubleshooting leitor */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Problemas Comuns ao Usar o Leitor</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { problem: 'Câmera não abre ou fica preta', fix: 'Verifique se você autorizou o acesso à câmera quando o navegador solicitou. No Android, confira Configurações → Aplicativos → Chrome → Permissões → Câmera. No iPhone, Ajustes → Safari → Câmera.' },
-            { problem: 'Código não é detectado', fix: 'Aumente a iluminação, mantenha o código parado na frente da câmera a 10–20 cm, e garanta que o código esteja plano (sem amassados). Use a função de zoom do celular se necessário.' },
-            { problem: 'Detecção muito lenta', fix: 'Celulares antigos (anteriores a 2019) podem ter desempenho reduzido. Feche abas e apps em segundo plano. Em casos extremos, use a entrada manual do código.' },
-            { problem: 'Leitor detecta um formato mas erra o valor', fix: 'Isso é raro e acontece quando o código está parcialmente obstruído ou borrado. Limpe a lente da câmera e tente novamente com o código totalmente visível.' },
-            { problem: 'QR Code Pix não funciona no leitor', fix: 'O leitor retorna o payload do QR Pix como texto. Para efetuar o pagamento, copie o texto e cole no app do seu banco (função "Pix Copia e Cola").' },
-            { problem: 'Câmera frontal em vez da traseira', fix: 'A maioria dos celulares usa a câmera traseira automaticamente. Se o leitor abrir a frontal, verifique as permissões e recarregue a página.' },
-          ].map(({ problem, fix }) => (
-            <article key={problem} className="bg-white rounded-xl border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{problem}</h3>
-              <p className="text-sm text-gray-500">{fix}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Por que usar leitor online */}
-      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Por Que Usar um Leitor Online em Vez de App?</h2>
-        <div className="prose prose-gray max-w-none text-gray-600 space-y-3">
-          <ul className="list-disc pl-5 space-y-2 text-sm">
-            <li><strong>Sem instalação:</strong> abra o navegador e use. Ideal para situações pontuais, como conferir um código de barras de um produto importado ou ler um QR de um cartaz.</li>
-            <li><strong>Sem rastreamento:</strong> apps gratuitos de leitor frequentemente coletam localização, histórico de leitura e outros dados. O leitor online do GeraCode não acessa nenhum desses dados.</li>
-            <li><strong>Sem permissões abusivas:</strong> o navegador solicita apenas acesso à câmera. Nenhum app pede acesso a contatos, SMS, fotos ou microfone sem necessidade.</li>
-            <li><strong>Compatível com qualquer dispositivo:</strong> funciona em celular, tablet, notebook com webcam e até terminais públicos — desde que o navegador esteja atualizado.</li>
-            <li><strong>Sem publicidade invasiva:</strong> apps gratuitos de leitor costumam exibir anúncios em tela cheia entre cada leitura. Aqui os anúncios são laterais e não bloqueiam o fluxo de trabalho.</li>
-          </ul>
-        </div>
-      </section>
-
-      <FAQSection items={faqs} />
+      <FAQSection items={displayFaqs} />
 
       <div className="flex justify-center mt-8">
-        <AdSlot slot="reader-bottom" format="horizontal" />
+        <AdSlot slot={`${adPrefix}-bottom`} format="horizontal" />
       </div>
 
-      <RelatedTools currentPath="/leitor-de-codigo-de-barras" />
+      <RelatedTools currentPath={`/${SLUG}`} />
     </div>
   )
 }

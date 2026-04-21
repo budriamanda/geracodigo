@@ -1,289 +1,121 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
+import FAQSection from '@/components/FAQSection'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import ToolEngagementTracker from '@/components/ToolEngagementTracker'
-import { LAST_UPDATED, LAST_UPDATED_ISO } from '@/lib/constants'
+import ToolPageSections, { type ContentSection } from '@/components/ToolPageSections'
+import { LAST_UPDATED, LAST_UPDATED_ISO, SITE_URL } from '@/lib/constants'
 import { reader } from '@/lib/content'
+import { buildToolSchemas } from '@/lib/tool-schemas'
 
+const SLUG = 'gerador-de-sku'
 const SkuGeneratorClient = dynamic(() => import('./SkuGeneratorClient'), {
   loading: () => <GeneratorSkeleton />,
 })
 
-const schemas = [
-  {
-    '@context': 'https://schema.org',
-    '@type': ['WebApplication', 'SoftwareApplication'],
-    name: 'Gerador de SKU',
-    description: 'Gere códigos SKU padronizados para seus produtos. Defina prefixo, categoria, atributos e sequencial. Geração em lote com exportação CSV.',
-    url: 'https://www.geracodigo.com.br/gerador-de-sku',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web Browser',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'BRL' },
-    author: { '@id': 'https://www.geracodigo.com.br/#organization' },
-    inLanguage: 'pt-BR',
-    isAccessibleForFree: true,
-    featureList: [
-      'Geração de SKU padronizado', 'Prefixo de marca', 'Categoria de produto',
-      'Atributos customizáveis (cor, tamanho)', 'Número sequencial',
-      'Geração em lote (até 500)', 'Exportação CSV', 'Preview em tempo real',
-      '100% client-side',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: 'Como criar códigos SKU para produtos',
-    description: 'Passo a passo para gerar SKUs padronizados para controle de estoque.',
-    totalTime: 'PT3M',
-    inLanguage: 'pt-BR',
-    tool: { '@type': 'HowToTool', name: 'GeraCode: Gerador de SKU' },
-    step: [
-      { '@type': 'HowToStep', position: 1, name: 'Defina o padrão', text: 'Escolha um prefixo para sua marca, uma abreviação para a categoria e atributos como cor e tamanho.' },
-      { '@type': 'HowToStep', position: 2, name: 'Configure a quantidade', text: 'Defina o número sequencial inicial e quantos SKUs deseja gerar de uma vez.' },
-      { '@type': 'HowToStep', position: 3, name: 'Gere e exporte', text: 'Clique em Gerar, copie os SKUs ou exporte em CSV para importar no seu sistema.' },
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: 'Gerador de SKU Grátis Online',
-    description: 'Gere códigos SKU padronizados para seus produtos. Defina prefixo, categoria, atributos e sequencial. Geração em lote com exportação CSV.',
-    url: 'https://www.geracodigo.com.br/gerador-de-sku',
-    inLanguage: 'pt-BR',
-    datePublished: '2026-02-10',
-    dateModified: '2026-03-27',
-    isPartOf: { '@id': 'https://www.geracodigo.com.br/#website' },
-    about: { '@type': 'Thing', name: 'SKU (Stock Keeping Unit)' },
-    publisher: { '@id': 'https://www.geracodigo.com.br/#organization' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'GeraCode', item: 'https://www.geracodigo.com.br/' },
-      { '@type': 'ListItem', position: 2, name: 'Gerador de SKU', item: 'https://www.geracodigo.com.br/gerador-de-sku' },
-    ],
-  },
-]
-
 export async function generateMetadata(): Promise<Metadata> {
-  const tool = await reader.collections.ferramentas.read('gerador-de-sku')
+  const tool = await reader.collections.ferramentas.read(SLUG)
+  const canonical = tool?.canonicalOverride?.trim() || `${SITE_URL}/${SLUG}`
   return {
-    title: tool?.title ?? 'Gerador de SKU Grátis | Códigos para Estoque',
-    description: tool?.metaDescription ?? 'Gerador de SKU grátis para controle de estoque. Defina prefixo, categoria, cor, tamanho e gere até 500 SKUs de uma vez. Exportação CSV. Sem cadastro.',
-    alternates: { canonical: 'https://www.geracodigo.com.br/gerador-de-sku' },
+    title: tool?.title ?? '',
+    description: tool?.metaDescription ?? '',
+    alternates: { canonical },
+    ...(tool?.robotsNoindex ? { robots: { index: false, follow: false } } : {}),
     openGraph: {
-      title: tool?.ogTitle ?? 'Gerador de SKU Grátis | Códigos para Controle de Estoque | GeraCode',
-      description: tool?.ogDescription ?? 'Gere SKUs padronizados para seus produtos. Lote, CSV, sem cadastro.',
-      url: 'https://www.geracodigo.com.br/gerador-de-sku',
+      title: tool?.ogTitle ?? tool?.title ?? '',
+      description: tool?.ogDescription ?? tool?.metaDescription ?? '',
+      url: canonical,
       type: 'website',
       locale: 'pt_BR',
       siteName: 'GeraCode',
-      images: [{ url: '/gerador-de-sku/opengraph-image', width: 1200, height: 630, alt: 'Gerador de SKU Grátis | GeraCode' }],
+      images: [{ url: `/${SLUG}/opengraph-image`, width: 1200, height: 630, alt: tool?.ogTitle ?? '' }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: tool?.twitterTitle ?? 'Gerador de SKU Grátis | GeraCode',
-      description: tool?.twitterDescription ?? 'Crie SKUs padronizados para controle de estoque. Lote e CSV.',
-      images: ['/gerador-de-sku/opengraph-image'],
+      title: tool?.twitterTitle ?? tool?.title ?? '',
+      description: tool?.twitterDescription ?? tool?.metaDescription ?? '',
+      images: [`/${SLUG}/opengraph-image`],
     },
   }
 }
 
 export default async function SkuPage() {
   const [tool, faqsAll] = await Promise.all([
-    reader.collections.ferramentas.read('gerador-de-sku'),
+    reader.collections.ferramentas.read(SLUG),
     reader.collections.faqs.all(),
   ])
+  if (!tool) throw new Error(`Ferramenta não encontrada: ${SLUG}`)
+
   const faqs = faqsAll
     .filter((f) => f.entry.pagina === 'sku')
     .sort((a, b) => (a.entry.ordem ?? 0) - (b.entry.ordem ?? 0))
     .map((f) => ({ question: f.entry.pergunta, answer: f.entry.resposta }))
+
+  const displayFaqs = faqs.length > 0
+    ? faqs
+    : (tool.faqFallbacks || []).map((f) => ({ question: f.pergunta, answer: f.resposta }))
+
+  const schemas = buildToolSchemas({
+    slug: SLUG,
+    h1: tool.h1,
+    schemaAppName: tool.schemaAppName,
+    schemaAppDescription: tool.schemaAppDescription,
+    schemaFeatureList: tool.schemaFeatureList as string[] | undefined,
+    schemaHowToName: tool.schemaHowToName,
+    schemaHowToDescription: tool.schemaHowToDescription,
+    schemaHowToTotalTime: tool.schemaHowToTotalTime,
+    schemaHowToSteps: tool.schemaHowToSteps as { nome: string; texto: string }[] | undefined,
+    schemaAboutName: tool.schemaAboutName,
+    schemaDatePublished: tool.schemaDatePublished,
+    schemaDateModified: tool.schemaDateModified,
+  })
+
+  const adPrefix = tool.adSlotPrefix || 'sku'
+  const sections = (tool.secoesConteudo || []) as unknown as ContentSection[]
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <ToolEngagementTracker toolName="sku_generator" />
       <SchemaMarkup schema={schemas} />
       <div className="flex justify-center mb-6">
-        <AdSlot slot="sku-top" format="horizontal" />
+        <AdSlot slot={`${adPrefix}-top`} format="horizontal" />
       </div>
       <Breadcrumb current="Gerador de SKU" />
-
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool?.h1 ?? 'Gerador de SKU Grátis Online'}</h1>
-        <p className="text-gray-600">{tool?.subtitle ?? 'Crie códigos SKU padronizados para organizar seu estoque. Geração em lote com exportação CSV.'}</p>
-        <p className="text-sm text-indigo-600 mt-1">Tudo processado no seu navegador. Nenhum dado sai do seu dispositivo</p>
-        <LastUpdated date={LAST_UPDATED} isoDate={LAST_UPDATED_ISO} />
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">{tool.h1}</h1>
+        <p className="text-gray-600">{tool.subtitle}</p>
+        {tool.privacyBadgeText && (
+          <p className="text-sm text-indigo-600 mt-1"><span aria-hidden="true">{'\u{1F512}'}</span> {tool.privacyBadgeText}</p>
+        )}
+        <LastUpdated date={LAST_UPDATED} isoDate={tool.dataAtualizacao || LAST_UPDATED_ISO} />
       </div>
-
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="flex-1 min-w-0">
           <SkuGeneratorClient />
         </div>
         <aside className="lg:w-[300px] flex justify-center lg:justify-start">
-          <AdSlot slot="sku-sidebar" format="rectangle" />
+          <AdSlot slot={`${adPrefix}-sidebar`} format="rectangle" />
         </aside>
       </div>
 
-      {/* Como funciona */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Como criar códigos SKU</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { step: '1', title: 'Defina o padrão', desc: 'Escolha um prefixo para identificar sua marca/loja (ex: LOJA), uma abreviação para a categoria (ex: CAM para camiseta) e atributos como cor e tamanho.' },
-            { step: '2', title: 'Configure a quantidade', desc: 'Defina o número sequencial inicial e quantos SKUs deseja gerar (até 500 de uma vez). O preview mostra como ficará o SKU em tempo real.' },
-            { step: '3', title: 'Gere e exporte', desc: 'Clique em Gerar. Copie os SKUs para a área de transferência ou baixe em CSV para importar no seu ERP, planilha ou plataforma de e-commerce.' },
-          ].map(({ step, title, desc }) => (
-            <article key={step} className="bg-white rounded-xl border border-gray-200 p-6">
-              <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-700 font-bold text-lg flex items-center justify-center mb-4" aria-hidden="true">{step}</div>
-              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* O que e SKU */}
-      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">O que é SKU?</h2>
-        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
-          <p>
-            <strong>SKU (Stock Keeping Unit)</strong> é um código interno criado pela própria empresa para identificar cada variação de produto no estoque.
-            Diferente do código de barras EAN (que é universal e registrado na GS1), o SKU é definido livremente pelo lojista.
-          </p>
-          <p>
-            Um bom sistema de SKU facilita a <strong>gestão de estoque</strong>, permite localizar produtos rapidamente, evita erros no
-            despacho e melhora a organização geral do catálogo.
-          </p>
-          <p>
-            Exemplo: <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">LOJA-CAM-AZL-M-0001</code> identifica
-            a camiseta azul tamanho M, número 0001, da loja.
-          </p>
-        </div>
-      </section>
+      <ToolPageSections sections={sections} />
 
       <div className="flex justify-center mt-16">
-        <AdSlot slot="sku-mid" format="responsive" />
+        <AdSlot slot={`${adPrefix}-mid`} format="responsive" />
       </div>
 
-      {/* Boas praticas */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Boas práticas para criar SKUs</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { title: 'Seja consistente', desc: 'Defina um padrão e mantenha-o para todos os produtos. Use sempre a mesma quantidade de caracteres para cada campo.' },
-            { title: 'Use abreviações claras', desc: 'CAM para camiseta, CAL para calça, AZL para azul, VRM para vermelho. Qualquer pessoa da equipe deve entender o código.' },
-            { title: 'Evite caracteres especiais', desc: 'Use apenas letras maiúsculas, números e separadores simples (hífen ou underline). Evite acentos, espaços e caracteres especiais.' },
-            { title: 'Inclua número sequencial', desc: 'O sequencial garante unicidade mesmo quando dois produtos compartilham categoria e atributos. Use 4 dígitos (0001-9999).' },
-            { title: 'Não confunda com EAN', desc: 'SKU é interno da sua empresa. EAN é universal e registrado na GS1. Um produto pode (e deve) ter ambos.' },
-            { title: 'Documente o padrão', desc: 'Crie uma tabela de referência com as abreviações usadas. Compartilhe com toda a equipe para manter a consistência.' },
-          ].map(({ title, desc }) => (
-            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
-              <p className="text-sm text-gray-500">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* SKU vs EAN */}
-      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">SKU vs Código de Barras (EAN): Qual a diferença?</h2>
-        <div className="text-gray-600 space-y-4">
-          <p>
-            O <strong>SKU</strong> é um código interno, definido livremente por cada empresa. Não segue padrão universal e serve para
-            organização interna do estoque, controle de variações (cor, tamanho) e logística interna.
-          </p>
-          <p>
-            O <strong>EAN (código de barras)</strong> é um padrão global administrado pela GS1. É lido por leitores ópticos no ponto de
-            venda e identifica o produto em qualquer sistema comercial do mundo.
-          </p>
-          <p>
-            <strong>Na prática:</strong> use SKU para organizar seu estoque internamente e EAN para identificar o produto no mercado.
-            Um produto pode ter ambos. Use o <Link href="/gerador-de-codigo-de-barras" className="text-indigo-600 hover:underline">Gerador de Código de Barras</Link> para criar os códigos EAN e este gerador para os SKUs.
-          </p>
-        </div>
-      </section>
-
-      {/* Exemplos por setor */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Exemplos de SKU por Setor</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { sector: 'Moda e vestuário', example: 'LOJA-CAM-AZL-M-0001', explain: 'Loja → categoria (CAM = camiseta) → cor (AZL = azul) → tamanho (M) → sequencial. Inclua tamanho sempre, pois é a variação mais frequente.' },
-            { sector: 'Calçados', example: 'SPT-TEN-PRT-39-0042', explain: 'Marca (SPT = Sport) → tipo (TEN = tênis) → cor (PRT = preto) → numeração (39) → sequencial. Use 2 dígitos para numeração do 34 ao 48.' },
-            { sector: 'Alimentos e bebidas', example: 'MERC-BEB-REFRI-2L-0015', explain: 'Mercado → categoria (BEB = bebida) → subcategoria (REFRI) → volume (2L) → sequencial. Volume/peso costuma ser o diferenciador-chave.' },
-            { sector: 'Cosméticos', example: 'BTQ-BATOM-VRM-MATE-0008', explain: 'Boutique → linha (BATOM) → cor (VRM = vermelho) → acabamento (MATE) → sequencial. Em cosméticos, inclua o acabamento (mate, gloss, cintilante) no SKU.' },
-            { sector: 'Eletrônicos e acessórios', example: 'TECH-CAP-USB-C-2M-0033', explain: 'Marca → tipo (CAP = cabo) → interface (USB-C) → comprimento (2M) → sequencial. Para eletrônicos, padrões técnicos (USB-C, HDMI) substituem cor.' },
-            { sector: 'Livros e mídia', example: 'LIV-ROM-EDIT2-CAPDR-0117', explain: 'Categoria (LIV) → gênero (ROM = romance) → edição (EDIT2) → tipo de capa (CAPDR = capa dura) → sequencial. Use também o ISBN em paralelo ao SKU.' },
-          ].map(({ sector, example, explain }) => (
-            <article key={sector} className="bg-white rounded-xl border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{sector}</h3>
-              <code className="block bg-gray-100 px-2 py-1 rounded text-sm text-indigo-700 mb-2">{example}</code>
-              <p className="text-sm text-gray-500">{explain}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Integracao com ERPs e marketplaces */}
-      <section className="mt-16 bg-white rounded-xl border border-gray-200 p-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Integração de SKUs com ERPs e Marketplaces</h2>
-        <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
-          <p>
-            A maioria dos sistemas de gestão e plataformas de e-commerce aceita importação de produtos via planilha CSV. O SKU costuma ser a
-            coluna-chave que liga o produto entre sistemas diferentes (estoque, loja virtual, marketplaces, transportadora).
-          </p>
-          <p>Padrões aceitos por plataforma:</p>
-          <ul className="list-disc pl-5 space-y-1 text-sm">
-            <li><strong>Mercado Livre:</strong> SKU até 60 caracteres. Aceita letras maiúsculas, números, hífen e underline. Não aceita espaços.</li>
-            <li><strong>Shopee:</strong> SKU pai + SKU variação. Até 100 caracteres. Necessário quando o produto tem tamanhos ou cores.</li>
-            <li><strong>Amazon (Seller Central):</strong> SKU de até 40 caracteres, case-sensitive. Uma vez definido, não pode ser alterado.</li>
-            <li><strong>Shopify:</strong> Até 255 caracteres. Aceita praticamente qualquer caractere, mas recomenda-se manter padrão simples.</li>
-            <li><strong>WooCommerce / VTEX / Magento:</strong> Sem limite técnico na maioria dos casos, mas o padrão do catálogo deve ser consistente.</li>
-            <li><strong>Bling, Tiny, Omie (ERPs brasileiros):</strong> Aceitam SKUs alfanuméricos padrão. Exportam CSV/XLSX diretamente com a coluna SKU para importação nos marketplaces.</li>
-          </ul>
-          <p className="text-sm">
-            Recomendação: defina o SKU primeiro no ERP e replique para todos os canais de venda. Evite criar SKUs diferentes por canal — isso
-            gera divergência de estoque e erros de expedição.
-          </p>
-        </div>
-      </section>
-
-      {/* Erros comuns na gestao de SKU */}
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Erros Comuns na Gestão de SKU</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[
-            { title: 'Reutilizar SKU de produto descontinuado', desc: 'Quando um produto sai de linha, nunca reutilize o mesmo SKU em um item novo. Relatórios históricos e devoluções ficam bagunçados. Bloqueie o código antigo e crie um sequencial novo.' },
-            { title: 'Usar o EAN como SKU', desc: 'EAN é universal e externo; SKU é interno. Se você muda de fornecedor ou recebe o mesmo produto com EAN diferente, seu estoque perde referência. Mantenha os dois em colunas separadas.' },
-            { title: 'SKU com espaços ou caracteres especiais', desc: 'Espaços, acentos, barras (/) e caracteres como # ou & quebram importações em CSV e sistemas legados. Use apenas letras A-Z, números 0-9 e hífen (-) ou underline (_).' },
-            { title: 'Falta de padrão entre equipes', desc: 'Quando compras, estoque e marketing criam SKUs diferentes para o mesmo produto, o controle fica impossível. Defina uma tabela de abreviações e centralize a geração em uma pessoa ou ferramenta.' },
-            { title: 'Comprimento inconsistente', desc: 'SKUs com comprimentos variados (ex: 12 caracteres em uns, 18 em outros) dificultam conferência visual e ordenação. Padronize o número de dígitos em cada bloco.' },
-            { title: 'Sem número sequencial', desc: 'Se dois produtos podem ter mesma categoria, cor e tamanho (ex: mesma camiseta de fornecedores diferentes), a falta de sequencial cria colisão. Inclua sempre um sufixo numérico.' },
-          ].map(({ title, desc }) => (
-            <article key={title} className="bg-white rounded-xl border border-gray-200 p-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{title}</h3>
-              <p className="text-sm text-gray-500">{desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <FAQSection items={faqs} />
+      <FAQSection items={displayFaqs} />
 
       <div className="flex justify-center mt-8">
-        <AdSlot slot="sku-bottom" format="horizontal" />
+        <AdSlot slot={`${adPrefix}-bottom`} format="horizontal" />
       </div>
 
-      <RelatedTools currentPath="/gerador-de-sku" />
+      <RelatedTools currentPath={`/${SLUG}`} />
     </div>
   )
 }

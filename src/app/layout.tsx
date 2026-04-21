@@ -5,6 +5,7 @@ import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { reader } from '@/lib/content'
 import WebVitalsReporter from '@/components/WebVitalsReporter'
 import NavigationTracker from '@/components/NavigationTracker'
 import CookieConsent from '@/components/CookieConsent'
@@ -37,41 +38,53 @@ gtag('set','ads_data_redaction',true);
 gtag('set','url_passthrough',true);
 `
 
-export const metadata: Metadata = {
-  title: {
-    default: 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
-    template: '%s | GeraCode',
-  },
-  description: 'Gerador grátis de código de barras, QR Code e QR Code Pix. Ferramentas online para lojistas brasileiros. 100% privado, sem cadastro.',
-  metadataBase: new URL('https://www.geracodigo.com.br'),
-  openGraph: {
-    siteName: 'GeraCode',
-    locale: 'pt_BR',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-    apple: [{ url: '/apple-icon', type: 'image/png', sizes: '180x180' }],
-  },
-  manifest: '/site.webmanifest',
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await reader.singletons.globalSeo.read()
+  return {
+    title: {
+      default: seo?.defaultTitle ?? 'GeraCode | Gerador de Código de Barras e QR Code Pix Grátis',
+      template: seo?.titleTemplate ?? '%s | GeraCode',
+    },
+    description: seo?.defaultDescription ?? 'Gerador grátis de código de barras, QR Code e QR Code Pix. Ferramentas online para lojistas brasileiros. 100% privado, sem cadastro.',
+    metadataBase: new URL('https://www.geracodigo.com.br'),
+    openGraph: {
+      siteName: seo?.organizationName ?? 'GeraCode',
+      locale: seo?.ogLocale ?? 'pt_BR',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    icons: {
+      icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+      apple: [{ url: '/apple-icon', type: 'image/png', sizes: '180x180' }],
+    },
+    manifest: '/site.webmanifest',
+  }
 }
 
-export const viewport: Viewport = {
-  themeColor: '#4f46e5',
+export async function generateViewport(): Promise<Viewport> {
+  const seo = await reader.singletons.globalSeo.read()
+  return {
+    themeColor: seo?.themeColor ?? '#4f46e5',
+  }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const nav = await reader.singletons.navegacao.read()
+  const headerLinks = nav?.headerLinks?.length ? nav.headerLinks.map((l) => ({ href: l.href, label: l.label })) : undefined
+  const footerFerramentas = nav?.footerFerramentas?.length ? nav.footerFerramentas.map((l) => ({ href: l.href, label: l.label })) : undefined
+  const footerConteudo = nav?.footerConteudo?.length ? nav.footerConteudo.map((l) => ({ href: l.href, label: l.label })) : undefined
+  const footerInstitucional = nav?.footerInstitucional?.length ? nav.footerInstitucional.map((l) => ({ href: l.href, label: l.label })) : undefined
+
   return (
     <html lang="pt-BR">
       <head>
@@ -138,11 +151,17 @@ export default function RootLayout({
         )}
       </head>
       <body className={inter.className}>
-        <Header />
+        <Header navLinks={headerLinks} />
         <main id="main-content" className="min-h-screen bg-gray-50">
           {children}
         </main>
-        <Footer />
+        <Footer
+          ferramentas={footerFerramentas}
+          conteudo={footerConteudo}
+          institucional={footerInstitucional}
+          tagline={nav?.footerTagline || undefined}
+          copyrightText={nav?.copyrightText || undefined}
+        />
         <WebVitalsReporter />
         <Suspense fallback={null}>
           <NavigationTracker />

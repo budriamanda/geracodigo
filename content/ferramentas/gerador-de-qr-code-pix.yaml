@@ -7,8 +7,229 @@ twitterTitle: "Gerador de QR Code Pix Grátis | GeraCode"
 twitterDescription: "Gere QR Code para pagamento via Pix. Payload BR Code EMV válido. Sem cadastro."
 h1: "Gerador de QR Code Pix Grátis Online"
 subtitle: "Gere QR Code Pix estático válido (payload BR Code EMV, padrão Banco Central do Brasil)"
+privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: "Mais popular"
 badgeColor: "bg-green-100 text-green-800"
-icon: "📱"
+icon: "\U0001F4F1"
 cardDescription: "Gere QR Code para pagamento via Pix com chave CPF, CNPJ, e-mail ou aleatória. Payload BR Code EMV 100% válido, compatível com todos os bancos."
 ordem: 1
+
+ogAccent: "#16a34a"
+keywordPrimaria: "gerador qr code pix"
+keywordsSecundarias:
+  - "qr code pix grátis"
+  - "gerar qr code pix online"
+  - "qr code pix cpf cnpj"
+  - "payload br code emv"
+dataAtualizacao: "2026-03-27"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "pix"
+
+schemaAppName: "Gerador de QR Code Pix"
+schemaAppDescription: "Gere QR Code para pagamento via Pix com chave CPF, CNPJ, e-mail ou aleatória. Payload BR Code EMV válido, gerado no navegador sem cadastro."
+schemaFeatureList:
+  - "QR Code Pix estático"
+  - "Payload BR Code EMV"
+  - "CPF, CNPJ, e-mail, telefone, chave aleatória"
+  - "Download PNG e SVG"
+  - "Preview em tempo real"
+  - "100% client-side"
+schemaHowToName: "Como gerar QR Code Pix para cobranças"
+schemaHowToDescription: "Passo a passo para criar um QR Code Pix estático válido com payload BR Code."
+schemaHowToTotalTime: "PT2M"
+schemaHowToSteps:
+  - nome: "Informe sua chave Pix"
+    texto: "Selecione o tipo de chave (CPF, CNPJ, e-mail, telefone ou aleatória) e insira o valor da chave cadastrada no seu banco."
+  - nome: "Preencha nome, cidade e valor"
+    texto: "Digite o nome do recebedor (até 25 caracteres), a cidade e opcionalmente um valor fixo."
+  - nome: "Baixe o QR Code"
+    texto: "Faça download em PNG ou SVG e use onde quiser."
+schemaAboutName: "Pix (Sistema de Pagamentos Instantâneos do Banco Central)"
+schemaDatePublished: "2026-01-15"
+schemaDateModified: "2026-03-27"
+
+secoesConteudo:
+  - tipo: steps
+    titulo: "Como gerar QR Code Pix"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "green"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Informe sua chave Pix"
+        descricao: "Selecione o tipo (CPF, CNPJ, e-mail, telefone ou chave aleatória) e insira o valor da chave cadastrada no seu banco."
+        icone: ""
+      - titulo: "Preencha nome e cidade"
+        descricao: "Digite o nome do recebedor (até 25 caracteres) e a cidade. Opcionalmente, defina um valor fixo e descrição da cobrança."
+        icone: ""
+      - titulo: "Baixe o QR Code"
+        descricao: "O QR Code é gerado instantaneamente no seu navegador. Faça download em PNG ou SVG e use onde quiser."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "O que é o QR Code Pix?"
+    subtitulo: ""
+    conteudo: "O **QR Code Pix** é uma forma de receber pagamentos instantâneos pelo [sistema Pix do Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix). Ao escanear o QR Code com qualquer aplicativo bancário, o pagador é direcionado automaticamente para a tela de pagamento com os dados do recebedor preenchidos.\n\nO payload gerado segue o padrão **BR Code EMV**, [especificação oficial do Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pagamentosinstantaneos), compatível com todos os bancos e fintechs participantes do Pix no Brasil, incluindo Nubank, Itaú, Bradesco, Caixa, Banco do Brasil, Inter, PagSeguro, Mercado Pago e outros.\n\nO GeraCode gera **QR Codes estáticos**, ideais para cobranças com valor fixo ou aberto (o pagador digita o valor). Para cobranças dinâmicas com confirmação automática e geração de comprovante, é necessário utilizar a API Pix do seu banco."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Tipos de Chave Pix Suportados"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: true
+    columns: "2"
+    items:
+      - titulo: "CPF"
+        descricao: "Chave vinculada ao CPF do recebedor. Formato: 11 dígitos numéricos (ex: 12345678901). Ideal para pessoas físicas e autônomos."
+        icone: ""
+      - titulo: "CNPJ"
+        descricao: "Chave vinculada ao CNPJ da empresa. Formato: 14 dígitos numéricos (ex: 12345678000190). Indicada para empresas e MEIs."
+        icone: ""
+      - titulo: "E-mail"
+        descricao: "Endereço de e-mail cadastrado como chave Pix no banco. Aceita qualquer formato de e-mail válido. Prático para profissionais liberais."
+        icone: ""
+      - titulo: "Telefone"
+        descricao: "Número de celular com código do país (+55) e DDD. Formato: +5511999999999. Conveniente para pequenos comerciantes e prestadores de serviço."
+        icone: ""
+      - titulo: "Chave Aleatória (UUID)"
+        descricao: "Código alfanumérico gerado pelo banco (formato UUID). Ideal quando você não quer expor dados pessoais como CPF ou telefone ao receber pagamentos."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: tags
+    titulo: "Bancos e Fintechs Compatíveis"
+    subtitulo: "O QR Code Pix gerado pelo GeraCode segue o [padrão BR Code EMV do Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pix) e é compatível com **todos** os bancos e fintechs participantes do sistema Pix, incluindo:"
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags:
+      - "Nubank"
+      - "Itaú"
+      - "Bradesco"
+      - "Banco do Brasil"
+      - "Caixa Econômica"
+      - "Santander"
+      - "Inter"
+      - "PagSeguro"
+      - "Mercado Pago"
+      - "C6 Bank"
+      - "BTG Pactual"
+      - "Sicoob"
+      - "Sicredi"
+      - "Banrisul"
+      - "Original"
+      - "Neon"
+      - "PicPay"
+      - "Iti"
+    links: []
+  - tipo: prose
+    titulo: "Dicas para Usar seu QR Code Pix"
+    subtitulo: ""
+    conteudo: "- **Imprima em tamanho adequado:** Para leitura confiável, imprima o QR Code com pelo menos 3 × 3 cm. Em balcões e totens, prefira 5 × 5 cm ou maior.\n- **Use SVG para impressão:** O formato SVG mantém a qualidade em qualquer tamanho, sem pixels ou borrosidade. Ideal para adesivos, placas e materiais gráficos.\n- **Teste antes de usar:** Sempre escaneie o QR Code com seu próprio aplicativo bancário para confirmar que os dados estão corretos antes de disponibilizar para clientes.\n- **Valor fixo vs. aberto:** Se você vende produtos com preço fixo, defina o valor no gerador. Para doações ou serviços variados, deixe o campo de valor em branco para que o pagador digite."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: links
+    titulo: "Guias para MEI e pequeno comércio"
+    subtitulo: "Aprofunde em tópicos específicos de Pix para quem vende no balcão, mesa ou online."
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links:
+      - href: "/blog/qr-code-pix-para-mei-guia-completo"
+        label: "QR Code Pix para MEI: guia completo"
+        descricao: "Chave CPF ou CNPJ, limites, impostos e passo a passo para imprimir no balcão."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
+      - href: "/solucoes/qr-pix-para-mei"
+        label: "Pix para MEI: comece sem maquininha"
+        descricao: "Receba no balcão sem taxa, sem cadastro e sem contratar maquininha."
+        badgeText: "Solução"
+        badgeColor: "text-emerald-700 bg-emerald-50"
+      - href: "/comparar/pix-estatico-vs-dinamico"
+        label: "Pix estático vs dinâmico"
+        descricao: "Qual QR Code Pix faz mais sentido para o seu negócio — com tabela comparativa."
+        badgeText: "Comparação"
+        badgeColor: "text-amber-700 bg-amber-50"
+  - tipo: cards
+    titulo: "QR Code Pix por Tipo de Negócio"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Comércio de rua e feiras"
+        descricao: "Gere um QR Code estático sem valor fixo, imprima em SVG (3–5 cm) e plastifique. O cliente digita o valor na hora. Ideal para barracas, feiras livres, food trucks e ambulantes legalizados como MEI."
+        icone: ""
+      - titulo: "Restaurantes e lanchonetes"
+        descricao: "Coloque o QR Pix com CNPJ da empresa no balcão e nas mesas. Para evitar confusão com o QR do cardápio digital, use um rótulo claro como \"Pagar via Pix\". Para cobranças com confirmação automática, considere migrar para Pix dinâmico via API do banco."
+        icone: ""
+      - titulo: "Prestadores de serviço (autônomos)"
+        descricao: "Profissionais como manicures, cabeleireiros, professores particulares e técnicos podem gerar o QR Pix com CPF ou chave aleatória, imprimir em cartão de visita e apresentar ao cliente ao finalizar o atendimento."
+        icone: ""
+      - titulo: "E-commerce simples"
+        descricao: "Para lojas virtuais sem integração com gateway, exiba o QR Pix estático na tela de checkout e solicite o envio do comprovante por e-mail ou WhatsApp. Funciona, mas exige conciliação manual — prefira a API Pix para volumes maiores."
+        icone: ""
+      - titulo: "Doações e ONGs"
+        descricao: "Organizações sociais podem gerar um QR Pix institucional (CNPJ) sem valor fixo para receber doações de qualquer valor. Divulgue em redes sociais, sites e materiais impressos. O payload é válido para campanhas nacionais."
+        icone: ""
+      - titulo: "Cobranças recorrentes informais"
+        descricao: "Aluguéis, mensalidades de cursos ou serviços fixos podem ter o mesmo QR Pix reutilizado mensalmente. O payload estático é válido por tempo indeterminado, mas atualize o QR sempre que houver troca de chave Pix no banco."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Erros Comuns ao Gerar QR Code Pix"
+    subtitulo: ""
+    conteudo: "- **Chave Pix não cadastrada no banco:** o QR é gerado corretamente, mas a tentativa de pagamento falha com \"chave não encontrada\". Confira no app do seu banco se a chave está ativa antes de imprimir o QR.\n- **CPF ou CNPJ com pontuação:** o padrão BR Code aceita apenas dígitos (sem pontos, barras ou traços). Nosso gerador remove automaticamente, mas se você copiar o payload manualmente, garanta que esteja limpo.\n- **Nome do recebedor com mais de 25 caracteres:** a especificação do Banco Central limita o campo do nome. Abrevie (ex: \"Restaurante Bom Gosto\" → \"Rest Bom Gosto\"). Nossa ferramenta sinaliza quando o limite é ultrapassado.\n- **Cidade com acento ou caracteres especiais:** prefira cidade sem acento (\"Sao Paulo\" em vez de \"São Paulo\") por compatibilidade ampla entre bancos. A maioria aceita acento, mas alguns leitores antigos podem falhar.\n- **QR impresso muito pequeno ou borrado:** para impressão térmica (cupom), use no mínimo 3 × 3 cm. Em papel sulfite, 4 × 4 cm. Prefira SVG sobre PNG para manter a nitidez.\n- **QR parece válido mas nenhum banco lê:** revise se o CRC16 está correto — erros manuais no payload invalidam todo o código. Nossa ferramenta recalcula o CRC automaticamente a cada alteração."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Quando Usar Pix Estático vs Pix Dinâmico"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Pix Estático (gerado aqui)"
+        descricao: "QR Code fixo, reutilizável indefinidamente. Valor opcional (fixo ou o pagador digita). Não há confirmação automática — é preciso conferir no extrato. Ideal para: comércio de rua, doações, cobranças simples, baixo volume. Custo: zero."
+        icone: ""
+      - titulo: "Pix Dinâmico (API do banco)"
+        descricao: "QR gerado sob demanda para cada cobrança. Valor sempre pré-definido pelo emissor. Webhook de confirmação automática em segundos. Ideal para: e-commerce, assinaturas, SaaS, alto volume. Custo: varia por banco (alguns cobram por transação)."
+        icone: ""
+    tags: []
+    links: []
+
+faqFallbacks:
+  - pergunta: "O QR Code Pix gerado aqui é válido?"
+    resposta: "Sim. O payload segue o padrão BR Code EMV definido pelo Banco Central do Brasil. O QR Code é testado com o algoritmo CRC16 e funciona em todos os bancos participantes do Pix."
+  - pergunta: "Meus dados ficam salvos em algum servidor?"
+    resposta: "Não. Todo o processamento acontece no seu navegador (client-side). Nenhum dado (chave Pix, nome, valor) é enviado para servidores externos."
+  - pergunta: "Qual é a diferença entre QR Code estático e dinâmico?"
+    resposta: "O QR Code estático, gerado aqui, é fixo e pode ser usado múltiplas vezes. O QR Code dinâmico é gerado pela API do banco para cada cobrança, com controle de pagamento e notificação automática."
+  - pergunta: "Posso usar este QR Code no meu e-commerce?"
+    resposta: "Sim, para cobranças simples. Basta inserir o QR Code como imagem no seu site ou imprimir para uso físico. Para integração automática com confirmação de pedido, use a API Pix do seu banco."
+  - pergunta: "O gerador funciona para Pix com CPF, CNPJ, e-mail e telefone?"
+    resposta: "Sim, todos os tipos de chave Pix são suportados: CPF, CNPJ, e-mail, telefone (com +55) e chave aleatória (UUID)."
