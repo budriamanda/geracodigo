@@ -1,0 +1,63 @@
+slug: termos
+title: "Termos de Uso"
+metaDescription: "Termos de Uso do GeraCode. Condições de uso das ferramentas gratuitas de geração de código de barras, QR Code Pix e SKU."
+h1: "Termos de Uso"
+subtitulo: "Última atualização: março de 2026"
+ogTitle: "Termos de Uso | GeraCode"
+ogDescription: "Condições de uso das ferramentas gratuitas de geração de código de barras e QR Code."
+twitterTitle: "Termos de Uso | GeraCode"
+twitterDescription: "Condições de uso das ferramentas gratuitas de geração de código de barras e QR Code."
+dataAtualizacao: "2026-03-15"
+schemaType: "WebPage"
+schemaDatePublished: "2026-01-15"
+schemaDateModified: "2026-01-15"
+breadcrumbLabel: "Termos de Uso"
+containerWidth: "3xl"
+bgCard: true
+showMidAd: false
+robotsNoindex: false
+bodyMarkdown: |
+  ## 1. Aceitação dos Termos
+
+  Ao acessar e utilizar o GeraCode (www.geracodigo.com.br), você concorda com estes Termos de Uso. Se não concordar com qualquer parte destes termos, não utilize o serviço.
+
+  ## 2. Descrição do Serviço
+
+  O GeraCode é um conjunto de ferramentas online gratuitas para geração de códigos de barras (EAN-13, Code 128, UPC-A e outros formatos), QR Codes, QR Code Pix, leitura de códigos de barras e geração de SKUs. Todas as ferramentas processam dados exclusivamente no navegador do usuário (client-side), sem enviar informações para servidores externos.
+
+  ## 3. Uso Permitido
+
+  Você pode utilizar o GeraCode para:
+
+  - Gerar códigos de barras para uso interno, e-commerce próprio, testes e protótipos
+  - Gerar QR Codes para links, textos e conteúdos diversos
+  - Gerar QR Codes Pix estáticos para recebimento de pagamentos
+  - Ler códigos de barras e QR Codes usando a câmera do dispositivo
+  - Gerar códigos SKU para organização de estoque
+
+  ## 4. Limitações
+
+  - **Códigos EAN para varejo:** Para comercializar produtos em redes varejistas (supermercados, farmácias), os códigos EAN devem ser registrados na GS1 Brasil. O GeraCode não substitui o registro oficial.
+  - **QR Code Pix:** O GeraCode gera QR Codes Pix estáticos. Para cobranças dinâmicas com confirmação automática, utilize a API Pix do seu banco.
+  - **Sem garantia:** O serviço é fornecido "como está", sem garantias de disponibilidade ininterrupta ou adequação a qualquer finalidade específica.
+
+  ## 5. Propriedade Intelectual
+
+  O código-fonte, design, textos e marca GeraCode são propriedade do projeto. Os códigos gerados pelos usuários (códigos de barras, QR Codes, SKUs) pertencem integralmente ao usuário que os criou.
+
+  ## 6. Segurança
+
+  O GeraCode implementa as seguintes medidas de segurança:
+
+  - **HTTPS:** Toda a comunicação é criptografada via TLS/SSL
+  - **Content Security Policy (CSP):** Restringe a execução de scripts a domínios autorizados
+  - **Processamento local:** Dados sensíveis (chaves Pix, códigos) nunca trafegam pela rede
+  - **Sem cadastro:** Nenhuma conta de usuário é criada ou armazenada
+
+  ## 7. Alterações nestes Termos
+
+  Reservamo-nos o direito de atualizar estes Termos de Uso a qualquer momento. Alterações significativas serão comunicadas através de aviso no site. O uso continuado do GeraCode após alterações constitui aceitação dos novos termos.
+
+  ## 8. Contato
+
+  Para dúvidas sobre estes termos, acesse a página [Sobre](/sobre) para mais informações sobre o GeraCode. Para informações sobre como tratamos seus dados, consulte nossa [Política de Privacidade](/privacidade).

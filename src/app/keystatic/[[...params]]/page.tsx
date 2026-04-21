@@ -1,4 +1,3 @@
-import { makePage } from '@keystatic/next/ui/app'
-import keystaticConfig from '../../../../keystatic.config'
+import KeystaticPage from './keystatic-page'
 
-export default makePage(keystaticConfig)
+export default KeystaticPage

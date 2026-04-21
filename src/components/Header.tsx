@@ -5,16 +5,19 @@ import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { trackCtaClick } from '@/lib/analytics'
 
-const navLinks = [
+export type NavLink = { href: string; label: string }
+
+const defaultNavLinks: NavLink[] = [
   { href: '/gerador-de-codigo-de-barras', label: 'Código de Barras' },
   { href: '/gerador-de-ean', label: 'EAN-13 / EAN-8' },
   { href: '/gerador-de-qr-code-pix', label: 'QR Code Pix' },
   { href: '/gerador-de-qr-code', label: 'QR Code' },
   { href: '/leitor-de-codigo-de-barras', label: 'Leitor' },
   { href: '/gerador-de-sku', label: 'SKU' },
+  { href: '/blog', label: 'Blog' },
 ]
 
-export default function Header() {
+export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavLink[] }) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)

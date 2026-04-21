@@ -1,0 +1,46 @@
+title: "GeraCode | Código de Barras, QR Code Pix, EAN, Leitor e SKU Grátis"
+metaDescription: "Gerador grátis de código de barras (12+ formatos), QR Code Pix, leitor de código de barras via câmera e gerador de SKU. Geração em lote, PDF, etiquetas. 100% privado, sem cadastro."
+ogTitle: "GeraCode | Gerador de Código de Barras, QR Code Pix e SKU Grátis"
+ogDescription: "Ferramentas gratuitas para lojistas brasileiros. 12+ formatos de código de barras, QR Code Pix, leitor via câmera e SKU. Sem cadastro."
+twitterTitle: "GeraCode | Gerador de Código de Barras e QR Code Pix Grátis"
+twitterDescription: "Ferramentas gratuitas para lojistas brasileiros. Sem cadastro, sem servidor."
+
+heroH1: "Gerador de Código de Barras, QR Code Pix e SKU Grátis"
+heroSubtitle: "6 ferramentas online gratuitas para lojistas e empreendedores brasileiros. Gere códigos de barras em 12+ formatos, QR Code Pix, leia códigos pela câmera e crie SKUs. Tudo em segundos."
+heroBadgeText: "100% privado. Seus dados nunca saem do seu navegador"
+heroCtaText: "Comece a gerar agora"
+heroCtaHref: "#ferramentas"
+
+ferramentasSectionTitle: "Ferramentas Disponíveis"
+
+porqueUsarTitle: "Por que usar o GeraCode?"
+porqueUsarItems:
+  - icone: "🔒"
+    titulo: "100% Privado"
+    descricao: "Tudo gerado no seu navegador. Nenhum dado é enviado para servidores externos. Sua privacidade é total."
+  - icone: "⚡"
+    titulo: "Completo e Gratuito"
+    descricao: "12 formatos de código de barras, geração em lote, PDF, etiquetas, leitor via câmera e gerador de SKU. Tudo grátis, sem limite."
+  - icone: "🇧🇷"
+    titulo: "Feito para o Brasil"
+    descricao: "QR Code Pix com payload BR Code no padrão do Banco Central. Compatível com Nubank, Itaú, Bradesco e todos os bancos."
+  - icone: "📦"
+    titulo: "Geração em Lote"
+    descricao: "Gere dezenas de códigos de uma vez. Cole do Excel, baixe em ZIP ou PDF, imprima etiquetas direto do navegador."
+
+oQueETitle: "O que é o GeraCode?"
+oQueEContent: "O **GeraCode** reúne 6 ferramentas gratuitas de códigos para **lojistas, empreendedores e pequenos negócios brasileiros**. Com 6 ferramentas integradas, você pode gerar códigos de barras em 12 formatos (EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais), QR Codes genéricos, **QR Code Pix** com payload BR Code EMV válido, ler códigos de barras pela câmera e criar códigos SKU padronizados.\n\nDiferente de outras ferramentas, o GeraCode processa tudo localmente no seu dispositivo. Nenhuma informação é enviada para servidores, garantindo **total privacidade e segurança**. Inclui funcionalidades como **geração em lote, download em PDF, impressão de etiquetas, cálculo automático do dígito verificador (CRC16 para Pix)** e **histórico local**. Tudo 100% no navegador, sem depender de servidores externos."
+
+comoFuncionaTitle: "Como funciona"
+comoFuncionaSteps:
+  - step: "1"
+    titulo: "Escolha a ferramenta"
+    descricao: "Selecione o que precisa: código de barras (12 formatos), QR Code Pix, QR Code genérico, leitor de código de barras ou gerador de SKU."
+  - step: "2"
+    titulo: "Preencha os dados"
+    descricao: "Insira as informações necessárias. Personalize cores, tamanhos e estilos. O preview é gerado automaticamente em tempo real."
+  - step: "3"
+    titulo: "Baixe, imprima ou copie"
+    descricao: "Download em PNG, SVG ou PDF. Gere em lote e baixe em ZIP. Imprima etiquetas. Copie códigos para a área de transferência."
+
+paraQuemTitle: "Para quem é o GeraCode?"

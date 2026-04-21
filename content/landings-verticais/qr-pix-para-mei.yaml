@@ -1,0 +1,60 @@
+slug: qr-pix-para-mei
+segmento: mei
+title: "QR Code Pix para MEI — Grátis, sem maquininha | GeraCode"
+metaDescription: "Gere seu QR Code Pix para MEI em segundos. Cadastre a chave, imprima no balcão e receba sem taxa. Sem cadastro, 100% privado."
+h1: "QR Code Pix para MEI: comece a receber sem maquininha"
+subtitle: "Gere um QR Code Pix válido com seu CNPJ MEI, imprima e cole no balcão. Sem taxa, sem cadastro, sem maquininha."
+introducao: |
+  Se você é **Microempreendedor Individual**, não precisa de maquininha para começar a receber. Com um QR Code Pix no balcão ou na mesa, o cliente paga em segundos pelo app do banco e o dinheiro cai direto na sua conta — sem taxa do banco e sem intermediário.
+heroBeneficios:
+  - titulo: "Sem taxa para MEI"
+    descricao: "Recebimento de Pix entre pessoas e MEIs não cobra tarifa na maioria dos bancos."
+    icone: "💸"
+  - titulo: "QR pronto em 1 minuto"
+    descricao: "Informe chave, nome e cidade. Baixe em PNG ou SVG e imprima."
+    icone: "⏱️"
+  - titulo: "100% privado"
+    descricao: "Tudo gerado no seu navegador. Nada de dados bancários sai da sua máquina."
+    icone: "🔒"
+  - titulo: "Funciona em qualquer banco"
+    descricao: "Padrão BR Code EMV do Banco Central — Nubank, Itaú, Bradesco, Caixa, Inter e outros."
+    icone: "🏦"
+casosDeUso:
+  - "Salão de beleza e barbearia"
+  - "Profissional autônomo que visita cliente"
+  - "Loja de bairro / papelaria / mercearia"
+  - "Delivery próprio sem app"
+  - "Feira e eventos ao ar livre"
+  - "Oficina, mecânico, eletricista"
+ferramentaPrincipalSlug: gerador-de-qr-code-pix
+ferramentasSecundariasSlugs:
+  - gerador-de-qr-code
+  - gerador-de-sku
+ctaTexto: "Gerar meu QR Pix agora"
+postsRelacionadosSlugs:
+  - qr-code-pix-para-mei-guia-completo
+faqsSlugs:
+  - pix-tipos-chave
+  - pix-estatico-vs-dinamico
+  - qr-code-pix-qualquer-banco
+  - pix-qr-code-valido
+  - pix-dados-servidor
+conteudoExtra: |
+  ## Por que MEI escolhe Pix em vez de maquininha
+
+  Maquininha cobra de 1,5% a 4% por venda no débito/crédito e o dinheiro demora 1 a 30 dias para cair. Com Pix, o cliente escaneia o QR, paga, e em segundos você tem o dinheiro — sem taxa, sem parcelamento e sem dor de cabeça.
+
+  Para serviços simples, produtos de baixo ticket ou delivery próprio, o QR Code Pix é quase sempre a melhor opção. A maquininha continua fazendo sentido quando o cliente quer parcelar ou só tem cartão.
+
+  ## Como colocar o QR Code no seu balcão
+
+  Depois de gerar o QR com o botão acima, imprima em **pelo menos 5 × 5 cm** e plastifique. Se preferir, mande para uma gráfica imprimir em adesivo — fica mais durável. Cole em local visível: balcão, mesa, totem ou junto do maquininha (se você usa as duas).
+
+  Teste sempre antes: abra seu próprio app de banco, escaneie e confirme que os dados aparecem corretos.
+keywordPrimaria: "qr code pix para mei"
+ogTitle: "QR Code Pix para MEI | Grátis, sem maquininha"
+ogDescription: "Gere seu QR Pix para MEI e comece a receber sem taxa. Imprima e cole no balcão."
+ogAccent: "#10b981"
+twitterTitle: "QR Code Pix para MEI"
+twitterDescription: "Comece a receber sem maquininha. QR pronto em 1 minuto."
+dataAtualizacao: "2026-04-15"

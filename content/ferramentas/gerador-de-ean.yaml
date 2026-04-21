@@ -7,8 +7,177 @@ twitterTitle: "Gerador de EAN-13 e EAN-8 Grátis | GeraCode"
 twitterDescription: "Crie códigos EAN para produtos e varejo. Download PNG, SVG e PDF. Sem cadastro."
 h1: "Gerador de EAN-13 e EAN-8 Grátis Online"
 subtitle: "Crie códigos EAN para produtos, e-commerce e varejo. Geração instantânea no navegador."
+privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: ""
 badgeColor: ""
-icon: "🏷️"
+icon: "\U0001F3F7\uFE0F"
 cardDescription: "Gerador dedicado para códigos EAN com cálculo automático do dígito verificador. Ideal para produtos, e-commerce e varejo."
 ordem: 3
+
+ogAccent: "#f59e0b"
+keywordPrimaria: "gerador ean-13"
+keywordsSecundarias:
+  - "gerador ean-8"
+  - "código ean grátis"
+  - "gerar ean online"
+  - "código de barras ean-13"
+  - "ean para produtos"
+dataAtualizacao: "2026-03-01"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "ean"
+
+schemaAppName: "Gerador de EAN-13 e EAN-8"
+schemaAppDescription: "Crie códigos EAN-13 e EAN-8 para produtos, e-commerce e varejo. Geração instantânea no navegador, download imediato em PNG e SVG."
+schemaFeatureList:
+  - "EAN-13"
+  - "EAN-8"
+  - "Validação automática do dígito verificador"
+  - "Download PNG, SVG e PDF"
+  - "100% client-side"
+schemaHowToName: "Como gerar código EAN-13 para produto"
+schemaHowToDescription: "Passo a passo para criar código EAN-13 ou EAN-8 para produtos de varejo."
+schemaHowToTotalTime: "PT2M"
+schemaHowToSteps:
+  - nome: "Escolha EAN-13 ou EAN-8"
+    texto: "EAN-13 para a maioria dos produtos. EAN-8 para embalagens pequenas."
+  - nome: "Digite o número EAN"
+    texto: "Informe todos os dígitos incluindo o dígito verificador (último dígito)."
+  - nome: "Baixe em PNG, SVG ou PDF"
+    texto: "Faça download imediato para usar em embalagens, etiquetas ou sistemas de PDV."
+schemaAboutName: "EAN (European Article Number / GTIN)"
+schemaDatePublished: "2026-01-15"
+schemaDateModified: "2026-03-01"
+
+secoesConteudo:
+  - tipo: steps
+    titulo: "Como gerar código EAN"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "amber"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Escolha EAN-13 ou EAN-8"
+        descricao: "EAN-13 tem 13 dígitos e é o padrão para a maioria dos produtos. EAN-8 tem 8 dígitos e é usado em embalagens pequenas."
+        icone: ""
+      - titulo: "Digite o número"
+        descricao: "Informe todos os dígitos do código, incluindo o dígito verificador (último dígito). O sistema valida automaticamente."
+        icone: ""
+      - titulo: "Baixe em PNG, SVG ou PDF"
+        descricao: "Faça download imediato para usar em embalagens, etiquetas ou sistemas de PDV."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "O que é o código EAN?"
+    subtitulo: ""
+    conteudo: "O **EAN (European Article Number)** é o sistema de codificação de produtos mais usado no mundo. No Brasil, é administrado pela [**GS1 Brasil**](https://www.gs1br.org/) e presente em praticamente todos os produtos vendidos no varejo.\n\nO **EAN-13** possui 13 dígitos: os três primeiros identificam o país (789 ou 790 para o Brasil), os próximos identificam o fabricante, depois o produto, e o último é o dígito verificador calculado automaticamente.\n\nO **EAN-8** é uma versão abreviada para embalagens com pouco espaço. Segue a mesma lógica, mas com apenas 8 dígitos.\n\n**Atenção:** para comercializar produtos em redes varejistas (supermercados, farmácias etc.), os códigos EAN precisam ser [registrados oficialmente na GS1 Brasil](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras), que atribui um prefixo exclusivo à sua empresa."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "EAN e GTIN: qual a relação?"
+    subtitulo: ""
+    conteudo: "O código EAN faz parte do sistema **GTIN (Global Trade Item Number)**, o identificador numérico global de produtos mantido pela [GS1](https://www.gs1br.org/). Na prática:\n\n- **GTIN-13:** EAN-13 (13 dígitos), usado na maioria dos produtos de consumo no Brasil e no mundo.\n- **GTIN-8:** EAN-8 (8 dígitos), para embalagens pequenas.\n- **GTIN-12:** UPC-A (12 dígitos), padrão norte-americano, necessário para exportar para os EUA.\n- **GTIN-14:** ITF-14 (14 dígitos), para caixas de transporte e logística.\n\nQuando um marketplace como Mercado Livre, Amazon ou Shopee pede o \"GTIN\" do produto, eles estão pedindo o código EAN-13. O GeraCode gera o código visual a partir desse número."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Estrutura do Código EAN-13"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: true
+    columns: "2"
+    items:
+      - titulo: "Prefixo do país (3 dígitos)"
+        descricao: "Os três primeiros dígitos identificam o país de origem. Para o Brasil, os prefixos são 789 e 790, atribuídos pela GS1 Global."
+        icone: ""
+      - titulo: "Código do fabricante (4-7 dígitos)"
+        descricao: "Identifica a empresa fabricante ou importadora. O número de dígitos varia conforme o plano contratado na GS1 Brasil."
+        icone: ""
+      - titulo: "Código do produto (2-5 dígitos)"
+        descricao: "Identificador único do produto dentro do catálogo da empresa. Definido pelo próprio fabricante."
+        icone: ""
+      - titulo: "Dígito verificador (1 dígito)"
+        descricao: "O último dígito é calculado pelo algoritmo de módulo 10, garantindo a integridade do código. Nosso gerador valida automaticamente."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Como funciona o dígito verificador"
+    subtitulo: ""
+    conteudo: "O último dígito do EAN-13 é calculado automaticamente pelo **algoritmo de módulo 10**, que garante a integridade do código contra erros de digitação. O processo:\n\n1. Some os dígitos em posições **ímpares** (1.º, 3.º, 5.º…).\n2. Some os dígitos em posições **pares** (2.º, 4.º, 6.º…) e multiplique por **3**.\n3. Some os dois resultados.\n4. O dígito verificador é o número que, somado ao total, resulta no **múltiplo de 10 mais próximo**.\n\nNosso gerador calcula e valida o dígito verificador automaticamente. Basta digitar 12 dígitos para EAN-13 ou 7 para EAN-8."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Onde Usar o Código EAN"
+    subtitulo: ""
+    conteudo: "- **Supermercados e varejo:** O EAN-13 é o padrão para leitura nos caixas (PDV) de redes varejistas em todo o Brasil.\n- **E-commerce e marketplaces:** Mercado Livre, Amazon, Shopee e outros marketplaces usam o EAN para identificação de produtos.\n- **Controle de estoque:** Facilita a gestão de inventário com leitores de código de barras portáteis.\n- **Logística e distribuição:** Permite rastreamento de produtos ao longo da cadeia de suprimentos.\n- **Indústria farmacêutica:** Códigos EAN são obrigatórios para medicamentos e produtos de saúde no Brasil.\n- **Exportação:** O padrão EAN é reconhecido internacionalmente em mais de 100 países."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Prefixos EAN do Brasil"
+    subtitulo: ""
+    conteudo: "O Brasil possui dois prefixos de país atribuídos pela GS1 Global: **789** e **790**. Todo produto brasileiro registrado na GS1 Brasil terá seu código EAN-13 começando com um desses prefixos.\n\nExemplos de prefixos de outros países: EUA e Canadá (000-019), França (300-379), Alemanha (400-440), Japão (450-459), China (690-695), Argentina (779)."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "EAN (GTIN) em Marketplaces Brasileiros"
+    subtitulo: ""
+    conteudo: "Os principais marketplaces do Brasil exigem (ou priorizam na busca) produtos cadastrados com código EAN/GTIN válido. A política varia por categoria:\n\n- **Mercado Livre:** GTIN obrigatório para produtos novos em categorias como eletrônicos, beleza, saúde e alimentos. Anúncios sem GTIN perdem relevância no buscador e podem ser pausados.\n- **Amazon Brasil:** exige GTIN (EAN-13, UPC-A ou ISBN) para praticamente todos os produtos. Em casos de marca própria, é possível solicitar isenção de GTIN via Brand Registry.\n- **Magazine Luiza (Magalu):** EAN obrigatório no cadastro. Produtos sem EAN não são aceitos na plataforma de sellers.\n- **Shopee:** GTIN opcional, mas produtos com EAN recebem \"selo Shopee Mall\" em algumas categorias e aparecem melhor no ranking.\n- **Americanas / Submarino (B2W):** exigem EAN cadastrado para o catálogo oficial. Sem EAN, apenas como \"produto novo\" com revisão manual.\n- **Casas Bahia / Ponto:** EAN obrigatório, com validação automática do dígito verificador no momento do cadastro.\n\n**Importante:** usar EAN inventado (sem registro na GS1) em marketplaces pode levar à suspensão da conta. Para vendas em grandes redes, contrate o registro oficial em [gs1br.org](https://www.gs1br.org/). Para lojas próprias e controle interno, o código EAN gerado aqui serve normalmente."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Problemas Comuns com EAN e Como Resolver"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "EAN rejeitado no cadastro do marketplace"
+        descricao: "**Causa:** Dígito verificador incorreto ou prefixo não reconhecido. **Solução:** Use nosso gerador, que calcula o dígito automaticamente. Se o EAN não começa com 789 ou 790, pode ser um código estrangeiro válido — confirme com o fabricante."
+        icone: ""
+      - titulo: "Leitor do PDV não reconhece o código"
+        descricao: "**Causa:** Tamanho impresso menor que o mínimo recomendado ou impressão borrada. **Solução:** Imprima EAN-13 com no mínimo 25,93 × 21,31 mm. Use SVG ou PNG com 300 DPI. Evite impressoras térmicas com cabeça suja."
+        icone: ""
+      - titulo: "Códigos duplicados em relatórios"
+        descricao: "**Causa:** Mesmo EAN usado para produtos diferentes no cadastro interno. **Solução:** EAN é único por produto. Dois itens com o mesmo EAN significam que um está cadastrado errado — corrija antes de subir para marketplace, senão o anúncio é bloqueado."
+        icone: ""
+      - titulo: "Produto importado sem EAN"
+        descricao: "**Causa:** Fornecedor estrangeiro nem sempre envia GTIN. **Solução:** Solicite o GTIN ao fabricante. Se não houver, você precisa registrar na GS1 Brasil como \"produto de marca própria\" (importado/rebranded) para usá-lo legalmente nos marketplaces."
+        icone: ""
+      - titulo: "EAN funciona em um marketplace mas não em outro"
+        descricao: "**Causa:** Alguns marketplaces validam contra a base oficial da GS1; outros apenas o formato. **Solução:** Se o EAN está registrado, abra chamado no marketplace informando o CNPJ detentor do prefixo. Se não está registrado, registre-o ou escolha plataformas menos estritas."
+        icone: ""
+      - titulo: "Leitor lê o código, mas aparece número errado"
+        descricao: "**Causa:** Espelhamento na impressão ou impressão invertida. **Solução:** Confira se a impressora não está configurada para espelhar a imagem. Sempre teste a leitura em um segundo dispositivo antes de imprimir em escala."
+        icone: ""
+    tags: []
+    links: []
+
+faqFallbacks: []

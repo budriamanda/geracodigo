@@ -1,0 +1,94 @@
+slug: qr-code-pix-para-mei-guia-completo
+title: "QR Code Pix para MEI: Guia Completo para Começar a Receber"
+metaDescription: "Como receber Pix como MEI usando QR Code: chave, limites, impostos e passo a passo para imprimir e colocar no balcão. Sem maquininha."
+h1: "QR Code Pix para MEI: o guia completo para receber pagamentos em minutos"
+subtitle: "Do cadastro da chave Pix à impressão do QR Code no balcão, sem precisar contratar maquininha."
+resumo: "Se você é MEI e quer começar a receber pagamentos via QR Code Pix ainda hoje, este guia cobre o essencial: tipo de chave, limites, imposto e impressão do QR no balcão — sem maquininha e sem taxa."
+categoria: pix
+persona: mei
+dataPublicacao: "2026-04-15"
+dataAtualizacao: "2026-04-15"
+autor: Equipe GeraCode
+tempoLeitura: 8
+tags:
+  - pix
+  - mei
+  - qr-code
+  - cobranca
+ferramentaRelacionadaSlug: gerador-de-qr-code-pix
+keywordPrimaria: "qr code pix para mei"
+keywordsSecundarias:
+  - "como receber pix como mei"
+  - "qr code pix mei sem maquininha"
+  - "pix mei balcao"
+ogTitle: "QR Code Pix para MEI: Guia Completo"
+ogDescription: "Como receber Pix como MEI usando QR Code: chave, limites, impostos e impressão para o balcão."
+ogAccent: "#10b981"
+twitterTitle: "QR Code Pix para MEI: guia rápido"
+twitterDescription: "Do cadastro à impressão no balcão, sem maquininha."
+bodyMarkdown: |
+  Receber por Pix como MEI ficou o jeito mais barato de cobrar: não tem taxa do banco para microempreendedor individual na maioria dos casos, o dinheiro cai em segundos, e o QR Code pode ficar impresso no balcão. Este guia mostra exatamente o que você precisa para começar ainda hoje.
+
+  ## O que você precisa antes de gerar o QR Code
+
+  Três coisas, nessa ordem:
+
+  1. **Chave Pix cadastrada no banco**. Pode ser CPF, CNPJ do MEI, e-mail, celular ou chave aleatória.
+  2. **Nome e cidade do recebedor** — exatamente como vão aparecer para quem pagar.
+  3. **Decisão sobre valor fixo ou aberto** — se o valor do produto é sempre o mesmo, você fixa; se varia, deixa em branco e o cliente digita.
+
+  ## CPF ou CNPJ: qual chave usar como MEI?
+
+  As duas funcionam, mas a escolha tem impacto prático e tributário.
+
+  - Usar **CNPJ** mantém o recebimento vinculado à empresa, facilita separar contas e evita confusão na declaração.
+  - Usar **CPF** é comum para quem começou informal e migrou para MEI, mas mistura receita pessoal com a da empresa.
+
+  Nossa recomendação: se você já tem o CNPJ aberto, cadastre uma chave com CNPJ no banco e use ela nos QR Codes comerciais.
+
+  ## Limites que você precisa saber
+
+  O MEI em 2026 tem um teto anual de faturamento — não há limite por transação Pix específico para MEI, mas há os limites da sua conta (normalmente R$ 1.000 por transação noturna e valores maiores durante o dia, dependendo do banco).
+
+  > Atenção: o Banco Central permite ao seu banco ajustar limites. Se você espera receber valores altos, suba o limite Pix no app antes do primeiro pagamento.
+
+  ## Passo a passo: gerando seu QR Code
+
+  Com a chave cadastrada, gerar o QR Code leva menos de 2 minutos:
+
+  1. Abra o [gerador de QR Code Pix do GeraCode](/gerador-de-qr-code-pix).
+  2. Selecione o tipo de chave (CNPJ, se for comercial).
+  3. Digite a chave, o nome (máx. 25 caracteres) e a cidade.
+  4. Opcionalmente, informe um valor fixo.
+  5. Baixe em PNG para tela ou **SVG para impressão** (mantém qualidade).
+
+  O QR gerado segue o padrão BR Code EMV do Banco Central e funciona em qualquer app de banco.
+
+  ## Como imprimir para o balcão ou mesa
+
+  Recomendações práticas para não ter QR Code que não lê:
+
+  - **Mínimo 5 × 5 cm** para balcão; 3 × 3 cm só para fichas de pedido pequenas.
+  - **Contraste alto** — fundo claro, código escuro. Evite fundos estampados.
+  - **Plastifique** ou use porta-cardápio — umidade e gordura matam a leitura.
+  - **Teste com seu próprio celular** antes de colocar para o cliente.
+
+  ## Cuidados tributários: o que declarar
+
+  O Pix recebido como MEI entra no seu faturamento anual normalmente. Você declara via DASN-SIMEI no início do ano seguinte. Se você usa CPF em vez de CNPJ, os valores podem aparecer no seu CPF e dar dor de cabeça na declaração pessoal — mais um motivo para cadastrar com CNPJ.
+
+  ## Erros comuns ao gerar QR Pix
+
+  - Chave Pix não cadastrada: o pagamento falha com "chave não encontrada".
+  - Nome com mais de 25 caracteres: alguns bancos cortam; prefira nome fantasia curto.
+  - Imprimir em baixa resolução (PNG pequeno esticado) — use SVG.
+  - Usar valor fixo em produto com variação — gera atrito na mesa.
+
+  ## Perguntas frequentes
+
+  As dúvidas mais comuns estão abaixo. Se ficou alguma, abra o gerador e teste — tudo funciona 100% no seu navegador, sem cadastro.
+faqsSlugs:
+  - pix-tipos-chave
+  - pix-qr-code-valido
+  - pix-estatico-vs-dinamico
+  - qr-code-pix-qualquer-banco

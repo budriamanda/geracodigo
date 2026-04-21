@@ -7,8 +7,117 @@ twitterTitle: "Leitor de Código de Barras Online | GeraCode"
 twitterDescription: "Leia códigos pela câmera. Sem app, sem cadastro."
 h1: "Leitor de Código de Barras Online Grátis"
 subtitle: "Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada"
+privacyBadgeText: "Tudo processado no seu navegador. Nenhum dado é enviado para servidores"
 badge: "Novo"
 badgeColor: "bg-amber-100 text-amber-800"
 icon: "📷"
 cardDescription: "Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nenhum aplicativo."
 ordem: 5
+
+ogAccent: "#f59e0b"
+keywordPrimaria: "leitor código de barras online"
+keywordsSecundarias:
+  - "ler código de barras pelo celular"
+  - "leitor qr code online"
+  - "scanner código de barras"
+  - "barcode reader online"
+dataAtualizacao: "2026-03-27"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "reader"
+
+schemaAppName: "Leitor de Código de Barras Online"
+schemaAppDescription: "Leia códigos de barras e QR Codes usando a câmera do seu dispositivo. Suporta EAN-13, Code 128, QR Code e mais. Gratuito, sem instalar nada."
+schemaFeatureList:
+  - "Leitura via câmera"
+  - "EAN-13"
+  - "EAN-8"
+  - "Code 128"
+  - "Code 39"
+  - "Code 93"
+  - "UPC-A"
+  - "UPC-E"
+  - "ITF"
+  - "Codabar"
+  - "QR Code"
+  - "Detecção automática"
+  - "100% client-side"
+  - "Sem instalação"
+schemaHowToName: "Como ler código de barras pelo celular sem aplicativo"
+schemaHowToDescription: "Use a câmera do celular para ler códigos de barras diretamente no navegador, sem instalar nenhum app."
+schemaHowToTotalTime: "PT1M"
+schemaHowToSteps:
+  - nome: "Abra o leitor"
+    texto: "Acesse o leitor de código de barras do GeraCode no navegador do celular ou computador."
+  - nome: "Permita acesso à câmera"
+    texto: "Clique em \"Iniciar Câmera\" e permita o acesso quando solicitado pelo navegador."
+  - nome: "Aponte para o código"
+    texto: "Posicione o código de barras ou QR Code na frente da câmera. A leitura é automática."
+schemaAboutName: "Leitor de código de barras"
+schemaDatePublished: "2026-02-10"
+schemaDateModified: "2026-03-27"
+
+secoesConteudo:
+  - tipo: steps
+    titulo: "Como usar o leitor de código de barras"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "emerald"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Inicie a câmera"
+        descricao: "Clique em \"Iniciar Câmera\" e permita o acesso quando o navegador solicitar. A câmera traseira é usada automaticamente em celulares."
+        icone: ""
+      - titulo: "Aponte para o código"
+        descricao: "Posicione o código de barras ou QR Code na frente da câmera, mantendo uma distância de 10-20cm. A detecção é automática."
+        icone: ""
+      - titulo: "Copie o resultado"
+        descricao: "O valor decodificado aparece na lista. Clique em \"Copiar\" para usar o código em outras aplicações."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: tags
+    titulo: "Formatos suportados pelo leitor"
+    subtitulo: ""
+    conteudo: "O leitor utiliza a API BarcodeDetector nativa do navegador, disponível no Chrome 83+, Edge 83+ e Opera 69+. Para navegadores sem suporte, utilize a entrada manual."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "4"
+    items: []
+    tags:
+      - "EAN-13"
+      - "EAN-8"
+      - "Code 128"
+      - "Code 39"
+      - "Code 93"
+      - "UPC-A"
+      - "UPC-E"
+      - "ITF"
+      - "Codabar"
+      - "QR Code"
+    links: []
+  - tipo: cards
+    titulo: "Quando usar o leitor de código de barras online"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Conferência de estoque"
+        descricao: "Escaneie produtos rapidamente para verificar códigos e quantidades sem precisar de um leitor físico dedicado."
+        icone: ""
+      - titulo: "Verificação de etiquetas"
+        descricao: "Após imprimir etiquetas com código de barras, use o leitor para confirmar que os códigos estão corretos e legíveis."
+        icone: ""
+      - titulo: "Cadastro de produtos"
+        descricao: "Leia o código de barras de um produto e copie o valor para cadastrar em planilhas, ERPs ou plataformas de e-commerce."
+        icone: ""
+      - titulo: "Comparação de preços"
+        descricao: "Escaneie produtos para identificar o código e buscar informações de preço em diferentes fornecedores."
+        icone: ""
+    tags: []
+    links: []
+
+faqFallbacks: []

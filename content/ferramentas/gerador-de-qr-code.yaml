@@ -7,8 +7,200 @@ twitterTitle: "Gerador de QR Code Grátis | GeraCode"
 twitterDescription: "Links, textos e qualquer conteúdo. Color picker incluso. Download PNG e SVG. Sem cadastro."
 h1: "Gerador de QR Code Grátis Online"
 subtitle: "Gere QR Code para links, textos e qualquer conteúdo. Gratuito, sem cadastro."
+privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: ""
 badgeColor: ""
 icon: "⬛"
 cardDescription: "Gere QR Code para links, textos e qualquer conteúdo. Color picker e seletor de tamanho inclusos."
 ordem: 4
+
+ogAccent: "#4f46e5"
+keywordPrimaria: "gerador qr code"
+keywordsSecundarias:
+  - "qr code grátis"
+  - "gerar qr code online"
+  - "qr code personalizado"
+  - "qr code com cor"
+dataAtualizacao: "2026-03-01"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "qr"
+
+schemaAppName: "Gerador de QR Code"
+schemaAppDescription: "Gere QR Code para links, textos e qualquer conteúdo. Color picker, seletor de tamanho, download PNG e SVG. Gratuito, sem cadastro."
+schemaFeatureList:
+  - "QR Code para links e textos"
+  - "Color picker"
+  - "Seletor de tamanho (200–500px)"
+  - "Download PNG e SVG"
+  - "Preview em tempo real"
+  - "100% client-side"
+schemaHowToName: "Como gerar QR Code para link ou texto"
+schemaHowToDescription: "Passo a passo para criar QR Code personalizado para qualquer conteúdo."
+schemaHowToTotalTime: "PT1M"
+schemaHowToSteps:
+  - nome: "Digite o conteúdo"
+    texto: "Cole um link, escreva um texto, número de telefone, e-mail ou qualquer informação."
+  - nome: "Personalize"
+    texto: "Escolha o tamanho e as cores para combinar com sua identidade visual."
+  - nome: "Baixe e use"
+    texto: "Faça download em PNG para uso digital ou SVG para impressão profissional."
+schemaAboutName: "QR Code"
+schemaDatePublished: "2026-01-15"
+schemaDateModified: "2026-03-01"
+
+secoesConteudo:
+  - tipo: steps
+    titulo: "Como gerar seu QR Code"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "sky"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Digite o conteúdo"
+        descricao: "Cole um link, escreva um texto, número de telefone, e-mail ou qualquer informação que queira codificar no QR Code."
+        icone: ""
+      - titulo: "Personalize"
+        descricao: "Escolha o tamanho do QR Code e as cores (escura e de fundo) para combinar com a identidade visual do seu negócio."
+        icone: ""
+      - titulo: "Baixe e use"
+        descricao: "Faça download em PNG para uso digital ou SVG para impressão profissional em alta qualidade."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Para que serve o QR Code?"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: true
+    columns: "2"
+    items:
+      - titulo: "Links e sites"
+        descricao: "Direcione clientes para seu site, cardápio digital, página de produto ou rede social."
+        icone: ""
+      - titulo: "Pagamento Pix"
+        descricao: "Para QR Code Pix com payload válido, use nossa ferramenta dedicada em /gerador-de-qr-code-pix."
+        icone: ""
+      - titulo: "Cardápios digitais"
+        descricao: "Restaurantes e lanchonetes usam QR Code para substituir cardápios físicos e reduzir custos."
+        icone: ""
+      - titulo: "Redes sociais e contato"
+        descricao: "Codifique seu WhatsApp, Instagram ou LinkedIn para que clientes adicionem seu contato com um escaneamento."
+        icone: ""
+      - titulo: "Wi-Fi"
+        descricao: "Compartilhe a senha do Wi-Fi do seu estabelecimento sem precisar digitá-la manualmente."
+        icone: ""
+      - titulo: "Embalagens e etiquetas"
+        descricao: "Adicione informações extras ao produto sem ocupar espaço na embalagem."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Tipos de Conteúdo para QR Code"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "URLs e links"
+        descricao: "Direcione para sites, landing pages, formulários de contato, páginas de produto, cardápios digitais ou qualquer endereço na web."
+        icone: ""
+      - titulo: "WhatsApp"
+        descricao: "Use o formato wa.me/5511999999999 para que clientes iniciem uma conversa com você no WhatsApp com um simples escaneamento."
+        icone: ""
+      - titulo: "Wi-Fi"
+        descricao: "Compartilhe a senha do Wi-Fi do seu estabelecimento. Use o formato: WIFI:T:WPA;S:NomeDaRede;P:SenhaAqui;; para conexão automática."
+        icone: ""
+      - titulo: "Texto livre"
+        descricao: "Codifique qualquer texto, mensagem, instrução ou informação que caiba em um QR Code (até ~4.296 caracteres alfanuméricos)."
+        icone: ""
+      - titulo: "E-mail"
+        descricao: "Use o formato mailto:email@exemplo.com para que o escaneamento abra o app de e-mail com o destinatário já preenchido."
+        icone: ""
+      - titulo: "Localização"
+        descricao: "Compartilhe coordenadas geográficas usando o formato geo:latitude,longitude para abrir diretamente no app de mapas."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Boas Práticas para QR Codes"
+    subtitulo: ""
+    conteudo: "- **Mantenha o contraste:** QR Codes precisam de bom contraste entre os módulos (quadradinhos) e o fundo. Cor escura sobre fundo claro é o mais seguro.\n- **Tamanho mínimo para impressão:** Pelo menos 2 x 2 cm para leitura confiável em smartphones. Para distâncias maiores (cartazes, banners), aumente proporcionalmente.\n- **Teste antes de imprimir:** Sempre escaneie o QR Code com pelo menos 2 aplicativos diferentes para garantir que funciona corretamente.\n- **URLs curtas:** Links mais curtos geram QR Codes com menos módulos, que são mais fáceis de escanear. Use encurtadores de URL quando necessário.\n- **Use SVG para impressão profissional:** O formato SVG é vetorial e não perde qualidade ao ampliar, ideal para adesivos, cartões de visita e materiais gráficos."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "QR Code vs Código de Barras: Qual Escolher?"
+    subtitulo: ""
+    conteudo: "O **código de barras tradicional** (como EAN-13) armazena apenas dados numéricos de forma linear, sendo ideal para identificação de produtos no ponto de venda. Já o **QR Code** é bidimensional e armazena muito mais informação: links, textos, contatos, Wi-Fi e mais.\n\nUse **código de barras** para: etiquetas de produtos, controle de estoque, sistemas de PDV e logística. Use **QR Code** para: marketing digital, pagamentos Pix, cardápios, compartilhamento de informações e engajamento do cliente.\n\nO GeraCode oferece ambas as ferramentas gratuitamente. Acesse o [Gerador de Código de Barras](/gerador-de-codigo-de-barras) para criar códigos EAN-13, Code 128 e mais."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "QR Code em Campanhas de Marketing"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Embalagens de produto"
+        descricao: "Adicione QR Code na parte traseira da embalagem apontando para manual em vídeo, receitas ou página de registro de garantia. Reduz a quantidade de texto impresso e aproxima o cliente da marca após a compra."
+        icone: ""
+      - titulo: "Cartões de visita"
+        descricao: "Em vez de listar e-mail, telefone e LinkedIn separadamente, um QR Code pode codificar um vCard completo que o cliente salva direto no celular. Também pode apontar para seu portfólio ou calendário de agendamento."
+        icone: ""
+      - titulo: "Catálogos impressos"
+        descricao: "Cada produto no catálogo pode ter seu próprio QR Code direcionando para a página de compra no site ou marketplace. Transforma material impresso em funil digital."
+        icone: ""
+      - titulo: "Materiais de PDV"
+        descricao: "Adesivos no balcão e totens podem levar clientes ao programa de fidelidade, avaliações no Google ou promoções do momento. Use urgência (\"escaneie e ganhe\") para aumentar conversão."
+        icone: ""
+      - titulo: "Anúncios em mídia impressa"
+        descricao: "Revistas, outdoors e flyers ganham interatividade com QR Codes. Use URLs com UTM para rastrear conversões por campanha no Google Analytics."
+        icone: ""
+      - titulo: "Eventos e feiras"
+        descricao: "QR Code no crachá, stand ou material distribuído leva participantes direto para a página do evento, captação de leads ou download de material rico."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Erros Comuns em QR Code e Como Evitar"
+    subtitulo: ""
+    conteudo: "- **QR Code em movimento:** colocar QR Code em ônibus, caminhão ou faixa balançando no vento dificulta a leitura pelo smartphone. Prefira posições estáticas.\n- **Contraste invertido:** QR Code claro sobre fundo escuro funciona em alguns leitores, mas falha em outros. Prefira sempre escuro sobre claro.\n- **Cores muito próximas:** QR Codes em degradê ou com cores similares entre módulos e fundo perdem legibilidade. Mantenha contraste mínimo de 4:1.\n- **Logo no centro grande demais:** QR Codes com logotipo funcionam se o logo ocupa até 25% da área central e houver correção de erro alta (nível H). Acima disso, o código quebra.\n- **URLs muito longas:** quanto mais dados, mais módulos — o QR fica denso e difícil de ler em tamanhos pequenos. Use encurtadores (com redirecionamento confiável).\n- **Não testar antes de imprimir em escala:** sempre escaneie com iPhone e Android diferentes antes de mandar 10 mil flyers para gráfica. Um código quebrado pode inutilizar a tiragem inteira.\n- **QR apontando para página desativada:** se você imprimiu materiais duradouros (adesivos de veículo, placas, embalagens), use URL permanente em domínio próprio. Evite links de campanha que podem expirar."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Tamanho Ideal do QR Code por Distância de Leitura"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Até 30 cm (balcão, mesa, cardápio)"
+        descricao: "**2 × 2 cm (mínimo 1,5 cm).** Cardápios de restaurante, pagamento no balcão, cartões de visita, embalagens pequenas."
+        icone: ""
+      - titulo: "1 a 3 metros (cartazes, vitrines)"
+        descricao: "**8 × 8 cm a 15 × 15 cm.** Cartazes de promoção em loja, vitrines, totens informativos, adesivos em vidros."
+        icone: ""
+      - titulo: "Mais de 3 metros (outdoors, fachadas)"
+        descricao: "**Acima de 30 × 30 cm.** Outdoors, fachadas, backdrops de evento, painéis em rodovias. Regra prática: altura do QR = distância ÷ 10."
+        icone: ""
+    tags: []
+    links: []
+
+faqFallbacks: []

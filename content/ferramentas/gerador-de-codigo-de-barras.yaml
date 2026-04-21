@@ -7,8 +7,233 @@ twitterTitle: "Gerador de Código de Barras Grátis | GeraCode"
 twitterDescription: "12+ formatos, geração em lote, PDF, etiquetas. Sem cadastro."
 h1: "Gerador de Código de Barras Grátis Online"
 subtitle: "12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Geração em lote, PDF e impressão de etiquetas"
+privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: "12+ formatos"
 badgeColor: "bg-indigo-100 text-indigo-800"
-icon: "📊"
+icon: "\U0001F4CA"
 cardDescription: "Crie códigos em 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Geração em lote, PDF, impressão de etiquetas e histórico."
 ordem: 2
+
+ogAccent: "#4f46e5"
+keywordPrimaria: "gerador codigo de barras"
+keywordsSecundarias:
+  - "gerador de código de barras grátis"
+  - "gerar codigo de barras online"
+  - "codigo de barras ean-13"
+  - "code 128 gerador"
+  - "codigo de barras para produtos"
+dataAtualizacao: "2026-03-27"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "barcode"
+
+schemaAppName: "Gerador de Código de Barras"
+schemaAppDescription: "Gere códigos EAN-13, EAN-8, Code 128, Code 39, Code 93, UPC-A, ITF-14, Codabar, MSI, Pharmacode e ISBN direto no navegador. Geração em lote, download PNG, SVG e PDF. Sem cadastro."
+schemaFeatureList:
+  - "EAN-13"
+  - "EAN-8"
+  - "Code 128"
+  - "Code 39"
+  - "Code 93"
+  - "UPC-A"
+  - "UPC-E"
+  - "ITF-14"
+  - "MSI Plessey"
+  - "Codabar"
+  - "Pharmacode"
+  - "ISBN"
+  - "Geração em lote"
+  - "Download PNG, SVG e PDF"
+  - "Impressão de etiquetas"
+  - "Cálculo automático do dígito verificador"
+  - "Histórico local"
+  - "Personalização de cores, altura e largura"
+  - "100% client-side"
+schemaHowToName: "Como gerar código de barras para produtos"
+schemaHowToDescription: "Passo a passo para criar código de barras EAN-13, Code 128 e outros formatos com personalização e download em múltiplos formatos."
+schemaHowToTotalTime: "PT2M"
+schemaHowToSteps:
+  - nome: "Escolha o formato"
+    texto: "Selecione entre 12 formatos: EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Personalize altura, largura e cores."
+  - nome: "Digite o valor"
+    texto: "Insira o número ou texto. Para EAN-13, digite 12 dígitos e o verificador será calculado automaticamente."
+  - nome: "Baixe ou imprima"
+    texto: "Download em PNG, SVG ou PDF. Use o modo lote para gerar múltiplos códigos e baixe tudo em ZIP."
+schemaAboutName: "Código de barras"
+schemaDatePublished: "2026-01-15"
+schemaDateModified: "2026-03-27"
+
+secoesConteudo:
+  - tipo: cards
+    titulo: "Funcionalidades exclusivas do GeraCode"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Geração em Lote"
+        descricao: "Gere dezenas de códigos de uma vez. Cole do Excel ou digite um por linha. Baixe tudo em ZIP ou PDF com um clique."
+        icone: ""
+      - titulo: "Cálculo do Dígito Verificador"
+        descricao: "Para EAN-13, digite apenas 12 dígitos e o 13.º será calculado automaticamente. Funciona também para EAN-8."
+        icone: ""
+      - titulo: "Personalização Completa"
+        descricao: "Ajuste altura, largura da barra, cores, fonte e visibilidade do texto. Crie códigos que combinam com sua identidade visual."
+        icone: ""
+      - titulo: "Impressão de Etiquetas"
+        descricao: "Imprima etiquetas diretamente do navegador em layouts 2x5 ou 3x5. Ideal para etiquetar produtos rapidamente."
+        icone: ""
+      - titulo: "Download em 3 Formatos"
+        descricao: "PNG para uso digital, SVG para impressão profissional e PDF para documentos. Tudo gratuito e sem marca d'água."
+        icone: ""
+      - titulo: "Histórico Local"
+        descricao: "Seus códigos gerados ficam salvos no navegador para reúso rápido. Nenhum dado sai do seu dispositivo."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: steps
+    titulo: "Como gerar código de barras"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Escolha o formato e personalize"
+        descricao: "Selecione entre 12 formatos de código de barras. Ajuste altura, largura, cores e fonte para atender suas necessidades."
+        icone: ""
+      - titulo: "Digite o valor ou cole uma lista"
+        descricao: "No modo individual, digite o valor. No modo lote, cole uma lista do Excel com um código por linha. O dígito verificador EAN é calculado automaticamente."
+        icone: ""
+      - titulo: "Baixe, imprima ou exporte"
+        descricao: "Download em PNG, SVG ou PDF. Use o ZIP para lotes. Imprima etiquetas diretamente com layouts pré-formatados."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "12 formatos de código de barras suportados"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: true
+    columns: "2"
+    items:
+      - titulo: "Code 128"
+        descricao: "Alta densidade, suporta letras, números e caracteres especiais. Usado em logística, etiquetas de envio e controle de estoque."
+        icone: ""
+      - titulo: "Code 39"
+        descricao: "Formato amplamente suportado. Usado em identificação de ativos, crachás e ambientes industriais."
+        icone: ""
+      - titulo: "Code 93"
+        descricao: "Evolução do Code 39 com maior densidade de dados. Usado em logística e Canada Post."
+        icone: ""
+      - titulo: "UPC-A"
+        descricao: "Padrão norte-americano com 12 dígitos. Necessário para vender no mercado dos EUA."
+        icone: ""
+      - titulo: "UPC-E"
+        descricao: "Versão compacta do UPC-A para embalagens pequenas. 8 dígitos."
+        icone: ""
+      - titulo: "ITF-14"
+        descricao: "Usado em caixas de transporte e embalagens de nível logístico. 14 dígitos. Padrão GS1."
+        icone: ""
+      - titulo: "MSI Plessey"
+        descricao: "Usado em controle de estoque e prateleiras de supermercado. Apenas números."
+        icone: ""
+      - titulo: "Codabar"
+        descricao: "Usado em bibliotecas, bancos de sangue e serviços de entrega (FedEx). Formato auto-verificável."
+        icone: ""
+      - titulo: "Pharmacode"
+        descricao: "Código específico para a indústria farmacêutica. Codifica números de 3 a 131070."
+        icone: ""
+      - titulo: "ISBN"
+        descricao: "Identificação internacional de livros. Baseado no EAN-13 com prefixo 978/979."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "EAN-13 e EAN-8"
+    subtitulo: ""
+    conteudo: "**EAN-13 e EAN-8**: padrões internacionais para produtos de consumo (GTIN), administrados pela GS1. Para detalhes sobre estrutura, dígito verificador, prefixos brasileiros e registro, consulte nosso [Gerador de EAN-13 e EAN-8](/gerador-de-ean)."
+    stepColor: "amber"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Código de Barras e GS1 Brasil"
+    subtitulo: ""
+    conteudo: "Para comercializar produtos em **grandes redes varejistas** (supermercados, farmácias, magazines), os códigos EAN devem ser registrados na [**GS1 Brasil**](https://www.gs1br.org/), a entidade oficial responsável pela atribuição de prefixos de fabricante.\n\nPara diversas situações o GeraCode é a ferramenta ideal, dispensando registro na GS1:\n\n- **E-commerce próprio:** Lojas virtuais com sistemas próprios de controle de estoque.\n- **Controle interno:** Identificação de ativos, ferramentas, equipamentos e materiais.\n- **Testes e protótipos:** Validação de layouts de embalagens e etiquetas.\n- **Logística interna:** Rastreamento de volumes e caixas com Code 128 ou ITF-14.\n- **Uso educacional:** Demonstrações, treinamentos e materiais didáticos."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Dicas para Impressão de Códigos de Barras"
+    subtitulo: ""
+    conteudo: "- **Tamanho mínimo:** O tamanho mínimo recomendado para EAN-13 é 25,93 x 21,31 mm. Códigos muito pequenos podem não ser lidos por scanners.\n- **Contraste:** Use barras escuras sobre fundo claro. Preto sobre branco oferece o melhor contraste.\n- **Zonas de silêncio:** Mantenha uma área em branco de pelo menos 5mm antes e depois do código.\n- **Resolução:** Para impressão profissional, use SVG (vetorial) ou PNG com pelo menos 300 DPI.\n- **Teste de leitura:** Sempre teste o código impresso com um leitor antes de produzir em escala.\n- **Etiquetas:** Use a função de impressão de etiquetas do GeraCode para layouts prontos em A4."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Aplicações por Setor"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Varejo e supermercados"
+        descricao: "EAN-13 no produto final; ITF-14 nas caixas de transporte; Code 128 em etiquetas de gôndola e preços. O leitor do PDV identifica automaticamente o formato."
+        icone: ""
+      - titulo: "Logística e transporte"
+        descricao: "Code 128 para números de rastreio (18 a 24 dígitos alfanuméricos). Correios usa variações do Code 128 e ITF. Transportadoras privadas (Jadlog, Total Express) seguem o mesmo padrão."
+        icone: ""
+      - titulo: "Indústria farmacêutica"
+        descricao: "EAN-13 para medicamentos vendidos ao consumidor (obrigatório pela Anvisa). Pharmacode em embalagens internas de controle de produção. DataMatrix (2D) está sendo adotado para rastreabilidade (SNCM)."
+        icone: ""
+      - titulo: "Bibliotecas e centros de documentação"
+        descricao: "Codabar tradicionalmente usado em cartões de identificação e etiquetas de livros. Code 39 também é comum. ISBN (baseado em EAN-13) obrigatório em livros comerciais."
+        icone: ""
+      - titulo: "Controle de ativos em empresas"
+        descricao: "Code 39 ou Code 128 em patrimônios, equipamentos, crachás de funcionários, mobiliário e itens de TI. Leitores portáteis (pistola USB ou Bluetooth) fazem o inventário."
+        icone: ""
+      - titulo: "Eventos e ingressos"
+        descricao: "QR Code ou Code 128 em ingressos para controle de acesso. Gera um código único por participante e valida na entrada. Evita fraude por duplicação."
+        icone: ""
+      - titulo: "Saúde (clínicas e hospitais)"
+        descricao: "Code 128 em pulseiras de pacientes, prontuários e amostras laboratoriais. Reduz erros de identificação e acelera atendimento em UTI e coleta."
+        icone: ""
+      - titulo: "Educação e escolas"
+        descricao: "Code 39 ou Code 128 em carteirinhas de aluno, empréstimo de livros e controle de merenda. Compatível com leitores USB baratos."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Qual Formato Escolher?"
+    subtitulo: ""
+    conteudo: "Se você não sabe qual formato usar, estas são as escolhas mais seguras para cada cenário:\n\n- **Vou vender em marketplaces ou varejo físico:** use **EAN-13** e registre na GS1 Brasil.\n- **Preciso só controlar meu estoque interno:** use **Code 128** — suporta letras e números, tem boa densidade e é lido por qualquer leitor moderno.\n- **Etiquetar crachás ou ativos corporativos:** **Code 39** é o mais antigo e mais compatível, mesmo com leitores muito simples.\n- **Caixas e pallets de transporte:** **ITF-14** (padrão GS1 para unidade logística).\n- **Exportar para os EUA:** **UPC-A** é o padrão norte-americano obrigatório em varejistas como Walmart.\n- **Produtos com embalagem muito pequena:** **EAN-8** (varejo) ou **UPC-E** (EUA).\n- **Indústria farmacêutica:** **Pharmacode** para controle interno, **EAN-13** para venda ao consumidor.\n- **Bibliotecas:** **Codabar** por compatibilidade com sistemas legados de catalogação."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Compatibilidade com Leitores de Código de Barras"
+    subtitulo: ""
+    conteudo: "Todos os formatos gerados pelo GeraCode seguem as especificações ISO/IEC oficiais, garantindo compatibilidade com leitores de qualquer marca — desde pistolas CCD baratas (Bematech, Zebra, Honeywell, Elgin, Argox) até leitores industriais sem fio e aplicativos de celular.\n\nPara **leitores baseados em imagem** (smartphones ou câmeras 2D), todos os formatos 1D e também QR Codes são lidos normalmente. Para **leitores a laser tradicionais**, apenas códigos 1D funcionam — QR Codes (2D) exigem leitores image-based (ZCS, Zebra DS-série, smartphones).\n\nUse nosso [Leitor de Código de Barras online](/leitor-de-codigo-de-barras) para testar códigos diretamente pelo navegador, sem precisar de hardware adicional."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+
+faqFallbacks: []
