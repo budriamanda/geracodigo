@@ -235,5 +235,30 @@ secoesConteudo:
     items: []
     tags: []
     links: []
+  - tipo: links
+    titulo: "Leia também"
+    subtitulo: "Para lojistas e empreendedores que usam código de barras no dia a dia."
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links:
+      - href: "/gerador-de-qr-code-pix"
+        label: "Gerador de QR Code Pix grátis"
+        descricao: "Além do código de barras, receba pagamentos instantâneos via Pix. QR Code com payload BR Code EMV válido."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/blog/qr-code-pix-para-mei-guia-completo"
+        label: "QR Code Pix para MEI: guia completo"
+        descricao: "Do cadastro da chave Pix à impressão do QR no balcão — sem maquininha e sem taxa."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
+      - href: "/solucoes/qr-pix-para-mei"
+        label: "Pix para MEI: comece sem maquininha"
+        descricao: "Como MEIs e pequenos comerciantes podem receber no balcão com QR Code Pix sem contratar maquininha."
+        badgeText: "Solução"
+        badgeColor: "text-emerald-700 bg-emerald-50"
 
 faqFallbacks: []

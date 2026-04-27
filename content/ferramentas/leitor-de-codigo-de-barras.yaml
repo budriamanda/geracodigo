@@ -119,5 +119,30 @@ secoesConteudo:
         icone: ""
     tags: []
     links: []
+  - tipo: links
+    titulo: "Leia também"
+    subtitulo: "Ferramentas complementares para quem trabalha com códigos de barras."
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links:
+      - href: "/gerador-de-codigo-de-barras"
+        label: "Gerador de Código de Barras (12 formatos)"
+        descricao: "Leu um código e precisa gerar etiquetas novas? Crie códigos em lote, baixe em PDF e imprima etiquetas grátis."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/gerador-de-ean"
+        label: "Gerador de EAN-13 grátis"
+        descricao: "Para produtos que precisam de EAN-13 (Mercado Livre, Shopee, supermercados). Gera e valida o dígito verificador."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/gerador-de-sku"
+        label: "Gerador de SKU grátis"
+        descricao: "Organize seu estoque com SKUs internos padronizados. Gere em lote a partir de planilha e exporte para CSV."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
 
 faqFallbacks: []

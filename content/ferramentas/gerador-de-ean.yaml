@@ -179,5 +179,30 @@ secoesConteudo:
         icone: ""
     tags: []
     links: []
+  - tipo: links
+    titulo: "Leia também"
+    subtitulo: "Gestão de produtos e recebimento de pagamentos para lojistas e vendedores de marketplace."
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links:
+      - href: "/gerador-de-codigo-de-barras"
+        label: "Gerador de Código de Barras (12 formatos)"
+        descricao: "Precisa de Code 128, ITF-14 ou outros formatos além do EAN? O gerador completo suporta 12 tipos de código."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/gerador-de-sku"
+        label: "Gerador de SKU grátis"
+        descricao: "Além do EAN externo, organize seu estoque com SKUs internos padronizados. Gere em lote e exporte para Excel."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/comparar/pix-estatico-vs-dinamico"
+        label: "Pix estático vs dinâmico: qual usar?"
+        descricao: "Vendedores de marketplace que recebem via Pix precisam saber a diferença entre QR Code estático e dinâmico."
+        badgeText: "Comparação"
+        badgeColor: "text-amber-700 bg-amber-50"
 
 faqFallbacks: []

@@ -90,6 +90,14 @@ export default async function HomePage() {
       description: home?.metaDescription ?? seo?.defaultDescription ?? '',
       inLanguage: 'pt-BR',
       publisher: { '@id': `${SITE_URL}/#organization` },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}/blog?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
     },
     {
       '@context': 'https://schema.org',

@@ -1,8 +1,13 @@
+import Link from 'next/link'
 import AdSlot from '@/components/AdSlot'
 import Breadcrumb from '@/components/Breadcrumb'
 import CTAFerramenta from '@/components/CTAFerramenta'
 import FAQSection from '@/components/FAQSection'
 import LastUpdated from '@/components/LastUpdated'
+
+const AUTHOR_SLUGS: Record<string, string> = {
+  'Amanda Budri': 'amanda-budri',
+}
 import MarkdownContent from '@/components/MarkdownContent'
 import RelatedTools from '@/components/RelatedTools'
 
@@ -79,7 +84,19 @@ export default function BlogPostLayout({
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 leading-tight">{h1}</h1>
         {subtitle && <p className="text-lg text-gray-600">{subtitle}</p>}
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-          <span>Por <strong className="text-gray-700 font-medium">{autor}</strong></span>
+          <span>
+            Por{' '}
+            {AUTHOR_SLUGS[autor] ? (
+              <Link
+                href={`/autor/${AUTHOR_SLUGS[autor]}`}
+                className="font-medium text-gray-700 hover:text-indigo-600 transition-colors"
+              >
+                {autor}
+              </Link>
+            ) : (
+              <strong className="text-gray-700 font-medium">{autor}</strong>
+            )}
+          </span>
           <span aria-hidden="true">·</span>
           <span>
             Publicado em{' '}

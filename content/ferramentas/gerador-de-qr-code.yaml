@@ -202,5 +202,30 @@ secoesConteudo:
         icone: ""
     tags: []
     links: []
+  - tipo: links
+    titulo: "Leia também"
+    subtitulo: "Aprofunde no universo de QR Codes e pagamentos digitais."
+    conteudo: ""
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links:
+      - href: "/gerador-de-qr-code-pix"
+        label: "Gerador de QR Code Pix grátis"
+        descricao: "QR Code para receber pagamentos via Pix. Payload BR Code EMV válido, compatível com todos os bancos brasileiros."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/comparar/pix-estatico-vs-dinamico"
+        label: "Pix estático vs dinâmico: qual QR Pix usar?"
+        descricao: "Entenda a diferença entre QR Code Pix estático (gerado aqui) e dinâmico (via API do banco) para seu negócio."
+        badgeText: "Comparação"
+        badgeColor: "text-amber-700 bg-amber-50"
+      - href: "/blog/qr-code-pix-para-mei-guia-completo"
+        label: "QR Code Pix para MEI: guia completo"
+        descricao: "Do cadastro da chave Pix à impressão do QR no balcão. Para quem quer receber sem maquininha."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
 
 faqFallbacks: []

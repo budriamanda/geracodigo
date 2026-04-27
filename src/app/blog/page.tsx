@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import AdSlot from '@/components/AdSlot'
-import BlogIndex, { type BlogIndexEntry } from '@/components/BlogIndex'
+import BlogSearchClient from '@/components/BlogSearchClient'
+import { type BlogIndexEntry } from '@/components/BlogIndex'
 import Breadcrumb from '@/components/Breadcrumb'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { reader } from '@/lib/content'
@@ -29,7 +30,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function BlogIndexPage() {
+interface PageProps {
+  searchParams: Promise<{ q?: string }>
+}
+
+export default async function BlogIndexPage({ searchParams }: PageProps) {
+  const { q } = await searchParams
+  const initialQuery = typeof q === 'string' ? q.slice(0, 100) : ''
+
   const allPosts = await reader.collections.posts.all()
   const posts: BlogIndexEntry[] = allPosts
     .map((p) => ({
@@ -70,13 +78,14 @@ export default async function BlogIndexPage() {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <SchemaMarkup schema={schemas} />
       <Breadcrumb current="Blog" />
-      <header className="mb-10">
+      <header className="mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Blog do GeraCode</h1>
         <p className="text-lg text-gray-600 max-w-2xl">
           Guias práticos para lojistas, MEIs e restaurantes brasileiros. QR Code Pix, código de barras, EAN, SKU — sem enrolação.
         </p>
       </header>
-      <BlogIndex posts={posts} />
+
+      <BlogSearchClient posts={posts} initialQuery={initialQuery} />
 
       <div className="flex justify-center mt-12">
         <AdSlot slot="blog-index-bottom" format="responsive" />
