@@ -1,0 +1,148 @@
+slug: o-que-e-sku-como-criar
+title: "O Que É SKU e Como Criar para Sua Loja: Guia Prático"
+metaDescription: "O que é SKU, diferença entre SKU e código de barras EAN, como criar um sistema de SKU eficiente para loja física ou e-commerce. Com exemplos práticos."
+h1: "O que é SKU e como criar um sistema para sua loja"
+subtitle: "Diferença entre SKU e EAN, como montar uma estrutura de código interno e integrar com seu ERP."
+resumo: "SKU (Stock Keeping Unit) é o código interno que você cria para identificar cada variação de produto no seu estoque. É diferente do EAN/código de barras — o SKU é seu, o EAN é do fabricante. Este guia explica o que é SKU, como montar uma estrutura que funciona na prática e como integrar com sistemas de gestão como Bling, Tiny e Omie."
+categoria: codigo-barras
+persona: lojista-ecommerce
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 6
+tags:
+  - sku
+  - estoque
+  - gestao
+  - lojista
+  - ecommerce
+ferramentaRelacionadaSlug: gerador-de-codigo-de-barras
+keywordPrimaria: "o que e sku"
+keywordsSecundarias:
+  - "sku produto"
+  - "sku codigo de barras"
+  - "como criar sku"
+  - "sku ecommerce"
+  - "diferenca sku ean"
+ogTitle: "O Que É SKU e Como Criar para Sua Loja"
+ogDescription: "SKU vs EAN/código de barras, como criar uma estrutura eficiente e integrar com Bling, Tiny e Omie."
+ogAccent: "#7c3aed"
+twitterTitle: "O que é SKU e como criar para sua loja"
+twitterDescription: "SKU vs EAN, como montar a estrutura e integrar com ERP. Guia prático para lojistas."
+bodyMarkdown: |
+  Todo produto no seu estoque precisa de uma identidade. O código de barras EAN identifica o produto para o mundo — supermercados, marketplaces, fornecedores. O **SKU** é diferente: é o código que você cria para identificar o produto *dentro da sua operação*. Este guia explica o que é SKU, como criar um sistema consistente e quando ele se conecta (ou não) com o código de barras.
+
+  ## O que é SKU?
+
+  **SKU** — pronuncia-se "eskiu" — é a sigla em inglês para *Stock Keeping Unit*, ou "unidade de manutenção de estoque". É um código alfanumérico que identifica de forma única cada variação de produto no seu catálogo.
+
+  A palavra-chave é **variação**: tênis preto número 38 e tênis preto número 39 são dois SKUs diferentes. Camiseta azul tamanho M e camiseta azul tamanho G são dois SKUs diferentes. Cada combinação única de produto + atributos = um SKU.
+
+  ## SKU vs. EAN vs. GTIN: qual a diferença?
+
+  | Termo | O que é | Quem define | Onde é usado |
+  |---|---|---|---|
+  | **SKU** | Código interno de estoque | Você (lojista) | ERP, planilha, WMS interno |
+  | **EAN-13 / GTIN** | Código global de produto | GS1 + fabricante | PDV, marketplaces, fornecedores |
+  | **Código de barras** | Representação visual do EAN ou outro código | Gerado a partir do número | Etiqueta física, leitor óptico |
+  | **Referência do fabricante** | Código do produto conforme o fabricante | Fabricante | Nota fiscal, catálogo de compras |
+
+  O SKU é completamente separado do EAN. Você pode ter um produto com EAN registrado na GS1 *e* um SKU interno — e eles serão números diferentes. Você também pode ter um SKU para um produto que não tem EAN (artesanal, marca própria sem registro).
+
+  ## Como criar SKUs: estrutura recomendada
+
+  Um bom SKU deve ser:
+  - **Único**: nenhum outro produto tem o mesmo SKU
+  - **Consistente**: segue sempre o mesmo padrão
+  - **Legível**: uma pessoa consegue entender o produto pelo código
+  - **Curto**: idealmente até 15 caracteres
+
+  ### Estrutura com segmentos
+
+  A abordagem mais comum é dividir o SKU em segmentos separados por hífen, onde cada segmento representa um atributo:
+
+  ```
+  [CATEGORIA]-[PRODUTO]-[ATRIBUTO1]-[ATRIBUTO2]
+  ```
+
+  **Exemplos:**
+
+  | Produto | SKU |
+  |---|---|
+  | Tênis Running Preto 38 | TEN-RUN-PTO-38 |
+  | Camiseta Polo Azul G | CAM-POL-AZL-G |
+  | Notebook Dell 16GB 512GB | NOT-DEL-16-512 |
+  | Café Especial 250g Torrado | CAF-ESP-250-TOR |
+
+  Essa estrutura permite que você filtre e agrupe produtos no ERP por categoria ou atributo.
+
+  ### Usar números sequenciais?
+
+  Alguns sistemas usam SKUs puramente numéricos (00001, 00002…). É simples, mas perde o significado humano — você não consegue entender o produto só olhando para o SKU. Para operações pequenas (menos de 200 produtos), um SKU descritivo como nos exemplos acima funciona melhor.
+
+  Para catálogos com milhares de produtos, um SKU híbrido (prefixo de categoria + número sequencial) equilibra os dois:
+
+  ```
+  TEN-0001, TEN-0002, CAM-0001, CAM-0002…
+  ```
+
+  ## Quantos SKUs por produto?
+
+  **Um SKU por variação vendável.** Se um produto tem cor e tamanho, o número de SKUs é `cores × tamanhos`. Produto com 3 cores e 5 tamanhos = 15 SKUs.
+
+  Essa multiplicação parece assustadora no início, mas é necessária: cada variação precisa de controle de estoque independente. Você pode ter 50 unidades do tênis preto 38 e zero do preto 39 — sem SKUs separados, é impossível rastrear isso.
+
+  ## SKU em marketplaces brasileiros
+
+  Nos principais marketplaces:
+
+  - **Mercado Livre**: campo "SKU do vendedor" aceita qualquer código interno. Aparece nos relatórios de venda para você cruzar com seu estoque.
+  - **Shopee**: campo "SKU" visível para o vendedor; pode ser diferente por variação.
+  - **Amazon Brasil**: "Merchant SKU" é obrigatório no cadastro e deve ser único na sua conta.
+  - **Magalu / Casas Bahia**: aceitam referência interna do seller.
+
+  O SKU do marketplace não precisa ser o mesmo que o seu SKU interno — mas manter consistência facilita a conciliação de pedidos.
+
+  ## Integrando SKU com ERP e sistemas de gestão
+
+  Os ERPs mais usados por pequenas e médias empresas no Brasil — **Bling**, **Tiny** e **Omie** — têm campo específico para SKU/código interno, separado do código de barras:
+
+  - **Bling**: campo "Código" (SKU interno) e campo "GTIN/EAN" separados. O código de barras pode ser gerado automaticamente ou importado.
+  - **Tiny ERP**: "Código interno" (SKU) e "Código de barras" (EAN) são campos distintos. A integração com marketplaces usa o código interno para conciliar pedidos.
+  - **Omie**: "Código do produto" (SKU) e "Código EAN" separados. Relatórios de estoque usam o SKU para agrupamento.
+
+  Se você usa planilha Excel ou Google Sheets, crie colunas separadas para SKU, EAN e referência do fabricante — nunca misture os três.
+
+  ## Erros comuns ao criar SKUs
+
+  **Reutilizar SKUs de produtos descontinuados.** Se você vende um produto, descontinua e depois cadastra outro produto diferente com o mesmo SKU, o histórico de vendas fica misturado. Sempre crie SKUs novos — o custo de um número a mais é zero.
+
+  **SKUs diferentes para o mesmo produto.** Se o produto tem o mesmo EAN mas aparece com SKUs diferentes em sistemas distintos (ERP, marketplace, planilha), a conciliação de estoque vira pesadelo. Padronize antes de integrar.
+
+  **SKUs com caracteres especiais.** Evite acentos, espaços, barras (`/`) e outros caracteres que podem causar problemas em importação CSV ou APIs de marketplace. Use apenas letras maiúsculas, números e hífens.
+
+  **Não documentar o padrão.** Se o padrão de criação de SKU existe só na cabeça do gestor, qualquer pessoa nova vai criar SKUs fora do padrão. Documente: categorias, atributos, abreviações.
+
+  ## Código de barras a partir do SKU
+
+  O SKU interno pode ser impresso como código de barras para uso no estoque — independentemente de ter ou não um EAN registrado na GS1. Basta usar o formato **Code 128**, que aceita letras e números (o EAN-13 só aceita dígitos numéricos).
+
+  No [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras):
+
+  1. Selecione **Code 128**.
+  2. Digite o SKU (ex: `TEN-RUN-PTO-38`).
+  3. Baixe em SVG para etiquetas de prateleira ou coletor de estoque.
+
+  Esse código de barras serve para uso interno — leitor de mão, coletor, WMS. Não use SKU como código de barras em produtos que vão para o varejo (esses precisam do EAN-13).
+
+  ## Próximos passos
+
+  - Para entender o EAN-13 e como registrar na GS1: [EAN-13 e EAN-8: guia completo](/blog/ean-13-ean-8-guia-completo).
+  - Para gerar o código de barras do seu SKU em Code 128: [gerador de código de barras](/gerador-de-codigo-de-barras).
+  - Para imprimir etiquetas com o SKU: [como imprimir etiquetas com código de barras](/blog/como-imprimir-etiquetas-codigo-de-barras).
+faqsSlugs:
+  - cb-qual-formato-usar
+  - ean-registrar-gs1
+  - cb-digito-verificador
+  - cb-imprimir-etiquetas
+  - cb-png-svg-pdf

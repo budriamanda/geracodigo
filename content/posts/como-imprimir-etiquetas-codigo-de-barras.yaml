@@ -1,0 +1,160 @@
+slug: como-imprimir-etiquetas-codigo-de-barras
+title: "Como Imprimir Etiquetas com Código de Barras: Guia Completo"
+metaDescription: "Aprenda a imprimir etiquetas com código de barras em casa ou na gráfica: tamanho mínimo, tipo de impressora, formatos de arquivo e erros comuns. Guia para lojistas."
+h1: "Como imprimir etiquetas com código de barras: guia completo para lojistas"
+subtitle: "Tamanho certo, formato de arquivo, tipo de impressora e como evitar etiquetas que não leem no caixa."
+resumo: "Imprimir etiquetas com código de barras parece simples, mas erros de tamanho, resolução ou impressora causam códigos que não leem no PDV. Este guia explica tudo: tipo de impressora ideal, tamanho mínimo por formato, arquivo correto para cada situação e como imprimir em lote direto do navegador."
+categoria: codigo-barras
+persona: lojista-fisico
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 7
+tags:
+  - codigo-de-barras
+  - etiquetas
+  - impressao
+  - lojista
+  - ean-13
+ferramentaRelacionadaSlug: gerador-de-codigo-de-barras
+keywordPrimaria: "etiqueta codigo de barras"
+keywordsSecundarias:
+  - "imprimir etiqueta codigo de barras"
+  - "etiqueta com codigo de barras"
+  - "como fazer etiqueta com codigo de barras"
+  - "impressora etiqueta codigo de barras"
+  - "etiqueta ean 13"
+ogTitle: "Como Imprimir Etiquetas com Código de Barras"
+ogDescription: "Tamanho mínimo, impressora certa, arquivo SVG ou PNG e como imprimir em lote. Guia prático para lojistas."
+ogAccent: "#4f46e5"
+twitterTitle: "Como imprimir etiquetas com código de barras"
+twitterDescription: "Guia completo: impressora, tamanho, arquivo e impressão em lote. Sem erro no caixa."
+bodyMarkdown: |
+  Você gerou o código de barras, mandou imprimir e o leitor do caixa não reconheceu. Isso acontece com frequência — e quase sempre o problema não é o código em si, mas a forma como ele foi impresso. Este guia explica o que determina a qualidade de uma etiqueta e como acertar na primeira tentativa.
+
+  ## Por que etiquetas de código de barras falham na leitura?
+
+  As causas mais comuns, em ordem de frequência:
+
+  1. **Tamanho abaixo do mínimo** — código muito pequeno para a câmera ou laser do leitor focar.
+  2. **Impressão borrada** — jato de tinta com tinta mal fixada, cabeça suja ou papel absorvente demais.
+  3. **Arquivo em baixa resolução** — PNG pequeno esticado na impressão perde nitidez.
+  4. **Contraste insuficiente** — fundos coloridos ou barras cinzas em vez de pretas.
+  5. **Zona de silêncio insuficiente** — não deixar margem branca ao redor do código.
+
+  ## Tamanho mínimo por formato (padrão GS1)
+
+  Os tamanhos a seguir seguem as especificações da [GS1 Brasil](https://www.gs1br.org), entidade responsável pelos padrões de código de barras no Brasil:
+
+  | Formato | Largura mínima | Altura mínima | Observação |
+  |---|---|---|---|
+  | EAN-13 | 26 mm | 21 mm | 70% do tamanho padrão (mín. absoluto GS1) |
+  | EAN-13 (recomendado) | 37 mm | 26 mm | 100% — ideal para caixa de supermercado |
+  | EAN-8 | 21 mm | 17 mm | Para embalagens pequenas |
+  | Code 128 | 25 mm | 15 mm | Altura variável conforme a aplicação |
+  | ITF-14 | 98 mm | 20 mm | Para caixas de transporte |
+  | Code 39 | 30 mm | 15 mm | Depende do número de caracteres |
+
+  > **Regra prática:** na dúvida, use o tamanho recomendado, não o mínimo. Código maior = leitura mais rápida e confiável.
+
+  ## Qual impressora usar?
+
+  ### Impressora térmica direta — melhor custo-benefício para etiquetas
+  Impressoras térmicas (como Zebra, TSC, Elgin e Argox) imprimem pressionando calor no papel térmico. Não usam tinta nem toner. São o padrão do varejo brasileiro para etiquetas de produto porque:
+  - Barras com bordas nítidas e contraste máximo
+  - Velocidade alta (centenas de etiquetas por hora)
+  - Custo por etiqueta baixo após a compra da impressora
+  - Papel térmico para etiquetas é facilmente encontrado (rolos A4 e formatos personalizados)
+
+  **Desvantagem:** sensível ao calor e à luz solar direta — etiquetas podem desbotar com o tempo.
+
+  ### Impressora térmica por transferência — para etiquetas duráveis
+  Usa fita de resina ou cera para transferir a tinta ao papel. Produz etiquetas resistentes à água, óleo e variações de temperatura. Indicada para estoque em câmara fria, produtos expostos ao sol ou com vida útil longa.
+
+  ### Impressora laser — boa opção para quem já tem uma
+  Produz barras nítidas e sem borramento. O ponto fraco é a curvatura do papel ao passar pelo fusor — em etiquetas pequenas, pode descolar. Use papel de etiqueta específico para laser (não o comum de impressão).
+
+  ### Impressora de jato de tinta — evite para código de barras
+  Tinta líquida pode borrar no papel comum ou etiqueta de baixa qualidade. Se precisar usar, opte por papel de etiqueta revestido (glossy) e aguarde a tinta secar completamente antes de colar.
+
+  ## Qual formato de arquivo usar: PNG, SVG ou PDF?
+
+  | Formato | Quando usar | Por que |
+  |---|---|---|
+  | **SVG** | Impressão em qualquer tamanho | Vetorial — não perde qualidade ao ampliar |
+  | **PDF** | Enviar para gráfica ou impressora de etiquetas | Preserva exatamente o layout |
+  | **PNG** | Uso digital, e-commerce, planilha | Raster — qualidade fixa; use resolução alta (300+ DPI) |
+
+  **Para etiquetas físicas, sempre prefira SVG.** O PNG gerado em 200×200 px e esticado para 5×5 cm na impressão resulta em barras desfocadas.
+
+  O [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras) exporta nos três formatos.
+
+  ## Como imprimir em lote
+
+  Se você tem dezenas ou centenas de produtos, imprimir um por um é inviável. O GeraCode tem modo lote:
+
+  1. No gerador, ative o **modo lote** (botão "Em Lote").
+  2. Cole a lista de códigos — um por linha — ou importe do Excel/CSV.
+  3. Clique em **Gerar todos**.
+  4. Baixe em **ZIP (SVG)** para usar em software de edição, ou em **PDF** para imprimir direto.
+  5. Use o botão **Imprimir etiquetas** para layouts prontos 2×5 ou 3×5 em A4.
+
+  Para volumes muito grandes (milhares de etiquetas por dia), considere um software de gestão de etiquetas como o **ZebraDesigner** (gratuito para modelos básicos) ou **Bartender**, integrado ao seu ERP.
+
+  ## Papel de etiqueta: o que comprar
+
+  ### Etiqueta em folha A4 (para laser e jato de tinta)
+  Marcas como **Pimaco** e **Multilaser** vendem folhas A4 com etiquetas destacáveis em formatos variados. Os modelos mais usados para código de barras:
+
+  - **Pimaco 6181** — 33 × 101 mm, 8 etiquetas por folha. Boa para EAN-13 e Code 128.
+  - **Pimaco 6280** — 25 × 66 mm, 20 etiquetas por folha. Para etiquetas menores de produto.
+
+  O código do modelo indica o número de etiquetas e as dimensões — verifique se o tamanho é compatível com o código de barras antes de comprar.
+
+  ### Rolo de etiqueta (para impressora térmica)
+  Compre rolos no tamanho que a sua impressora suporta. Modelos mais comuns: 40×25 mm, 50×30 mm, 100×50 mm. A grande maioria das impressoras térmicas do varejo trabalha com papel de etiqueta 80 g/m².
+
+  ## Zona de silêncio: a margem que não pode faltar
+
+  O padrão GS1 exige uma área em branco (chamada de "zona de silêncio" ou *quiet zone*) em torno do código. Sem ela, o leitor não consegue identificar onde o código começa e termina.
+
+  - **EAN-13**: mínimo de 3,63 mm à esquerda e 2,31 mm à direita
+  - **Code 128**: mínimo de 10× a largura do módulo mais fino em cada lado
+  - **Prática**: deixe pelo menos **5 mm** de espaço branco em todos os lados — garante leitura confiável em qualquer leitor.
+
+  O GeraCode inclui a zona de silêncio automaticamente. Se você editar o arquivo em software de design (Canva, Illustrator, CorelDraw), não corte essa margem.
+
+  ## Checklist antes de imprimir em escala
+
+  Antes de imprimir 500 etiquetas, faça este teste:
+
+  - [ ] Imprima 5 etiquetas de teste no tamanho final
+  - [ ] Escaneie com o [leitor online do GeraCode](/leitor-de-codigo-de-barras) no computador
+  - [ ] Escaneie com o app do celular (câmera padrão do Android e iOS)
+  - [ ] Escaneie com o leitor de PDV da sua loja (se tiver)
+  - [ ] Verifique se o número abaixo das barras está legível (obrigatório para EAN-13 em varejo)
+  - [ ] Confirme que a zona de silêncio não foi cortada
+
+  Se um dos leitores falhar, ajuste o tamanho ou o arquivo antes de imprimir em escala.
+
+  ## Erros mais comuns
+
+  **Imprimir PNG em baixa resolução.** PNG gerado em 72 DPI e ampliado na impressora resulta em barras trêmulas. Use SVG ou PNG exportado em pelo menos 300 DPI.
+
+  **Usar fundo colorido.** Fundos azuis, vermelhos ou amarelos reduzem o contraste e dificultam a leitura. Sempre use fundo branco ou bege claro com barras pretas.
+
+  **Etiqueta plastificada com brilho intenso.** Plastificação brilhante reflete a luz do leitor laser. Prefira laminação fosca ou papel de etiqueta sem revestimento brilhante.
+
+  **Código muito perto da borda da embalagem.** O leitor precisa capturar a zona de silêncio inteira. Se o código vai para dobraduras ou regiões curvas da embalagem, reposicione.
+
+  ## Próximos passos
+
+  - Para entender quais formatos usar para cada tipo de venda: [código de barras para produtos: guia completo](/blog/codigo-de-barras-para-produtos-guia-completo).
+  - Para testar se sua etiqueta impressa está correta: [leitor de código de barras online](/leitor-de-codigo-de-barras).
+  - Para gerar e baixar etiquetas em lote: [gerador de código de barras](/gerador-de-codigo-de-barras).
+faqsSlugs:
+  - cb-imprimir-etiquetas
+  - cb-png-svg-pdf
+  - cb-gerar-em-lote
+  - cb-qual-formato-usar
+  - cb-digito-verificador

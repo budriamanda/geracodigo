@@ -1,0 +1,122 @@
+slug: qr-code-wifi-como-criar
+title: "QR Code para Wi-Fi: Compartilhe a Senha Sem Digitar"
+metaDescription: "Como criar QR Code para Wi-Fi: formato correto, compatibilidade com iOS e Android, onde imprimir e como evitar erros de conexão. Guia prático."
+h1: "QR Code para Wi-Fi: como criar e compartilhar a senha sem digitar"
+subtitle: "Formato técnico correto, compatibilidade com celulares e dicas de impressão para hotéis, cafés e escritórios."
+resumo: "O QR Code de Wi-Fi usa um formato especial que permite ao celular conectar automaticamente à rede sem o usuário digitar a senha. Este guia explica como funciona o formato WIFI:, como criar gratuitamente, em quais dispositivos funciona e como evitar os erros mais comuns."
+categoria: qr-code
+persona: restaurante
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 5
+tags:
+  - qr-code
+  - wifi
+  - senha-wifi
+  - hotspot
+  - hospitality
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code wifi"
+keywordsSecundarias:
+  - "qr code para wifi"
+  - "como criar qr code wifi"
+  - "qr code senha wifi"
+  - "qr code rede wifi"
+  - "compartilhar senha wifi qr code"
+ogTitle: "QR Code para Wi-Fi: Compartilhe a Senha Sem Digitar"
+ogDescription: "Formato correto, compatibilidade com iOS e Android, onde imprimir. Guia completo para hotéis, cafés e escritórios."
+ogAccent: "#0ea5e9"
+twitterTitle: "QR Code para Wi-Fi: guia completo"
+twitterDescription: "Como criar, formato correto e compatibilidade com celulares. Sem digitar senha."
+bodyMarkdown: |
+  Quantas vezes por dia alguém te pede a senha do Wi-Fi? Em um café, hotel ou escritório, um QR Code de Wi-Fi resolve isso: o cliente aponta o celular, escaneia e se conecta automaticamente — sem digitar nada, sem errar a senha.
+
+  Mas o QR Code de Wi-Fi não é um link. Ele usa um formato técnico específico que os sistemas operacionais conhecem. Este guia explica o formato correto, como criar, onde imprimir e em quais dispositivos funciona.
+
+  ## Como funciona o QR Code de Wi-Fi
+
+  O QR Code de Wi-Fi não abre um site — ele codifica um texto no formato **WIFI:** que os sistemas operacionais iOS e Android reconhecem nativamente como uma instrução de conexão. Quando a câmera detecta esse formato, ela exibe uma notificação "Conectar à rede [nome]" e completa a autenticação automaticamente.
+
+  O formato completo é:
+
+  ```
+  WIFI:T:WPA;S:nome-da-rede;P:senha-aqui;;
+  ```
+
+  Onde:
+  - **T** = tipo de segurança: `WPA` (para WPA2 e WPA3), `WEP` (obsoleto, evite) ou `nopass` (rede aberta)
+  - **S** = SSID, o nome da rede Wi-Fi (case sensitive)
+  - **P** = senha (omita para redes abertas)
+  - Os dois ponto-e-vírgula finais (`;;`) fecham o payload
+
+  O [gerador de QR Code do GeraCode](/gerador-de-qr-code) tem um modo específico para Wi-Fi que monta esse formato automaticamente — você preenche os campos e o código é gerado sem risco de erro de digitação.
+
+  ## Compatibilidade com iOS e Android
+
+  | Sistema operacional | Versão mínima | Como funciona |
+  |---|---|---|
+  | iOS | 11 (2017) | Câmera nativa lê e exibe notificação de conexão |
+  | Android | 10 (2019) | Câmera nativa lê; versões anteriores precisam de app |
+  | Android 9 ou anterior | — | Requer app de leitura de QR Code (ex: Google Lens) |
+  | Windows 10/11 | — | App "Câmera" lê mas não conecta automaticamente |
+
+  Para a grande maioria dos clientes hoje (2026), a câmera nativa já resolve. Dispositivos muito antigos podem precisar de um app adicional — mas esses representam menos de 5% do uso, segundo dados de adoção do Android publicados pelo Google.
+
+  ### Redes com segurança WPA3
+
+  Redes com WPA3 usam o mesmo valor `T:WPA` no formato WIFI: — o dispositivo negocia o protocolo correto automaticamente. Não existe campo específico para WPA3 no padrão de QR Code de Wi-Fi.
+
+  ## Criando o QR Code de Wi-Fi no GeraCode
+
+  1. Abra o [gerador de QR Code](/gerador-de-qr-code).
+  2. Selecione o tipo **Wi-Fi**.
+  3. Preencha: nome da rede (SSID), senha e tipo de segurança (WPA/WPA2/WPA3 → selecione WPA).
+  4. Se a rede é oculta (SSID não aparece na lista de redes), marque a opção "Rede oculta".
+  5. Baixe em **SVG** para impressão ou **PNG** para uso digital.
+
+  > **Atenção com caracteres especiais:** se a senha ou o SSID contém `;`, `"`, `:` ou `\`, esses caracteres precisam ser escapados com `\` no payload WIFI:. O gerador do GeraCode cuida disso automaticamente. Se você montar o formato na mão, lembre-se da regra.
+
+  ## Onde imprimir e posicionar
+
+  ### Em cafés, restaurantes e padarias
+  - **Mesa ou balcão**: porta-cartão acrílico (A7 ou A6), com o texto "Wi-Fi grátis — escaneie para conectar" e o nome da rede abaixo do código.
+  - Tamanho mínimo do QR Code: **3 × 3 cm** para leitura a 30 cm de distância.
+  - Inclua o nome e a senha por extenso abaixo do QR Code — para quem não conseguir escanear.
+
+  ### Em hotéis e pousadas
+  - Imprima em **cartão de boas-vindas** (tamanho cartão de crédito, frente e verso).
+  - Uma face: QR Code de Wi-Fi. Outra face: telefone da recepção, código do quarto, informações de checkout.
+  - Plastifique para durabilidade.
+
+  ### Em escritórios e coworkings
+  - Cole na parede próxima à recepção ou sala de reunião.
+  - Tamanho A6 (10,5 × 14,8 cm) é visível e legível de 1 metro de distância.
+
+  ## Erros comuns e como evitar
+
+  **Senha ou SSID com caractere especial não escapado.** Se o SSID é `Café & Cia`, o `&` precisa estar correto no payload. Use o gerador em vez de montar o texto na mão.
+
+  **Trocar a senha do Wi-Fi sem reimprimir.** O QR Code de Wi-Fi é estático — ele contém a senha literal. Se você mudar a senha do roteador, todos os QR Codes impressos param de funcionar. Guarde o arquivo SVG para reimprimir rapidamente.
+
+  **Rede oculta sem marcar a opção.** Redes com SSID oculto precisam do campo `H:true` no payload. Sem isso, o dispositivo não encontra a rede mesmo com a senha correta.
+
+  **QR Code muito pequeno.** Em ambientes com luz baixa (restaurante noturno, balcão escuro), o leitor precisa de mais área. Use pelo menos 4 × 4 cm nesses casos.
+
+  **Fundo colorido ou imagem atrás do código.** O QR Code de Wi-Fi segue as mesmas regras de impressão de qualquer QR Code: fundo branco, módulos escuros, zona de silêncio ao redor.
+
+  ## Devo incluir a senha em texto junto com o QR Code?
+
+  Sim — mas avalie o contexto. Em ambientes onde a senha é semipública (café, sala de espera), incluir a senha por extenso é conveniente para usuários com dispositivos mais antigos. Em ambientes corporativos onde a senha é controlada, imprima apenas o QR Code e instrua a recepção a fornecer a senha pessoalmente quando necessário.
+
+  ## Próximos passos
+
+  - Para criar o QR Code: [gerador de QR Code](/gerador-de-qr-code).
+  - Quer entender como o QR Code funciona por dentro? [Como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+  - Usando QR Code em restaurante? Veja também: [QR Code para restaurante: cardápio e PIX](/blog/qr-code-para-restaurante).
+faqsSlugs:
+  - qr-validade
+  - qr-tamanho-minimo
+  - qr-png-vs-svg
+  - qr-wifi-funciona-todos-celulares
+  - qr-wifi-senha-segura

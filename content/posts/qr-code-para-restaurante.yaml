@@ -1,0 +1,137 @@
+slug: qr-code-para-restaurante
+title: "QR Code para Restaurante: Cardápio Digital e PIX no Balcão"
+metaDescription: "Como usar QR Code no restaurante: cardápio digital nas mesas, QR Code Pix para receber pagamentos e dicas de impressão para não ter código que não lê."
+h1: "QR Code para restaurante: cardápio digital e PIX no balcão"
+subtitle: "Do cardápio nas mesas ao recebimento via Pix — como configurar, imprimir e manter os QR Codes do seu restaurante."
+resumo: "QR Code virou ferramenta padrão em restaurantes e lanchonetes: cardápio digital nas mesas e pagamento via Pix no balcão. Este guia explica como criar os dois tipos, onde imprimir, como posicionar e quais erros evitar para que os clientes consigam escanear sem dificuldade."
+categoria: qr-code
+persona: restaurante
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 6
+tags:
+  - qr-code
+  - restaurante
+  - cardapio-digital
+  - pix
+  - food-service
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code para restaurante"
+keywordsSecundarias:
+  - "cardapio digital qr code"
+  - "qr code cardapio restaurante"
+  - "qr code pix restaurante"
+  - "como usar qr code no restaurante"
+  - "cardapio qr code gratis"
+ogTitle: "QR Code para Restaurante: Cardápio e PIX"
+ogDescription: "Cardápio digital nas mesas e Pix no balcão com QR Code. Como criar, onde imprimir e como evitar erros."
+ogAccent: "#f59e0b"
+twitterTitle: "QR Code para restaurante: cardápio e PIX"
+twitterDescription: "Como criar QR Code de cardápio e Pix, onde imprimir e como posicionar na mesa."
+bodyMarkdown: |
+  Dois usos de QR Code dominam restaurantes brasileiros: o **cardápio digital** nas mesas e o **QR Code Pix** no balcão ou na comanda. São QR Codes diferentes, criados de formas diferentes — e misturá-los é um erro comum que confunde o cliente. Este guia explica cada um.
+
+  ## QR Code de cardápio: como funciona
+
+  O QR Code de cardápio é simplesmente um link (URL) codificado em QR Code. Quando o cliente escaneia, o celular abre o link — que pode ser:
+
+  - Um **PDF do cardápio** hospedado no Google Drive ou Dropbox
+  - Uma página no **Google Sites**, Notion ou site próprio
+  - Uma plataforma de cardápio digital como iFood Shop, Goomer, Anotaí ou similar
+  - Um link do **Instagram** ou **WhatsApp** com o menu fixado
+
+  A forma mais simples e gratuita: crie um PDF do cardápio, faça upload no Google Drive, ajuste o compartilhamento para "qualquer pessoa com o link pode ver" e use esse link no QR Code.
+
+  ### Criando o QR Code de cardápio no GeraCode
+
+  1. Abra o [gerador de QR Code do GeraCode](/gerador-de-qr-code).
+  2. Cole o link do seu cardápio na caixa de texto. Inclua sempre o `https://`.
+  3. Ajuste o tamanho (pelo menos 3 × 3 cm para uso em mesa).
+  4. Baixe em **SVG** se vai imprimir, ou **PNG** para uso digital.
+
+  > **Dica:** use um link permanente para o cardápio. Se você trocar o link depois de já ter impresso centenas de QR Codes, todos os códigos impressos param de funcionar. O QR Code estático não permite alterar o destino depois de impresso.
+
+  ### Opção com QR Code dinâmico
+
+  Se você atualiza o cardápio frequentemente e não quer reimprimir os QR Codes toda vez, considere um **QR Code dinâmico** — que aponta para um servidor e permite trocar o destino sem trocar o código impresso. Plataformas como Goomer, Abrahão e iFood Shop oferecem cardápio digital com QR Code dinâmico incluído.
+
+  Para uso simples (cardápio que muda pouco), o QR Code estático do GeraCode resolve sem custo.
+
+  ## QR Code Pix: para receber pagamentos
+
+  O **QR Code Pix** é um código completamente diferente — ele contém os dados da sua chave Pix num formato específico chamado BR Code EMV, definido pelo Banco Central do Brasil. Não é um link; é um payload de pagamento.
+
+  Quando o cliente escaneia com o app do banco, ele vai direto para a tela de pagamento com os seus dados preenchidos.
+
+  ### Criando o QR Code Pix
+
+  Use o [gerador de QR Code Pix do GeraCode](/gerador-de-qr-code-pix):
+
+  1. Selecione o tipo de chave (CNPJ é recomendado para estabelecimentos formalizados).
+  2. Digite a chave, o nome do estabelecimento (até 25 caracteres) e a cidade.
+  3. **Valor:** deixe em branco para que o cliente informe o valor, ou fixe se o ticket é sempre o mesmo.
+  4. Baixe em SVG para impressão ou PNG para WhatsApp e redes sociais.
+
+  O código gerado segue o padrão BR Code EMV do Banco Central e funciona em todos os bancos participantes do Pix. Para entender mais: [gerador de PIX grátis — guia completo](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+
+  ### PIX estático vs. dinâmico no restaurante
+
+  | Situação | Use Pix estático | Use Pix dinâmico |
+  |---|---|---|
+  | Comanda com valor variável | ✓ (cliente digita o valor) | ✓ (valor gerado por comanda) |
+  | Volume baixo a médio de pagamentos | ✓ | — |
+  | Precisa confirmar pagamento automaticamente | — | ✓ |
+  | Integração com sistema de PDV | — | ✓ |
+  | Custo | Zero | Depende do banco/sistema |
+
+  Para a maioria dos restaurantes de pequeno e médio porte, o **Pix estático** resolve bem: o cliente paga, você confere no app do banco. O Pix dinâmico faz sentido quando o volume é alto e a conciliação manual se torna inviável.
+
+  ## Não confunda os dois QR Codes na mesa
+
+  Um erro frequente: colocar o QR Code Pix e o QR Code de cardápio no mesmo suporte, sem identificar qual é qual. O cliente escaneia o Pix achando que é o cardápio — e vai parar na tela de pagamento. Resultado: confusão e desconfiança.
+
+  **Solução simples:** identifique claramente cada QR Code com um rótulo:
+  - 🍽️ **"Acesse o cardápio"** — aponta para o cardápio digital
+  - 💰 **"Pague via Pix"** — aponta para o QR Code Pix
+
+  Use ícones e cores diferentes para que o cliente entenda à primeira olhada.
+
+  ## Onde posicionar e como imprimir
+
+  ### Na mesa (cardápio)
+  - **Porta-cardápio acrílico de mesa** — dura mais que papel e não amassa. Encontrado em papelarias e lojas de embalagens por R$ 5–15 a unidade.
+  - **Tamanho mínimo**: 5 × 5 cm para leitura confortável à distância de 30–50 cm.
+  - **Plastifique** se não tiver acrílico — umidade e gordura degradam o papel.
+
+  ### No balcão (Pix)
+  - Imprima em **tamanho A5 (14,8 × 21 cm)** para visibilidade máxima.
+  - Plastifique ou use suporte de balcão.
+  - Coloque em local visível para quem está em frente ao caixa, não em ângulo.
+
+  ### Dicas de impressão
+  - Use **SVG** no arquivo — não perde qualidade em nenhum tamanho.
+  - **Impressora laser** produz barras mais nítidas que jato de tinta.
+  - Fundo branco e código escuro: evite fundos coloridos.
+  - **Teste antes de imprimir em quantidade**: escaneie com seu próprio celular e com o de outra pessoa.
+
+  ## Como manter os QR Codes funcionando
+
+  **Cardápio:** se o link mudar (troca de plataforma, PDF reuploadado com URL diferente), reimprima todos os QR Codes. Anote o link em algum lugar seguro antes de criar o QR.
+
+  **Pix:** o QR Code Pix estático não expira enquanto a chave Pix estiver ativa no banco. Se você trocar a chave Pix ou mudar de banco, gere um novo QR Code e reimprima.
+
+  **Manutenção periódica:** uma vez por mês, escaneie todos os QR Codes do estabelecimento para garantir que ainda funcionam. Um QR Code ilegível ou com destino errado passa despercebido por semanas se ninguém verificar.
+
+  ## Próximos passos
+
+  - Para criar o QR Code do cardápio: [gerador de QR Code](/gerador-de-qr-code).
+  - Para criar o QR Code Pix: [gerador de QR Code Pix](/gerador-de-qr-code-pix).
+  - Quer entender como o QR Code funciona por dentro? [Como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+faqsSlugs:
+  - qr-validade
+  - qr-tamanho-minimo
+  - qr-png-vs-svg
+  - pix-qr-code-valido
+  - pix-estatico-vs-dinamico
+  - qr-code-pix-qualquer-banco

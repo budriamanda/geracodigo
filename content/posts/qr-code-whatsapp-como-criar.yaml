@@ -1,0 +1,146 @@
+slug: qr-code-whatsapp-como-criar
+title: "QR Code para WhatsApp: Como Criar e Usar no Seu Negócio"
+metaDescription: "Como criar QR Code para WhatsApp: formato wa.me correto, mensagem pré-preenchida, onde usar e diferença entre WhatsApp pessoal e Business. Guia prático."
+h1: "QR Code para WhatsApp: como criar e usar no seu negócio"
+subtitle: "Formato wa.me, mensagem pré-preenchida, diferença entre WhatsApp pessoal e Business e onde posicionar o código."
+resumo: "O QR Code para WhatsApp usa o link wa.me com o número no formato internacional para abrir uma conversa direto no aplicativo — sem precisar salvar o contato. Com o parâmetro ?text=, você ainda pode pré-preencher uma mensagem. Este guia explica o formato correto, como criar gratuitamente e onde usar no seu negócio."
+categoria: qr-code
+persona: restaurante
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 5
+tags:
+  - qr-code
+  - whatsapp
+  - atendimento
+  - marketing
+  - negocios
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code whatsapp"
+keywordsSecundarias:
+  - "qr code para whatsapp"
+  - "como criar qr code whatsapp"
+  - "qr code whatsapp business"
+  - "link whatsapp qr code"
+  - "wa.me qr code"
+ogTitle: "QR Code para WhatsApp: Como Criar e Usar"
+ogDescription: "Formato wa.me correto, mensagem pré-preenchida e diferença entre WhatsApp pessoal e Business. Guia prático para negócios."
+ogAccent: "#22c55e"
+twitterTitle: "QR Code para WhatsApp: guia completo"
+twitterDescription: "Formato wa.me, mensagem pré-preenchida e onde usar no negócio."
+bodyMarkdown: |
+  Um QR Code para WhatsApp elimina a fricção do atendimento: o cliente escaneia, o WhatsApp abre com a conversa já iniciada — sem precisar digitar o número, sem precisar salvar o contato. Para pequenos negócios, isso significa mais mensagens recebidas e menos clientes que desistem no meio do caminho.
+
+  Este guia explica como funciona, como criar o código correto e onde usar.
+
+  ## Como funciona o QR Code para WhatsApp
+
+  O QR Code para WhatsApp é simplesmente um QR Code que aponta para um **link wa.me** — o serviço de link direto do WhatsApp. Quando o usuário escaneia o código, o celular abre o link no navegador, que redireciona para o app do WhatsApp com a conversa já aberta.
+
+  O formato do link é:
+
+  ```
+  https://wa.me/NUMERO_COMPLETO
+  ```
+
+  Onde `NUMERO_COMPLETO` é o número no formato internacional, sem espaços, traços ou parênteses:
+
+  - Brasil: `55` (código do país) + `11` (DDD) + número
+  - Exemplo: `https://wa.me/5511999887766`
+
+  ### Pré-preenchendo uma mensagem
+
+  Com o parâmetro `?text=`, você define uma mensagem que aparece digitada no campo de texto quando a conversa abre — o usuário só precisa apertar enviar:
+
+  ```
+  https://wa.me/5511999887766?text=Olá,%20gostaria%20de%20um%20orçamento
+  ```
+
+  O texto precisa estar codificado para URL (espaços viram `%20`, vírgulas ficam como `,`). O gerador do GeraCode faz essa codificação automaticamente.
+
+  > **Nota:** o WhatsApp abre a mensagem pré-preenchida, mas o usuário ainda decide se envia ou não. Não é uma mensagem automática — é apenas uma sugestão de texto para facilitar o contato.
+
+  ## Como criar o QR Code para WhatsApp no GeraCode
+
+  1. Abra o [gerador de QR Code](/gerador-de-qr-code).
+  2. No campo de texto, cole o link `https://wa.me/55SEUDDDNUMERO`.
+  3. Se quiser mensagem pré-preenchida, adicione `?text=Sua%20mensagem%20aqui`.
+  4. Ajuste o tamanho (mínimo 3 × 3 cm para uso impresso).
+  5. Baixe em **SVG** para impressão ou **PNG** para redes sociais e digital.
+
+  ## WhatsApp pessoal vs. WhatsApp Business
+
+  O link wa.me funciona com os dois — o que muda é o que o usuário vê quando a conversa abre:
+
+  | Característica | WhatsApp pessoal | WhatsApp Business |
+  |---|---|---|
+  | Perfil comercial (nome, endereço, horário) | Não | Sim |
+  | Catálogo de produtos | Não | Sim |
+  | Mensagens automáticas (ausência, saudação) | Não | Sim |
+  | Link wa.me | Sim | Sim |
+  | QR Code nativo no app | Não | Sim (em Configurações) |
+  | Uso do número | Pessoal | Profissional recomendado |
+
+  Para negócios, use o **WhatsApp Business** — além das funcionalidades extras, o perfil comercial transmite mais credibilidade. O link wa.me é idêntico para os dois tipos de conta.
+
+  ### O QR Code nativo do WhatsApp Business
+
+  O WhatsApp Business gera um QR Code próprio em *Configurações → Ferramentas comerciais → Link curto*. Esse QR Code usa um link `wa.me` com um token de rastreamento e pode incluir uma mensagem padrão definida no app.
+
+  A diferença do QR Code gerado no GeraCode: no GeraCode, você controla o visual do código (tamanho, formato de arquivo, cor) e pode criar múltiplos QR Codes com mensagens diferentes. O QR Code nativo do WhatsApp Business é mais simples de gerar, mas com menos controle visual.
+
+  ## Onde usar o QR Code para WhatsApp
+
+  **Loja física:**
+  - Balcão de atendimento: "Fale conosco pelo WhatsApp — escaneie aqui"
+  - Vitrine ou porta da loja
+  - Embalagem do produto (para suporte pós-venda)
+  - Nota fiscal ou cartão de visita
+
+  **Redes sociais e digital:**
+  - Stories do Instagram com "arrasta para cima" (em PNG)
+  - Bio do Instagram com link wa.me direto (não precisa de QR Code para uso digital)
+  - E-mail marketing: imagem do QR Code no rodapé
+
+  **Material impresso:**
+  - Panfleto ou folder de divulgação
+  - Banner de evento
+  - Cardápio de restaurante (além do QR Code de PIX e cardápio)
+  - Embalagem de produto (para atendimento e garantia)
+
+  ## Mensagens pré-preenchidas por caso de uso
+
+  Pré-preencher a mensagem reduz a barreira de contato — o cliente não precisa pensar no que escrever. Exemplos:
+
+  | Contexto | Mensagem sugerida |
+  |---|---|
+  | Orçamento geral | `Olá, gostaria de um orçamento` |
+  | Produto específico | `Olá, quero saber mais sobre [produto]` |
+  | Agendamento | `Olá, quero agendar um horário` |
+  | Suporte | `Olá, preciso de ajuda com meu pedido` |
+  | Delivery | `Olá, quero fazer um pedido` |
+
+  Personalize a mensagem para o contexto em que o QR Code será exibido. Um QR Code no cardápio do restaurante deve ter mensagem diferente do QR Code na embalagem do produto.
+
+  ## Erros comuns
+
+  **Número sem o código do país.** O link `wa.me/11999887766` não funciona — falta o `55` do Brasil. O formato correto é `wa.me/5511999887766`.
+
+  **Número com formatação.** `wa.me/55 (11) 99988-7766` com espaços e traços também não funciona. Use apenas dígitos: `wa.me/5511999887766`.
+
+  **QR Code muito pequeno em impressão.** Para uso em balcão ou parede, use tamanho mínimo de 4 × 4 cm. Para cartão de visita, 2 × 2 cm pode ser insuficiente dependendo do celular.
+
+  **Mensagem não codificada.** Se você digitar o link manualmente com espaços no texto (`?text=Olá gostaria`), o WhatsApp pode não reconhecer. Use codificação URL ou deixe o GeraCode fazer isso automaticamente.
+
+  ## Próximos passos
+
+  - Para criar o QR Code: [gerador de QR Code](/gerador-de-qr-code).
+  - Usando QR Code em restaurante? Veja também: [QR Code para restaurante: cardápio e PIX](/blog/qr-code-para-restaurante).
+  - Quer entender como o QR Code funciona por dentro? [Como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+faqsSlugs:
+  - qr-validade
+  - qr-tamanho-minimo
+  - qr-png-vs-svg
+  - qr-whatsapp-salvar-contato
+  - qr-whatsapp-business-diferenca

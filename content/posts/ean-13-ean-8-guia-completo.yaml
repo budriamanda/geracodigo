@@ -1,0 +1,150 @@
+slug: ean-13-ean-8-guia-completo
+title: "EAN-13 e EAN-8: O Que São e Como Gerar para Seus Produtos"
+metaDescription: "Entenda o que é EAN-13 e EAN-8: estrutura, dígito verificador, prefixos do Brasil (789 e 790), quando registrar na GS1 e como gerar grátis para seus produtos."
+h1: "EAN-13 e EAN-8: guia completo para lojistas e vendedores"
+subtitle: "O que cada dígito significa, quando registrar na GS1, o que marketplaces exigem e como gerar o código do seu produto."
+resumo: "O EAN-13 é o código de barras presente em praticamente todo produto vendido no varejo brasileiro. Este guia explica o que cada bloco de dígitos representa, como funciona o dígito verificador, quando você precisa (ou não) registrar na GS1, e como gerar o código de barras do seu produto gratuitamente."
+categoria: ean
+persona: lojista-ecommerce
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 7
+tags:
+  - ean-13
+  - ean-8
+  - codigo-de-barras
+  - gtin
+  - gs1
+  - lojista
+ferramentaRelacionadaSlug: gerador-de-ean
+keywordPrimaria: "ean 13 o que e"
+keywordsSecundarias:
+  - "ean-13 codigo de barras"
+  - "o que e ean 13"
+  - "ean-8 o que e"
+  - "gtin ean 13"
+  - "prefixo ean brasil"
+ogTitle: "EAN-13 e EAN-8: Guia Completo para Lojistas"
+ogDescription: "Estrutura, dígito verificador, prefixos do Brasil, GS1 e como gerar. Tudo que você precisa saber sobre EAN."
+ogAccent: "#f59e0b"
+twitterTitle: "EAN-13 e EAN-8: guia completo"
+twitterDescription: "O que é, como funciona, quando registrar na GS1 e como gerar grátis para seus produtos."
+bodyMarkdown: |
+  Você vê o EAN-13 em toda embalagem de supermercado, farmácia e pet shop — aquelas 13 barras verticais com números embaixo. Mas o que cada bloco de números significa? Quando você precisa registrar na GS1? E por que marketplaces como Mercado Livre e Shopee pedem esse número? Este guia responde tudo.
+
+  ## O que é EAN-13?
+
+  **EAN** significa *European Article Number* (hoje chamado internacionalmente de **GTIN-13**, ou *Global Trade Item Number* de 13 dígitos). É o sistema de identificação de produtos comerciais mais usado no mundo, presente em mais de 100 países e administrado globalmente pela [GS1](https://www.gs1.org) — no Brasil, pela [GS1 Brasil](https://www.gs1br.org).
+
+  O EAN-13 não é apenas um número aleatório. Cada bloco de dígitos carrega uma informação específica sobre a origem e o produto.
+
+  ## Estrutura do EAN-13: o que cada dígito significa
+
+  Um EAN-13 é dividido em quatro partes:
+
+  ```
+  789  |  12345  |  6789  |  0
+  País | Empresa | Produto | Verificador
+  ```
+
+  ### 1. Prefixo GS1 (3 dígitos) — identifica o país
+  Os três primeiros dígitos identificam o país no qual a empresa está registrada, conforme a tabela da [GS1 Global](https://www.gs1.org/standards/id-keys/company-prefix). Para o Brasil, os prefixos são **789** e **790** — ambos válidos e atribuídos pela GS1 Global exclusivamente ao Brasil.
+
+  Isso não significa que o produto foi fabricado no Brasil — apenas que a empresa detentora do código está registrada aqui.
+
+  ### 2. Prefixo da empresa (variável) — identifica o fabricante
+  Atribuído pela GS1 Brasil ao se associar. O número de dígitos varia conforme o plano contratado: empresas com catálogos menores recebem prefixos mais longos (sobram menos dígitos para o produto), e empresas maiores recebem prefixos mais curtos.
+
+  ### 3. Referência do produto (variável) — definida pelo fabricante
+  Os dígitos restantes (após o prefixo da empresa e antes do verificador) identificam cada produto específico. É o fabricante quem os define — cada variação de produto (cor, tamanho, sabor) deve ter uma referência diferente.
+
+  ### 4. Dígito verificador (1 dígito) — garante a integridade
+  O último dígito é calculado matematicamente a partir dos 12 anteriores usando o algoritmo de módulo 10. Qualquer leitor de código de barras calcula esse dígito e rejeita o código se não bater — isso evita erros de digitação ou impressão defeituosa.
+
+  **Como é calculado:** some os dígitos em posições ímpares (1.º, 3.º, 5.º, 7.º, 9.º, 11.º), multiplique os dígitos em posições pares (2.º, 4.º, 6.º, 8.º, 10.º, 12.º) por 3, some tudo, e o verificador é o número que completa o múltiplo de 10 mais próximo.
+
+  O [gerador de EAN do GeraCode](/gerador-de-ean) calcula e valida o dígito verificador automaticamente.
+
+  ## EAN-8: para embalagens com pouco espaço
+
+  O **EAN-8** (GTIN-8) funciona da mesma forma que o EAN-13, mas com apenas 8 dígitos. Foi criado para embalagens muito pequenas onde não há espaço para 13 dígitos — balas, chicletes, cosméticos compactos, sachês.
+
+  | Característica | EAN-13 | EAN-8 |
+  |---|---|---|
+  | Total de dígitos | 13 | 8 |
+  | Largura mínima (GS1) | 26 mm | 21 mm |
+  | Uso principal | Maioria dos produtos | Embalagens pequenas |
+  | Capacidade de produtos | Até 100.000 por empresa | Limitado (uso especial GS1) |
+
+  > O EAN-8 exige registro na GS1 Brasil mesmo para uso interno, pois os prefixos são controlados para evitar colisões globais.
+
+  ## Quando você precisa registrar na GS1?
+
+  A resposta depende do canal de venda:
+
+  **Precisa registrar na GS1 se:**
+  - Vai vender em **supermercados, farmácias, magazines** ou qualquer rede varejista que conecta ao banco de dados GS1.
+  - Vai exportar para países que validam GTINs contra o banco global.
+  - Quer o "Selo GS1" de autenticidade do produto.
+
+  **Não precisa registrar se:**
+  - Vende apenas no seu **e-commerce próprio** com sistema interno.
+  - Usa o código só para **controle de estoque interno**.
+  - Vende em **marketplaces** que aceitam GTINs não registrados para produtos de marca própria (verifique a política de cada plataforma — varia por categoria).
+
+  Para saber os valores de associação atualizados, consulte [gs1br.org](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras) — os planos são reajustados periodicamente.
+
+  ## O que os marketplaces brasileiros exigem
+
+  Segundo as políticas públicas de cada plataforma (sujeitas a mudanças):
+
+  - **Mercado Livre**: exige GTIN para produtos novos em categorias como eletrônicos, beleza e alimentos. Produtos artesanais ou de marca própria sem código oficial podem ser cadastrados sem GTIN, mas têm menor visibilidade na busca.
+  - **Shopee**: GTIN opcional na maioria das categorias, mas produtos com EAN recebem mais credibilidade no algoritmo.
+  - **Amazon Brasil**: exige GTIN para praticamente todos os produtos. Marcas próprias podem solicitar isenção via Brand Registry.
+  - **Magalu**: EAN obrigatório no cadastro de sellers.
+  - **Casas Bahia / Ponto**: EAN obrigatório, com validação automática do dígito verificador.
+
+  > **Atenção:** usar EAN inventado em marketplaces que validam contra a base GS1 pode resultar em suspensão da conta ou remoção do anúncio.
+
+  ## Como gerar o EAN-13 do seu produto
+
+  Se você precisa do **código visual** (a imagem das barras) para imprimir na embalagem ou etiqueta — seja a partir de um GTIN já registrado na GS1 ou para uso interno — use o [gerador de EAN do GeraCode](/gerador-de-ean):
+
+  1. Escolha **EAN-13** ou **EAN-8**.
+  2. Digite os 12 primeiros dígitos do seu código (o 13.º verificador é calculado automaticamente).
+  3. Ajuste largura e altura conforme a embalagem.
+  4. Baixe em **SVG** para impressão ou **PNG** para uso digital.
+
+  O código gerado é a representação visual do número — qualquer leitor de código de barras vai lê-lo e retornar o número correspondente.
+
+  ## EAN vs. SKU vs. GTIN: qual a diferença?
+
+  | Termo | O que é | Quem define |
+  |---|---|---|
+  | **EAN-13** | Código de barras visual (imagem) | Gerado a partir do GTIN |
+  | **GTIN** | Número global de identificação do produto | GS1 (com registro) ou empresa (uso interno) |
+  | **SKU** | Código interno de gestão de estoque | A própria empresa, livremente |
+
+  O GTIN é o número; o EAN-13 é a representação visual desse número em código de barras. O SKU é um código separado, interno, para organização própria — veja mais em [o que é SKU e como criar para sua loja](/blog/o-que-e-sku-como-criar).
+
+  ## Erros comuns com EAN-13
+
+  **Usar o mesmo EAN em variações diferentes.** Cada variação de produto (cor, tamanho, sabor) precisa de um GTIN único. Tênis preto 38 e tênis preto 39 são GTINs diferentes.
+
+  **Reutilizar código de produto descontinuado.** Plataformas guardam histórico. Reaproveitar o código causa conflito no catálogo e pode trazer avaliações e devoluções do produto anterior.
+
+  **Imprimir sem o número embaixo das barras.** O padrão GS1 exige que os 13 dígitos apareçam em texto abaixo do código de barras (chamado de HRI — Human Readable Interpretation) para produtos comercializados no varejo. É obrigatório e serve de fallback quando o leitor não consegue ler o código visual.
+
+  ## Próximos passos
+
+  - Precisa de formatos além do EAN? Veja [código de barras para produtos: guia completo](/blog/codigo-de-barras-para-produtos-guia-completo).
+  - Para imprimir etiquetas: [como imprimir etiquetas com código de barras](/blog/como-imprimir-etiquetas-codigo-de-barras).
+  - Gere o código visual direto no [gerador de EAN do GeraCode](/gerador-de-ean).
+faqsSlugs:
+  - ean-diferenca-13-8
+  - ean-registrar-gs1
+  - ean-calcular-digito
+  - ean-mercado-livre
+  - ean-funciona-leitores
+  - cb-digito-verificador
