@@ -1,0 +1,105 @@
+slug: codigo-de-barras-sem-numero
+title: "Código de Barras Sem Número: O Que É e Quando Usar"
+metaDescription: "O que é HRI em código de barras, quando o número é obrigatório (varejo GS1) e quando pode ser omitido. Guia para lojistas e uso interno."
+h1: "Código de barras sem número: o que é HRI e quando você pode omitir"
+subtitle: "Quando o número abaixo das barras é obrigatório, quando pode ser escondido e o que diz o padrão GS1."
+resumo: "O número impresso abaixo do código de barras tem nome técnico: HRI (Human Readable Interpretation). O padrão GS1 exige o HRI em produtos vendidos no varejo, mas ele pode ser omitido em usos internos de estoque e logística. Este guia explica quando cada situação se aplica e como gerar os dois formatos."
+categoria: codigo-barras
+persona: lojista-ecommerce
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 5
+tags:
+  - codigo-de-barras
+  - hri
+  - ean-13
+  - estoque
+  - lojista
+ferramentaRelacionadaSlug: gerador-de-codigo-de-barras
+keywordPrimaria: "codigo de barras sem numero"
+keywordsSecundarias:
+  - "codigo de barras sem numero embaixo"
+  - "hri codigo de barras"
+  - "codigo de barras so com barras"
+  - "codigo de barras sem digitos"
+  - "esconder numero codigo de barras"
+ogTitle: "Código de Barras Sem Número: Quando Usar"
+ogDescription: "O que é HRI, quando é obrigatório no varejo e quando pode ser omitido no estoque. Com exemplos práticos."
+ogAccent: "#16a34a"
+twitterTitle: "Código de barras sem número: quando usar"
+twitterDescription: "HRI obrigatório no varejo, opcional no estoque interno. Guia completo."
+bodyMarkdown: |
+  Você já viu um código de barras sem aqueles números impressos embaixo? Ou o contrário — quis imprimir um código de barras limpo, sem os dígitos, e ficou em dúvida se isso é permitido? A resposta depende de onde o código vai ser usado. Este guia explica o que é o número do código de barras, quando ele é obrigatório e quando pode ser omitido.
+
+  ## O que é o número abaixo do código de barras?
+
+  O número impresso abaixo (ou ao lado) das barras tem nome técnico: **HRI** — *Human Readable Interpretation*, ou "interpretação legível por humanos" em tradução livre. Ele representa o mesmo dado que está codificado nas barras, em formato que qualquer pessoa pode ler sem equipamento.
+
+  O HRI existe por dois motivos:
+  1. **Fallback de leitura**: se o leitor não conseguir ler o código visual (código danificado, impressão borrada, sujeira), o operador digita o número manualmente.
+  2. **Verificação humana**: em processos de auditoria e recebimento, o operador pode confirmar visualmente qual produto é sem precisar escanear.
+
+  ## Quando o HRI é obrigatório?
+
+  O **padrão GS1** — que rege os códigos EAN-13, EAN-8 e ITF-14 para produtos comercializados no varejo — exige o HRI como parte das especificações técnicas. Segundo as [especificações da GS1 Brasil](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras), produtos destinados ao ponto de venda (PDV) de supermercados, farmácias e lojas de varejo devem ter:
+
+  - Os dígitos impressos abaixo das barras
+  - Fonte legível (tamanho mínimo recomendado: 2,75 mm de altura)
+  - Os números divididos nos grupos padrão do formato (ex: `7 891234 567890` para EAN-13)
+
+  **Em resumo: se o produto vai para o varejo com leitor de PDV, o HRI é obrigatório.**
+
+  ## Quando o HRI pode ser omitido?
+
+  O HRI é opcional — e muitas vezes preferível omitir — em usos **internos ou logísticos**:
+
+  | Situação | HRI necessário? | Por quê |
+  |---|---|---|
+  | Produto em gôndola de supermercado | Sim | Padrão GS1 para PDV |
+  | Etiqueta de prateleira (posição de estoque) | Não | Uso interno, lido por coletor |
+  | Caixa de transporte (ITF-14) | Geralmente não | Lido por scanner de esteira |
+  | Etiqueta de patrimônio | Não | Uso interno, sem PDV |
+  | Rastreio interno de lote | Não | Uso interno |
+  | E-commerce (etiqueta de embalagem interna) | Não | Produto não vai para gôndola |
+  | Produto para exportação GS1 | Sim | Padrão internacional |
+
+  ## Código de barras sem número no estoque: vantagens práticas
+
+  Em etiquetas de estoque interno, omitir o HRI tem algumas vantagens:
+
+  - **Etiqueta mais compacta**: o espaço do HRI é recuperado para outras informações (descrição, lote, localização).
+  - **Leitura exclusivamente por scanner**: elimina a possibilidade de operadores digitarem o número errado.
+  - **Estética limpa**: em produtos premium onde a embalagem tem design cuidadoso e o código é para uso logístico interno, o HRI pode poluir o visual.
+
+  ## Como gerar código de barras sem o número (sem HRI)
+
+  No [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras):
+
+  1. Gere o código normalmente (EAN-13, Code 128 ou outro formato).
+  2. Nas opções de exibição, desmarque **"Mostrar número"** (ou "Mostrar HRI").
+  3. Baixe em SVG — o arquivo gerado terá apenas as barras, sem o texto numérico.
+
+  > **Atenção para EAN-13**: o padrão GS1 exige o HRI para produtos de varejo. Se o código for usado em gôndola de supermercado ou PDV, mantenha o número impresso. Para uso interno de estoque, a omissão é válida.
+
+  ## Posição do HRI: abaixo ou ao lado?
+
+  Na maioria dos formatos lineares (EAN-13, Code 128, Code 39), o HRI fica **abaixo** das barras. Em alguns formatos de etiqueta estreita ou em posições específicas de embalagem, o número pode aparecer ao lado — mas isso depende do software de impressão, não do padrão do código em si.
+
+  No EAN-13, o padrão GS1 define a posição exata: os dígitos ficam **dentro** da zona tranquila inferior, separados nos grupos `X XXXXXX XXXXXX` (1 dígito do indicador de sistema, 6 dígitos da empresa, 6 dígitos do produto/verificador).
+
+  ## Código de barras sem número é o mesmo código?
+
+  Sim — a informação codificada nas barras é idêntica com ou sem o HRI. O número embaixo é apenas a representação visual para leitura humana. O leitor de código de barras lê as barras, não o número impresso. Se o código visual estiver correto, o leitor retorna o mesmo valor independentemente de o HRI estar visível ou não.
+
+  ## Próximos passos
+
+  - Precisa de uma visão geral de formatos? [Código de barras para produtos: guia completo](/blog/codigo-de-barras-para-produtos-guia-completo).
+  - Quer entender a estrutura completa do EAN-13? [EAN-13 e EAN-8: guia completo](/blog/ean-13-ean-8-guia-completo).
+  - Para gerar com ou sem HRI: [gerador de código de barras](/gerador-de-codigo-de-barras).
+faqsSlugs:
+  - cb-digito-verificador
+  - cb-qual-formato-usar
+  - cb-png-svg-pdf
+  - ean-funciona-leitores
+  - cb-imprimir-etiquetas
