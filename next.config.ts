@@ -30,6 +30,9 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    '/blog': ['./content/posts/**/*'],
+  },
   async redirects() {
     // Host-level redirect (apex → www) fica hardcoded — é infraestrutura, não conteúdo.
     const infraRedirects = [
