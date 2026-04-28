@@ -118,5 +118,5 @@ faqsSlugs:
   - qr-validade
   - qr-tamanho-minimo
   - qr-png-vs-svg
-  - qr-wifi-funciona-todos-celulares
-  - qr-wifi-senha-segura
+  - funciona-no-celular
+  - dados-ficam-seguros

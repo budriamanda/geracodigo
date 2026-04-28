@@ -141,8 +141,8 @@ bodyMarkdown: |
   - Para gerar o código de barras do seu SKU em Code 128: [gerador de código de barras](/gerador-de-codigo-de-barras).
   - Para imprimir etiquetas com o SKU: [como imprimir etiquetas com código de barras](/blog/como-imprimir-etiquetas-codigo-de-barras).
 faqsSlugs:
+  - sku-o-que-e
+  - sku-vs-codigo-barras
+  - sku-quantos-gerar
+  - sku-abreviar-categorias
   - cb-qual-formato-usar
-  - ean-registrar-gs1
-  - cb-digito-verificador
-  - cb-imprimir-etiquetas
-  - cb-png-svg-pdf

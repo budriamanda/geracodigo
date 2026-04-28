@@ -34,7 +34,7 @@ bodyMarkdown: |
 
   ## O que é Code 128?
 
-  O **Code 128** é um formato de código de barras linear de alta densidade criado em 1981 por Ted Williams, da empresa Laserlight. Diferente do EAN-13 (que só aceita números), o Code 128 pode codificar **todos os 128 caracteres ASCII** — letras maiúsculas e minúsculas, números e símbolos.
+  O **Code 128** é um formato de código de barras linear de alta densidade introduzido em 1981. Diferente do EAN-13 (que só aceita números), o Code 128 pode codificar **todos os 128 caracteres ASCII** — letras maiúsculas e minúsculas, números e símbolos.
 
   Isso o torna extremamente versátil para aplicações onde o EAN-13 não serve: etiquetas de envio com letras, referências internas alfanuméricas, números de pedido, lotes e datas.
 

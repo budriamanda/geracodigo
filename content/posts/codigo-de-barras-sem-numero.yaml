@@ -80,7 +80,7 @@ bodyMarkdown: |
   2. Nas opções de exibição, desmarque **"Mostrar número"** (ou "Mostrar HRI").
   3. Baixe em SVG — o arquivo gerado terá apenas as barras, sem o texto numérico.
 
-  > **Atenção para EAN-13**: o GeraCode exibe um aviso quando você oculta o HRI em EAN-13, lembrando que o padrão GS1 exige o número para produtos de varejo. Para uso interno, você pode ignorar o aviso.
+  > **Atenção para EAN-13**: o padrão GS1 exige o HRI para produtos de varejo. Se o código for usado em gôndola de supermercado ou PDV, mantenha o número impresso. Para uso interno de estoque, a omissão é válida.
 
   ## Posição do HRI: abaixo ou ao lado?
 
