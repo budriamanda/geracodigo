@@ -45,6 +45,7 @@ type Block =
   | { type: 'ul'; items: string[] }
   | { type: 'ol'; items: string[] }
   | { type: 'blockquote'; lines: string[] }
+  | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'hr' }
 
 function parseBlocks(input: string): Block[] {
@@ -61,6 +62,17 @@ function parseBlocks(input: string): Block[] {
     }
   }
   let bqBuffer: string[] = []
+  let tableBuffer: string[] = []
+
+  const flushTable = () => {
+    if (tableBuffer.length < 2) { tableBuffer = []; return }
+    const parseRow = (line: string) => line.split('|').slice(1, -1).map(c => c.trim())
+    const isSeparator = (line: string) => /^\|[\s\-:|]+\|$/.test(line.trim())
+    const headers = parseRow(tableBuffer[0])
+    const dataRows = tableBuffer.slice(1).filter(l => !isSeparator(l)).map(parseRow)
+    if (headers.length > 0) blocks.push({ type: 'table', headers, rows: dataRows })
+    tableBuffer = []
+  }
 
   const flushList = () => {
     if (listBuffer.length > 0 && listType) {
@@ -84,6 +96,7 @@ function parseBlocks(input: string): Block[] {
       flushParagraph()
       flushList()
       flushBlockquote()
+      flushTable()
       continue
     }
 
@@ -92,6 +105,7 @@ function parseBlocks(input: string): Block[] {
       flushParagraph()
       flushList()
       flushBlockquote()
+      flushTable()
       blocks.push({ type: 'hr' })
       continue
     }
@@ -101,6 +115,7 @@ function parseBlocks(input: string): Block[] {
       flushParagraph()
       flushList()
       flushBlockquote()
+      flushTable()
       blocks.push({ type: 'h3', text: line.slice(4).trim() })
       continue
     }
@@ -108,7 +123,17 @@ function parseBlocks(input: string): Block[] {
       flushParagraph()
       flushList()
       flushBlockquote()
+      flushTable()
       blocks.push({ type: 'h2', text: line.slice(3).trim() })
+      continue
+    }
+
+    // Tabela (linhas iniciando com |)
+    if (line.trimStart().startsWith('|')) {
+      flushParagraph()
+      flushList()
+      flushBlockquote()
+      tableBuffer.push(line)
       continue
     }
 
@@ -116,6 +141,7 @@ function parseBlocks(input: string): Block[] {
     if (line.startsWith('> ')) {
       flushParagraph()
       flushList()
+      flushTable()
       bqBuffer.push(line.slice(2).trim())
       continue
     }
@@ -124,6 +150,7 @@ function parseBlocks(input: string): Block[] {
     const olMatch = /^(\d+)\.\s+(.*)$/.exec(line)
     if (olMatch) {
       flushParagraph()
+      flushTable()
       if (listType !== 'ol') flushList()
       listType = 'ol'
       listBuffer.push(olMatch[2])
@@ -133,6 +160,7 @@ function parseBlocks(input: string): Block[] {
     // Lista não-ordenada
     if (line.startsWith('- ') || line.startsWith('* ')) {
       flushParagraph()
+      flushTable()
       if (listType !== 'ul') flushList()
       listType = 'ul'
       listBuffer.push(line.slice(2))
@@ -142,12 +170,14 @@ function parseBlocks(input: string): Block[] {
     // Parágrafo normal — agrupa linhas consecutivas
     flushList()
     flushBlockquote()
+    flushTable()
     buffer.push(line)
   }
 
   flushParagraph()
   flushList()
   flushBlockquote()
+  flushTable()
   return blocks
 }
 
@@ -205,6 +235,33 @@ function renderBlock(block: Block, key: number): ReactNode {
             </p>
           ))}
         </blockquote>
+      )
+    case 'table':
+      return (
+        <div key={key} className="overflow-x-auto my-6">
+          <table className="min-w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-gray-100">
+                {block.headers.map((h, i) => (
+                  <th key={i} className="px-4 py-2 text-left font-semibold text-gray-900 border border-gray-200">
+                    {renderInline(h)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, ri) => (
+                <tr key={ri} className={ri % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  {row.map((cell, ci) => (
+                    <td key={ci} className="px-4 py-2 text-gray-700 border border-gray-200">
+                      {renderInline(cell)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )
     case 'hr':
       return <hr key={key} className="my-8 border-gray-200" />
