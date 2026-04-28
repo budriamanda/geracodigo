@@ -87,8 +87,16 @@ bodyMarkdown: |
   ## Perguntas frequentes
 
   As dúvidas mais comuns estão abaixo. Se ficou alguma, abra o gerador e teste — tudo funciona 100% no seu navegador, sem cadastro.
+
+  ## Próximos passos
+
+  - Quer um guia ainda mais detalhado sobre como gerar QR Code PIX? Veja [gerador de PIX grátis: passo a passo completo](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+  - Quer entender como o QR Code funciona por dentro? Leia [como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+  - Para comparar os dois tipos de QR Pix: [Pix estático vs dinâmico](/comparar/pix-estatico-vs-dinamico).
 faqsSlugs:
   - pix-tipos-chave
   - pix-qr-code-valido
   - pix-estatico-vs-dinamico
   - qr-code-pix-qualquer-banco
+  - pix-dados-servidor
+  - pix-ecommerce

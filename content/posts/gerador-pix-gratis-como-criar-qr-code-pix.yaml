@@ -1,0 +1,115 @@
+slug: gerador-pix-gratis-como-criar-qr-code-pix
+title: "Gerador de PIX Grátis: Como Criar QR Code PIX para Receber Pagamentos"
+metaDescription: "Crie QR Code PIX grátis em menos de 2 minutos: escolha a chave, defina o valor e baixe para imprimir ou compartilhar. Também gera o código Copia e Cola. Sem cadastro."
+h1: "Gerador de PIX grátis: crie seu QR Code PIX agora"
+subtitle: "Configure sua chave, defina o valor e gere o QR Code e o Copia e Cola — tudo no navegador, sem cadastro."
+resumo: "Quer receber pagamentos via PIX com QR Code, mas não sabe como gerar? Este guia mostra como criar QR Code PIX gratuito em menos de 2 minutos, para usar no balcão, no cardápio, no site ou no WhatsApp — incluindo o código Copia e Cola."
+categoria: pix
+persona: mei
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 7
+tags:
+  - pix
+  - qr-code
+  - pagamento
+  - gratis
+  - copia-e-cola
+ferramentaRelacionadaSlug: gerador-de-qr-code-pix
+keywordPrimaria: "gerador de pix gratis"
+keywordsSecundarias:
+  - "criar qr code pix gratis"
+  - "gerar qr code pix"
+  - "gerador pix online"
+  - "como criar qr code pix"
+  - "codigo pix copia e cola"
+ogTitle: "Gerador de PIX Grátis: Crie seu QR Code PIX"
+ogDescription: "Gere QR Code PIX e Copia e Cola em 2 minutos: chave, valor, nome e cidade. Sem cadastro."
+ogAccent: "#10b981"
+twitterTitle: "Gerador de PIX grátis: QR Code + Copia e Cola"
+twitterDescription: "Configure a chave, o valor e baixe o QR Code ou copie o código PIX. Funciona em qualquer banco."
+bodyMarkdown: |
+  O PIX virou o método de pagamento mais usado no Brasil, com bilhões de transações mensais segundo o Banco Central. E a forma mais prática de receber em loja, restaurante ou no WhatsApp é com um QR Code fixo, que o cliente escaneia na hora. Este guia mostra como gerar o seu de graça em menos de 2 minutos.
+
+  ## QR Code PIX vs. código Copia e Cola: qual a diferença?
+
+  São duas formas de representar o mesmo pagamento:
+
+  - **QR Code PIX**: uma imagem que o cliente escaneia com a câmera do app de banco. Ideal para balcão, cardápio, vitrine e materiais impressos.
+  - **Código Copia e Cola (BR Code)**: uma sequência de texto que o cliente cola na área "PIX Copia e Cola" do banco. Ideal para WhatsApp, e-mail, e lojas virtuais onde o cliente está no celular e não pode escanear uma imagem.
+
+  O [gerador de QR Code PIX do GeraCode](/gerador-de-qr-code-pix) gera os dois ao mesmo tempo. Você baixa a imagem QR Code e copia o código de texto — mesma cobrança, dois formatos.
+
+  ## O que você precisa antes de gerar
+
+  Apenas três informações:
+
+  1. **Chave PIX cadastrada no banco** — pode ser CPF, CNPJ, e-mail, celular ou chave aleatória.
+  2. **Nome do recebedor** — máximo 25 caracteres. Use o nome fantasia se for comercial.
+  3. **Cidade** — exigida pelo padrão BR Code EMV do Banco Central.
+
+  Opcionalmente você pode incluir um **valor fixo** e uma **descrição da cobrança**.
+
+  ## Passo a passo: gerando seu QR Code PIX
+
+  1. Acesse o [gerador de QR Code PIX](/gerador-de-qr-code-pix).
+  2. Selecione o **tipo de chave** (CPF, CNPJ, e-mail, celular ou aleatória).
+  3. Digite a **chave** exatamente como está cadastrada no banco.
+  4. Informe o **nome** (até 25 caracteres) e a **cidade**.
+  5. Se quiser, preencha um **valor fixo** e uma descrição.
+  6. Clique em **Gerar QR Code**.
+  7. Baixe em **PNG** (WhatsApp, redes sociais) ou **SVG** (impressão de alta qualidade).
+  8. Copie o **código Copia e Cola** para usar em mensagens e lojas virtuais.
+
+  O código segue o padrão **BR Code EMV** do Banco Central e funciona em todos os bancos brasileiros.
+
+  ## PIX estático ou dinâmico: qual usar?
+
+  - **PIX estático** (o que este gerador cria): um único QR Code válido para múltiplos pagamentos. Ideal para receber no balcão, mesa ou cardápio. Gratuito e sem validade.
+  - **PIX dinâmico**: gerado por cobrança individual, podendo incluir CPF do pagador, data de vencimento e configurações de juros/multa (campos opcionais). Exige integração com API bancária ou plataforma de pagamentos e é voltado para e-commerce com controle de recebíveis.
+
+  Para a maioria dos pequenos negócios, o **PIX estático é tudo que você precisa**. Saiba mais sobre a diferença em [PIX estático vs. dinâmico](/comparar/pix-estatico-vs-dinamico).
+
+  ## Qual chave usar: CPF ou CNPJ?
+
+  Se você tem um negócio formalizado (MEI, ME ou empresa), prefira o **CNPJ**. Isso mantém os recebimentos separados das finanças pessoais e facilita a declaração de faturamento.
+
+  O CPF funciona normalmente, mas mistura receita empresarial com conta pessoal — problema na hora de declarar o Imposto de Renda.
+
+  ## Onde usar o QR Code gerado
+
+  - **Balcão**: imprima em A5 e plastifique para durar mais.
+  - **Mesa de restaurante**: inclua no cardápio ou num porta-cardápio acrílico.
+  - **WhatsApp**: envie a imagem PNG ou o código Copia e Cola.
+  - **Loja virtual**: insira o QR Code na página de checkout e o Copia e Cola no texto.
+  - **Instagram e redes sociais**: coloque no destaque ou nos stories.
+  - **Link de bio**: use ferramentas de link-in-bio com QR Code embutido.
+
+  Se você é MEI, veja o guia completo de [como receber PIX como MEI](/blog/qr-code-pix-para-mei-guia-completo) — com dicas sobre chave, limites e impressão para o balcão.
+
+  ## Dicas para imprimir no balcão
+
+  - **Tamanho mínimo**: 5 × 5 cm para leitura confortável.
+  - **Use SVG**: não perde qualidade em nenhum tamanho de impressão.
+  - **Plastifique**: papéis amassados, molhados ou gordurosos dificultam a leitura.
+  - **Teste antes de imprimir em escala**: abra o app do banco e escaneie para confirmar que os dados estão corretos.
+
+  ## O QR Code tem prazo de validade?
+
+  O PIX estático **não expira** — você gera uma vez e usa para sempre. Se mudar de chave PIX ou de banco, basta gerar um novo. Se incluiu um valor fixo e precisar cobrar um valor diferente, o cliente pode editar no app do banco antes de confirmar.
+
+  ## Os dados ficam seguros?
+
+  Sim. O QR Code PIX contém apenas sua chave, nome e cidade — as mesmas informações que você compartilha ao fornecer sua chave para qualquer pessoa. Todo o processamento acontece no seu navegador, sem enviar dados para servidores. Saiba mais em [segurança dos dados](/privacidade).
+
+  ## QR Code PIX para e-commerce
+
+  Se você vende online e quer aceitar PIX como forma de pagamento, o código Copia e Cola é o mais prático — o cliente está no celular e pode colar diretamente no app do banco. Veja como integrar em [PIX no e-commerce](/gerador-de-qr-code-pix).
+faqsSlugs:
+  - pix-tipos-chave
+  - pix-estatico-vs-dinamico
+  - pix-qr-code-valido
+  - qr-code-pix-qualquer-banco
+  - pix-ecommerce
+  - pix-dados-servidor

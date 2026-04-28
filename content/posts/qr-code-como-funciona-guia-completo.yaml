@@ -1,0 +1,130 @@
+slug: qr-code-como-funciona-guia-completo
+title: "Como Funciona o QR Code: Guia Completo e Simples"
+metaDescription: "Entenda como o QR Code funciona: o que armazena, como é lido, tipos (estático, dinâmico, PIX), níveis de correção de erro e como se proteger de QR Codes maliciosos."
+h1: "Como funciona o QR Code: explicação simples e completa"
+subtitle: "Da invenção japonesa nos anos 90 ao PIX, ao Wi-Fi e ao golpe do QRishing — tudo que você precisa entender."
+resumo: "O QR Code está em todo lugar: no balcão do restaurante, na embalagem do produto, na cobrança PIX. Mas como ele realmente funciona? Este guia explica o que o código armazena, como é lido, quais são os tipos e como se proteger de fraudes com QR Code."
+categoria: qr-code
+persona: geral
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 8
+tags:
+  - qr-code
+  - como-funciona
+  - educacional
+  - seguranca
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code como funciona"
+keywordsSecundarias:
+  - "o que e qr code"
+  - "como funciona o qr code"
+  - "qr code o que armazena"
+  - "tipos de qr code"
+  - "qr code seguranca"
+ogTitle: "Como Funciona o QR Code: Guia Completo"
+ogDescription: "O que armazena, como é lido, tipos, níveis de erro e como se proteger de QR Codes maliciosos."
+ogAccent: "#7c3aed"
+twitterTitle: "Como funciona o QR Code?"
+twitterDescription: "Do pixel preto-e-branco ao PIX e ao QRishing: explicação simples e completa."
+bodyMarkdown: |
+  O QR Code está em todo lugar — no cardápio do restaurante, na embalagem do produto, na cobrança do delivery, nas campanhas de marketing. Mas poucos sabem o que acontece no segundo em que a câmera do celular aponta para aquela matriz de quadradinhos. Este guia explica tudo.
+
+  ## O que é um QR Code?
+
+  QR Code vem de *Quick Response Code* — código de resposta rápida. Foi criado em 1994 pela empresa japonesa Denso Wave para rastrear peças automotivas em linhas de montagem. A ideia era ter um código lido muito mais rápido que o código de barras linear e capaz de armazenar muito mais informação.
+
+  Ao contrário do código de barras linear (linhas verticais, como o EAN-13 de produtos de supermercado), o QR Code é **bidimensional** — armazena dados tanto no eixo horizontal quanto no vertical, multiplicando a capacidade de armazenamento.
+
+  ## O que o QR Code armazena?
+
+  A matriz de quadrados pretos e brancos é, essencialmente, um número binário muito grande: cada célula escura representa 1, cada célula clara representa 0.
+
+  Um QR Code padrão armazena até **7.089 dígitos numéricos** ou **4.296 caracteres alfanuméricos** — comparado aos 13 dígitos de um EAN-13.
+
+  O conteúdo pode ser qualquer texto:
+
+  | Conteúdo no QR Code | O que acontece ao escanear |
+  |---|---|
+  | `https://exemplo.com.br` | Abre o link no navegador |
+  | `WIFI:S:MinhaRede;T:WPA;P:senha123;;` | Conecta ao Wi-Fi automaticamente |
+  | Código PIX (BR Code EMV) | Abre pagamento no app do banco |
+  | `BEGIN:VCARD...` | Salva contato na agenda |
+  | Texto simples | Exibe o texto na tela |
+
+  O app de câmera interpreta o texto e decide a ação — não é o QR Code que "sabe" abrir o navegador.
+
+  ## Como o celular lê um QR Code?
+
+  O processo acontece em milissegundos:
+
+  1. **A câmera captura a imagem** e o software localiza os três quadrados de alinhamento nos cantos.
+  2. **A distorção e o ângulo são corrigidos** matematicamente para que a grade fique alinhada.
+  3. **Cada célula é classificada** como escura (1) ou clara (0).
+  4. **O algoritmo de decodificação** lê os bits na ordem definida pelo padrão e extrai o texto.
+  5. **O sistema operacional recebe o texto** e decide a ação: abrir link, processar pagamento, salvar contato.
+
+  Tudo isso leva menos de 0,5 segundo em celulares modernos. Para ler pelo computador, veja as formas de [escanear QR Code pelo computador](/blog/como-escanear-qr-code-pelo-computador).
+
+  ## Estrutura do QR Code
+
+  Além dos dados, o QR Code tem componentes fixos:
+
+  - **Quadrados de alinhamento** (três cantos): indicam ao leitor a orientação e os limites do código — por isso o QR Code pode ser lido mesmo inclinado.
+  - **Módulos de temporização** (linhas que conectam os cantos): permitem calcular o tamanho de cada célula.
+  - **Padrão de formato**: armazena o nível de correção de erro e a máscara aplicada.
+
+  ## Níveis de correção de erro
+
+  Um detalhe que poucas pessoas conhecem: o QR Code tem **redundância embutida**. Mesmo que parte do código seja danificada (riscado, amassado, sujo), ele ainda pode ser lido.
+
+  | Nível | Recuperação | Uso típico |
+  |---|---|---|
+  | L (Low) | 7% de dano | Telas, ambientes controlados |
+  | M (Medium) | 15% de dano | Padrão para a maioria dos usos |
+  | Q (Quartile) | 25% de dano | Indústria, impressão industrial |
+  | H (High) | 30% de dano | QR Codes com logo sobreposta |
+
+  Quando você coloca uma logo no centro do QR Code (comum em campanhas de marketing), o nível H compensa a área "apagada" pelo logo.
+
+  ## Tipos de QR Code mais usados no Brasil
+
+  **QR Code de URL**: o mais comum. Aponta para um site, produto, cardápio ou formulário. Fácil de criar no [gerador de QR Code](/gerador-de-qr-code).
+
+  **QR Code PIX (BR Code EMV)**: formato específico do Banco Central para pagamentos Pix. Contém chave, nome, cidade e — opcionalmente — valor. Gere o seu no [gerador de QR Code PIX](/gerador-de-qr-code-pix). Para entender mais sobre PIX, veja [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+
+  **QR Code estático**: o conteúdo está fixo na imagem. Você gera uma vez e usa para sempre.
+
+  **QR Code dinâmico**: aponta para um servidor que pode ter o destino alterado sem trocar o código impresso. Exige plataforma paga e infraestrutura própria. Para a maioria dos negócios, o estático é suficiente.
+
+  **QR Code de Wi-Fi**: conecta visitantes e clientes à rede sem digitar senha.
+
+  ## QR Code tem prazo de validade?
+
+  O QR Code em si **não expira** — é uma imagem com texto codificado. O que pode "vencer" é o conteúdo:
+
+  - Se o link de destino sair do ar, o código é lido mas não abre.
+  - PIX estático não tem validade.
+  - QR Code dinâmico com data de expiração configurada no servidor deixa de funcionar após essa data.
+
+  ## Segurança: como se proteger de QR Codes maliciosos
+
+  Com a popularização dos QR Codes, surgiu uma prática criminosa chamada **QRishing** (phishing via QR Code). Golpistas substituem QR Codes legítimos por versões que direcionam para páginas falsas de banco, lojas ou formulários de coleta de dados.
+
+  **Como se proteger:**
+
+  - **Verifique o URL antes de acessar**: quando você escaneia um QR Code, o celular mostra o link antes de abrir. Se o endereço parece estranho ou diferente do esperado, não clique.
+  - **Desconfie de QR Codes colados sobre outros**: em restaurantes e bares, golpistas colam etiquetas sobre QR Codes legítimos. Verifique se a etiqueta está íntegra.
+  - **Não insira dados sensíveis após escanear um QR Code desconhecido**: banco, senha ou dados de cartão nunca são pedidos por link de QR Code legítimo.
+  - **Use um leitor que mostra o conteúdo antes de agir**: o [leitor do GeraCode](/leitor-de-codigo-de-barras) exibe o texto decodificado para que você possa verificar antes de abrir qualquer link.
+
+  ## Como gerar seu QR Code gratuitamente
+
+  Com o [gerador de QR Code do GeraCode](/gerador-de-qr-code), você cria em segundos: escolha o tipo de conteúdo (link, texto, Wi-Fi), preencha os dados e baixe em PNG ou SVG. Para um tutorial completo, veja o guia de [como gerar QR Code grátis passo a passo](/blog/como-gerar-qr-code-gratis-passo-a-passo).
+faqsSlugs:
+  - qr-validade
+  - qr-funciona-sem-internet
+  - qr-png-vs-svg
+  - qr-tamanho-minimo
+  - qr-personalizar-cores

@@ -42,7 +42,7 @@ schemaHowToSteps:
   - nome: "Escolha EAN-13 ou EAN-8"
     texto: "EAN-13 para a maioria dos produtos. EAN-8 para embalagens pequenas."
   - nome: "Digite o número EAN"
-    texto: "Informe todos os dígitos incluindo o dígito verificador (último dígito)."
+    texto: "Informe os 12 primeiros dígitos do EAN-13 (ou 7 do EAN-8). O dígito verificador é calculado automaticamente."
   - nome: "Baixe em PNG, SVG ou PDF"
     texto: "Faça download imediato para usar em embalagens, etiquetas ou sistemas de PDV."
 schemaAboutName: "EAN (European Article Number / GTIN)"
@@ -189,6 +189,11 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/codigo-de-barras-para-produtos-guia-completo"
+        label: "Código de barras para produtos: guia completo"
+        descricao: "Qual formato usar, GTIN, quando registrar na GS1, o que Mercado Livre e Shopee exigem, e como imprimir etiquetas."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
       - href: "/gerador-de-codigo-de-barras"
         label: "Gerador de Código de Barras (12 formatos)"
         descricao: "Precisa de Code 128, ITF-14 ou outros formatos além do EAN? O gerador completo suporta 12 tipos de código."
@@ -199,10 +204,5 @@ secoesConteudo:
         descricao: "Além do EAN externo, organize seu estoque com SKUs internos padronizados. Gere em lote e exporte para Excel."
         badgeText: "Ferramenta"
         badgeColor: "text-blue-600 bg-blue-50"
-      - href: "/comparar/pix-estatico-vs-dinamico"
-        label: "Pix estático vs dinâmico: qual usar?"
-        descricao: "Vendedores de marketplace que recebem via Pix precisam saber a diferença entre QR Code estático e dinâmico."
-        badgeText: "Comparação"
-        badgeColor: "text-amber-700 bg-amber-50"
 
 faqFallbacks: []

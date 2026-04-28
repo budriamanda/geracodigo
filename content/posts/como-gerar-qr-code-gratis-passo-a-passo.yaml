@@ -1,0 +1,132 @@
+slug: como-gerar-qr-code-gratis-passo-a-passo
+title: "Como Gerar QR Code Grátis: Passo a Passo Completo"
+metaDescription: "Aprenda como criar QR Code grátis online em menos de 1 minuto: para link, texto, Wi-Fi ou PIX. Sem cadastro, sem marca d'água e sem limite de uso."
+h1: "Como gerar QR Code grátis: passo a passo"
+subtitle: "Para link, texto, Wi-Fi ou PIX — pronto em menos de 1 minuto, sem cadastro, sem marca d'água, sem validade."
+resumo: "Criar um QR Code grátis é simples e rápido. Neste guia você aprende como gerar para qualquer tipo de conteúdo, a diferença entre QR Code estático (gratuito) e dinâmico (pago), o formato certo para impressão e dicas para QR Codes que sempre funcionam."
+categoria: qr-code
+persona: geral
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 6
+tags:
+  - qr-code
+  - gratis
+  - como-fazer
+  - tutorial
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "como gerar qr code gratis"
+keywordsSecundarias:
+  - "criar qr code gratis"
+  - "gerador qr code gratuito"
+  - "gerar qr code online gratis"
+  - "criar qr code sem cadastro sem marca dagua"
+ogTitle: "Como Gerar QR Code Grátis: Passo a Passo"
+ogDescription: "Crie QR Code para link, texto, Wi-Fi ou PIX. Sem cadastro, sem marca d'água e sem validade."
+ogAccent: "#7c3aed"
+twitterTitle: "Como gerar QR Code grátis"
+twitterDescription: "Sem cadastro, sem marca d'água, sem validade. Menos de 1 minuto. Para link, Wi-Fi, PIX ou texto."
+bodyMarkdown: |
+  Criar um QR Code gratuito é mais simples do que parece — e não exige conta em nenhum serviço. Um gerador online resolve em menos de 1 minuto. Mas atenção: muitas ferramentas gratuitas têm limitações importantes que pouca gente percebe antes de usar. Este guia explica tudo.
+
+  ## QR Code estático vs. dinâmico: a diferença que ninguém conta
+
+  Antes de escolher um gerador, entenda essa diferença:
+
+  - **QR Code estático**: o conteúdo está embutido na imagem. Você gera uma vez, baixa e usa para sempre — sem conta, sem assinatura, sem validade. Se você imprimir em mil panfletos, vai funcionar daqui a 10 anos.
+  - **QR Code dinâmico**: a imagem aponta para um servidor; você pode trocar o destino sem mudar o código impresso. Mas exige conta ativa em uma plataforma — se você cancelar, o QR Code para de funcionar.
+
+  Ferramentas como Adobe Express, Canva e QR Code Generator cobram pelo QR Code dinâmico ou exigem conta paga para manter o redirecionamento ativo. **O GeraCode gera QR Code estático gratuito**, sem dependência de servidor, sem risco de expiração.
+
+  Para a maioria dos casos — balcão, cardápio, cartão de visita, panfleto — o estático é tudo que você precisa.
+
+  ## O que você pode colocar em um QR Code
+
+  - **Link (URL)**: direciona para site, produto, formulário, cardápio digital ou perfil de rede social.
+  - **Texto simples**: exibe uma mensagem, endereço ou instrução.
+  - **Wi-Fi**: conecta automaticamente à rede sem digitar a senha.
+  - **PIX**: gera uma cobrança com sua chave (use o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix) — ele segue o padrão BR Code do Banco Central).
+  - **Contato (vCard)**: salva um contato direto na agenda do celular.
+  - **E-mail ou SMS**: abre o app já com destinatário e texto preenchidos.
+
+  ## Passo a passo: gerando seu QR Code
+
+  ### 1. Acesse o gerador
+
+  Abra o [gerador de QR Code do GeraCode](/gerador-de-qr-code) no navegador. Funciona em computador e celular, sem instalar nada e sem criar conta.
+
+  ### 2. Digite o conteúdo
+
+  Cole o link ou escreva o texto que você quer codificar.
+
+  > Para links: inclua sempre o `https://` no começo — sem ele, alguns leitores mostram o texto em vez de abrir o navegador.
+
+  ### 3. Ajuste as configurações (opcional)
+
+  - **Tamanho**: aumente para impressão em formatos maiores (A5, A4).
+  - **Margem**: mantenha a margem padrão — ela é necessária para que leitores consigam detectar o código.
+  - **Cores**: troque o preto por uma cor da sua marca e o branco por outra, desde que o contraste seja alto.
+
+  ### 4. Baixe o arquivo
+
+  - **PNG**: ideal para telas (site, e-mail, WhatsApp, redes sociais).
+  - **SVG**: ideal para impressão — não perde qualidade em nenhum tamanho.
+
+  Para impressão, **sempre prefira SVG**.
+
+  ## Qual tamanho usar?
+
+  | Uso | Tamanho mínimo |
+  |---|---|
+  | Tela de celular | 200 × 200 px |
+  | Cartão de visita | 2 × 2 cm |
+  | Folheto / flyer | 3 × 3 cm |
+  | Balcão / mesa | 5 × 5 cm |
+  | Banner / vitrine | 10 × 10 cm ou mais |
+
+  Quanto maior a distância de leitura, maior precisa ser o QR Code.
+
+  ## Posso colocar uma logo no centro?
+
+  Sim. O QR Code tem correção de erro embutida (nível H) que permite cobrir até 30% da área sem prejudicar a leitura. Logotipos pequenos no centro funcionam bem.
+
+  Depois de adicionar a logo, teste com pelo menos dois apps diferentes (Android e iPhone) antes de imprimir em escala.
+
+  ## O QR Code gerado tem marca d'água?
+
+  Não. O GeraCode gera QR Codes limpos, sem marca d'água, sem limite de uso e sem data de expiração. O arquivo que você baixa é seu — não depende de nenhum servidor para funcionar.
+
+  ## Preciso de conta ou cadastro?
+
+  Não. O gerador funciona 100% sem cadastro. Acessa, cria, baixa e pronto.
+
+  ## Preciso de internet para o QR Code funcionar?
+
+  Depende do conteúdo:
+
+  - **Texto, Wi-Fi, contato**: não precisam de internet — o conteúdo está dentro do código.
+  - **Links (URLs)**: precisam de internet para abrir o site, mas o código em si é lido offline.
+
+  ## Dicas para QR Codes que sempre funcionam
+
+  **Teste antes de imprimir.** Escaneie com Android e iPhone antes de mandar para a gráfica.
+
+  **Mantenha contraste alto.** Tons pastéis podem funcionar na tela mas falhar na impressão — fundo claro e código escuro é o mais seguro.
+
+  **Não distorça.** Se precisar encaixar em um espaço não quadrado, adicione margem em branco — nunca estique o QR Code em formato retangular.
+
+  **Superfícies fosca, não brilhante.** Acrílico e plástico brilhante criam reflexo que atrapalha a câmera. Prefira papel fosco ou laminação fosca.
+
+  **Para PIX**, use sempre o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix) — ele gera o código no padrão BR Code exigido pelo Banco Central e inclui o código Copia e Cola junto. Veja o guia completo em [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+
+  ## Próximos passos
+
+  - Quer entender como o QR Code funciona por dentro? Leia [como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+  - Precisa ler um QR Code pelo computador? Veja [como escanear QR Code pelo computador](/blog/como-escanear-qr-code-pelo-computador).
+faqsSlugs:
+  - qr-personalizar-cores
+  - qr-validade
+  - qr-funciona-sem-internet
+  - qr-png-vs-svg
+  - geracode-e-gratuito
