@@ -245,20 +245,20 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/codigo-de-barras-para-produtos-guia-completo"
+        label: "Código de barras para produtos: guia completo"
+        descricao: "Qual formato usar, quando registrar na GS1, como imprimir etiquetas e o que os marketplaces exigem."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
+      - href: "/blog/code-39-o-que-e-como-gerar-codigo-de-barras"
+        label: "Code 39: o que é e quando usar"
+        descricao: "Tudo sobre Code 39 — diferenças para Code 128, casos de uso em patrimônio, saúde e legado, e como gerar."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
       - href: "/gerador-de-qr-code-pix"
         label: "Gerador de QR Code Pix grátis"
         descricao: "Além do código de barras, receba pagamentos instantâneos via Pix. QR Code com payload BR Code EMV válido."
         badgeText: "Ferramenta"
         badgeColor: "text-blue-600 bg-blue-50"
-      - href: "/blog/qr-code-pix-para-mei-guia-completo"
-        label: "QR Code Pix para MEI: guia completo"
-        descricao: "Do cadastro da chave Pix à impressão do QR no balcão — sem maquininha e sem taxa."
-        badgeText: "Guia"
-        badgeColor: "text-indigo-600 bg-indigo-50"
-      - href: "/solucoes/qr-pix-para-mei"
-        label: "Pix para MEI: comece sem maquininha"
-        descricao: "Como MEIs e pequenos comerciantes podem receber no balcão com QR Code Pix sem contratar maquininha."
-        badgeText: "Solução"
-        badgeColor: "text-emerald-700 bg-emerald-50"
 
 faqFallbacks: []

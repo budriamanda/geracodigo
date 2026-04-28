@@ -1,0 +1,125 @@
+slug: code-39-o-que-e-como-gerar-codigo-de-barras
+title: "Code 39: O Que É, Como Funciona e Como Gerar"
+metaDescription: "Entenda o que é o Code 39 (3 of 9), quando usar no lugar do EAN-13 ou Code 128, setores que adotam o formato e como gerar gratuitamente online."
+h1: "Code 39: o que é, como funciona e quando usar"
+subtitle: "Um dos formatos mais versáteis — ainda essencial em estoque, patrimônio, saúde e indústria."
+resumo: "O Code 39 é um dos formatos de código de barras mais usados no mundo para controle de estoque, patrimônio e uso industrial. Entenda como ele funciona, a diferença para o Code 128, quando escolhê-lo e como gerar gratuitamente."
+categoria: codigo-barras
+persona: lojista-ecommerce
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 6
+tags:
+  - codigo-de-barras
+  - code-39
+  - estoque
+  - logistica
+  - patrimonio
+ferramentaRelacionadaSlug: gerador-de-codigo-de-barras
+keywordPrimaria: "code 39 codigo de barras"
+keywordsSecundarias:
+  - "codigo de barras 39"
+  - "o que e code 39"
+  - "gerar code 39 online"
+  - "code 39 vs code 128"
+  - "codigo de barras 3 de 9"
+ogTitle: "Code 39: O Que É e Como Gerar"
+ogDescription: "Entenda o Code 39, diferença para o Code 128, setores que usam e como gerar online gratuitamente."
+ogAccent: "#2563eb"
+twitterTitle: "Code 39: o que é e quando usar"
+twitterDescription: "Formato alfanumérico para estoque, patrimônio e indústria. Gere grátis e entenda as diferenças."
+bodyMarkdown: |
+  Se você já viu um código de barras com letras e números misturados — como `COMP-0042` ou `INV-A123` — provavelmente estava olhando para um Code 39. É um dos formatos mais antigos e ainda um dos mais usados em ambientes industriais, de saúde, logística e patrimônio no mundo todo.
+
+  ## O que é o Code 39?
+
+  O Code 39 (também chamado de "3 of 9" ou "código de barras 39") é um formato alfanumérico criado em 1974 pela empresa Intermec. O nome vem da sua estrutura interna: cada caractere é representado por 9 elementos (5 barras e 4 espaços), dos quais exatamente 3 são largos.
+
+  **O que ele consegue codificar:**
+  - Letras maiúsculas de A a Z
+  - Números de 0 a 9
+  - 8 caracteres especiais: `-`, `.`, ` `, `$`, `/`, `+`, `%`, `*`
+  - Total de 43 caracteres disponíveis
+
+  **Características técnicas:**
+  - Comprimento variável — você define quantos caracteres quer codificar
+  - Sem dígito verificador obrigatório (simplifica implementação)
+  - Leitura bidirecional (o leitor lê da esquerda para direita ou vice-versa)
+  - Amplamente suportado por praticamente todos os leitores de código de barras do mercado
+
+  ## Full Extended Code 39: quando precisar de mais caracteres
+
+  O Code 39 padrão só aceita maiúsculas. Se você precisar codificar letras minúsculas ou qualquer caractere ASCII (como `@`, `#`, ou `:`) existe o **Full Extended Code 39**, que usa combinações de dois símbolos para representar os 128 caracteres ASCII.
+
+  A maioria dos leitores modernos consegue ler Full Extended Code 39 com configuração simples. Para a maioria dos casos de controle interno, o Code 39 padrão já é suficiente.
+
+  ## Diferença entre Code 39, Code 128 e EAN-13
+
+  | Característica | Code 39 | Code 128 | EAN-13 |
+  |---|---|---|---|
+  | Tipo de dado | Alfanumérico (maiúsculas) | ASCII completo | Só números |
+  | Comprimento | Variável | Variável | Fixo (13 dígitos) |
+  | Densidade | Baixa (ocupa mais espaço) | Alta (mais compacto) | Alta |
+  | Dígito verificador | Opcional | Obrigatório | Obrigatório |
+  | Compatibilidade de leitores | Universal (leitores antigos e novos) | Universal | Universal |
+  | Uso principal | Patrimônio, indústria, saúde | Logística, e-commerce, estoque | Varejo, supermercado, marketplace |
+
+  **Quando escolher Code 39 vs Code 128?** Se você precisa de compatibilidade máxima com leitores legados — especialmente em sistemas de saúde, defesa e linhas de produção antigas —, o Code 39 é mais seguro. Se o espaço na etiqueta for limitado ou você precisar codificar muitos caracteres, prefira o Code 128.
+
+  Para produtos que vão para varejo ou marketplaces, use EAN-13. Saiba mais no guia de [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo).
+
+  ## Quando usar o Code 39
+
+  ### Controle de patrimônio
+
+  É o padrão mais comum para etiquetas de patrimônio — computadores, monitores, móveis, equipamentos. Você pode codificar o código interno: `COMP-0042`, `MESA-LAB3`, `PROJ-001`.
+
+  ### Setor de saúde
+
+  Hospitais, clínicas e farmácias usam Code 39 em prontuários, crachás e embalagens de medicamentos de controle interno. O setor farmacêutico ainda mantém muitos sistemas legados configurados para este formato.
+
+  ### Setor de defesa e aeroespacial
+
+  O Departamento de Defesa dos EUA (DoD) padronizou o Code 39 para rastreamento de materiais militares. Empresas do setor aeroespacial e de defesa ainda usam amplamente.
+
+  ### Linhas de produção com sistemas legados
+
+  Muitas fábricas implantadas antes dos anos 2000 têm leitores e sistemas ERP configurados para Code 39. Trocar o formato exigiria reconfigurar toda a infraestrutura de leitura.
+
+  ### Documentação interna
+
+  Escritórios, arquivos e bibliotecas usam Code 39 em pastas, processos e documentos. A leitura rápida de um número de protocolo acelera o atendimento.
+
+  ## Quando NÃO usar o Code 39
+
+  - **Para produtos de varejo e marketplace**: use EAN-13 — supermercados e plataformas não reconhecem Code 39 como GTIN.
+  - **Quando o espaço for muito limitado**: o Code 39 ocupa mais área que o Code 128 para o mesmo conteúdo. Em etiquetas pequenas, o Code 128 é mais eficiente.
+  - **Para codificar letras minúsculas ou ASCII completo**: use Code 128 ou Full Extended Code 39.
+
+  ## Como gerar Code 39 gratuitamente
+
+  No [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras):
+
+  1. Selecione **Code 39** na lista de formatos.
+  2. Digite o conteúdo em letras maiúsculas, números e os caracteres especiais suportados.
+  3. Ajuste largura e altura para o tamanho da etiqueta.
+  4. Baixe em **SVG** para impressão ou **PNG** para uso digital.
+
+  O gerador adiciona automaticamente os caracteres de início e fim (`*`) exigidos pelo padrão, então você não precisa incluí-los manualmente.
+
+  Para gerar vários códigos de uma vez (catálogo de produtos ou inventário), use a função de geração em lote.
+
+  ## Tamanho e impressão
+
+  - **Altura mínima**: 15 mm (quanto maior, mais fácil para leitores omnidirecionais)
+  - **Largura mínima da barra estreita**: 0,19 mm em impressão de alta qualidade; 0,25 mm em impressoras comuns
+  - **Zona de silêncio lateral**: pelo menos 10× a largura da barra estreita
+
+  Exporte sempre em SVG para impressão — garante qualidade independente do tamanho final da etiqueta. Para verificar se o código foi gerado corretamente, use o [leitor online](/leitor-de-codigo-de-barras) antes de imprimir.
+faqsSlugs:
+  - cb-qual-formato-usar
+  - cb-quantos-formatos
+  - cb-png-svg-pdf
+  - cb-imprimir-etiquetas
+  - cb-gerar-em-lote

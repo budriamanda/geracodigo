@@ -152,16 +152,16 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/gerador-pix-gratis-como-criar-qr-code-pix"
+        label: "Gerador de PIX grátis: guia completo"
+        descricao: "QR Code vs Copia e Cola, CPF vs CNPJ, como imprimir no balcão e todas as dúvidas sobre PIX estático."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
       - href: "/blog/qr-code-pix-para-mei-guia-completo"
         label: "QR Code Pix para MEI: guia completo"
         descricao: "Chave CPF ou CNPJ, limites, impostos e passo a passo para imprimir no balcão."
         badgeText: "Guia"
         badgeColor: "text-indigo-600 bg-indigo-50"
-      - href: "/solucoes/qr-pix-para-mei"
-        label: "Pix para MEI: comece sem maquininha"
-        descricao: "Receba no balcão sem taxa, sem cadastro e sem contratar maquininha."
-        badgeText: "Solução"
-        badgeColor: "text-emerald-700 bg-emerald-50"
       - href: "/comparar/pix-estatico-vs-dinamico"
         label: "Pix estático vs dinâmico"
         descricao: "Qual QR Code Pix faz mais sentido para o seu negócio — com tabela comparativa."

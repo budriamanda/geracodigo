@@ -1,0 +1,114 @@
+slug: como-escanear-qr-code-pelo-computador
+title: "Como Escanear QR Code pelo Computador (4 Formas Gratuitas)"
+metaDescription: "Aprenda 4 formas de escanear QR Code pelo computador: Google Lens, câmera do Windows, upload de imagem e leitor online com webcam. Sem instalar app."
+h1: "Como escanear QR Code pelo computador: 4 formas que funcionam"
+subtitle: "Google Lens, câmera do Windows, leitor online ou extensão de navegador — escolha o método mais prático."
+resumo: "Não tem celular em mãos mas precisa ler um QR Code? Existem quatro formas de fazer isso direto no computador: Google Lens, app de câmera do Windows, leitor online com upload ou webcam, e extensão de navegador. Nenhuma exige instalação paga."
+categoria: leitor
+persona: geral
+dataPublicacao: "2026-04-28"
+dataAtualizacao: "2026-04-28"
+autor: Amanda Budri
+tempoLeitura: 6
+tags:
+  - leitor
+  - qr-code
+  - online
+  - computador
+  - google-lens
+ferramentaRelacionadaSlug: leitor-de-codigo-de-barras
+keywordPrimaria: "escanear qr code pelo computador"
+keywordsSecundarias:
+  - "leitor qr code online"
+  - "ler qr code pelo computador"
+  - "escanear qr code online gratis"
+  - "google lens qr code computador"
+  - "leitor de qr code online gratis"
+ogTitle: "Como Escanear QR Code pelo Computador: 4 Formas"
+ogDescription: "Google Lens, câmera do Windows, leitor online ou extensão. Sem cadastro, sem app pago."
+ogAccent: "#f59e0b"
+twitterTitle: "4 formas de escanear QR Code pelo computador"
+twitterDescription: "Google Lens, câmera do Windows, upload de imagem ou extensão de navegador. Sem instalação paga."
+bodyMarkdown: |
+  Você recebeu um QR Code por e-mail, está em uma reunião no computador ou quer ler uma imagem salva — e o celular não está em mãos. Não precisa se preocupar: dá para escanear QR Code direto no computador, sem instalar nada, de quatro formas diferentes.
+
+  ## Método 1: Google Lens (mais fácil, para imagens na tela)
+
+  O **Google Lens** é a forma mais rápida quando o QR Code aparece em uma imagem na tela — screenshot, e-mail, site ou foto salva.
+
+  **No Chrome (Windows, Mac ou Linux):**
+  1. Clique com o botão direito sobre a imagem que contém o QR Code.
+  2. Selecione **"Pesquisar imagem com Google Lens"**.
+  3. O Google Lens vai abrir em um painel lateral e mostrar o conteúdo do QR Code automaticamente.
+
+  **No Google Images ou Google.com:**
+  1. Acesse [google.com](https://google.com) e clique no ícone de câmera na barra de pesquisa.
+  2. Faça upload da imagem ou cole a URL dela.
+  3. O conteúdo do QR Code aparece nos resultados.
+
+  Este método não exige câmera e funciona para qualquer imagem que você consiga abrir no navegador.
+
+  ## Método 2: Câmera do Windows 10/11 (para QR Codes físicos)
+
+  O Windows 10 e 11 têm um **leitor de QR Code embutido no aplicativo Câmera**, que usa a webcam para ler códigos físicos.
+
+  1. Pressione `Win + S` e pesquise por **Câmera**.
+  2. Aponte a webcam para o QR Code impresso ou exibido em outra tela.
+  3. Uma notificação aparece automaticamente com o conteúdo — clique para abrir o link.
+
+  > **Não apareceu nada?** Verifique se o modo QR Code está ativado: no app Câmera, clique no ícone de engrenagem (configurações) e ative **"Digitalizar código de barras"**.
+
+  ## Método 3: Leitor online com webcam (GeraCode)
+
+  O [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) funciona direto no navegador — sem instalar extensões ou aplicativos.
+
+  **Para QR Codes físicos com webcam:**
+  1. Acesse o [leitor online](/leitor-de-codigo-de-barras).
+  2. Clique em **Usar câmera** e permita o acesso quando o navegador pedir.
+  3. Aponte a webcam para o QR Code — a leitura acontece automaticamente.
+
+  **Para imagens salvas (upload):**
+  1. Salve a imagem com o QR Code no seu computador (PNG, JPG ou WebP).
+  2. Clique em **Enviar imagem** ou arraste o arquivo para a área do leitor.
+  3. O conteúdo aparece na tela em menos de um segundo.
+
+  Além de QR Codes, o leitor detecta EAN-13, Code 128, Code 39 e mais 9 formatos de código de barras — útil quando você quer verificar produtos no estoque.
+
+  ## Método 4: Extensão de navegador (para uso frequente)
+
+  Se você lê QR Codes no computador com frequência, instalar uma extensão economiza tempo. No Chrome, procure por **"QR Code Reader"** na Chrome Web Store — as extensões mais bem avaliadas adicionam um botão na barra do navegador que lê QR Codes de qualquer aba aberta, sem precisar clicar com botão direito.
+
+  > Para uso ocasional, os métodos 1–3 são mais rápidos sem precisar instalar nada.
+
+  ## Comparativo rápido
+
+  | Situação | Melhor método |
+  |---|---|
+  | QR Code em imagem no computador | Google Lens (botão direito) |
+  | QR Code impresso ou em outra tela | Câmera do Windows / Leitor online com webcam |
+  | QR Code salvo como arquivo | Upload no leitor online |
+  | Quer também gerar QR Codes | [Gerador de QR Code](/gerador-de-qr-code) |
+
+  ## Por que o QR Code não está sendo lido?
+
+  **Imagem com baixa resolução.** Fotos tremidas ou QR Codes muito pequenos falham. Tente ampliar a imagem antes de fazer upload.
+
+  **QR Code cortado.** O código precisa estar completo na imagem, incluindo a margem branca ao redor (zona de silêncio).
+
+  **Câmera sem foco.** Webcams antigas podem não focar em distâncias curtas. Tente afastar o objeto com o QR Code.
+
+  **Reflexo ou brilho.** Telas com brilho intenso criam reflexo. Diminua o brilho ou imprima o QR Code em papel.
+
+  ## Os dados ficam seguros?
+
+  Sim. No leitor do GeraCode, todo o processamento acontece no seu próprio navegador — a imagem não é enviada para nenhum servidor. A câmera também não grava nada. Saiba mais na [política de privacidade](/privacidade).
+
+  ## Quer criar um QR Code também?
+
+  Se além de ler você precisa gerar um QR Code, veja o guia completo: [como gerar QR Code grátis](/blog/como-gerar-qr-code-gratis-passo-a-passo). Para entender como o QR Code funciona por dentro, leia [como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+faqsSlugs:
+  - leitor-qr-codes
+  - leitor-camera-frontal
+  - leitor-dados-leitura
+  - leitor-navegadores
+  - funciona-no-celular
