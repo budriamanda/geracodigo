@@ -28,6 +28,16 @@ const CATEGORIA_LABEL: Record<string, string> = {
   geral: 'Geral',
 }
 
+const CATEGORIA_COLOR: Record<string, string> = {
+  pix: 'bg-emerald-100 text-emerald-700',
+  'codigo-barras': 'bg-indigo-100 text-indigo-700',
+  ean: 'bg-violet-100 text-violet-700',
+  sku: 'bg-amber-100 text-amber-700',
+  leitor: 'bg-sky-100 text-sky-700',
+  'qr-code': 'bg-blue-100 text-blue-700',
+  geral: 'bg-gray-100 text-gray-700',
+}
+
 export default function BlogIndex({ posts, query }: BlogIndexProps) {
   if (posts.length === 0) {
     return (
@@ -59,7 +69,7 @@ export default function BlogIndex({ posts, query }: BlogIndexProps) {
           >
             <div className="flex flex-wrap gap-2 text-xs mb-3">
               {post.categoria && (
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-700 font-medium">
+                <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-medium ${CATEGORIA_COLOR[post.categoria] ?? 'bg-gray-100 text-gray-700'}`}>
                   {CATEGORIA_LABEL[post.categoria] ?? post.categoria}
                 </span>
               )}

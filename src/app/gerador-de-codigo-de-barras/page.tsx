@@ -109,6 +109,40 @@ export default async function BarcodePage() {
         <AdSlot slot={`${adPrefix}-bottom`} format="horizontal" />
       </div>
 
+      <section className="mt-12 mb-8" aria-labelledby="format-table-heading">
+        <h2 id="format-table-heading" className="text-xl font-bold text-gray-900 mb-4">Comparação de formatos</h2>
+        <div className="overflow-x-auto rounded-xl border border-gray-200">
+          <table className="w-full text-sm text-left">
+            <thead className="bg-gray-50 text-gray-600 font-medium">
+              <tr>
+                <th scope="col" className="px-4 py-3">Formato</th>
+                <th scope="col" className="px-4 py-3">Tipo de dados</th>
+                <th scope="col" className="px-4 py-3">Uso típico</th>
+                <th scope="col" className="px-4 py-3">Dígitos</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {[
+                { fmt: 'EAN-13', tipo: 'Numérico', uso: 'Varejo global', digitos: '13' },
+                { fmt: 'EAN-8', tipo: 'Numérico', uso: 'Embalagens pequenas', digitos: '8' },
+                { fmt: 'Code 128', tipo: 'Alfanumérico', uso: 'Logística, estoque', digitos: 'Livre' },
+                { fmt: 'Code 39', tipo: 'Alfanumérico', uso: 'Indústria, governo', digitos: 'Livre' },
+                { fmt: 'UPC-A', tipo: 'Numérico', uso: 'Varejo EUA/Canadá', digitos: '12' },
+                { fmt: 'ITF-14', tipo: 'Numérico', uso: 'Caixas de embarque', digitos: '14' },
+                { fmt: 'ISBN', tipo: 'Numérico', uso: 'Livros', digitos: '13' },
+              ].map(({ fmt, tipo, uso, digitos }) => (
+                <tr key={fmt} className="bg-white hover:bg-gray-50">
+                  <td className="px-4 py-3 font-medium text-gray-900">{fmt}</td>
+                  <td className="px-4 py-3 text-gray-600">{tipo}</td>
+                  <td className="px-4 py-3 text-gray-600">{uso}</td>
+                  <td className="px-4 py-3 text-gray-500 tabular-nums">{digitos}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       <ToolPageSections sections={sections} />
 
       <div className="flex justify-center mt-16">

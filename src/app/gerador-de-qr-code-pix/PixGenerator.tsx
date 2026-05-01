@@ -4,7 +4,11 @@ import { useState, useCallback, useRef, useEffect } from 'react'
 import QRCode from 'qrcode'
 import { generatePixPayload, PixParams } from '@/lib/pix'
 import { trackGenerate, trackDownload, trackCopy } from '@/lib/analytics'
+import { incrementCount } from '@/lib/counter'
 import { downloadDataUrl, downloadBlob } from '@/lib/download'
+import { showToast } from '@/components/Toast'
+import PreviewArea from '@/components/ui/PreviewArea'
+import PrivacyChip from '@/components/ui/PrivacyChip'
 
 type KeyType = PixParams['keyType']
 
@@ -57,6 +61,7 @@ export default function PixGenerator() {
   const [isValid, setIsValid] = useState(false)
   const [isGenerating, setIsGenerating] = useState(false)
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
+  const [touchedFields, setTouchedFields] = useState<Partial<Record<keyof FieldErrors, boolean>>>({})
   const [valueCapped, setValueCapped] = useState(false)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -77,6 +82,43 @@ export default function PixGenerator() {
       delete next[field]
       return next
     })
+  }
+
+  const validateKeyField = useCallback((currentKey: string, currentKeyType: KeyType): string | undefined => {
+    const trimmed = currentKey.trim()
+    if (!trimmed) return 'Informe a chave Pix'
+    const digitsOnly = trimmed.replace(/\D/g, '')
+    if (currentKeyType === 'CPF' && digitsOnly.length !== 11) return 'CPF deve ter 11 dígitos'
+    if (currentKeyType === 'CNPJ' && digitsOnly.length !== 14) return 'CNPJ deve ter 14 dígitos'
+    if (currentKeyType === 'EMAIL' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return 'Informe um e-mail válido'
+    if (currentKeyType === 'TELEFONE' && !/^\+\d{10,14}$/.test(trimmed)) return 'Telefone deve iniciar com + e código do país (ex: +5511999998888)'
+    if (currentKeyType === 'ALEATORIA' && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(trimmed)) return 'Chave aleatória deve estar no formato UUID'
+    return undefined
+  }, [])
+
+  const handleBlur = (field: keyof FieldErrors) => {
+    setTouchedFields(prev => ({ ...prev, [field]: true }))
+    let error: string | undefined
+    if (field === 'key') error = validateKeyField(key, keyType)
+    else if (field === 'name') error = !name.trim() ? 'Informe o nome do recebedor' : undefined
+    else if (field === 'city') error = !city.trim() ? 'Informe a cidade' : undefined
+    setFieldErrors(prev => {
+      if (!error) {
+        const next = { ...prev }
+        delete next[field]
+        return next
+      }
+      return { ...prev, [field]: error }
+    })
+  }
+
+  const isFieldValid = (field: keyof FieldErrors): boolean => {
+    if (!touchedFields[field]) return false
+    if (fieldErrors[field]) return false
+    if (field === 'key') return !!key.trim()
+    if (field === 'name') return !!name.trim()
+    if (field === 'city') return !!city.trim()
+    return false
   }
 
   const handleGenerate = useCallback(async () => {
@@ -136,6 +178,7 @@ export default function PixGenerator() {
       setQrDataUrl(dataUrl)
       setIsValid(true)
       trackGenerate('pix_generator', keyType)
+      incrementCount()
     } catch {
       setError('Erro ao gerar QR Code. Verifique os dados informados.')
       setIsValid(false)
@@ -163,6 +206,7 @@ export default function PixGenerator() {
       }
     }
     trackCopy('pix_generator', 'payload')
+    showToast('Código Pix copiado', 'success')
     if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
     copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
   }
@@ -171,6 +215,7 @@ export default function PixGenerator() {
     if (!qrDataUrl) return
     downloadDataUrl(qrDataUrl, 'qr-pix.png')
     trackDownload('pix_generator', 'pix', 'png')
+    showToast('Download iniciado — PNG', 'success')
   }
 
   const handleDownloadSvg = async () => {
@@ -179,6 +224,7 @@ export default function PixGenerator() {
       const svgString = await QRCode.toString(payload, { type: 'svg', width: 400, margin: 2 })
       downloadBlob(new Blob([svgString], { type: 'image/svg+xml' }), 'qr-pix.svg')
       trackDownload('pix_generator', 'pix', 'svg')
+      showToast('Download iniciado — SVG', 'success')
     } catch {
       setError('Erro ao gerar SVG. Tente baixar em PNG.')
     }
@@ -219,18 +265,27 @@ export default function PixGenerator() {
             <label htmlFor="pix-key" className="block text-sm font-medium text-gray-700 mb-1">
               Chave Pix <span className="text-red-500">*</span>
             </label>
-            <input
-              id="pix-key"
-              type="text"
-              value={key}
-              onChange={e => { setKey(e.target.value); clearFieldError('key'); markStale() }}
-              placeholder={KEY_PLACEHOLDERS[keyType]}
-              maxLength={KEY_MAX_LENGTHS[keyType]}
-              className={fieldErrors.key ? inputErr : inputNormal}
-              aria-required="true"
-              aria-invalid={!!fieldErrors.key}
-              aria-describedby={fieldErrors.key ? 'pix-key-error' : undefined}
-            />
+            <div className="relative">
+              <input
+                id="pix-key"
+                type="text"
+                value={key}
+                onChange={e => { setKey(e.target.value); clearFieldError('key'); markStale() }}
+                onBlur={() => handleBlur('key')}
+                placeholder={KEY_PLACEHOLDERS[keyType]}
+                maxLength={KEY_MAX_LENGTHS[keyType]}
+                className={`${fieldErrors.key ? inputErr : inputNormal} pr-8`}
+                aria-required="true"
+                aria-invalid={!!fieldErrors.key}
+                aria-describedby={fieldErrors.key ? 'pix-key-error' : undefined}
+              />
+              {isFieldValid('key') && (
+                <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-green-500 text-sm" aria-hidden="true">✓</span>
+              )}
+              {fieldErrors.key && (
+                <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-red-500 text-sm" aria-hidden="true">✕</span>
+              )}
+            </div>
             {fieldErrors.key && (
               <p id="pix-key-error" className="text-red-600 text-xs mt-1 flex items-center gap-1" role="alert">
                 <span aria-hidden="true">⚠</span> {fieldErrors.key}
@@ -241,51 +296,77 @@ export default function PixGenerator() {
           {/* Nome */}
           <div>
             <label htmlFor="pix-name" className="block text-sm font-medium text-gray-700 mb-1">
-              Nome do recebedor <span className="text-red-500">*</span>{' '}
-              <span className="text-gray-400 font-normal">(máx. 25 chars)</span>
+              Nome do recebedor <span className="text-red-500">*</span>
             </label>
-            <input
-              id="pix-name"
-              type="text"
-              value={name}
-              onChange={e => { setName(e.target.value); clearFieldError('name'); markStale() }}
-              placeholder="Seu Nome ou Empresa"
-              maxLength={25}
-              className={fieldErrors.name ? inputErr : inputNormal}
-              aria-required="true"
-              aria-invalid={!!fieldErrors.name}
-              aria-describedby={fieldErrors.name ? 'pix-name-error' : undefined}
-            />
-            {fieldErrors.name && (
-              <p id="pix-name-error" className="text-red-600 text-xs mt-1 flex items-center gap-1" role="alert">
-                <span aria-hidden="true">⚠</span> {fieldErrors.name}
-              </p>
-            )}
+            <div className="relative">
+              <input
+                id="pix-name"
+                type="text"
+                value={name}
+                onChange={e => { setName(e.target.value); clearFieldError('name'); markStale() }}
+                onBlur={() => handleBlur('name')}
+                placeholder="Seu Nome ou Empresa"
+                maxLength={25}
+                className={`${fieldErrors.name ? inputErr : inputNormal} pr-8`}
+                aria-required="true"
+                aria-invalid={!!fieldErrors.name}
+                aria-describedby={`pix-name-hint${fieldErrors.name ? ' pix-name-error' : ''}`}
+              />
+              {isFieldValid('name') && (
+                <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-green-500 text-sm" aria-hidden="true">✓</span>
+              )}
+              {fieldErrors.name && (
+                <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-red-500 text-sm" aria-hidden="true">✕</span>
+              )}
+            </div>
+            <div className="flex justify-between mt-1">
+              {fieldErrors.name ? (
+                <p id="pix-name-error" className="text-red-600 text-xs flex items-center gap-1" role="alert">
+                  <span aria-hidden="true">⚠</span> {fieldErrors.name}
+                </p>
+              ) : <span />}
+              <span id="pix-name-hint" className={`text-xs tabular-nums ${name.length >= 25 ? 'text-amber-600' : 'text-gray-400'}`} aria-live="polite">
+                {name.length}/25
+              </span>
+            </div>
           </div>
 
           {/* Cidade */}
           <div>
             <label htmlFor="pix-city" className="block text-sm font-medium text-gray-700 mb-1">
-              Cidade <span className="text-red-500">*</span>{' '}
-              <span className="text-gray-400 font-normal">(máx. 15 chars)</span>
+              Cidade <span className="text-red-500">*</span>
             </label>
-            <input
-              id="pix-city"
-              type="text"
-              value={city}
-              onChange={e => { setCity(e.target.value); clearFieldError('city'); markStale() }}
-              placeholder="São Paulo"
-              maxLength={15}
-              className={fieldErrors.city ? inputErr : inputNormal}
-              aria-required="true"
-              aria-invalid={!!fieldErrors.city}
-              aria-describedby={fieldErrors.city ? 'pix-city-error' : undefined}
-            />
-            {fieldErrors.city && (
-              <p id="pix-city-error" className="text-red-600 text-xs mt-1 flex items-center gap-1" role="alert">
-                <span aria-hidden="true">⚠</span> {fieldErrors.city}
-              </p>
-            )}
+            <div className="relative">
+              <input
+                id="pix-city"
+                type="text"
+                value={city}
+                onChange={e => { setCity(e.target.value); clearFieldError('city'); markStale() }}
+                onBlur={() => handleBlur('city')}
+                placeholder="São Paulo"
+                maxLength={15}
+                className={`${fieldErrors.city ? inputErr : inputNormal} pr-8`}
+                aria-required="true"
+                aria-invalid={!!fieldErrors.city}
+                aria-describedby={`pix-city-hint${fieldErrors.city ? ' pix-city-error' : ''}`}
+              />
+              {isFieldValid('city') && (
+                <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-green-500 text-sm" aria-hidden="true">✓</span>
+              )}
+              {fieldErrors.city && (
+                <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-red-500 text-sm" aria-hidden="true">✕</span>
+              )}
+            </div>
+            <div className="flex justify-between mt-1">
+              {fieldErrors.city ? (
+                <p id="pix-city-error" className="text-red-600 text-xs flex items-center gap-1" role="alert">
+                  <span aria-hidden="true">⚠</span> {fieldErrors.city}
+                </p>
+              ) : <span />}
+              <span id="pix-city-hint" className={`text-xs tabular-nums ${city.length >= 15 ? 'text-amber-600' : 'text-gray-400'}`} aria-live="polite">
+                {city.length}/15
+              </span>
+            </div>
           </div>
 
           {/* Valor */}
@@ -352,55 +433,74 @@ export default function PixGenerator() {
           >
             {isGenerating ? 'Gerando…' : 'Gerar QR Code Pix'}
           </button>
+          <PrivacyChip />
         </fieldset>
       </div>
 
       {/* Preview */}
       <div className="flex-1 flex flex-col gap-4">
-        <div className="bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center gap-4">
-          <h2 className="text-lg font-semibold text-gray-900 self-start">Preview do QR Code</h2>
-          <div className="sr-only" aria-live="polite" aria-atomic="true">
-            {isValid ? 'QR Code Pix gerado com sucesso' : ''}
-          </div>
-          {qrDataUrl ? (
+        <PreviewArea
+          title="Preview do QR Code"
+          hasContent={!!qrDataUrl}
+          emptyText={error || 'Preencha os campos e clique em Gerar'}
+          ariaLiveText={isValid ? 'QR Code Pix gerado com sucesso' : ''}
+          className="flex-none w-full"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element -- data URL gerada dinamicamente, next/image nao aplica */}
+          <img
+            src={qrDataUrl!}
+            alt="QR Code Pix gerado com payload BR Code válido"
+            width={192}
+            height={192}
+            className="w-48 h-48 rounded-lg animate-fade-in"
+          />
+          {isValid && (
             <>
-              {/* eslint-disable-next-line @next/next/no-img-element -- data URL gerada dinamicamente, next/image nao aplica */}
-              <img
-                src={qrDataUrl}
-                alt="QR Code Pix gerado com payload BR Code válido"
-                width={192}
-                height={192}
-                className="w-48 h-48 rounded-lg animate-fade-in"
-              />
-              {isValid && (
-                <span className="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">
-                  ✓ QR válido, testado com o padrão Banco Central
-                </span>
-              )}
-              {error && <p className="text-red-600 text-xs text-center" role="alert">{error}</p>}
-              <div className="flex gap-2 w-full">
-                <button
-                  onClick={handleDownloadPng}
-                  aria-label="Baixar QR Code Pix em formato PNG"
-                  className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-                >
-                  Download PNG
-                </button>
-                <button
-                  onClick={handleDownloadSvg}
-                  aria-label="Baixar QR Code Pix em formato SVG"
-                  className="flex-1 bg-white border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-                >
-                  Download SVG
-                </button>
-              </div>
+              <span className="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">
+                ✓ QR válido, testado com o padrão Banco Central
+              </span>
+              <dl className="w-full text-xs text-gray-600 space-y-1 border border-gray-100 rounded-lg px-3 py-2 bg-gray-50">
+                <div className="flex justify-between gap-2">
+                  <dt className="text-gray-400 shrink-0">Recebedor</dt>
+                  <dd className="font-medium text-right truncate">{name.trim()}</dd>
+                </div>
+                <div className="flex justify-between gap-2">
+                  <dt className="text-gray-400 shrink-0">Cidade</dt>
+                  <dd className="font-medium text-right">{city.trim()}</dd>
+                </div>
+                <div className="flex justify-between gap-2">
+                  <dt className="text-gray-400 shrink-0">Chave</dt>
+                  <dd className="font-medium text-right truncate">{KEY_TYPE_LABELS[keyType]}: {key.trim()}</dd>
+                </div>
+                {value && parseFloat(value) > 0 && (
+                  <div className="flex justify-between gap-2">
+                    <dt className="text-gray-400 shrink-0">Valor</dt>
+                    <dd className="font-medium text-right">
+                      {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Math.min(parseFloat(value), 999999.99))}
+                    </dd>
+                  </div>
+                )}
+              </dl>
             </>
-          ) : (
-            <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm text-center px-4">
-              {error || 'Preencha os campos e clique em Gerar'}
-            </div>
           )}
-        </div>
+          {error && <p className="text-red-600 text-xs text-center" role="alert">{error}</p>}
+          <div className="flex gap-2 w-full">
+            <button
+              onClick={handleDownloadPng}
+              aria-label="Baixar QR Code Pix em formato PNG"
+              className="flex-1 bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+            >
+              Download PNG
+            </button>
+            <button
+              onClick={handleDownloadSvg}
+              aria-label="Baixar QR Code Pix em formato SVG"
+              className="flex-1 bg-white border border-indigo-600 text-indigo-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+            >
+              Download SVG
+            </button>
+          </div>
+        </PreviewArea>
 
         {payload && (
           <div className="bg-white rounded-xl border border-gray-200 p-6">
@@ -427,6 +527,23 @@ export default function PixGenerator() {
           </div>
         )}
       </div>
+
+      {qrDataUrl && (
+        <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 px-4 py-3 flex gap-2">
+          <button
+            onClick={handleCopy}
+            className="flex-1 bg-white border border-indigo-600 text-indigo-600 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors min-h-[44px]"
+          >
+            {copied ? '✓ Copiado' : 'Copiar código'}
+          </button>
+          <button
+            onClick={handleDownloadPng}
+            className="flex-1 bg-indigo-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors min-h-[44px]"
+          >
+            Baixar PNG
+          </button>
+        </div>
+      )}
     </div>
   )
 }

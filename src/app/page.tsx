@@ -5,6 +5,9 @@ import FAQSection from '@/components/FAQSection'
 import AdSlot from '@/components/AdSlot'
 import MarkdownContent from '@/components/MarkdownContent'
 import { reader } from '@/lib/content'
+import BenefitCard from '@/components/ui/BenefitCard'
+import UsageCounter from '@/components/UsageCounter'
+import Stepper from '@/components/ui/Stepper'
 import { SITE_URL } from '@/lib/constants'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -152,12 +155,13 @@ export default async function HomePage() {
           <div className="mt-6">
             <a
               href={home?.heroCtaHref || '#ferramentas'}
-              className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              className="inline-block bg-indigo-600 text-white px-6 py-3 text-base font-medium rounded-lg hover:bg-indigo-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
             >
               {home.heroCtaText}
             </a>
           </div>
         )}
+        <UsageCounter />
       </section>
 
       {/* Ferramentas */}
@@ -181,7 +185,10 @@ export default async function HomePage() {
                 <h3 className="text-xl font-semibold text-gray-900 group-hover:text-indigo-600 mb-2">
                   {tool.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{tool.description}</p>
+                <p className="text-gray-500 text-sm leading-relaxed flex-1">{tool.description}</p>
+                <span className="mt-4 text-sm font-medium text-indigo-600 group-hover:underline" aria-hidden="true">
+                  Abrir ferramenta →
+                </span>
               </Link>
             </li>
           ))}
@@ -196,12 +203,8 @@ export default async function HomePage() {
       <section aria-labelledby="why-geracode" className="bg-white rounded-xl border border-gray-200 p-8 mb-16">
         <h2 id="why-geracode" className="text-2xl font-bold text-gray-900 mb-6 text-center">{home?.porqueUsarTitle ?? 'Por que usar o GeraCode?'}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {porqueUsarItems.map(({ icone, titulo, descricao }) => (
-            <div key={titulo} className="flex flex-col gap-2">
-              {icone && <span className="text-2xl" aria-hidden="true">{icone}</span>}
-              <h3 className="font-semibold text-gray-900">{titulo}</h3>
-              <p className="text-sm text-gray-500">{descricao}</p>
-            </div>
+          {porqueUsarItems.map(({ titulo, descricao }, i) => (
+            <BenefitCard key={titulo} index={i} titulo={titulo} descricao={descricao} />
           ))}
         </div>
       </section>
@@ -219,15 +222,7 @@ export default async function HomePage() {
       {/* Como funciona */}
       <section aria-labelledby="how-it-works" className="bg-white rounded-xl border border-gray-200 p-8 mb-16">
         <h2 id="how-it-works" className="text-2xl font-bold text-gray-900 mb-6 text-center">{home?.comoFuncionaTitle ?? 'Como funciona'}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {comoFuncionaSteps.map(({ step, titulo, descricao }) => (
-            <div key={step} className="text-center">
-              <div className="w-12 h-12 rounded-full bg-indigo-100 text-indigo-700 font-bold text-lg flex items-center justify-center mx-auto mb-4" aria-hidden="true">{step}</div>
-              <h3 className="font-semibold text-gray-900 mb-2">{titulo}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed">{descricao}</p>
-            </div>
-          ))}
-        </div>
+        <Stepper steps={comoFuncionaSteps} />
       </section>
 
       {/* Para quem */}

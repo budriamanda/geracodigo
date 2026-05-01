@@ -4,6 +4,9 @@ import { useState, useCallback, useMemo, useRef, useEffect } from 'react'
 import { generateSku, generateSkuBatch, type SkuConfig } from '@/lib/sku-generator'
 import { trackGenerate, trackBatchGenerate, trackCopy, trackDownload } from '@/lib/analytics'
 import { downloadBlob } from '@/lib/download'
+import { showToast } from '@/components/Toast'
+import PrivacyChip from '@/components/ui/PrivacyChip'
+import { incrementCount } from '@/lib/counter'
 
 const SEPARATORS = [
   { value: '-', label: 'Hífen (-)' },
@@ -65,6 +68,7 @@ export default function SkuGeneratorClient() {
     } else {
       trackGenerate('sku_generator', 'sku')
     }
+    incrementCount(skus.length)
   }, [config, batchCount, hasTextParts, sequential])
 
   const addAttribute = () => setAttributes(prev => [...prev, { id: genAttrId(), value: '' }])
@@ -84,6 +88,7 @@ export default function SkuGeneratorClient() {
       setCopied(true)
       setCopyError(false)
       trackCopy('sku_generator', 'sku_list')
+      showToast('Copiado para a \u00E1rea de transfer\u00EAncia', 'success')
       copyTimeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
       setCopyError(true)
@@ -95,6 +100,7 @@ export default function SkuGeneratorClient() {
     const csv = '\uFEFF' + 'SKU\n' + results.join('\n')
     downloadBlob(new Blob([csv], { type: 'text/csv' }), 'skus.csv')
     trackDownload('sku_generator', 'sku', 'csv')
+    showToast('Download iniciado \u2014 CSV', 'success')
   }
 
   return (
@@ -214,6 +220,7 @@ export default function SkuGeneratorClient() {
         >
           Gerar {batchCount > 1 ? `${batchCount} SKUs` : 'SKU'}
         </button>
+        <PrivacyChip />
       </div>
 
       {/* Results */}

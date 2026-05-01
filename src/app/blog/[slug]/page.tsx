@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import BlogPostLayout from '@/components/BlogPostLayout'
+import BlogPostLayout, { type RelatedPost } from '@/components/BlogPostLayout'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { reader } from '@/lib/content'
 import { formatDateHuman, isoOrFallback } from '@/lib/dates'
@@ -52,9 +52,10 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = await reader.collections.posts.read(slug)
   if (!post) notFound()
 
-  const [allFaqs, allTools] = await Promise.all([
+  const [allFaqs, allTools, allPosts] = await Promise.all([
     reader.collections.faqs.all(),
     reader.collections.ferramentas.all(),
+    reader.collections.posts.all(),
   ])
 
   // FAQs relacionadas: vêm por slug explícito em post.faqsSlugs
@@ -76,6 +77,21 @@ export default async function BlogPostPage({ params }: PageProps) {
         cardDescription: ferramenta.entry.cardDescription,
       }
     : undefined
+
+  const relatedPosts: RelatedPost[] = post.categoria
+    ? allPosts
+        .filter((p) => p.slug !== slug && p.entry.categoria === post.categoria)
+        .slice(0, 3)
+        .map((p) => {
+          const pIso = isoOrFallback(p.entry.dataPublicacao, LAST_UPDATED_ISO)
+          return {
+            slug: p.slug,
+            title: p.entry.title,
+            h1: p.entry.h1 || p.entry.title,
+            dataPublicacaoHumana: formatDateHuman(pIso),
+          }
+        })
+    : []
 
   const pubIso = isoOrFallback(post.dataPublicacao, LAST_UPDATED_ISO)
   const updIso = isoOrFallback(post.dataAtualizacao, pubIso)
@@ -144,6 +160,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         bodyMarkdown={post.bodyMarkdown || ''}
         ferramentaRelacionada={ferramentaRef}
         faqs={faqs}
+        relatedPosts={relatedPosts}
       />
     </>
   )

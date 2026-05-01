@@ -3,8 +3,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import QRCode from 'qrcode'
 import { trackGenerate, trackDownload } from '@/lib/analytics'
+import { incrementCount } from '@/lib/counter'
 import { downloadDataUrl, downloadBlob } from '@/lib/download'
+import { showToast } from '@/components/Toast'
 import ExportActions from '@/components/ExportActions'
+import PreviewArea from '@/components/ui/PreviewArea'
+import PrivacyChip from '@/components/ui/PrivacyChip'
 
 type ExportState = 'idle' | 'pdf'
 
@@ -59,6 +63,7 @@ export default function QrGenerator() {
       setError('')
       if (!hasTrackedRef.current || trimmed !== prevInputRef.current) {
         trackGenerate('qr_code_generator', 'qr_code')
+        incrementCount()
         hasTrackedRef.current = true
         prevInputRef.current = trimmed
       }
@@ -82,6 +87,7 @@ export default function QrGenerator() {
     if (!qrDataUrl) return
     downloadDataUrl(qrDataUrl, 'qrcode.png')
     trackDownload('qr_code_generator', 'qr_code', 'png')
+    showToast('Download iniciado — PNG', 'success')
   }
 
   const downloadSvg = async () => {
@@ -90,6 +96,7 @@ export default function QrGenerator() {
       const svgStr = await QRCode.toString(input.trim(), { type: 'svg', width: size, margin: 2, color: { dark: darkColor, light: lightColor } })
       downloadBlob(new Blob([svgStr], { type: 'image/svg+xml' }), 'qrcode.svg')
       trackDownload('qr_code_generator', 'qr_code', 'svg')
+      showToast('Download iniciado — SVG', 'success')
     } catch {
       setError('Erro ao gerar SVG. Tente baixar em PNG.')
     }
@@ -107,6 +114,7 @@ export default function QrGenerator() {
       doc.addImage(qrDataUrl, 'PNG', x, y, imgSize, imgSize)
       doc.save('qrcode.pdf')
       trackDownload('qr_code_generator', 'qr_code', 'pdf')
+      showToast('Download iniciado — PDF', 'success')
     } catch {
       setError('Erro ao gerar PDF. Tente baixar em PNG.')
     } finally {
@@ -169,34 +177,28 @@ export default function QrGenerator() {
         >
           Gerar QR Code
         </button>
+        <PrivacyChip />
       </div>
 
-      <div className="flex-1 bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center gap-4">
-        <h2 className="text-lg font-semibold text-gray-900 self-start">Preview do QR Code</h2>
-        <div className="sr-only" aria-live="polite" aria-atomic="true">
-          {qrDataUrl ? 'QR Code gerado com sucesso' : ''}
+      <PreviewArea
+        title="Preview do QR Code"
+        hasContent={!!qrDataUrl}
+        emptyText="Digite algo para gerar o QR Code"
+        ariaLiveText={qrDataUrl ? 'QR Code gerado com sucesso' : ''}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element -- data URL gerada dinamicamente, next/image nao aplica */}
+        <img src={qrDataUrl!} alt="Preview do QR Code gerado" width={size} height={size} className="rounded-lg max-w-full animate-fade-in" style={{ maxWidth: `${Math.min(size, 300)}px` }} />
+        <div className="w-full">
+          <ExportActions
+            disabled={exporting !== 'idle'}
+            actions={[
+              { label: 'PNG', ariaLabel: 'Baixar QR Code em formato PNG', onClick: downloadPng, variant: 'primary' },
+              { label: 'SVG', ariaLabel: 'Baixar QR Code em formato SVG', onClick: downloadSvg, variant: 'secondary' },
+              { label: 'PDF', ariaLabel: 'Baixar QR Code em formato PDF', onClick: downloadPdf, variant: 'secondary', loading: exporting === 'pdf', loadingLabel: 'Gerando…' },
+            ]}
+          />
         </div>
-        {qrDataUrl ? (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element -- data URL gerada dinamicamente, next/image nao aplica */}
-            <img src={qrDataUrl} alt="Preview do QR Code gerado" width={size} height={size} className="rounded-lg max-w-full animate-fade-in" style={{ maxWidth: `${Math.min(size, 300)}px` }} />
-            <div className="w-full">
-              <ExportActions
-                disabled={exporting !== 'idle'}
-                actions={[
-                  { label: 'PNG', ariaLabel: 'Baixar QR Code em formato PNG', onClick: downloadPng, variant: 'primary' },
-                  { label: 'SVG', ariaLabel: 'Baixar QR Code em formato SVG', onClick: downloadSvg, variant: 'secondary' },
-                  { label: 'PDF', ariaLabel: 'Baixar QR Code em formato PDF', onClick: downloadPdf, variant: 'secondary', loading: exporting === 'pdf', loadingLabel: 'Gerando…' },
-                ]}
-              />
-            </div>
-          </>
-        ) : (
-          <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-sm text-center px-4">
-            Digite algo para gerar o QR Code
-          </div>
-        )}
-      </div>
+      </PreviewArea>
     </div>
   )
 }

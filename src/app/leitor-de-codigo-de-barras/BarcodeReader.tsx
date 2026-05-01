@@ -277,11 +277,18 @@ export default function BarcodeReader() {
           </div>
           <div className="space-y-2 max-h-[400px] overflow-y-auto">
             {results.map((r, i) => (
-              <div key={`${r.value}-${i}`} className="flex items-center gap-3 bg-gray-50 rounded-lg px-3 py-2">
-                <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded font-mono shrink-0">
-                  {formatLabel(r.format)}
-                </span>
-                <span className="text-sm text-gray-800 font-mono flex-1 truncate">{r.value}</span>
+              <div key={`${r.value}-${i}`} className="flex items-start gap-3 bg-gray-50 rounded-lg px-3 py-2.5">
+                <div className="flex flex-col gap-1 flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded font-mono shrink-0">
+                      {formatLabel(r.format)}
+                    </span>
+                    <time className="text-xs text-gray-400 shrink-0" dateTime={new Date(r.timestamp).toISOString()}>
+                      {new Date(r.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+                    </time>
+                  </div>
+                  <span className="text-sm text-gray-800 font-mono truncate">{r.value}</span>
+                </div>
                 <button
                   type="button"
                   onClick={() => handleCopy(r.value)}

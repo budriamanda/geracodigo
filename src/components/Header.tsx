@@ -4,8 +4,19 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { trackCtaClick } from '@/lib/analytics'
+import { Barcode, Hash, QrCode, ScanBarcode, Tag, BookOpen, type LucideIcon } from 'lucide-react'
 
 export type NavLink = { href: string; label: string }
+
+const NAV_ICONS: Record<string, LucideIcon> = {
+  '/gerador-de-codigo-de-barras': Barcode,
+  '/gerador-de-ean': Hash,
+  '/gerador-de-qr-code-pix': QrCode,
+  '/gerador-de-qr-code': QrCode,
+  '/leitor-de-codigo-de-barras': ScanBarcode,
+  '/gerador-de-sku': Tag,
+  '/blog': BookOpen,
+}
 
 const defaultNavLinks: NavLink[] = [
   { href: '/gerador-de-codigo-de-barras', label: 'Código de Barras' },
@@ -155,18 +166,20 @@ export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavL
                   <ul role="list" className="px-4 py-3 space-y-1">
                     {navLinks.map(({ href, label }) => {
                       const isActive = pathname === href
+                      const Icon = NAV_ICONS[href]
                       return (
                         <li key={href}>
                           <Link
                             href={href}
                             aria-current={isActive ? 'page' : undefined}
-                            className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                               isActive
                                 ? 'bg-indigo-50 text-indigo-600'
                                 : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600'
                             }`}
                             onClick={() => trackCtaClick(undefined, `nav_mobile_${href}`, label)}
                           >
+                            {Icon && <Icon className="w-4 h-4 shrink-0" aria-hidden="true" />}
                             {label}
                           </Link>
                         </li>
