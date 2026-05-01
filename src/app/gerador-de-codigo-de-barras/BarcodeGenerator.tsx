@@ -2,6 +2,9 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { downloadSvgFromElement, downloadPngFromElement, downloadBlob, exportSvgsToPdf } from '@/lib/download'
+import { showToast } from '@/components/Toast'
+import PrivacyChip from '@/components/ui/PrivacyChip'
+import { incrementCount } from '@/lib/counter'
 import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-check-digit'
 import { addToHistory, getHistory, removeFromHistory, clearHistory, type BarcodeHistoryItem } from '@/lib/barcode-history'
 import { trackGenerate, trackBatchGenerate, trackDownload, trackPrint } from '@/lib/analytics'
@@ -122,6 +125,7 @@ export default function BarcodeGenerator() {
       setError('')
       addToHistory(val, format)
       trackGenerate('barcode_generator', format)
+      incrementCount()
     } catch {
       setError('Valor inválido para o formato selecionado.')
       setGenerated(false)
@@ -156,7 +160,9 @@ export default function BarcodeGenerator() {
     }
     setBatchResults(results)
     setBatchRendered(false)
-    trackBatchGenerate('barcode_generator', format, results.filter(r => !r.error).length)
+    const successCount = results.filter(r => !r.error).length
+    trackBatchGenerate('barcode_generator', format, successCount)
+    incrementCount(successCount)
   }, [batchInput, format, getBarcodeOptions, resolveInput])
 
   useEffect(() => {
@@ -192,6 +198,7 @@ export default function BarcodeGenerator() {
       const blob = await zip.generateAsync({ type: 'blob' })
       downloadBlob(blob, 'codigos-de-barras.zip')
       trackDownload('barcode_generator', format, 'zip')
+      showToast(`Download iniciado — ZIP com ${svgs.length} códigos`, 'success')
     } catch {
       setError('Erro ao gerar ZIP. Tente novamente.')
     } finally {
@@ -213,6 +220,7 @@ export default function BarcodeGenerator() {
 
       await exportSvgsToPdf(svgs, 'codigos-de-barras.pdf', bgColor)
       trackDownload('barcode_generator', format, 'pdf')
+      showToast('Download iniciado — PDF', 'success')
     } catch {
       setError('Erro ao gerar PDF. Tente baixar em outro formato.')
     } finally {
@@ -265,6 +273,7 @@ ${pages.join('\n')}
     if (svgRef.current) {
       downloadSvgFromElement(svgRef.current, 'codigo-de-barras.svg')
       trackDownload('barcode_generator', format, 'svg')
+      showToast('Download iniciado — SVG', 'success')
     }
   }
   const downloadPng = async () => {
@@ -273,12 +282,24 @@ ${pages.join('\n')}
     try {
       await downloadPngFromElement(svgRef.current, 'codigo-de-barras.png', 2, bgColor)
       trackDownload('barcode_generator', format, 'png')
+      showToast('Download iniciado — PNG', 'success')
     } catch {
       setError('Erro ao gerar PNG. Tente baixar em SVG.')
     } finally {
       setIsExporting(false)
     }
   }
+
+  const copyValue = useCallback(async () => {
+    const val = resolveInput(input)
+    if (!val) return
+    try {
+      await navigator.clipboard.writeText(val)
+      showToast('Copiado para a área de transferência', 'success')
+    } catch {
+      showToast('Não foi possível copiar', 'error')
+    }
+  }, [input, resolveInput])
 
   const handleHistoryClick = (item: BarcodeHistoryItem) => {
     setInput(item.value)
@@ -364,47 +385,53 @@ ${pages.join('\n')}
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div>
-              <label htmlFor="bar-width" className="block text-sm font-medium text-gray-700 mb-1">Largura barra</label>
-              <select id="bar-width" value={barWidth} onChange={e => setBarWidth(Number(e.target.value))} className={inputNormal}>
-                {[1, 2, 3, 4].map(w => <option key={w} value={w}>{w}px</option>)}
-              </select>
-            </div>
+          <details open className="group">
+            <summary className="text-sm font-medium text-gray-600 cursor-pointer hover:text-gray-900 list-none flex items-center gap-1 select-none">
+              <svg className="w-4 h-4 transition-transform group-open:rotate-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+              Personalizar aparência
+            </summary>
+            <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div>
+                <label htmlFor="bar-width" className="block text-sm font-medium text-gray-700 mb-1">Largura barra</label>
+                <select id="bar-width" value={barWidth} onChange={e => setBarWidth(Number(e.target.value))} className={inputNormal}>
+                  {[1, 2, 3, 4].map(w => <option key={w} value={w}>{w}px</option>)}
+                </select>
+              </div>
 
-            <div>
-              <label htmlFor="font-size" className="block text-sm font-medium text-gray-700 mb-1">Fonte</label>
-              <select id="font-size" value={fontSize} onChange={e => setFontSize(Number(e.target.value))} className={inputNormal}>
-                {[10, 12, 14, 16, 18, 20].map(s => <option key={s} value={s}>{s}px</option>)}
-              </select>
-            </div>
+              <div>
+                <label htmlFor="font-size" className="block text-sm font-medium text-gray-700 mb-1">Fonte</label>
+                <select id="font-size" value={fontSize} onChange={e => setFontSize(Number(e.target.value))} className={inputNormal}>
+                  {[10, 12, 14, 16, 18, 20].map(s => <option key={s} value={s}>{s}px</option>)}
+                </select>
+              </div>
 
-            <div>
-              <label htmlFor="line-color" className="block text-sm font-medium text-gray-700 mb-1">Cor barras</label>
-              <div className="flex items-center gap-2">
-                <input id="line-color" type="color" value={lineColor} onChange={e => setLineColor(e.target.value)} className="h-8 w-10 rounded border border-gray-300 cursor-pointer" />
-                <span className="text-xs text-gray-500 font-mono">{lineColor}</span>
+              <div>
+                <label htmlFor="line-color" className="block text-sm font-medium text-gray-700 mb-1">Cor barras</label>
+                <div className="flex items-center gap-2">
+                  <input id="line-color" type="color" value={lineColor} onChange={e => setLineColor(e.target.value)} className="h-8 w-10 rounded border border-gray-300 cursor-pointer" />
+                  <span className="text-xs text-gray-500 font-mono">{lineColor}</span>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="bg-color" className="block text-sm font-medium text-gray-700 mb-1">Cor fundo</label>
+                <div className="flex items-center gap-2">
+                  <input id="bg-color" type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} className="h-8 w-10 rounded border border-gray-300 cursor-pointer" />
+                  <span className="text-xs text-gray-500 font-mono">{bgColor}</span>
+                </div>
               </div>
             </div>
 
-            <div>
-              <label htmlFor="bg-color" className="block text-sm font-medium text-gray-700 mb-1">Cor fundo</label>
-              <div className="flex items-center gap-2">
-                <input id="bg-color" type="color" value={bgColor} onChange={e => setBgColor(e.target.value)} className="h-8 w-10 rounded border border-gray-300 cursor-pointer" />
-                <span className="text-xs text-gray-500 font-mono">{bgColor}</span>
-              </div>
-            </div>
-          </div>
-
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={showText}
-              onChange={e => setShowText(e.target.checked)}
-              className="accent-indigo-600 w-4 h-4"
-            />
-            <span className="text-sm text-gray-700">Mostrar texto abaixo do código</span>
-          </label>
+            <label className="flex items-center gap-2 cursor-pointer mt-3">
+              <input
+                type="checkbox"
+                checked={showText}
+                onChange={e => setShowText(e.target.checked)}
+                className="accent-indigo-600 w-4 h-4"
+              />
+              <span className="text-sm text-gray-700">Mostrar texto abaixo do código</span>
+            </label>
+          </details>
         </section>
       )}
 
@@ -436,6 +463,7 @@ ${pages.join('\n')}
           >
             {barcodeReady ? 'Gerar Código de Barras' : 'Carregando gerador…'}
           </button>
+          <PrivacyChip />
 
           <div className="border border-gray-100 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-4 min-h-[160px] justify-center">
             <svg ref={svgRef} className={generated ? 'animate-fade-in' : 'hidden'} aria-label={`Código de barras ${format} gerado`} role="img" />
@@ -594,6 +622,24 @@ ${pages.join('\n')}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {generated ? `Código de barras ${format} gerado com sucesso` : ''}
       </div>
+
+      {tab === 'single' && generated && (
+        <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 px-4 py-3 flex gap-2 safe-area-inset-bottom">
+          <button
+            onClick={copyValue}
+            className="flex-1 bg-white border border-indigo-600 text-indigo-600 px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors min-h-[44px]"
+          >
+            Copiar valor
+          </button>
+          <button
+            onClick={downloadPng}
+            disabled={isExporting}
+            className="flex-1 bg-indigo-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 min-h-[44px]"
+          >
+            Baixar PNG
+          </button>
+        </div>
+      )}
 
       <ConfirmDialog
         open={showClearConfirm}

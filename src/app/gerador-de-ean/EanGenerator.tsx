@@ -2,10 +2,14 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { downloadSvgFromElement, downloadPngFromElement, exportSvgsToPdf } from '@/lib/download'
+import { showToast } from '@/components/Toast'
 import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-check-digit'
 import { addToHistory } from '@/lib/barcode-history'
 import { trackGenerate, trackDownload } from '@/lib/analytics'
+import { incrementCount } from '@/lib/counter'
 import ExportActions from '@/components/ExportActions'
+import PreviewArea from '@/components/ui/PreviewArea'
+import PrivacyChip from '@/components/ui/PrivacyChip'
 
 type JsBarcodeFn = (
   element: SVGSVGElement | string | null,
@@ -72,6 +76,7 @@ export default function EanGenerator() {
       setError('')
       addToHistory(val, format)
       trackGenerate('ean_generator', format)
+      incrementCount()
     } catch {
       setError(`Valor inválido para ${format}. Verifique o número de dígitos.`)
       setGenerated(false)
@@ -82,6 +87,7 @@ export default function EanGenerator() {
     if (svgRef.current) {
       downloadSvgFromElement(svgRef.current, `${format.toLowerCase()}-barcode.svg`)
       trackDownload('ean_generator', format, 'svg')
+      showToast('Download iniciado — SVG', 'success')
     }
   }
 
@@ -91,6 +97,7 @@ export default function EanGenerator() {
     try {
       await downloadPngFromElement(svgRef.current, `${format.toLowerCase()}-barcode.png`)
       trackDownload('ean_generator', format, 'png')
+      showToast('Download iniciado — PNG', 'success')
     } catch {
       setError('Erro ao gerar PNG. Tente baixar em SVG.')
     } finally {
@@ -104,6 +111,7 @@ export default function EanGenerator() {
     try {
       await exportSvgsToPdf([svgRef.current], `${format.toLowerCase()}-barcode.pdf`)
       trackDownload('ean_generator', format, 'pdf')
+      showToast('Download iniciado — PDF', 'success')
     } catch {
       setError('Erro ao gerar PDF. Tente baixar em PNG ou SVG.')
     } finally {
@@ -161,34 +169,30 @@ export default function EanGenerator() {
         >
           {barcodeReady ? `Gerar ${format === 'EAN13' ? 'EAN-13' : 'EAN-8'}` : 'Carregando…'}
         </button>
+        <PrivacyChip />
       </div>
 
       {/* Preview */}
-      <div className="flex-1 bg-white rounded-xl border border-gray-200 p-6 flex flex-col items-center gap-4">
-        <h2 className="text-lg font-semibold text-gray-900 self-start">Preview do código</h2>
-
-        <div className="sr-only" aria-live="polite" aria-atomic="true">
-          {generated ? `Código ${format === 'EAN13' ? 'EAN-13' : 'EAN-8'} gerado com sucesso` : ''}
-        </div>
-
+      <PreviewArea
+        title="Preview do código"
+        hasContent={generated}
+        emptyText="O código aparecerá aqui"
+        ariaLiveText={generated ? `Código ${format === 'EAN13' ? 'EAN-13' : 'EAN-8'} gerado com sucesso` : ''}
+      >
         <div className="border border-gray-100 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-4 min-h-[160px] justify-center w-full">
-          <svg ref={svgRef} className={generated ? 'animate-fade-in' : 'hidden'} aria-label={`Código de barras ${format} gerado`} role="img" />
-          {!generated && <p className="text-gray-400 text-sm">O código aparecerá aqui</p>}
+          <svg ref={svgRef} className="animate-fade-in" aria-label={`Código de barras ${format} gerado`} role="img" />
         </div>
-
-        {generated && (
-          <div className="w-full">
-            <ExportActions
-              disabled={exportingFormat !== null}
-              actions={[
-                { label: 'PNG', ariaLabel: 'Baixar PNG', onClick: downloadPng, variant: 'primary', loading: exportingFormat === 'png' },
-                { label: 'SVG', ariaLabel: 'Baixar SVG', onClick: downloadSvg, variant: 'secondary' },
-                { label: 'PDF', ariaLabel: 'Baixar PDF', onClick: downloadPdf, variant: 'secondary', loading: exportingFormat === 'pdf', loadingLabel: 'Gerando…' },
-              ]}
-            />
-          </div>
-        )}
-      </div>
+        <div className="w-full">
+          <ExportActions
+            disabled={exportingFormat !== null}
+            actions={[
+              { label: 'PNG', ariaLabel: 'Baixar PNG', onClick: downloadPng, variant: 'primary', loading: exportingFormat === 'png' },
+              { label: 'SVG', ariaLabel: 'Baixar SVG', onClick: downloadSvg, variant: 'secondary' },
+              { label: 'PDF', ariaLabel: 'Baixar PDF', onClick: downloadPdf, variant: 'secondary', loading: exportingFormat === 'pdf', loadingLabel: 'Gerando…' },
+            ]}
+          />
+        </div>
+      </PreviewArea>
     </div>
   )
 }

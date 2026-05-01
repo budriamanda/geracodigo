@@ -26,6 +26,33 @@
   to { transform: rotate(360deg); }
 }
 
+@utility stepper-connector-h {
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-gray-200);
+  }
+}
+
+@utility stepper-connector-v {
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 1.5rem;
+    background-color: var(--color-gray-200);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

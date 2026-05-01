@@ -23,6 +23,13 @@ interface FAQItem {
   answer: string
 }
 
+export interface RelatedPost {
+  slug: string
+  title: string
+  h1: string
+  dataPublicacaoHumana: string
+}
+
 export interface BlogPostLayoutProps {
   slug: string
   title: string
@@ -40,6 +47,7 @@ export interface BlogPostLayoutProps {
   bodyMarkdown: string
   ferramentaRelacionada?: ToolRef
   faqs: FAQItem[]
+  relatedPosts?: RelatedPost[]
 }
 
 export default function BlogPostLayout({
@@ -59,6 +67,7 @@ export default function BlogPostLayout({
   bodyMarkdown,
   ferramentaRelacionada,
   faqs,
+  relatedPosts,
 }: BlogPostLayoutProps) {
   const ctaHref = ferramentaRelacionada ? `/${ferramentaRelacionada.slug}` : undefined
   const ctaTitulo = ferramentaRelacionada?.h1 || ferramentaRelacionada?.title || 'Use as ferramentas grátis do GeraCode'
@@ -161,6 +170,27 @@ export default function BlogPostLayout({
       <div className="flex justify-center mt-12">
         <AdSlot slot={`blog-${slug}-bottom`} format="horizontal" />
       </div>
+
+      {relatedPosts && relatedPosts.length > 0 && (
+        <section className="mt-12" aria-labelledby="related-posts-heading">
+          <h2 id="related-posts-heading" className="text-xl font-bold text-gray-900 mb-4">
+            Mais artigos{categoria ? ` sobre ${labelCategoria(categoria)}` : ''}
+          </h2>
+          <ul className="space-y-3">
+            {relatedPosts.map((p) => (
+              <li key={p.slug}>
+                <Link
+                  href={`/blog/${p.slug}`}
+                  className="flex items-start justify-between gap-4 rounded-lg border border-gray-200 bg-white px-4 py-3 hover:border-indigo-300 hover:shadow-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+                >
+                  <span className="text-sm font-medium text-gray-900 leading-snug">{p.h1 || p.title}</span>
+                  <span className="text-xs text-gray-400 shrink-0 mt-0.5">{p.dataPublicacaoHumana}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {ferramentaRelacionada && (
         <RelatedTools currentPath={`/${ferramentaRelacionada.slug}`} />
