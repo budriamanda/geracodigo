@@ -5,7 +5,7 @@ h1: "Gerar QR Code Pix Sem Valor Fixo via API: guia completo para desenvolvedore
 subtitle: "Quando usar Pix estático (sem código) vs API Pix dinâmica — e como implementar cada um."
 resumo: "Precisa gerar QR Code Pix sem valor fixo via API? Este guia explica a diferença entre Pix estático (gerado no navegador, sem código) e Pix dinâmico via API do Banco Central — com endpoints, estrutura do payload e exemplos em Python e JavaScript."
 categoria: pix
-persona: desenvolvedor
+persona: dev
 dataPublicacao: "2026-05-01"
 dataAtualizacao: "2026-05-01"
 autor: Amanda Budri
