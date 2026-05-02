@@ -154,7 +154,7 @@ export default function EanGenerator() {
             pattern="[0-9]*"
             maxLength={expectedDigits}
             aria-describedby={checkDigitHint ? 'ean-check-digit-hint' : undefined}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           {checkDigitHint && (
             <p id="ean-check-digit-hint" className="text-green-600 text-xs mt-1">{checkDigitHint}</p>

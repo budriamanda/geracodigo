@@ -33,7 +33,7 @@ const FORMATS = [
 
 type Tab = 'single' | 'batch' | 'history'
 
-const inputBase = 'w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors'
+const inputBase = 'w-full border rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 transition-colors'
 const inputNormal = `${inputBase} border-gray-300 focus:ring-indigo-500`
 
 export default function BarcodeGenerator() {

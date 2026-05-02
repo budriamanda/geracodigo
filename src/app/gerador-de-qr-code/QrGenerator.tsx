@@ -134,7 +134,7 @@ export default function QrGenerator() {
             placeholder="https://seusite.com.br ou qualquer texto..."
             aria-required="true"
             maxLength={4296}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 h-24 resize-none"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500 h-24 resize-none"
           />
         </div>
         <div>
@@ -143,7 +143,7 @@ export default function QrGenerator() {
             id="qr-size"
             value={size}
             onChange={e => setSize(Number(e.target.value))}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             {SIZES.map(s => <option key={s} value={s}>{s}×{s}px</option>)}
           </select>

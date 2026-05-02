@@ -42,7 +42,7 @@ interface FieldErrors {
   city?: string
 }
 
-const inputBase = 'w-full border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 transition-colors'
+const inputBase = 'w-full border rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 transition-colors'
 const inputNormal = `${inputBase} border-gray-300 focus:ring-indigo-500`
 const inputErr = `${inputBase} border-red-400 bg-red-50 focus:ring-red-400`
 

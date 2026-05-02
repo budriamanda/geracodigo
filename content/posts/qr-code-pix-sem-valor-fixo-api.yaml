@@ -1,0 +1,220 @@
+slug: qr-code-pix-sem-valor-fixo-api
+title: "Gerar QR Code Pix Sem Valor Fixo via API: Guia para Desenvolvedores"
+metaDescription: "Aprenda a gerar QR Code Pix sem valor fixo via API Pix do Banco Central. Pix estático vs dinâmico, endpoints, payload BR Code e exemplos práticos para devs."
+h1: "Gerar QR Code Pix Sem Valor Fixo via API: guia completo para desenvolvedores"
+subtitle: "Quando usar Pix estático (sem código) vs API Pix dinâmica — e como implementar cada um."
+resumo: "Precisa gerar QR Code Pix sem valor fixo via API? Este guia explica a diferença entre Pix estático (gerado no navegador, sem código) e Pix dinâmico via API do Banco Central — com endpoints, estrutura do payload e exemplos em Python e JavaScript."
+categoria: pix
+persona: desenvolvedor
+dataPublicacao: "2026-05-01"
+dataAtualizacao: "2026-05-01"
+autor: Amanda Budri
+tempoLeitura: 10
+tags:
+  - pix
+  - api
+  - qr-code
+  - desenvolvedor
+  - pix-dinamico
+ferramentaRelacionadaSlug: gerador-de-qr-code-pix
+keywordPrimaria: "gerar qr code pix sem valor fixo via api"
+keywordsSecundarias:
+  - "pix api sem valor fixo"
+  - "api pix qr code dinamico"
+  - "pix cobranca api"
+  - "payload br code emv api"
+  - "qr code pix valor aberto"
+ogTitle: "QR Code Pix Sem Valor Fixo via API: Guia para Devs"
+ogDescription: "Pix estático vs API Pix dinâmica: quando usar cada um, endpoints do Banco Central, estrutura do payload e exemplos de código."
+ogAccent: "#6366f1"
+twitterTitle: "Gerar QR Code Pix via API: guia para desenvolvedores"
+twitterDescription: "Pix estático vs dinâmico, endpoints da API Pix e exemplos em Python e JS."
+bodyMarkdown: |
+  Se você está integrando Pix em um sistema e precisa gerar QR Codes sem valor fixo — ou seja, onde o pagador define o valor — existem **duas abordagens** completamente diferentes, e a escolha errada vai gerar retrabalho.
+
+  Este guia explica cada opção com clareza e mostra como implementar a certa para o seu caso.
+
+  ## Dois tipos de QR Code Pix: estático e dinâmico
+
+  Antes de qualquer código, entenda a diferença fundamental:
+
+  | | Pix Estático | Pix Dinâmico (API) |
+  |---|---|---|
+  | Valor | Fixo ou aberto (pagador define) | Definido pelo emissor por cobrança |
+  | Geração | No navegador ou via biblioteca | Via API do banco/PSP |
+  | Exige conta/autenticação | Não | Sim (OAuth2 com certificado) |
+  | Webhook de confirmação | Não | Sim |
+  | Validade | Indefinida | Definida por cobrança |
+  | Caso de uso | Balcão, doações, cobranças simples | E-commerce, SaaS, recebíveis |
+
+  **Se você só precisa de um QR Pix que o cliente preenche o valor**, o Pix estático resolve sem uma linha de servidor — use o [gerador de QR Code Pix do GeraCode](/gerador-de-qr-code-pix) ou gere o payload via biblioteca client-side.
+
+  **Se você precisa rastrear cada cobrança individualmente**, confirmar automaticamente o pagamento ou gerar cobranças com dados do pagador (CPF, data de vencimento, juros), aí você precisa da API Pix dinâmica.
+
+  ## Opção 1: Pix estático sem valor fixo (sem API)
+
+  O Pix estático com valor em branco já resolve o caso de "o pagador digita o valor". O payload BR Code EMV é gerado inteiramente no front-end — não precisa de servidor nem autenticação.
+
+  ### Estrutura do payload BR Code EMV
+
+  O payload segue a especificação [EMV QRCPS-MPM](https://www.bcb.gov.br/content/estabilidadefinanceira/especialistas_sistemas_pagamentos/ManualBRCode.pdf) do Banco Central. Os campos obrigatórios para um Pix estático sem valor:
+
+  ```
+  000201           → Payload Format Indicator (fixo)
+  010212           → Point of Initiation: 12 = reutilizável (estático)
+  2658             → Merchant Account Information
+    0014br.gov.bcb.pix  → GUI do Pix
+    0114+5511999999999  → Chave Pix (ex: telefone)
+  52040000         → Merchant Category Code (0000 = genérico)
+  5303986          → Transaction Currency (986 = BRL)
+  5802BR           → Country Code
+  5913Nome Recebedor → Merchant Name (max 25 chars)
+  6009Sao Paulo    → Merchant City
+  62070503***      → Additional Data (txid mínimo)
+  6304XXXX         → CRC16 (calculado sobre tudo acima)
+  ```
+
+  O campo de valor (`54`) simplesmente é **omitido** — e o app do banco exibe "valor a definir pelo pagador".
+
+  ### Gerando o payload em JavaScript
+
+  ```javascript
+  function gerarPixEstatico({ chave, nome, cidade, txid = '***' }) {
+    const gui = 'br.gov.bcb.pix';
+    const merchant = `0014${gui}${String(chave.length).padStart(2,'0')}${chave}`;
+    const merchantInfo = `26${String(merchant.length).padStart(2,'0')}${merchant}`;
+    const additionalData = `6207${String(`0503${txid}`.length).padStart(2,'0')}0503${txid}`;
+
+    const nomeFmt = nome.substring(0, 25);
+    const cidadeFmt = cidade.substring(0, 15);
+
+    let payload = [
+      '000201',
+      '010212',
+      merchantInfo,
+      '52040000',
+      '5303986',
+      // sem campo 54 (valor) = valor aberto
+      '5802BR',
+      `59${String(nomeFmt.length).padStart(2,'0')}${nomeFmt}`,
+      `60${String(cidadeFmt.length).padStart(2,'0')}${cidadeFmt}`,
+      additionalData,
+      '6304',
+    ].join('');
+
+    return payload + crc16(payload);
+  }
+  ```
+
+  > O CRC16 usa o polinômio 0x1021 (CCITT). O [GeraCode](/gerador-de-qr-code-pix) calcula automaticamente — se quiser apenas gerar o QR sem código, use a ferramenta diretamente.
+
+  ## Opção 2: Pix dinâmico via API do Banco Central
+
+  A API Pix oficial é definida pelo Banco Central e implementada por cada banco/PSP (PagSeguro, Mercado Pago, Sicoob, Itaú, etc.). Cada um tem seu endpoint base, mas o contrato da API é padronizado.
+
+  ### Autenticação
+
+  A API Pix exige **mTLS** (certificado digital do cliente) + **OAuth2** com fluxo `client_credentials`. Você precisa:
+
+  1. Certificado digital emitido por AC credenciada pelo ICP-Brasil (e.g., Certisign, Serasa) — ou o certificado sandbox do banco para testes.
+  2. Credenciais OAuth2 fornecidas pelo banco ao abrir a conta de desenvolvedor.
+
+  ```bash
+  curl --cert client.crt --key client.key \
+    -X POST https://api.banco.com.br/oauth/token \
+    -d "grant_type=client_credentials&scope=cob.write cob.read"
+  ```
+
+  ### Criando uma cobrança sem valor fixo
+
+  Para gerar QR Pix dinâmico com valor em aberto, você cria uma cobrança do tipo `cob` com o campo `valor.original` definido. Não existe cobrança dinâmica sem valor — essa é uma diferença importante em relação ao estático.
+
+  Se o valor é realmente variável por natureza (doações, gorjetas), o Pix estático é a resposta certa. O dinâmico serve para quando **você** define o valor programaticamente, mas cada cobrança tem um valor específico.
+
+  ```python
+  import httpx
+
+  BASE_URL = "https://api.banco.com.br/v2"
+  TOKEN = "seu_access_token"
+
+  def criar_cobranca_pix(valor: str, descricao: str, cpf_pagador: str = None):
+      payload = {
+          "calendario": {"expiracao": 3600},  # 1 hora
+          "valor": {"original": valor},        # ex: "29.90"
+          "chave": "sua-chave-pix@email.com",
+          "solicitacaoPagador": descricao,
+      }
+
+      if cpf_pagador:
+          payload["devedor"] = {"cpf": cpf_pagador, "nome": "Pagador"}
+
+      resp = httpx.post(
+          f"{BASE_URL}/cob",
+          json=payload,
+          headers={"Authorization": f"Bearer {TOKEN}"},
+      )
+      resp.raise_for_status()
+      data = resp.json()
+
+      # O QR Code vem em data["pixCopiaECola"] (texto) ou via endpoint /qrcode
+      return data["txid"], data["pixCopiaECola"]
+  ```
+
+  ### Consultando o status do pagamento
+
+  ```python
+  def consultar_cobranca(txid: str):
+      resp = httpx.get(
+          f"{BASE_URL}/cob/{txid}",
+          headers={"Authorization": f"Bearer {TOKEN}"},
+      )
+      data = resp.json()
+      # status: "ATIVA", "CONCLUIDA", "REMOVIDA_PELO_USUARIO_RECEBEDOR", etc.
+      return data["status"], data.get("pix", [])
+  ```
+
+  ### Webhook de confirmação
+
+  Para receber notificações automáticas de pagamento (sem polling), configure o webhook:
+
+  ```python
+  def configurar_webhook(url_webhook: str):
+      resp = httpx.put(
+          f"{BASE_URL}/webhook/sua-chave-pix@email.com",
+          json={"webhookUrl": url_webhook},
+          headers={"Authorization": f"Bearer {TOKEN}"},
+      )
+      resp.raise_for_status()
+  ```
+
+  O banco vai enviar um POST para sua URL a cada pagamento confirmado, com o `txid` e os dados da transação.
+
+  ## Qual usar no meu projeto?
+
+  | Cenário | Usar |
+  |---|---|
+  | QR Code no balcão / cardápio | Pix estático sem valor |
+  | Doações / valor livre | Pix estático sem valor |
+  | Checkout de e-commerce com valor definido | Pix dinâmico via API |
+  | Assinatura / cobrança recorrente programática | Pix dinâmico via API |
+  | Confirmar pagamento automaticamente | Pix dinâmico via API |
+  | Sem servidor / front-end puro | Pix estático (obrigatório) |
+
+  ## Sandboxes e ambientes de teste
+
+  Cada banco tem seu próprio sandbox. Os mais usados por desenvolvedores:
+
+  - **Banco Central (simulador oficial)**: sandbox em `pix.api.bcb.gov.br` — ideal para validar o contrato da API antes de ir para produção.
+  - **Sicoob, Bradesco, Itaú, Inter**: cada um disponibiliza sandbox via portal do desenvolvedor.
+  - **EfiPay (Gerencianet)**: sandbox bem documentado e popular entre devs independentes.
+
+  ## Próximos passos
+
+  - Para gerar QR Code estático agora sem código: use o [gerador de QR Code Pix gratuito](/gerador-de-qr-code-pix).
+  - Para entender a diferença completa entre os dois tipos: [Pix estático vs dinâmico](/comparar/pix-estatico-vs-dinamico).
+  - Para MEIs e pequenos negócios sem sistema: [como receber Pix como MEI](/blog/qr-code-pix-para-mei-guia-completo).
+faqsSlugs:
+  - pix-estatico-vs-dinamico
+  - pix-qr-code-valido
+  - pix-dados-servidor
+  - pix-tipos-chave
