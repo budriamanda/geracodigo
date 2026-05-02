@@ -141,7 +141,7 @@ export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavL
                 aria-expanded={menuOpen}
                 aria-controls="mobile-nav"
                 aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-                className="p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+                className="p-2.5 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
               >
                 {menuOpen ? (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -172,7 +172,7 @@ export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavL
                           <Link
                             href={href}
                             aria-current={isActive ? 'page' : undefined}
-                            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                            className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm font-medium transition-colors ${
                               isActive
                                 ? 'bg-indigo-50 text-indigo-600'
                                 : 'text-gray-700 hover:bg-gray-50 hover:text-indigo-600'

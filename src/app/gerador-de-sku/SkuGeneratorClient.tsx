@@ -15,7 +15,7 @@ const SEPARATORS = [
   { value: '', label: 'Sem separador' },
 ]
 
-const inputNormal = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors'
+const inputNormal = 'w-full border border-gray-300 rounded-lg px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors'
 
 function genAttrId() { return `attr-${Date.now()}-${Math.random().toString(36).slice(2, 8)}` }
 
