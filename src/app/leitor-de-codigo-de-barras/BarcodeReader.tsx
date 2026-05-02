@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { trackScan, trackCopy } from '@/lib/analytics'
+import { showToast } from '@/components/Toast'
 import ConfirmDialog from '@/components/ConfirmDialog'
 
 interface DecodedResult {
@@ -17,7 +18,6 @@ export default function BarcodeReader() {
   const [isCameraLoading, setIsCameraLoading] = useState(false)
   const [results, setResults] = useState<DecodedResult[]>([])
   const [error, setError] = useState('')
-  const [copyError, setCopyError] = useState('')
   const [copied, setCopied] = useState<string | null>(null)
   const [manualInput, setManualInput] = useState('')
   const [showClearConfirm, setShowClearConfirm] = useState(false)
@@ -138,9 +138,7 @@ export default function BarcodeReader() {
       if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
       copyTimeoutRef.current = setTimeout(() => setCopied(null), 2000)
     } catch {
-      setCopyError('Não foi possível copiar. Selecione o texto manualmente.')
-      if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
-      copyTimeoutRef.current = setTimeout(() => setCopyError(''), 3000)
+      showToast('Não foi possível copiar. Selecione o texto manualmente.', 'error')
     }
   }
 
@@ -202,10 +200,9 @@ export default function BarcodeReader() {
           )}
         </div>
 
-        {(error || copyError) && (
-          <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-3 text-sm mb-4 space-y-2" role="alert">
-            {error ? <p>{error}</p> : null}
-            {copyError ? <p>{copyError}</p> : null}
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-800 rounded-lg p-3 text-sm mb-4" role="alert">
+            <p>{error}</p>
           </div>
         )}
 

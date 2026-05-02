@@ -175,23 +175,27 @@ export default function EanGenerator() {
       {/* Preview */}
       <PreviewArea
         title="Preview do código"
-        hasContent={generated}
-        emptyText="O código aparecerá aqui"
+        hasContent={true}
         ariaLiveText={generated ? `Código ${format === 'EAN13' ? 'EAN-13' : 'EAN-8'} gerado com sucesso` : ''}
       >
         <div className="border border-gray-100 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-4 min-h-[160px] justify-center w-full">
-          <svg ref={svgRef} className="animate-fade-in" aria-label={`Código de barras ${format} gerado`} role="img" />
+          <svg ref={svgRef} className={generated ? 'animate-fade-in' : 'hidden'} aria-label={`Código de barras ${format} gerado`} role="img" />
+          {!generated && (
+            <p className="text-gray-400 text-sm text-center px-4">O código aparecerá aqui</p>
+          )}
         </div>
-        <div className="w-full">
-          <ExportActions
-            disabled={exportingFormat !== null}
-            actions={[
-              { label: 'PNG', ariaLabel: 'Baixar PNG', onClick: downloadPng, variant: 'primary', loading: exportingFormat === 'png' },
-              { label: 'SVG', ariaLabel: 'Baixar SVG', onClick: downloadSvg, variant: 'secondary' },
-              { label: 'PDF', ariaLabel: 'Baixar PDF', onClick: downloadPdf, variant: 'secondary', loading: exportingFormat === 'pdf', loadingLabel: 'Gerando…' },
-            ]}
-          />
-        </div>
+        {generated && (
+          <div className="w-full">
+            <ExportActions
+              disabled={exportingFormat !== null}
+              actions={[
+                { label: 'PNG', ariaLabel: 'Baixar PNG', onClick: downloadPng, variant: 'primary', loading: exportingFormat === 'png' },
+                { label: 'SVG', ariaLabel: 'Baixar SVG', onClick: downloadSvg, variant: 'secondary' },
+                { label: 'PDF', ariaLabel: 'Baixar PDF', onClick: downloadPdf, variant: 'secondary', loading: exportingFormat === 'pdf', loadingLabel: 'Gerando…' },
+              ]}
+            />
+          </div>
+        )}
       </PreviewArea>
     </div>
   )

@@ -71,7 +71,8 @@ export default function SkuGeneratorClient() {
     incrementCount(skus.length)
   }, [config, batchCount, hasTextParts, sequential])
 
-  const addAttribute = () => setAttributes(prev => [...prev, { id: genAttrId(), value: '' }])
+  const MAX_ATTRIBUTES = 8
+  const addAttribute = () => setAttributes(prev => prev.length < MAX_ATTRIBUTES ? [...prev, { id: genAttrId(), value: '' }] : prev)
 
   const updateAttribute = (index: number, value: string) => {
     setAttributes(prev => prev.map((a, i) => i === index ? { ...a, value } : a))
@@ -162,9 +163,10 @@ export default function SkuGeneratorClient() {
             ))}
             <button
               onClick={addAttribute}
-              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
+              disabled={attributes.length >= MAX_ATTRIBUTES}
+              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium disabled:text-gray-400 disabled:cursor-not-allowed"
             >
-              + Adicionar atributo
+              {attributes.length >= MAX_ATTRIBUTES ? `Limite de ${MAX_ATTRIBUTES} atributos atingido` : '+ Adicionar atributo'}
             </button>
           </div>
         </div>
