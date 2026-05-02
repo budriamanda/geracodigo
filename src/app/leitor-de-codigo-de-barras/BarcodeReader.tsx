@@ -42,7 +42,6 @@ export default function BarcodeReader() {
 
   const startCamera = useCallback(async () => {
     setError('')
-    setCopyError('')
     if (typeof BarcodeDetector === 'undefined') {
       const browser = navigator.userAgent
       const isSafari = /Safari/.test(browser) && !/Chrome/.test(browser)
@@ -133,7 +132,6 @@ export default function BarcodeReader() {
     try {
       await navigator.clipboard.writeText(value)
       setCopied(value)
-      setCopyError('')
       trackCopy('barcode_reader', 'scanned_code')
       if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
       copyTimeoutRef.current = setTimeout(() => setCopied(null), 2000)
