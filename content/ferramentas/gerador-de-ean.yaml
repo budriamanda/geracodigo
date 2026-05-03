@@ -5,7 +5,7 @@ ogTitle: "Gerador de EAN-13 e EAN-8 Grátis Online | GeraCode"
 ogDescription: "Crie códigos EAN-13 e EAN-8 grátis para produtos, e-commerce e varejo. Download instantâneo em PNG, SVG e PDF. Sem cadastro."
 twitterTitle: "Gerador de EAN-13 e EAN-8 Grátis | GeraCode"
 twitterDescription: "Crie códigos EAN para produtos e varejo. Download PNG, SVG e PDF. Sem cadastro."
-h1: "Gerador de EAN-13 e EAN-8 Grátis Online"
+h1: "Gerador de EAN-13 e EAN-8 Grátis: Dígito Verificador Automático, PNG e SVG"
 subtitle: "Crie códigos EAN para produtos, e-commerce e varejo. Geração instantânea no navegador."
 privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: ""
@@ -62,7 +62,7 @@ secoesConteudo:
         descricao: "EAN-13 tem 13 dígitos e é o padrão para a maioria dos produtos. EAN-8 tem 8 dígitos e é usado em embalagens pequenas."
         icone: ""
       - titulo: "Digite o número"
-        descricao: "Informe todos os dígitos do código, incluindo o dígito verificador (último dígito). O sistema valida automaticamente."
+        descricao: "Para EAN-13, informe os 12 primeiros dígitos — o 13.º (dígito verificador) é calculado automaticamente. Para EAN-8, informe 7 dígitos."
         icone: ""
       - titulo: "Baixe em PNG, SVG ou PDF"
         descricao: "Faça download imediato para usar em embalagens, etiquetas ou sistemas de PDV."
@@ -177,6 +177,26 @@ secoesConteudo:
       - titulo: "Leitor lê o código, mas aparece número errado"
         descricao: "**Causa:** Espelhamento na impressão ou impressão invertida. **Solução:** Confira se a impressora não está configurada para espelhar a imagem. Sempre teste a leitura em um segundo dispositivo antes de imprimir em escala."
         icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Quanto custa registrar um código EAN na GS1 Brasil?"
+    subtitulo: ""
+    conteudo: "O registro oficial de EAN na [GS1 Brasil](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras) é necessário para vender em **redes varejistas e grandes marketplaces** que validam GTIN contra a base oficial. O custo varia conforme o faturamento anual da empresa:\n\n- **Microempreendedor Individual (MEI):** taxa de adesão de ~R$ 150 + anuidade de ~R$ 100/ano — dá direito a um prefixo com até 10 GTINs\n- **Empresas de pequeno porte:** taxa de adesão a partir de ~R$ 250 + anuidade variável conforme faturamento\n- **Prazo de cadastro:** geralmente 3 a 5 dias úteis após envio da documentação\n\n> Os valores são orientativos e podem variar. Consulte a tabela atualizada em [gs1br.org](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras) antes de contratar.\n\n**Quando o registro NÃO é necessário:**\n- Lojas virtuais próprias (sem marketplace) com sistema de estoque interno\n- Uso em Code 128 para controle de estoque interno\n- Testes, protótipos e validação de layout de embalagem\n- Exportação para mercados que não exigem GS1 (alguns países asiáticos)\n\n**Alternativa sem registro:** para vender em Shopee e marketplaces que aceitam GTIN próprio (sem validação na base GS1), o EAN gerado aqui funciona. Confirme a política do marketplace antes de cadastrar produtos."
+    stepColor: "amber"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "EAN-13 por marketplace: o que cada plataforma exige"
+    subtitulo: ""
+    conteudo: "A exigência de EAN/GTIN varia por plataforma e categoria de produto:\n\n| Marketplace | Exige EAN? | Valida na base GS1? | O que acontece sem EAN? |\n|---|---|---|---|\n| Mercado Livre | Obrigatório em eletrônicos, beleza, saúde, alimentos | Sim, em categorias selecionadas | Anúncio perde relevância; pode ser pausado |\n| Amazon Brasil | Obrigatório na maioria das categorias | Sim | Cadastro bloqueado; Brand Registry para isenção |\n| Shopee | Opcional | Não (aceita GTIN próprio) | Produto publicado normalmente |\n| Magalu (Magazine Luiza) | Obrigatório | Não especificado | Produto não aceito |\n| Americanas / Submarino | Obrigatório | Não (revisão manual) | Revisão manual, pode ser rejeitado |\n| Casas Bahia / Ponto | Obrigatório | Valida DV na hora | Cadastro bloqueado se DV inválido |\n\n**Dica:** o GeraCode sempre calcula o dígito verificador corretamente, eliminando rejeições por DV inválido. Para validação oficial de GTIN já registrado, use a [consulta de produto da GS1 Brasil](https://www.gs1br.org/codigos-e-padroes/consultar-gtin)."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
     tags: []
     links: []
   - tipo: links

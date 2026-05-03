@@ -1,11 +1,11 @@
 slug: gerador-de-qr-code
 title: "Gerador de QR Code Grátis Online"
-metaDescription: "Gere QR Code grátis para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro, 100% privado."
+metaDescription: "Gere QR Code grátis para links, Wi-Fi, WhatsApp, vCard e texto. Download PNG e SVG em alta resolução. Sem cadastro, 100% privado, gerado no navegador."
 ogTitle: "Gerador de QR Code Grátis Online | GeraCode"
 ogDescription: "Gere QR Code para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro."
 twitterTitle: "Gerador de QR Code Grátis | GeraCode"
 twitterDescription: "Links, textos e qualquer conteúdo. Color picker incluso. Download PNG e SVG. Sem cadastro."
-h1: "Gerador de QR Code Grátis Online"
+h1: "Gerador de QR Code Grátis: Link, Wi-Fi, WhatsApp, vCard — PNG e SVG"
 subtitle: "Gere QR Code para links, textos e qualquer conteúdo. Gratuito, sem cadastro."
 privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: ""
@@ -69,7 +69,7 @@ secoesConteudo:
         icone: ""
     tags: []
     links: []
-  - tipo: prose
+  - tipo: cards
     titulo: "Para que serve o QR Code?"
     subtitulo: ""
     conteudo: ""
@@ -129,6 +129,26 @@ secoesConteudo:
     titulo: "Boas Práticas para QR Codes"
     subtitulo: ""
     conteudo: "- **Mantenha o contraste:** QR Codes precisam de bom contraste entre os módulos (quadradinhos) e o fundo. Cor escura sobre fundo claro é o mais seguro.\n- **Tamanho mínimo para impressão:** Pelo menos 2 x 2 cm para leitura confiável em smartphones. Para distâncias maiores (cartazes, banners), aumente proporcionalmente.\n- **Teste antes de imprimir:** Sempre escaneie o QR Code com pelo menos 2 aplicativos diferentes para garantir que funciona corretamente.\n- **URLs curtas:** Links mais curtos geram QR Codes com menos módulos, que são mais fáceis de escanear. Use encurtadores de URL quando necessário.\n- **Use SVG para impressão profissional:** O formato SVG é vetorial e não perde qualidade ao ampliar, ideal para adesivos, cartões de visita e materiais gráficos."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "QR Code Estático vs Dinâmico: qual usar?"
+    subtitulo: ""
+    conteudo: "Essa é a dúvida mais comum — e a resposta determina o custo, a flexibilidade e o que você pode rastrear.\n\n**QR Code estático** (o que o GeraCode gera):\n- O conteúdo é gravado diretamente no código no momento da geração\n- Não pode ser alterado depois — se você imprimir 1.000 flyers e o link mudar, precisa reimprimir tudo\n- Não tem analytics nativo — você não sabe quantas pessoas escanearam\n- **Gratuito, para sempre** — funciona sem conta, sem servidor\n- Ideal para: cartões de visita, embalagens, placas com Wi-Fi, pagamento Pix, materiais duráveis com URL permanente\n\n**QR Code dinâmico**:\n- Aponta para um link curto intermediário que você pode redirecionar sem reimprimir o código\n- Permite analytics: quantos scans, quando, de qual cidade e dispositivo\n- Requer conta em um serviço pago (a partir de ~R$ 30/mês)\n- Ideal para: campanhas de marketing com prazo, materiais com trocas frequentes de destino, gestão de múltiplos QR Codes\n\n**Regra prática:** se você vai imprimir em material descartável (flyers, cartazes de promoção), use dinâmico. Se vai imprimir em material permanente (embalagem de produto, placa de negócio, cartão de visita), use estático — e garanta que a URL seja duradoura."
+    stepColor: "indigo"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Como adicionar logo no QR Code sem quebrar a leitura"
+    subtitulo: ""
+    conteudo: "QR Codes com logo no centro são visualmente mais atrativos e reforçam a marca — mas existem regras técnicas para não quebrar a leitura.\n\n**Como funciona:** o padrão QR Code tem quatro níveis de correção de erro (L, M, Q, H). O nível H tolera até **30% de dados corrompidos ou obstruídos**. Um logo no centro usa justamente essa tolerância.\n\n**Passos para QR Code com logo:**\n1. Gere o QR Code no GeraCode em tamanho grande (mínimo 512 × 512 px) e exporte em **SVG ou PNG**\n2. Use nível de correção de erro **H** (se o gerador oferece essa opção)\n3. No Canva, Figma, Adobe Illustrator ou qualquer editor, sobreponha o logo no centro do QR\n4. O logo deve cobrir no **máximo 25%** da área total do QR Code (para nível H)\n5. Mantenha o fundo do logo sólido — logo com fundo transparente expõe os módulos e pode confundir o leitor\n6. **Teste obrigatório:** escaneie com pelo menos 3 apps (câmera nativa do iPhone, câmera nativa do Android e o app do banco, se for um Pix) antes de aprovar a arte final\n\n**Tamanhos de logo seguros:** logo ocupando 15-20% da área raramente falha. Logos acima de 25% têm taxa de falha crescente, especialmente em impressões pequenas."
     stepColor: "indigo"
     bgCard: true
     columns: "3"
@@ -230,12 +250,14 @@ secoesConteudo:
 
 faqFallbacks:
   - pergunta: "O QR Code gerado tem prazo de validade?"
-    resposta: "O QR Code gerado aqui é estático e não tem prazo de validade — ele funciona indefinidamente enquanto a informação codificada (URL, texto, etc.) continuar válida. Se você codificou uma URL que depois mudou ou foi removida, o QR Code vai funcionar mas o link ficará quebrado."
-  - pergunta: "Qual tamanho mínimo para imprimir um QR Code?"
-    resposta: "Para uso em papel (folheto, cartão de visita), o mínimo é 2 × 2 cm. Para banners e sinalização, calcule pelo menos 1 cm de QR Code para cada 40 cm de distância de leitura esperada. Prefira SVG ou PNG em alta resolução (300 DPI ou mais) para impressão."
-  - pergunta: "Posso colocar um logo no meio do QR Code?"
-    resposta: "Sim, com moderação. O QR Code tem correção de erro que tolera até 30% de dados obstruídos (nível H). Um logo cobrindo até 20-25% do centro é geralmente seguro. Teste sempre depois de adicionar o logo para garantir que ainda lê corretamente."
+    resposta: "O QR Code estático gerado aqui não tem prazo de validade — ele funciona indefinidamente enquanto a informação codificada (URL, texto, etc.) continuar válida. Se você codificou uma URL que depois mudou ou foi removida, o QR Code abre mas o link fica quebrado. Para QR Codes que você precisa alterar o destino sem reimprimir, use um serviço de QR Code dinâmico (geralmente pago)."
   - pergunta: "Qual a diferença entre QR Code estático e dinâmico?"
-    resposta: "O QR Code estático (gerado aqui) codifica o conteúdo diretamente — você não pode mudar o destino depois de impresso. O QR Code dinâmico redireciona por um link curto intermediário, permitindo alterar o destino sem reimprimir. Para campanhas de marketing com material impresso em grande quantidade, dinâmico é mais flexível."
+    resposta: "QR Code estático (gerado aqui): o conteúdo é gravado diretamente no código, não pode ser alterado depois, é gratuito e funciona para sempre sem conta. QR Code dinâmico: aponta para um link intermediário que você pode redirecionar — permite analytics (quantos scans, quando, de onde) e mudança de destino sem reimprimir. O dinâmico exige conta em serviço pago (a partir de ~R$ 30/mês)."
+  - pergunta: "Posso colocar minha logo no meio do QR Code?"
+    resposta: "Sim, com moderação. O QR Code tem correção de erro (nível H) que tolera até 30% de dados obstruídos. Gere o QR Code aqui em PNG ou SVG, abra no Canva ou Figma e sobreponha o logo ocupando no máximo 20-25% da área central. O fundo do logo deve ser sólido (não transparente). Teste obrigatório: escaneie com iPhone e Android antes de aprovar a arte final."
+  - pergunta: "Como criar QR Code para Wi-Fi?"
+    resposta: "Digite o texto com o formato padrão: WIFI:T:WPA;S:NomeDaRede;P:SenhaAqui;; — substituindo NomeDaRede e SenhaAqui pelos dados reais. Use T:WEP para redes mais antigas ou T:nopass para redes abertas. Ao escanear, o celular oferece conectar automaticamente sem o cliente precisar digitar a senha."
+  - pergunta: "Qual tamanho mínimo para imprimir um QR Code?"
+    resposta: "Para uso em papel (cartão de visita, flyer), o mínimo é 2 × 2 cm. Para cartazes e vitrines (leitura a 1-3 m), use 8 × 8 cm a 15 × 15 cm. Regra prática: altura do QR ≥ distância de leitura ÷ 10. Prefira SVG (vetorial, escala infinita) ou PNG com 300 DPI para impressão."
   - pergunta: "Meus dados ficam armazenados em algum servidor?"
-    resposta: "Não. Todo o processamento acontece no seu navegador. Nenhum dado (URL, texto, e-mail) é enviado para servidores externos."
+    resposta: "Não. Todo o processamento acontece no seu navegador. Nenhuma URL, texto ou conteúdo é enviado para servidores externos. O QR Code é gerado localmente e o arquivo baixado diretamente para o seu dispositivo."

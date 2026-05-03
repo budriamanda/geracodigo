@@ -186,6 +186,16 @@ secoesConteudo:
         icone: ""
     tags: []
     links: []
+  - tipo: prose
+    titulo: "Regras de nomenclatura: comprimento, caracteres e variações"
+    subtitulo: ""
+    conteudo: "O SKU precisa funcionar em sistemas muito diferentes — planilhas, ERPs, APIs de marketplace. Por isso, algumas regras técnicas são essenciais:\n\n**Comprimento recomendado:** entre **8 e 20 caracteres**. SKUs curtos (menos de 6) esgotam sequenciais rápido; longos (mais de 25) são difíceis de conferir visualmente e podem ser truncados em campos de formulário.\n\n**Caracteres permitidos (sem risco):** letras maiúsculas A-Z, números 0-9, hífen (-) e underline (_). Esses funcionam em 100% dos sistemas.\n\n**Caracteres proibidos ou problemáticos:**\n- **Acentos (á, ã, ç, ê):** quebram exportações CSV em encoding incorreto e falham em APIs de marketplace\n- **Espaços:** causam erros em URLs e campos de query — use hífen no lugar\n- **Caracteres especiais (@ # $ % & / \\ \" ' < >):** quebram parsers XML/JSON e campos de formulário\n- **Barra (/):** interpretada como separador de caminho de URL em alguns sistemas\n\n**SKU para variações de produto:** cada variação deve ter seu próprio SKU único. Convenção recomendada:\n- Produto base: `CAM-BRC-001` (camiseta branca)\n- Variações: `CAM-BRC-001-P`, `CAM-BRC-001-M`, `CAM-BRC-001-G`, `CAM-BRC-001-GG`\n- Ou: `CAM-BRC-P-001`, `CAM-BRC-M-001` — coloque o atributo variável antes do sequencial\n\n**Compatibilidade por plataforma:**\n- **Mercado Livre:** até 60 caracteres, sem espaços\n- **Amazon Seller Central:** até 40 caracteres, case-sensitive (A001 ≠ a001)\n- **Shopee:** SKU pai + SKU variação, até 100 caracteres\n- **Bling / Tiny ERP:** até 60 caracteres alfanuméricos\n- **Shopify:** até 255 caracteres (use padrão simples para portabilidade)"
+    stepColor: "purple"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
   - tipo: links
     titulo: "Leia também"
     subtitulo: "Do SKU ao código de barras — tudo para organizar e vender seus produtos."

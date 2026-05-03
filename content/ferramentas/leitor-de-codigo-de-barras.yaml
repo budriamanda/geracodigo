@@ -5,7 +5,7 @@ ogTitle: "Leitor de Código de Barras Online Grátis | GeraCode"
 ogDescription: "Leia códigos de barras e QR Codes pela câmera do celular. Sem app, sem cadastro, 100% gratuito."
 twitterTitle: "Leitor de Código de Barras Online | GeraCode"
 twitterDescription: "Leia códigos pela câmera. Sem app, sem cadastro."
-h1: "Leitor de Código de Barras Online Grátis"
+h1: "Leitor de Código de Barras Online: EAN-13, Code 128, QR Code — Sem App"
 subtitle: "Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada"
 privacyBadgeText: "Tudo processado no seu navegador. Nenhum dado é enviado para servidores"
 badge: "Novo"
@@ -167,6 +167,16 @@ secoesConteudo:
     items: []
     tags: []
     links: []
+  - tipo: prose
+    titulo: "Câmera ao vivo vs. upload de imagem: o que o leitor suporta"
+    subtitulo: ""
+    conteudo: "O leitor do GeraCode usa a câmera em **tempo real** — ele não suporta upload de arquivos de imagem (JPG, PNG, PDF). Isso é uma característica da [API BarcodeDetector do W3C](https://www.w3.org/TR/shape-detection-api/), que processa frames de câmera diretamente no hardware do dispositivo.\n\n**Se você precisa ler um código de barras de uma foto ou PDF:**\n- **Google Lens** (Android e iOS): abra a foto na galeria e toque em \"Pesquisar com Google Lens\" — lê EAN, QR Code e a maioria dos formatos\n- **Google Lens no computador**: acesse lens.google.com, faça upload da foto ou cole a imagem\n- **App de câmera iPhone**: abra a foto e toque no código QR que aparecer no canto — só funciona para QR Code, não para EAN-13 ou Code 128\n- **Leitor embutido do WhatsApp**: no Android, toque no ícone de QR dentro do WhatsApp para ler QR Codes diretamente da câmera ou galeria\n\n**Por que o GeraCode não faz upload de imagem?** Processamento de imagem via upload normalmente envolve enviar o arquivo para um servidor. Para manter o compromisso de privacidade (zero dados enviados a servidores), o leitor usa exclusivamente a câmera local via BarcodeDetector API.\n\n**Para código de barras em nota fiscal (XML/PDF DANFE):** o código de barras linear na DANFE pode ser lido apontando a câmera para o papel impresso ou para a tela do computador. O QR Code na DANFE (NF-e 4.0) também funciona com o leitor."
+    stepColor: "amber"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
   - tipo: links
     titulo: "Leia também"
     subtitulo: "Ferramentas complementares para quem trabalha com códigos de barras."
@@ -195,7 +205,7 @@ secoesConteudo:
 
 faqFallbacks:
   - pergunta: "O leitor funciona no iPhone?"
-    resposta: "Não no Safari — o Safari em iOS não suporta a API BarcodeDetector. Use o Google Chrome para iOS (gratuito na App Store) para ler EAN-13, Code 128, QR Code e outros formatos. O app de câmera nativo do iPhone lê QR Codes, mas não decodifica códigos de barras 1D."
+    resposta: "Não no Safari — o Safari em iOS não suporta a API BarcodeDetector (padrão W3C). Use o Google Chrome para iOS (gratuito na App Store) para ler EAN-13, Code 128, QR Code e outros formatos. O app de câmera nativo do iPhone lê QR Codes, mas não decodifica códigos de barras 1D como EAN-13 ou Code 128."
   - pergunta: "Quais formatos de código de barras o leitor suporta?"
     resposta: "O leitor suporta: EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF (Interleaved 2 of 5), Codabar e QR Code. A detecção é automática — você não precisa selecionar o formato antes de escanear."
   - pergunta: "Os dados lidos ficam salvos em algum servidor?"
@@ -206,3 +216,7 @@ faqFallbacks:
     resposta: "Códigos com riscos, dobras, manchas ou impressão de baixa qualidade podem não ser detectados por câmera. Nesse caso, use a entrada manual: copie os números visíveis abaixo do código de barras e cole no campo de texto do leitor para validar o formato."
   - pergunta: "Posso ler vários códigos em sequência?"
     resposta: "Sim. O leitor mantém a câmera ativa e adiciona cada código detectado à lista de resultados. Você pode escanear quantos códigos quiser em sequência e copiar ou exportar os resultados ao final."
+  - pergunta: "Consigo ler o código de barras de uma nota fiscal ou PDF?"
+    resposta: "O leitor usa câmera ao vivo — não suporta upload de imagem ou PDF. Para ler código de uma nota fiscal: aponte a câmera para o papel impresso ou para a tela do computador onde o PDF está aberto. O código linear (Code 128 / Code 39) na DANFE e o QR Code da NF-e 4.0 são lidos normalmente dessa forma."
+  - pergunta: "O leitor consegue ler código de barras danificado ou borrado?"
+    resposta: "Depende do grau do dano. A API BarcodeDetector usa algoritmos de reconhecimento de imagem do sistema operacional, que têm alguma tolerância a danos menores (riscos leves, baixo contraste). Para códigos com danos severos, use a entrada manual: copie os números visíveis abaixo do código e cole no campo de texto."
