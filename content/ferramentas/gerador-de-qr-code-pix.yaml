@@ -21,7 +21,7 @@ keywordsSecundarias:
   - "gerar qr code pix online"
   - "qr code pix cpf cnpj"
   - "payload br code emv"
-dataAtualizacao: "2026-03-27"
+dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "pix"
@@ -47,7 +47,7 @@ schemaHowToSteps:
     texto: "Faça download em PNG ou SVG e use onde quiser."
 schemaAboutName: "Pix (Sistema de Pagamentos Instantâneos do Banco Central)"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-03-27"
+schemaDateModified: "2026-05-02"
 
 secoesConteudo:
   - tipo: steps

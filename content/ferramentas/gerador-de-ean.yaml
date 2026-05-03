@@ -22,7 +22,7 @@ keywordsSecundarias:
   - "gerar ean online"
   - "código de barras ean-13"
   - "ean para produtos"
-dataAtualizacao: "2026-03-01"
+dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "ean"
@@ -47,7 +47,7 @@ schemaHowToSteps:
     texto: "Faça download imediato para usar em embalagens, etiquetas ou sistemas de PDV."
 schemaAboutName: "EAN (European Article Number / GTIN)"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-03-01"
+schemaDateModified: "2026-05-02"
 
 secoesConteudo:
   - tipo: steps
@@ -204,5 +204,20 @@ secoesConteudo:
         descricao: "Além do EAN externo, organize seu estoque com SKUs internos padronizados. Gere em lote e exporte para Excel."
         badgeText: "Ferramenta"
         badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/blog/ean-13-ean-8-guia-completo"
+        label: "EAN-13 e EAN-8: guia completo"
+        descricao: "Onde fica o EAN na embalagem, se é obrigatório por lei, diferenças para UPC-A e como registrar na GS1 Brasil."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
 
-faqFallbacks: []
+faqFallbacks:
+  - pergunta: "O código EAN gerado aqui é válido para vender em supermercados?"
+    resposta: "Para vendas em grandes redes varejistas, o EAN precisa ser registrado oficialmente na GS1 Brasil — o código gerado aqui terá dígito verificador correto, mas o número precisa ser um GTIN atribuído à sua empresa pela GS1. Para lojas próprias, e-commerce próprio e controle de estoque interno, o código gerado serve normalmente."
+  - pergunta: "Como saber se um EAN-13 é válido?"
+    resposta: "Um EAN-13 válido tem 13 dígitos e o último dígito (verificador) confere com o cálculo pelo algoritmo de módulo 10. Nosso gerador valida automaticamente — se você digitar 12 dígitos, ele calcula o 13.º; se digitar 13, ele verifica se o dígito final está correto."
+  - pergunta: "Qual a diferença entre EAN-13 e UPC-A?"
+    resposta: "UPC-A é o padrão norte-americano com 12 dígitos; EAN-13 é o padrão internacional com 13 dígitos. Um UPC-A pode ser convertido em EAN-13 adicionando um zero na frente. Para vender nos EUA, use UPC-A; para o Brasil e Europa, use EAN-13."
+  - pergunta: "Posso usar o mesmo EAN em dois produtos diferentes?"
+    resposta: "Não. O EAN identifica um produto específico: qualquer alteração de embalagem, tamanho, sabor ou formulação exige um EAN diferente. Dois produtos com o mesmo EAN causam conflito nos sistemas de PDV e nos cadastros de marketplace."
+  - pergunta: "O código EAN precisa ter o prefixo 789 para ser brasileiro?"
+    resposta: "Sim, para produtos com origem no Brasil registrados pela GS1 Brasil. Os prefixos 789 e 790 identificam produtos brasileiros. Produtos importados têm prefixos de outros países mas podem ser vendidos normalmente no Brasil — o EAN identifica o fabricante, não o país de venda."

@@ -7,9 +7,9 @@ resumo: "Se você é MEI e quer começar a receber pagamentos via QR Code Pix ai
 categoria: pix
 persona: mei
 dataPublicacao: "2026-04-15"
-dataAtualizacao: "2026-04-15"
+dataAtualizacao: "2026-05-02"
 autor: Amanda Budri
-tempoLeitura: 8
+tempoLeitura: 20
 tags:
   - pix
   - mei
@@ -62,7 +62,7 @@ bodyMarkdown: |
   4. Opcionalmente, informe um valor fixo.
   5. Baixe em PNG para tela ou **SVG para impressão** (mantém qualidade).
 
-  O QR gerado segue o padrão BR Code EMV do Banco Central e funciona em qualquer app de banco.
+  O QR gerado segue o padrão **BR Code EMV** definido pelo [Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix) e funciona em qualquer app de banco participante do Pix.
 
   ## Como imprimir para o balcão ou mesa
 
@@ -75,7 +75,7 @@ bodyMarkdown: |
 
   ## Cuidados tributários: o que declarar
 
-  O Pix recebido como MEI entra no seu faturamento anual normalmente. Você declara via DASN-SIMEI no início do ano seguinte. Se você usa CPF em vez de CNPJ, os valores podem aparecer no seu CPF e dar dor de cabeça na declaração pessoal — mais um motivo para cadastrar com CNPJ.
+  O Pix recebido como MEI entra no seu faturamento anual normalmente. Você declara via DASN-SIMEI no início do ano seguinte, conforme as regras da [Receita Federal para MEI](https://www.gov.br/empresas-e-negocios/pt-br/empreendedor). Se você usa CPF em vez de CNPJ, os valores podem aparecer no seu CPF e dar dor de cabeça na declaração pessoal — mais um motivo para cadastrar com CNPJ.
 
   ## Erros comuns ao gerar QR Pix
 
@@ -84,9 +84,144 @@ bodyMarkdown: |
   - Imprimir em baixa resolução (PNG pequeno esticado) — use SVG.
   - Usar valor fixo em produto com variação — gera atrito na mesa.
 
+  ## Placa Pix: como fazer um QR Code para colocar na parede ou balcão
+
+  "Placa Pix" é o nome popular para o QR Code Pix impresso em formato de sinalização — uma folha A4 ou acrílico com o código e os dados do recebedor, fixado no balcão, na parede ou na mesa.
+
+  Para criar a sua placa Pix:
+
+  1. Gere o QR Code no [GeraCode](/gerador-de-qr-code-pix) e baixe em **SVG** (qualidade infinita para qualquer tamanho de impressão).
+  2. Abra em qualquer editor (Canva, Word, Google Docs, Illustrator).
+  3. Adicione logo, nome do estabelecimento e a chave Pix em texto abaixo do código (para quem preferir digitar).
+  4. Imprima em papel A4 ou mande fazer em acrílico numa gráfica — com UV ou laminação para durar.
+
+  **Tamanho ideal:** para fixar na parede a ~1 metro de distância, use o QR Code no mínimo em 10 × 10 cm. Para balcão de aproximação, 5 × 5 cm já é suficiente.
+
+  > Dica de segurança: em vez de imprimir em papel solto, mande laminar ou use moldura acrílica. Golpistas trocam placas de papel por versões falsas com chave de terceiros.
+
+  ## Limites de Pix para MEI em 2026
+
+  Não existe limite de valor específico para MEI no Pix — o que existe são os limites de transação definidos pelo seu banco na conta PJ, que você pode ajustar pelo app:
+
+  - **Limite noturno padrão** (das 20h às 6h): R$ 1.000 por transação — ajustável pelo app após 24h de solicitação
+  - **Limite diurno padrão**: definido por cada banco, geralmente R$ 10.000 a R$ 50.000 por transação
+  - **Sem limite de frequência**: você pode receber quantas transferências quiser no dia
+  - **Sem limite de faturamento via Pix**: o limite de R$ 81.000/ano do MEI (2024–2026) é tributário, não tecnológico — o Pix em si não bloqueia recebimentos acima desse valor, mas você precisa controlar para não ultrapassar o teto do MEI
+
+  Fonte: [Banco Central do Brasil — regulamentação do Pix](https://www.bcb.gov.br/estabilidadefinanceira/pix)
+
+  ## O que fazer se o Pix não cair na conta
+
+  Ocorre raramente, mas acontece. Passo a passo para resolver:
+
+  1. **Aguarde 60 segundos** — em horários de pico (almoço, fim de tarde) pode haver pequeno atraso.
+  2. **Peça ao cliente para mostrar o comprovante** — o comprovante tem um ID de transação (E2E). Se o comprovante existe, o dinheiro foi enviado e deve aparecer em breve.
+  3. **Cheque o extrato no app do banco** — filtre por "Pix recebido" — às vezes a notificação falha mas o saldo está lá.
+  4. **Se após 30 minutos não aparecer**: acione o suporte do banco com o ID de transação do comprovante. Por regulamento do Banco Central, o Pix deve ser liquidado em até 10 segundos em dias úteis.
+  5. **Se o comprovante mostrar chave errada**: o pagamento foi para outra conta — o cliente precisará abrir disputa diretamente no banco dele (MED — Mecanismo Especial de Devolução).
+
+  > O GeraCode gera o payload exatamente conforme a chave digitada. Confirme que a chave cadastrada no banco está ativa acessando o gerenciador de chaves no app do seu banco.
+
   ## Perguntas frequentes
 
   As dúvidas mais comuns estão abaixo. Se ficou alguma, abra o gerador e teste — tudo funciona 100% no seu navegador, sem cadastro.
+
+  ## Maquininha vs. QR Code Pix: comparação honesta de custos
+
+  A grande dúvida de quem é MEI: vale a pena contratar maquininha ou o QR Code Pix resolve?
+
+  | Item | Maquininha de crédito | QR Code Pix |
+  |---|---|---|
+  | Taxa por venda | 1,5% a 3% (débito/crédito) | **0% para MEI na maioria dos bancos** |
+  | Parcelamento | Sim (o cliente parcela) | Não (pagamento à vista) |
+  | Antecipação | 1 a 30 dias (depende do contrato) | **Segundos** |
+  | Custo mensal | R$ 0 a R$ 80 (aluguel) | **Grátis** |
+  | Equipamento físico | Necessário | **Só o celular do cliente** |
+  | Aceita débito | Sim | Não (só transferência Pix) |
+
+  **Conclusão prática:** para quem vende produtos e serviços com pagamento à vista, o QR Code Pix é superior em custo. A maquininha faz sentido quando você precisa aceitar crédito parcelado ou quando o cliente não usa app bancário.
+
+  Muitos MEIs usam os dois: QR Code Pix para o dia a dia e maquininha como backup para clientes mais velhos ou compras parceladas.
+
+  ## Tipos de chave Pix: qual cadastrar no banco
+
+  O Banco Central define cinco tipos de chave:
+
+  | Tipo de chave | Vantagem | Desvantagem |
+  |---|---|---|
+  | CNPJ | Separa receita empresarial do PF | Precisa ter CNPJ ativo |
+  | CPF | Simples, já existe | Mistura finanças PF e PJ |
+  | Celular | Fácil de lembrar | Se trocar de número, perde |
+  | E-mail | Permanente | Menos prático para mostrar |
+  | Aleatória | Preserva privacidade dos dados pessoais | Difícil de decorar |
+
+  Para uso comercial como MEI, a recomendação é usar **CNPJ** como chave principal. Se ainda não tem o CNPJ aberto, use o celular vinculado à conta MEI — mas planeje migrar para CNPJ depois.
+
+  > A chave aleatória é útil quando você não quer expor seu CPF ou celular ao digitar a chave em público — por exemplo, em um QR Code impresso em cartão de visita.
+
+  ## QR Code Pix estático vs. dinâmico: qual usar no balcão?
+
+  Existem dois tipos de QR Code Pix, com usos diferentes:
+
+  **QR Code Pix estático** (o que o GeraCode gera):
+  - Criado uma única vez, impresso e colocado no balcão
+  - O cliente digita o valor ou o código pode ter valor fixo embutido
+  - Gratuito, sem necessidade de API ou sistema bancário
+  - Ideal para serviços com valor fixo ou balcão com atendimento presencial
+
+  **QR Code Pix dinâmico**:
+  - Gerado a cada cobrança, com valor e dados do pagador embutidos
+  - Exige integração com a API do banco (via sistema de ERP ou gateway)
+  - Permite conciliação automática — o banco identifica qual pedido foi pago
+  - Ideal para e-commerce, delivery e cobranças com muitas transações
+
+  Para MEI com loja física ou pequeno negócio, o **QR Code estático** já resolve. O dinâmico começa a valer quando você tem dezenas de transações diárias e quer automatizar a conferência.
+
+  ## Como usar o QR Code Pix no delivery e WhatsApp
+
+  Receber por Pix no delivery é simples:
+
+  **Opção 1 — Imagem no WhatsApp:**
+  Gere o QR Code com valor fixo (ou sem valor) e salve como PNG. Quando o cliente fechar o pedido, envie a imagem pelo WhatsApp. O cliente abre o app bancário, escaneia a foto e paga.
+
+  **Opção 2 — Copia e cola:**
+  O GeraCode também gera o código "copia e cola" (payload EMV). Você copia o texto e manda pelo WhatsApp. O cliente cola no app do banco — sem precisar escanear.
+
+  **Opção 3 — Link de pagamento do banco:**
+  Alguns bancos MEI (Nubank, Inter, Mercado Pago) oferecem link de pagamento Pix nativo. É prático mas não deixa você personalizar o valor facilmente em cada cobrança.
+
+  ## Bancos com conta MEI grátis e Pix sem tarifa
+
+  Em 2026, os bancos digitais mais usados por MEI com taxa zero no Pix:
+
+  - **Nubank MEI**: conta PJ gratuita, Pix grátis ilimitado
+  - **Inter Empresas**: conta digital PJ gratuita, Pix grátis
+  - **Mercado Pago**: conta PJ gratuita, Pix grátis (taxa apenas em saques)
+  - **PicPay Empresas**: conta gratuita, Pix grátis
+  - **C6 Bank Empresas**: conta gratuita, Pix grátis
+  - **Banco do Brasil MEI**: Pix grátis no pacote básico
+
+  > Verifique sempre a política vigente do seu banco — condições podem mudar. Bancos tradicionais (Bradesco, Itaú, Santander) podem cobrar taxa para pacotes empresariais não-básicos.
+
+  ## Configurando o valor fixo: quando usar e quando evitar
+
+  O campo "valor" no QR Code Pix estático tem dois comportamentos:
+
+  - **Com valor fixo**: o app do cliente já preenche o valor automaticamente — ele só confirma. Ótimo para produtos com preço único (combo, mensalidade, taxa de serviço).
+  - **Sem valor (campo vazio)**: o cliente digita o valor. Necessário quando o pedido varia ou quando você vende múltiplos produtos na mesma cobrança.
+
+  **Cuidado:** se você imprimir um QR Code com valor fixo de R$ 30 e tentar cobrar R$ 45, o cliente vai ver R$ 30 preenchido e pode pagar o valor errado sem perceber. Para balcão com ticket variável, sempre use QR sem valor fixo e informe o valor verbalmente ou no pedido impresso.
+
+  ## Segurança: o QR Code pode ser falsificado?
+
+  Sim — é uma preocupação real. Golpistas trocam QR Codes impressos em estabelecimentos por códigos com as chaves deles. Para proteger seu negócio:
+
+  - **Plastifique** o QR Code impresso — dificulta a troca.
+  - **Cole em superfície permanente** (porta, parede, counter) em vez de papel solto.
+  - **Verifique periodicamente** se o código ainda direciona para a chave correta.
+  - **Monitore as entradas** no app do banco para identificar se alguma cobrança "sumiu".
+
+  O GeraCode não armazena nenhum dado da sua chave Pix — tudo é gerado no seu navegador sem passar por servidores.
 
   ## Próximos passos
 

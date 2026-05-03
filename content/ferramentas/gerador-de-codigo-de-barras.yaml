@@ -22,7 +22,7 @@ keywordsSecundarias:
   - "codigo de barras ean-13"
   - "code 128 gerador"
   - "codigo de barras para produtos"
-dataAtualizacao: "2026-03-27"
+dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "barcode"
@@ -61,7 +61,7 @@ schemaHowToSteps:
     texto: "Download em PNG, SVG ou PDF. Use o modo lote para gerar múltiplos códigos e baixe tudo em ZIP."
 schemaAboutName: "Código de barras"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-03-27"
+schemaDateModified: "2026-05-02"
 
 secoesConteudo:
   - tipo: cards
@@ -260,5 +260,20 @@ secoesConteudo:
         descricao: "Além do código de barras, receba pagamentos instantâneos via Pix. QR Code com payload BR Code EMV válido."
         badgeText: "Ferramenta"
         badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/blog/code-128-itf-14-guia-logistica-estoque"
+        label: "Code 128 e ITF-14: guia para logística"
+        descricao: "Quando usar Code 128 vs ITF-14, Application Identifiers GS1-128, posicionamento na caixa e pallet, e configuração de leitores."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
 
-faqFallbacks: []
+faqFallbacks:
+  - pergunta: "Qual formato de código de barras usar para produtos vendidos em supermercados?"
+    resposta: "EAN-13. É o padrão universal para produtos de consumo no varejo brasileiro e aceito em todos os caixas (PDV) e marketplaces. Para embalagens pequenas, use EAN-8. Para caixas de transporte e logística, use ITF-14."
+  - pergunta: "O gerador funciona para geração em lote?"
+    resposta: "Sim. Você pode colar uma lista de códigos (um por linha) e gerar todos de uma vez. O resultado pode ser baixado em PDF, pronto para impressão de etiquetas, ou exportado individualmente em PNG e SVG."
+  - pergunta: "Qual a diferença entre Code 128 e Code 39?"
+    resposta: "Code 128 é mais compacto e suporta todos os caracteres ASCII (incluindo minúsculas). Code 39 é mais simples, suportado em sistemas legados e fácil de imprimir com impressoras antigas, mas produz códigos maiores para o mesmo texto. Para novos projetos, prefira Code 128."
+  - pergunta: "Os códigos gerados funcionam em qualquer leitor de código de barras?"
+    resposta: "Sim, desde que você escolha o formato correto. EAN-13 funciona em qualquer leitor de supermercado. Code 128 é universal para aplicações industriais e logísticas. Configure o leitor para aceitar o formato gerado se ele estiver com filtro de formato ativo."
+  - pergunta: "Meus dados ficam salvos nos servidores do GeraCode?"
+    resposta: "Não. Todos os códigos são gerados diretamente no seu navegador (client-side). Nenhum dado, número ou código enviado é armazenado em servidores externos. O histórico local fica apenas no seu dispositivo."

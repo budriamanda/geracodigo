@@ -21,7 +21,7 @@ keywordsSecundarias:
   - "gerar qr code online"
   - "qr code personalizado"
   - "qr code com cor"
-dataAtualizacao: "2026-03-01"
+dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "qr"
@@ -47,7 +47,7 @@ schemaHowToSteps:
     texto: "Faça download em PNG para uso digital ou SVG para impressão profissional."
 schemaAboutName: "QR Code"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-03-01"
+schemaDateModified: "2026-05-02"
 
 secoesConteudo:
   - tipo: steps
@@ -228,4 +228,14 @@ secoesConteudo:
         badgeText: "Ferramenta"
         badgeColor: "text-blue-600 bg-blue-50"
 
-faqFallbacks: []
+faqFallbacks:
+  - pergunta: "O QR Code gerado tem prazo de validade?"
+    resposta: "O QR Code gerado aqui é estático e não tem prazo de validade — ele funciona indefinidamente enquanto a informação codificada (URL, texto, etc.) continuar válida. Se você codificou uma URL que depois mudou ou foi removida, o QR Code vai funcionar mas o link ficará quebrado."
+  - pergunta: "Qual tamanho mínimo para imprimir um QR Code?"
+    resposta: "Para uso em papel (folheto, cartão de visita), o mínimo é 2 × 2 cm. Para banners e sinalização, calcule pelo menos 1 cm de QR Code para cada 40 cm de distância de leitura esperada. Prefira SVG ou PNG em alta resolução (300 DPI ou mais) para impressão."
+  - pergunta: "Posso colocar um logo no meio do QR Code?"
+    resposta: "Sim, com moderação. O QR Code tem correção de erro que tolera até 30% de dados obstruídos (nível H). Um logo cobrindo até 20-25% do centro é geralmente seguro. Teste sempre depois de adicionar o logo para garantir que ainda lê corretamente."
+  - pergunta: "Qual a diferença entre QR Code estático e dinâmico?"
+    resposta: "O QR Code estático (gerado aqui) codifica o conteúdo diretamente — você não pode mudar o destino depois de impresso. O QR Code dinâmico redireciona por um link curto intermediário, permitindo alterar o destino sem reimprimir. Para campanhas de marketing com material impresso em grande quantidade, dinâmico é mais flexível."
+  - pergunta: "Meus dados ficam armazenados em algum servidor?"
+    resposta: "Não. Todo o processamento acontece no seu navegador. Nenhum dado (URL, texto, e-mail) é enviado para servidores externos."
