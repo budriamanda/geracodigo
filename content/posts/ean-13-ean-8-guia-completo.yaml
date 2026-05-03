@@ -7,9 +7,9 @@ resumo: "O EAN-13 é o código de barras presente em praticamente todo produto v
 categoria: ean
 persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
-dataAtualizacao: "2026-04-28"
+dataAtualizacao: "2026-05-02"
 autor: Amanda Budri
-tempoLeitura: 7
+tempoLeitura: 18
 tags:
   - ean-13
   - ean-8
@@ -35,7 +35,7 @@ bodyMarkdown: |
 
   ## O que é EAN-13?
 
-  **EAN** significa *European Article Number* (hoje chamado internacionalmente de **GTIN-13**, ou *Global Trade Item Number* de 13 dígitos). É o sistema de identificação de produtos comerciais mais usado no mundo, presente em mais de 100 países e administrado globalmente pela [GS1](https://www.gs1.org) — no Brasil, pela [GS1 Brasil](https://www.gs1br.org).
+  **EAN** significa *European Article Number* (hoje chamado internacionalmente de **GTIN-13**, ou *Global Trade Item Number* de 13 dígitos). É o sistema de identificação de produtos comerciais mais usado no mundo, presente em mais de 100 países e administrado globalmente pela [GS1](https://www.gs1.org) — no Brasil, pela [GS1 Brasil](https://www.gs1br.org), fundada em 1983.
 
   O EAN-13 não é apenas um número aleatório. Cada bloco de dígitos carrega uma informação específica sobre a origem e o produto.
 
@@ -73,7 +73,7 @@ bodyMarkdown: |
   | Característica | EAN-13 | EAN-8 |
   |---|---|---|
   | Total de dígitos | 13 | 8 |
-  | Largura mínima (GS1) | 26 mm | 21 mm |
+  | Largura mínima (GS1) | ~29,8 mm | ~21,4 mm |
   | Uso principal | Maioria dos produtos | Embalagens pequenas |
   | Capacidade de produtos | Até 100.000 por empresa | Limitado (uso especial GS1) |
 
@@ -105,7 +105,7 @@ bodyMarkdown: |
   - **Magalu**: EAN obrigatório no cadastro de sellers.
   - **Casas Bahia / Ponto**: EAN obrigatório, com validação automática do dígito verificador.
 
-  > **Atenção:** usar EAN inventado em marketplaces que validam contra a base GS1 pode resultar em suspensão da conta ou remoção do anúncio.
+  > **Atenção:** usar EAN inventado ou comprado de revendedor não autorizado em marketplaces que validam contra a base GS1 pode resultar em suspensão da conta ou remoção do anúncio. A [GS1 Brasil](https://www.gs1br.org) é a única entidade autorizada a emitir prefixos válidos no Brasil.
 
   ## Como gerar o EAN-13 do seu produto
 
@@ -128,6 +128,120 @@ bodyMarkdown: |
 
   O GTIN é o número; o EAN-13 é a representação visual desse número em código de barras. O SKU é um código separado, interno, para organização própria — veja mais em [o que é SKU e como criar para sua loja](/blog/o-que-e-sku-como-criar).
 
+  ## Onde fica o código EAN no produto?
+
+  O EAN-13 fica impresso na embalagem do produto, geralmente:
+
+  - **Embalagens rígidas** (caixas, potes, garrafas): preferencialmente na **parte traseira inferior** ou na lateral — longe de dobras, costuras e áreas metálicas
+  - **Embalagens flexíveis** (sachês, plásticos): na área plana mais estável, evitando vincos
+  - **Etiquetas em produtos sem embalagem** (calçados, ferragens): na etiqueta presa ao produto
+
+  O padrão GS1 não exige uma posição absoluta, mas define que o código deve estar em **área plana**, **sem dobras sobre as barras**, com **fundo sólido** e **margem de silêncio** respeitada. A altura do piso do código não pode ser menor que 32 mm do fundo da embalagem — para facilitar a leitura nas esteiras de PDV onde o leitor está posicionado abaixo do produto.
+
+  ## EAN-13 é obrigatório por lei no Brasil?
+
+  Depende do segmento e do canal de venda:
+
+  - **Produtos vendidos em supermercados, farmácias e grandes redes varejistas**: o código de barras é exigido por contrato comercial do varejista, não por lei federal genérica. Mas na prática, nenhuma rede aceita produto sem EAN.
+  - **NF-e (nota fiscal eletrônica)**: desde 2019, o campo GTIN é obrigatório na NF-e para produtos que já possuem EAN registrado. Para produtos sem EAN, preenche-se "SEM GTIN".
+  - **Marketplaces**: cada plataforma define sua própria política — veja a seção abaixo.
+  - **MEI, ME e pequenas empresas com e-commerce próprio**: não há obrigação legal de ter EAN. O código é opcional, mas facilita gestão e vendas multicanal.
+
+  Não existe uma lei federal brasileira que obrigue todo produto a ter EAN-13 indiscriminadamente — a obrigatoriedade é setorial e contratual.
+
+  ## Quanto tempo leva para se registrar na GS1 Brasil?
+
+  Segundo o processo padrão da GS1 Brasil, o prazo após pagamento confirmado é de **3 a 5 dias úteis** para receber o prefixo de empresa e ter acesso ao sistema para cadastrar produtos. Em períodos de alto volume, pode levar até 10 dias úteis.
+
+  Depois do prefixo em mãos, você define os números de produto imediatamente — não há espera adicional por produto.
+
+  ## UPC-A: o padrão norte-americano que você pode encontrar
+
+  O **UPC-A** é o equivalente americano do EAN-13 — tem 12 dígitos em vez de 13. Tecnicamente, um UPC-A é equivalente a um EAN-13 com "0" na frente: o UPC-A `012345678905` é lido como EAN-13 `0012345678905`. Todos os leitores modernos leem os dois formatos.
+
+  Se você vende no **Amazon Brasil** ou planeja **exportar para os Estados Unidos**, pode precisar de UPC registrado na GS1 US (gs1us.org) — ou verificar com o comprador se o EAN-13 brasileiro é aceito. Para a maioria dos marketplaces brasileiros, o EAN-13 (prefixo 789/790) é o formato correto.
+
+  ## Quanto custa registrar na GS1 Brasil?
+
+  A GS1 Brasil cobra uma anuidade que varia conforme o faturamento anual da empresa. Os planos são reajustados periodicamente — sempre consulte [gs1br.org](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras) para valores vigentes.
+
+  De forma geral, os planos funcionam assim:
+
+  - **Empresas pequenas (MEI, ME, EPP)**: planos de entrada com prefixo de empresa menor, que permitem identificar dezenas ou centenas de produtos.
+  - **Empresas médias**: prefixos mais curtos, que permitem mais variações de produto.
+  - **Grandes empresas e indústria**: prefixos curtos com capacidade para dezenas de milhares de produtos.
+
+  Além da anuidade, há uma taxa de adesão na primeira associação. O valor total no primeiro ano costuma ser maior do que os anos subsequentes.
+
+  > Atenção: existem revendedores não autorizados que vendem "EAN-13" avulsos mais barato. Esses códigos não estão vinculados à sua empresa no banco de dados GS1 e podem causar conflitos com produtos de outros fabricantes. Supermercados e grandes varejistas validam contra a base GS1 — código de terceiro será rejeitado.
+
+  ## EAN-13 em embalagens: requisitos visuais da GS1
+
+  A especificação técnica da GS1 define regras precisas para a impressão do EAN-13 na embalagem:
+
+  **Tamanhos:**
+  - Tamanho nominal: 37,29 mm × 25,93 mm (barras + número)
+  - Tamanho mínimo: 80% do nominal (≈ 29,8 mm × 20,7 mm)
+  - Tamanho máximo: 200% do nominal (≈ 74,6 mm × 51,9 mm)
+  - Abaixo de 80% do nominal, erros de leitura se tornam frequentes
+
+  **Cores:**
+  - Barras: preto, azul escuro, verde escuro, marrom — qualquer cor que absorva luz infravermelha
+  - Fundo: branco ou cor muito clara — o leitor usa reflexo de luz
+  - Combinações problemáticas: vermelho no fundo (invisível ao leitor IR), dourado, metálico
+
+  **Margem de silêncio (quiet zone):**
+  - 3,63 mm à esquerda das barras
+  - 2,31 mm à direita das barras
+  - Sem essa margem, o leitor não consegue identificar onde o código começa e termina
+
+  O [gerador de EAN do GeraCode](/gerador-de-ean) gera o código com margens corretas incluídas no SVG exportado.
+
+  ## Como validar um EAN-13 existente
+
+  Se você recebeu um número EAN de um fornecedor ou tem um código já impresso e quer verificar se está correto, o cálculo do dígito verificador é simples:
+
+  **Exemplo com o EAN 7891000315507:**
+
+  1. Pegue os 12 primeiros dígitos: `7 8 9 1 0 0 0 3 1 5 5 0`
+  2. Some os dígitos em posição ímpar (1ª, 3ª, 5ª, 7ª, 9ª, 11ª): 7+9+0+0+1+5 = **22**
+  3. Some os dígitos em posição par (2ª, 4ª, 6ª, 8ª, 10ª, 12ª): 8+1+0+3+5+0 = **17**, multiplique por 3: **51**
+  4. Total: 22 + 51 = **73**
+  5. Dígito verificador: número que completa o múltiplo de 10 = 10 - (73 mod 10) = 10 - 3 = **7**
+
+  Portanto, o 13.º dígito deve ser **7** — confirmado: `7891000315507`.
+
+  O [gerador e validador de EAN](/gerador-de-ean) faz esse cálculo automaticamente ao digitar os 12 primeiros dígitos.
+
+  ## EAN-13 na nota fiscal eletrônica (NF-e)
+
+  Desde 2019, a Receita Federal exige o preenchimento do campo **GTIN** (cEAN e cEANTrib) na NF-e para produtos que possuem código de barras com GTIN registrado. As regras:
+
+  - Se o produto tem EAN-13 registrado na GS1: o campo deve ser preenchido com o GTIN correto.
+  - Se o produto não tem EAN registrado: preencha com o literal `SEM GTIN`.
+  - Usar um número inventado ou de outro produto pode resultar em rejeição da nota pela SEFAZ.
+
+  Para emissores de NF-e: verifique se seu software de emissão valida o GTIN contra a base GS1 antes de enviar. Sistemas como Bling, Omie e Tiny já fazem essa validação automaticamente.
+
+  ## Prefixos GS1 por país: como identificar a origem
+
+  Os três primeiros dígitos do EAN-13 identificam o país de registro, não de fabricação. Alguns prefixos relevantes:
+
+  | Prefixo | País/Região |
+  |---|---|
+  | 000–019 | Estados Unidos e Canadá |
+  | 030–039 | Estados Unidos (farmacêutico) |
+  | 300–379 | França |
+  | 400–440 | Alemanha |
+  | 450–459, 490–499 | Japão |
+  | 500–509 | Reino Unido |
+  | 754–755 | Canadá |
+  | **789–790** | **Brasil** |
+  | 850 | Cuba |
+  | 880 | Coreia do Sul |
+
+  Um produto com prefixo 400 pode ter sido fabricado no Brasil — o prefixo indica apenas onde a empresa detentora do código está registrada na GS1.
+
   ## Erros comuns com EAN-13
 
   **Usar o mesmo EAN em variações diferentes.** Cada variação de produto (cor, tamanho, sabor) precisa de um GTIN único. Tênis preto 38 e tênis preto 39 são GTINs diferentes.
@@ -135,6 +249,10 @@ bodyMarkdown: |
   **Reutilizar código de produto descontinuado.** Plataformas guardam histórico. Reaproveitar o código causa conflito no catálogo e pode trazer avaliações e devoluções do produto anterior.
 
   **Imprimir sem o número embaixo das barras.** O padrão GS1 exige que os 13 dígitos apareçam em texto abaixo do código de barras (chamado de HRI — Human Readable Interpretation) para produtos comercializados no varejo. É obrigatório e serve de fallback quando o leitor não consegue ler o código visual.
+
+  **Imprimir em tamanho abaixo do mínimo.** EAN-13 menor que 29 mm de largura começa a falhar nos leitores de PDV. Use sempre o SVG exportado pelo gerador, que mantém proporções corretas em qualquer tamanho de impressão.
+
+  **Usar EAN comprado de revendedor não autorizado.** O número pode colidir com o produto de outro fabricante cadastrado na base GS1. Sempre registre na GS1 Brasil diretamente para uso em varejo físico.
 
   ## Próximos passos
 

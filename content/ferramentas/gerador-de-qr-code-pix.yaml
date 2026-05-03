@@ -21,7 +21,7 @@ keywordsSecundarias:
   - "gerar qr code pix online"
   - "qr code pix cpf cnpj"
   - "payload br code emv"
-dataAtualizacao: "2026-03-27"
+dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "pix"
@@ -47,7 +47,7 @@ schemaHowToSteps:
     texto: "Faça download em PNG ou SVG e use onde quiser."
 schemaAboutName: "Pix (Sistema de Pagamentos Instantâneos do Banco Central)"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-03-27"
+schemaDateModified: "2026-05-02"
 
 secoesConteudo:
   - tipo: steps
@@ -72,7 +72,7 @@ secoesConteudo:
   - tipo: prose
     titulo: "O que é o QR Code Pix?"
     subtitulo: ""
-    conteudo: "O **QR Code Pix** é uma forma de receber pagamentos instantâneos pelo [sistema Pix do Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix). Ao escanear o QR Code com qualquer aplicativo bancário, o pagador é direcionado automaticamente para a tela de pagamento com os dados do recebedor preenchidos.\n\nO payload gerado segue o padrão **BR Code EMV**, [especificação oficial do Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pagamentosinstantaneos), compatível com todos os bancos e fintechs participantes do Pix no Brasil, incluindo Nubank, Itaú, Bradesco, Caixa, Banco do Brasil, Inter, PagSeguro, Mercado Pago e outros.\n\nO GeraCode gera **QR Codes estáticos**, ideais para cobranças com valor fixo ou aberto (o pagador digita o valor). Para cobranças dinâmicas com confirmação automática e geração de comprovante, é necessário utilizar a API Pix do seu banco."
+    conteudo: "O **QR Code Pix** é uma forma de receber pagamentos instantâneos pelo [sistema Pix do Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix). Ao escanear o QR Code com qualquer aplicativo bancário, o pagador é direcionado automaticamente para a tela de pagamento com os dados do recebedor preenchidos.\n\nO payload gerado segue o padrão **BRCode 2.0.1 (BR Code EMV)**, [especificação oficial do Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pagamentosinstantaneos), compatível com **todos os bancos e fintechs** participantes do Pix no Brasil, incluindo Nubank, Itaú, Bradesco, Caixa, Banco do Brasil, Inter, PagSeguro, Mercado Pago e outros.\n\nO GeraCode gera **QR Codes estáticos**, ideais para cobranças com valor fixo ou aberto (o pagador digita o valor). Para cobranças dinâmicas com confirmação automática e geração de comprovante, é necessário utilizar a API Pix do seu banco.\n\n**Privacidade:** seu CPF, CNPJ e chave Pix são processados exclusivamente no seu navegador — nenhum dado sensível trafega por servidores externos. O payload EMV é calculado localmente e o QR Code é gerado no seu dispositivo."
     stepColor: "indigo"
     bgCard: true
     columns: "3"

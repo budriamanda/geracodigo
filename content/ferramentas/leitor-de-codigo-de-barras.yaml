@@ -5,7 +5,7 @@ ogTitle: "Leitor de Código de Barras Online Grátis | GeraCode"
 ogDescription: "Leia códigos de barras e QR Codes pela câmera do celular. Sem app, sem cadastro, 100% gratuito."
 twitterTitle: "Leitor de Código de Barras Online | GeraCode"
 twitterDescription: "Leia códigos pela câmera. Sem app, sem cadastro."
-h1: "Leitor de Código de Barras Online Grátis"
+h1: "Leitor de Código de Barras Online: EAN-13, Code 128, QR Code — Sem App"
 subtitle: "Use a câmera do celular ou computador para ler códigos de barras e QR Codes. Sem instalar nada"
 privacyBadgeText: "Tudo processado no seu navegador. Nenhum dado é enviado para servidores"
 badge: "Novo"
@@ -21,7 +21,7 @@ keywordsSecundarias:
   - "leitor qr code online"
   - "scanner código de barras"
   - "barcode reader online"
-dataAtualizacao: "2026-03-27"
+dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "reader"
@@ -55,7 +55,7 @@ schemaHowToSteps:
     texto: "Posicione o código de barras ou QR Code na frente da câmera. A leitura é automática."
 schemaAboutName: "Leitor de código de barras"
 schemaDatePublished: "2026-02-10"
-schemaDateModified: "2026-03-27"
+schemaDateModified: "2026-05-02"
 
 secoesConteudo:
   - tipo: steps
@@ -119,6 +119,64 @@ secoesConteudo:
         icone: ""
     tags: []
     links: []
+  - tipo: prose
+    titulo: "Como o leitor funciona — e por que seus dados ficam no seu dispositivo"
+    subtitulo: ""
+    conteudo: "O leitor de código de barras do GeraCode usa a **API BarcodeDetector**, uma interface nativa dos navegadores modernos que delega o processamento de imagem diretamente ao hardware do dispositivo. Isso significa que os frames da câmera são analisados localmente — nenhuma imagem ou dado é enviado para servidores externos.\n\n**Compatibilidade por navegador:**\n\n- **Chrome 83+ (Android e Desktop):** suporte completo ✓\n- **Edge 83+:** suporte completo ✓\n- **Opera 69+:** suporte completo ✓\n- **Chrome para iOS:** suporte completo ✓\n- **Safari (macOS e iOS):** sem suporte à BarcodeDetector — use Chrome ou Edge\n- **Firefox:** sem suporte nativo — use Chrome ou Edge\n\nNo **iOS** (iPhone e iPad), o Safari não implementa a BarcodeDetector API. A solução mais simples é usar o **Google Chrome para iOS**, disponível gratuitamente na App Store. O app de câmera nativo do iPhone lê QR Codes, mas não decodifica códigos 1D como EAN-13 ou Code 128.\n\nPara computadores sem câmera, ou em navegadores sem suporte, use a **entrada manual**: cole ou digite o código diretamente no campo de texto do leitor para validar o formato e extrair informações."
+    stepColor: "amber"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "Solução de problemas comuns"
+    subtitulo: "O código não leu? Veja as causas mais frequentes e como resolver."
+    conteudo: ""
+    stepColor: "amber"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Câmera não abre ou fica cinza"
+        descricao: "O navegador precisa de permissão explícita para acessar a câmera. Clique no cadeado (🔒) na barra de endereço → \"Permissões do site\" → libere a câmera. Em celulares, verifique também as permissões do app do navegador nas configurações do sistema."
+        icone: ""
+      - titulo: "Código não é detectado"
+        descricao: "Tente: (1) melhorar a iluminação — evite sombras sobre o código; (2) manter a distância de 10–20 cm; (3) segurar o celular estável por 2–3 segundos; (4) limpar a lente da câmera. Códigos danificados, com brilho excessivo ou impressos em baixo contraste podem falhar."
+        icone: ""
+      - titulo: "iPhone / Safari não funciona"
+        descricao: "O Safari em iOS não suporta a API BarcodeDetector. Use o Google Chrome para iOS (grátis na App Store). Alternativamente, use o app de câmera nativo do iPhone para QR Codes — mas ele não lê códigos 1D como EAN-13 ou Code 128."
+        icone: ""
+      - titulo: "Leitor detecta o código errado"
+        descricao: "Se há múltiplos códigos visíveis (ex: etiqueta sobre embalagem), tape os outros com a mão ou papel, deixando apenas o código desejado na frente da câmera. O leitor processa o primeiro código detectado no frame."
+        icone: ""
+      - titulo: "Código danificado ou apagado"
+        descricao: "Códigos com riscos, dobras, manchas de umidade ou impressão de baixa qualidade podem não ser lidos por câmera. Nesse caso, use a entrada manual: copie os números visíveis abaixo do código de barras e cole no campo de texto."
+        icone: ""
+      - titulo: "Resultado mostra caracteres estranhos"
+        descricao: "Code 128 e Code 39 podem codificar caracteres especiais, letras maiúsculas e minúsculas, e números. Se o resultado parece correto mas com caracteres inesperados, o código foi gerado com dados especiais intencionalmente — isso é normal."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Dicas para ler códigos difíceis"
+    subtitulo: ""
+    conteudo: "Algumas situações tornam a leitura mais difícil. Veja o que ajuda:\n\n**Iluminação:** a câmera traseira do celular lida melhor com iluminação natural ou luz branca direta. Luz fluorescente amarelada ou reflexo de plástico transparente sobre a etiqueta reduzem o contraste e dificultam a detecção.\n\n**Distância e ângulo:** posicione o código de forma que ele ocupe pelo menos 1/3 da largura da tela. Ângulos acima de 30° também reduzem a taxa de leitura — prefira posicionar o celular paralelo ao código.\n\n**Câmera traseira vs. frontal:** câmeras traseiras têm maior resolução e foco automático, o que ajuda muito em EAN-13 com barras finas. A câmera frontal (selfie) funciona para QR Codes maiores, mas pode falhar em códigos 1D menores.\n\n**Etiquetas com verniz ou plástico:** o reflexo da luz pode confundir a câmera. Incline levemente o ângulo (10–15°) para desviar o reflexo direto sem distorcer o código.\n\n**Celular de câmera antiga:** se nenhuma das dicas funcionar, tente no computador com webcam — câmeras web de mesa têm menos distorção de perspectiva e ajudam na leitura de códigos planos."
+    stepColor: "amber"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Câmera ao vivo vs. upload de imagem: o que o leitor suporta"
+    subtitulo: ""
+    conteudo: "O leitor do GeraCode usa a câmera em **tempo real** — ele não suporta upload de arquivos de imagem (JPG, PNG, PDF). Isso é uma característica da [API BarcodeDetector do W3C](https://www.w3.org/TR/shape-detection-api/), que processa frames de câmera diretamente no hardware do dispositivo.\n\n**Se você precisa ler um código de barras de uma foto ou PDF:**\n- **Google Lens** (Android e iOS): abra a foto na galeria e toque em \"Pesquisar com Google Lens\" — lê EAN, QR Code e a maioria dos formatos\n- **Google Lens no computador**: acesse lens.google.com, faça upload da foto ou cole a imagem\n- **App de câmera iPhone**: abra a foto e toque no código QR que aparecer no canto — só funciona para QR Code, não para EAN-13 ou Code 128\n- **Leitor embutido do WhatsApp**: no Android, toque no ícone de QR dentro do WhatsApp para ler QR Codes diretamente da câmera ou galeria\n\n**Por que o GeraCode não faz upload de imagem?** Processamento de imagem via upload normalmente envolve enviar o arquivo para um servidor. Para manter o compromisso de privacidade (zero dados enviados a servidores), o leitor usa exclusivamente a câmera local via BarcodeDetector API.\n\n**Para código de barras em nota fiscal (XML/PDF DANFE):** o código de barras linear na DANFE pode ser lido apontando a câmera para o papel impresso ou para a tela do computador. O QR Code na DANFE (NF-e 4.0) também funciona com o leitor."
+    stepColor: "amber"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
   - tipo: links
     titulo: "Leia também"
     subtitulo: "Ferramentas complementares para quem trabalha com códigos de barras."
@@ -145,4 +203,20 @@ secoesConteudo:
         badgeText: "Ferramenta"
         badgeColor: "text-blue-600 bg-blue-50"
 
-faqFallbacks: []
+faqFallbacks:
+  - pergunta: "O leitor funciona no iPhone?"
+    resposta: "Não no Safari — o Safari em iOS não suporta a API BarcodeDetector (padrão W3C). Use o Google Chrome para iOS (gratuito na App Store) para ler EAN-13, Code 128, QR Code e outros formatos. O app de câmera nativo do iPhone lê QR Codes, mas não decodifica códigos de barras 1D como EAN-13 ou Code 128."
+  - pergunta: "Quais formatos de código de barras o leitor suporta?"
+    resposta: "O leitor suporta: EAN-13, EAN-8, UPC-A, UPC-E, Code 128, Code 39, Code 93, ITF (Interleaved 2 of 5), Codabar e QR Code. A detecção é automática — você não precisa selecionar o formato antes de escanear."
+  - pergunta: "Os dados lidos ficam salvos em algum servidor?"
+    resposta: "Não. Todo o processamento acontece no seu dispositivo usando a API BarcodeDetector do navegador. Nenhuma imagem de câmera ou código lido é enviado para servidores externos."
+  - pergunta: "O leitor funciona sem internet?"
+    resposta: "Após carregar a página, a leitura funciona offline. O processamento da câmera é 100% local. Se você ficou sem internet após abrir o leitor, ele continua funcionando normalmente."
+  - pergunta: "Por que o leitor não reconhece meu código danificado?"
+    resposta: "Códigos com riscos, dobras, manchas ou impressão de baixa qualidade podem não ser detectados por câmera. Nesse caso, use a entrada manual: copie os números visíveis abaixo do código de barras e cole no campo de texto do leitor para validar o formato."
+  - pergunta: "Posso ler vários códigos em sequência?"
+    resposta: "Sim. O leitor mantém a câmera ativa e adiciona cada código detectado à lista de resultados. Você pode escanear quantos códigos quiser em sequência e copiar ou exportar os resultados ao final."
+  - pergunta: "Consigo ler o código de barras de uma nota fiscal ou PDF?"
+    resposta: "O leitor usa câmera ao vivo — não suporta upload de imagem ou PDF. Para ler código de uma nota fiscal: aponte a câmera para o papel impresso ou para a tela do computador onde o PDF está aberto. O código linear (Code 128 / Code 39) na DANFE e o QR Code da NF-e 4.0 são lidos normalmente dessa forma."
+  - pergunta: "O leitor consegue ler código de barras danificado ou borrado?"
+    resposta: "Depende do grau do dano. A API BarcodeDetector usa algoritmos de reconhecimento de imagem do sistema operacional, que têm alguma tolerância a danos menores (riscos leves, baixo contraste). Para códigos com danos severos, use a entrada manual: copie os números visíveis abaixo do código e cole no campo de texto."

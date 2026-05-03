@@ -7,9 +7,9 @@ resumo: "SKU (Stock Keeping Unit) é o código interno que você cria para ident
 categoria: codigo-barras
 persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
-dataAtualizacao: "2026-04-28"
+dataAtualizacao: "2026-05-02"
 autor: Amanda Budri
-tempoLeitura: 6
+tempoLeitura: 16
 tags:
   - sku
   - estoque
@@ -105,7 +105,7 @@ bodyMarkdown: |
 
   ## Integrando SKU com ERP e sistemas de gestão
 
-  Os ERPs mais usados por pequenas e médias empresas no Brasil — **Bling**, **Tiny** e **Omie** — têm campo específico para SKU/código interno, separado do código de barras:
+  Os ERPs mais usados por pequenas e médias empresas no Brasil — **[Bling](https://www.bling.com.br)**, **[Tiny ERP](https://www.tiny.com.br)** e **[Omie](https://www.omie.com.br)** — têm campo específico para SKU/código interno, separado do código de barras:
 
   - **Bling**: campo "Código" (SKU interno) e campo "GTIN/EAN" separados. O código de barras pode ser gerado automaticamente ou importado.
   - **Tiny ERP**: "Código interno" (SKU) e "Código de barras" (EAN) são campos distintos. A integração com marketplaces usa o código interno para conciliar pedidos.
@@ -122,6 +122,136 @@ bodyMarkdown: |
   **SKUs com caracteres especiais.** Evite acentos, espaços, barras (`/`) e outros caracteres que podem causar problemas em importação CSV ou APIs de marketplace. Use apenas letras maiúsculas, números e hífens.
 
   **Não documentar o padrão.** Se o padrão de criação de SKU existe só na cabeça do gestor, qualquer pessoa nova vai criar SKUs fora do padrão. Documente: categorias, atributos, abreviações.
+
+  ## Templates de SKU por setor
+
+  Cada segmento tem convenções diferentes. Esses exemplos são ponto de partida — adapte para a realidade do seu catálogo.
+
+  ### Moda e vestuário
+
+  ```
+  [TIPO]-[MODELO]-[COR]-[TAMANHO]
+  CAM-POL-AZL-P   → Camisa Polo Azul P
+  CAM-POL-AZL-M   → Camisa Polo Azul M
+  TEN-AIR-PTO-38  → Tênis Air Preto 38
+  BOL-TIR-MAR-UN  → Bolsa Tiracolo Marrom Único
+  ```
+
+  Para moda, o tamanho e a cor são os atributos mais críticos — cada combinação é um SKU independente.
+
+  ### Alimentos e bebidas
+
+  ```
+  [PRODUTO]-[SABOR/TIPO]-[GRAMAGEM]-[EMBALAGEM]
+  CAF-TOR-250-PAC  → Café Torrado 250g Pacote
+  CAF-TOR-500-PAC  → Café Torrado 500g Pacote
+  SUC-LJA-1L-TPK   → Suco Laranja 1L Tetra Pak
+  BAR-CHO-40-UNI   → Barra Chocolate 40g Unitária
+  ```
+
+  Para alimentos, gramagem e embalagem definem o SKU — mesmo sabor em tamanhos diferentes são produtos distintos para fins de controle de estoque.
+
+  ### Eletrônicos e informática
+
+  ```
+  [CATEGORIA]-[MARCA]-[MODELO/SPEC]-[COR]
+  NOT-DEL-I7-PTO   → Notebook Dell i7 Preto
+  FNE-SAM-A55-AZL  → Fone Samsung A55 Azul
+  CBL-USB-3M-PTO   → Cabo USB 3m Preto
+  ```
+
+  Para eletrônicos, especificações técnicas (memória, processador, voltagem) são os atributos mais importantes.
+
+  ### Cosméticos e higiene
+
+  ```
+  [PRODUTO]-[LINHA]-[VOLUME]-[TIPO]
+  SHA-HID-400-LIS  → Shampoo Hidratação 400ml Liso
+  SHA-HID-400-CAC  → Shampoo Hidratação 400ml Cacheado
+  CRE-DES-50-FEM   → Creme Desodorante 50g Feminino
+  ```
+
+  ## Como migrar de planilha para SKU estruturado
+
+  Se você já tem produtos cadastrados sem padrão (ou com EAN como referência interna), a migração é um trabalho único que vale muito a longo prazo.
+
+  **Passo 1 — Inventário:** liste todos os produtos ativos com nome, variações e código atual.
+
+  **Passo 2 — Defina categorias e abreviações:** crie uma tabela de referência com todas as abreviações que você vai usar. Exemplo:
+  ```
+  Categorias: CAM=Camiseta, TEN=Tênis, BOL=Bolsa
+  Cores: PTO=Preto, BCO=Branco, AZL=Azul, VRM=Vermelho
+  Tamanhos: PP, P, M, G, GG (ou números para calçados)
+  ```
+
+  **Passo 3 — Gere os novos SKUs:** aplique a estrutura a cada produto. Para catálogos grandes (500+ produtos), faça por categoria — não tente fazer tudo de uma vez.
+
+  **Passo 4 — Atualize nos sistemas:** comece pelo ERP ou planilha principal, depois sincronize com marketplaces um de cada vez. Nunca mude o SKU em um marketplace sem ter o novo SKU pronto no ERP — pedidos em aberto podem ficar sem conciliação.
+
+  **Passo 5 — Imprima novas etiquetas:** somente após todos os sistemas atualizados, imprima as etiquetas novas e substitua no estoque físico.
+
+  ## Planilha vs. ERP: quando migrar a gestão de SKUs
+
+  **Use planilha enquanto:**
+  - Catálogo com menos de 200 produtos
+  - Uma só plataforma de venda
+  - Volume de pedidos menor que 30/dia
+  - Sem integração com fornecedor ou transportadora
+
+  **Migre para ERP quando:**
+  - Mais de 200 SKUs ativos
+  - Venda em 2 ou mais canais (loja física + marketplace)
+  - Necessidade de nota fiscal automatizada
+  - Controle de custo por produto (preço de compra vs. venda)
+
+  Os ERPs mais usados por pequenas e médias empresas no Brasil — **Bling**, **Tiny** e **Omie** — permitem importação em massa de SKUs via CSV, o que facilita a migração a partir de uma planilha bem estruturada.
+
+  ## SKU para e-commerce vs. loja física: diferenças práticas
+
+  **E-commerce:** o SKU aparece nos relatórios de venda e é o elo entre o pedido online e o estoque físico. Sem SKU correto, a separação de pedido vira caça ao tesouro.
+
+  **Loja física com PDV:** o SKU geralmente fica no sistema do PDV. O caixa escaneia o EAN-13 da embalagem, mas o sistema usa o SKU interno para baixar o estoque e calcular o custo.
+
+  **Híbrido (omnichannel):** cada produto precisa do mesmo SKU nos dois canais. A integração entre e-commerce e PDV físico usa o SKU como chave de reconciliação de estoque — é o campo que diz "este produto vendido online é o mesmo produto que está na prateleira da loja".
+
+  ## O cliente vê o SKU? É público ou privado?
+
+  **Não — o SKU é um código interno.** Em marketplaces e e-commerces, o SKU nunca aparece na página do produto para o consumidor final. Ele está visível apenas para o vendedor nos relatórios, pedidos e painel de controle.
+
+  | Onde o SKU aparece | Para quem |
+  |---|---|
+  | Painel do marketplace (pedidos, estoque) | Apenas o vendedor |
+  | Relatório de vendas e conciliação | Apenas o vendedor / equipe interna |
+  | Sistema ERP / planilha interna | Apenas equipe |
+  | Etiqueta de separação (fulfillment) | Apenas operador de estoque |
+  | Nota fiscal (campo interno) | Vendedor e transportadora |
+
+  A exceção são sistemas B2B onde o comprador precisa do código interno para reordenar — mas nesse caso, é uma decisão deliberada do vendedor expor o SKU.
+
+  ## Como alterar o SKU de um produto já cadastrado
+
+  Mudar o SKU de produto já ativo exige cuidado para não quebrar o histórico:
+
+  **No marketplace:**
+  A maioria dos marketplaces (Mercado Livre, Shopee, Amazon) permite editar o SKU do vendedor na página do anúncio, mas isso não apaga o histórico de pedidos anteriores — eles ficam registrados com o SKU antigo. Faça a troca somente quando não houver pedidos abertos ou em disputa.
+
+  **No ERP:**
+  Bling, Tiny e Omie permitem editar o código interno. Exporte um backup do histórico de movimentações com o SKU antigo antes de alterar.
+
+  **Boa prática:** em vez de alterar, desative o SKU antigo e crie um novo. Mantenha a tabela de equivalência (SKU antigo → SKU novo) para reconciliação de relatórios históricos.
+
+  > Nunca mude o SKU de um produto com estoque em múltiplos depósitos sem sincronizar todos os sistemas primeiro — o risco de venda de produto sem estoque real é alto.
+
+  ## Usando SKUs para previsão de demanda
+
+  O SKU é a unidade de análise de qualquer relatório de giro de estoque. Com os dados de SKU você consegue:
+
+  - **Identificar os top sellers**: quais SKUs têm maior saída — permitem priorizar reposição e negociar volume com fornecedores
+  - **Detectar SKUs parados**: produtos com baixo giro que imobilizam capital — candidatos a promoção ou descontinuação
+  - **Calcular ponto de reposição**: "sempre que o estoque do SKU X cair abaixo de Y unidades, gerar pedido de compra"
+  - **Analisar sazonalidade**: comparar vendas por SKU mês a mês para prever picos (Natal, Dia das Mães) por categoria
+
+  ERPs como Bling e Tiny têm relatórios de "curva ABC de produtos" por SKU — o produto A é o que mais vende, C é o que menos vende. Essa análise guia tanto o planejamento de compras quanto as campanhas promocionais.
 
   ## Código de barras a partir do SKU
 
