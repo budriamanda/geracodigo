@@ -9,7 +9,7 @@ persona: restaurante
 dataPublicacao: "2026-04-28"
 dataAtualizacao: "2026-04-28"
 autor: Amanda Budri
-tempoLeitura: 5
+tempoLeitura: 8
 tags:
   - qr-code
   - wifi
@@ -108,6 +108,67 @@ bodyMarkdown: |
   ## Devo incluir a senha em texto junto com o QR Code?
 
   Sim — mas avalie o contexto. Em ambientes onde a senha é semipública (café, sala de espera), incluir a senha por extenso é conveniente para usuários com dispositivos mais antigos. Em ambientes corporativos onde a senha é controlada, imprima apenas o QR Code e instrua a recepção a fornecer a senha pessoalmente quando necessário.
+
+  ## Segurança: o que significa ter a senha no QR Code
+
+  O QR Code de Wi-Fi contém a senha da rede em texto simples dentro do payload. Qualquer pessoa que conseguir uma cópia do código — foto, screenshot, arquivo SVG — pode obter a senha e se conectar à rede.
+
+  Implicações práticas:
+
+  - **Redes de uso público (café, hotel, restaurante):** o nível de risco é baixo — a senha já é semipública e o objetivo é exatamente facilitar o acesso.
+  - **Redes corporativas ou domésticas:** pense antes de criar e distribuir o QR Code. Se a rede tem acesso a sistemas internos ou dados sensíveis, o QR Code pode ser um vetor de acesso não autorizado.
+  - **Solução recomendada para empresas:** crie uma **rede de convidados (guest network)** separada — com QR Code público — e mantenha a rede corporativa sem QR Code. Quase todos os roteadores modernos suportam guest network.
+
+  **O QR Code não expira automaticamente.** Se você trocar a senha do Wi-Fi, o QR Code antigo para de funcionar — mas qualquer cópia que alguém tirou antes ainda tem a senha antiga. Para redes corporativas, troque a senha de convidados periodicamente e regenere o QR Code.
+
+  ## Rede de convidados (Guest Network): por que separar
+
+  A rede de convidados é uma rede Wi-Fi separada que compartilha o mesmo roteador e internet, mas isola os dispositivos conectados da rede principal. Benefícios:
+
+  - Clientes e visitantes navegam na internet sem ver os dispositivos da rede interna (computadores, impressoras, sistemas de PDV, câmeras).
+  - Você controla a largura de banda da rede de convidados sem afetar a rede operacional.
+  - A senha de convidados pode ser trocada com frequência sem impactar os dispositivos internos.
+
+  **Como configurar:** acesse o painel de administração do roteador (geralmente em `192.168.0.1` ou `192.168.1.1`), localize "Guest Network" ou "Rede de convidados" e ative. Defina o nome (SSID) e senha. Gere o QR Code com essas credenciais — não com as da rede principal.
+
+  Marcas de roteador mais comuns no Brasil (TP-Link, Intelbras, Multilaser, D-Link) têm essa função desde modelos intermediários.
+
+  ## Roteadores que geram QR Code de Wi-Fi nativamente
+
+  Alguns modelos mais recentes já geram o QR Code de Wi-Fi diretamente no painel de administração ou no app do fabricante:
+
+  - **TP-Link (app Tether):** em "Redes sem fio" → selecione a rede → "Compartilhar" → QR Code gerado pelo app.
+  - **Intelbras (app Conecta):** mesma lógica — o app gera o QR Code da rede cadastrada.
+  - **Roteadores com display (ex: TP-Link Deco):** alguns modelos com tela LCD exibem o QR Code diretamente no hardware.
+
+  Esses QR Codes nativos são práticos para configuração inicial, mas têm limitações de personalização visual. Para criar um QR Code com identidade visual do estabelecimento (cores, logo), use o [gerador do GeraCode](/gerador-de-qr-code).
+
+  ## QR Code de Wi-Fi vs. WPS: qual é mais seguro?
+
+  O WPS (Wi-Fi Protected Setup) permite conexão por botão físico ou PIN de 8 dígitos. Comparando:
+
+  | Critério | QR Code de Wi-Fi | WPS por PIN |
+  |---|---|---|
+  | Facilidade para o visitante | Alta (câmera do celular) | Baixa (precisa acessar configurações) |
+  | Compatibilidade com celulares | iOS 11+ e Android 8+ | Todos os dispositivos |
+  | Risco de segurança | Baixo (senha exposta no código) | Alto (PIN de 8 dígitos é vulnerável a força bruta) |
+  | Requer acesso físico ao roteador | Não | Sim (botão) ou configuração |
+  | Recomendação atual | Preferível para visitantes | Evite o PIN; use apenas o botão físico |
+
+  O WPS por PIN foi considerado inseguro por pesquisadores de segurança desde 2011 — muitos roteadores modernos desabilitam o WPS completamente. O QR Code de Wi-Fi é a alternativa mais prática e razoavelmente segura para redes de convidados.
+
+  ## Fallback para dispositivos sem suporte
+
+  Embora iOS 11+ e Android 8+ já representem a grande maioria dos dispositivos em uso (2026), alguns visitantes podem ter aparelhos mais antigos. Estratégia de fallback:
+
+  1. **Imprima a senha por extenso** abaixo ou ao lado do QR Code. Isso cobre 100% dos dispositivos, independentemente de compatibilidade.
+  2. **Inclua o nome da rede (SSID).** Sem o nome, o usuário não sabe em qual rede digitar a senha.
+  3. **Formato sugerido no material impresso:**
+     - "Wi-Fi grátis — escaneie para conectar"
+     - QR Code (3×3 cm mínimo)
+     - "Ou conecte manualmente: Rede: *NomeDaRede* / Senha: *SenhaAqui*"
+
+  Em ambientes corporativos onde a senha não deve ser exposta, omita o fallback e oriente visitantes a solicitarem acesso à recepção.
 
   ## Próximos passos
 

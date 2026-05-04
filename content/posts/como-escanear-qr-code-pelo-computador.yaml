@@ -9,7 +9,7 @@ persona: geral
 dataPublicacao: "2026-04-28"
 dataAtualizacao: "2026-04-28"
 autor: Amanda Budri
-tempoLeitura: 6
+tempoLeitura: 9
 tags:
   - leitor
   - qr-code
@@ -30,7 +30,7 @@ ogAccent: "#f59e0b"
 twitterTitle: "4 formas de escanear QR Code pelo computador"
 twitterDescription: "Google Lens, câmera do Windows, upload de imagem ou extensão de navegador. Sem instalação paga."
 bodyMarkdown: |
-  Você recebeu um QR Code por e-mail, está em uma reunião no computador ou quer ler uma imagem salva — e o celular não está em mãos. Não precisa se preocupar: dá para escanear QR Code direto no computador, sem instalar nada, de quatro formas diferentes.
+  Você recebeu um QR Code por e-mail, está em uma reunião no computador ou quer ler uma imagem salva — e o celular não está em mãos. Não precisa se preocupar: dá para escanear QR Code direto no computador, sem instalar nada. E se o celular estiver em mãos mas o QR Code aparecer na tela do computador? Também tem solução. Este guia cobre todos os cenários — Windows, Mac, iPhone e Android.
 
   ## Método 1: Google Lens (mais fácil, para imagens na tela)
 
@@ -39,28 +39,45 @@ bodyMarkdown: |
   **No Chrome (Windows, Mac ou Linux):**
   1. Clique com o botão direito sobre a imagem que contém o QR Code.
   2. Selecione **"Pesquisar imagem com Google Lens"**.
-  3. O Google Lens vai abrir em um painel lateral e mostrar o conteúdo do QR Code automaticamente.
+  3. O Google Lens abre em um painel lateral e mostra o conteúdo do QR Code automaticamente.
 
-  **No Google Images ou Google.com:**
+  **No Google.com (upload ou URL):**
   1. Acesse [google.com](https://google.com) e clique no ícone de câmera na barra de pesquisa.
-  2. Faça upload da imagem ou cole a URL dela.
+  2. Faça upload da imagem ou cole a URL onde ela está hospedada.
   3. O conteúdo do QR Code aparece nos resultados.
 
-  Este método não exige câmera e funciona para qualquer imagem que você consiga abrir no navegador.
+  Este método não exige câmera e funciona para qualquer imagem que você consiga abrir no navegador — Windows, Mac ou Chromebook.
 
   ## Método 2: Câmera do Windows 10/11 (para QR Codes físicos)
 
-  O Windows 10 e 11 têm um **leitor de QR Code embutido no aplicativo Câmera**, que usa a webcam para ler códigos físicos.
+  O Windows 10 e 11 têm um **leitor de QR Code embutido no aplicativo Câmera**, que usa a webcam para ler códigos físicos ou exibidos em outra tela.
 
   1. Pressione `Win + S` e pesquise por **Câmera**.
-  2. Aponte a webcam para o QR Code impresso ou exibido em outra tela.
+  2. Aponte a webcam para o QR Code impresso ou exibido em outro monitor.
   3. Uma notificação aparece automaticamente com o conteúdo — clique para abrir o link.
 
-  > **Não apareceu nada?** Verifique se o modo QR Code está ativado: no app Câmera, clique no ícone de engrenagem (configurações) e ative **"Digitalizar código de barras"**.
+  > **Não apareceu nada?** Verifique se o modo QR Code está ativado: no app Câmera, clique no ícone de engrenagem (configurações) e ative **"Digitalizar código de barras"**. Esse toggle não vem ativo por padrão em todas as versões do Windows 11.
 
-  ## Método 3: Leitor online com webcam (GeraCode)
+  ## Método 3: Mac OS — como ler QR Code no computador Apple
 
-  O [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) funciona direto no navegador — sem instalar extensões ou aplicativos.
+  No Mac, as opções variam dependendo de você ter um arquivo de imagem ou um QR Code físico.
+
+  **Para QR Codes em imagens (arquivo ou screenshot):**
+
+  - **macOS Monterey 12+ — Quick Look com Live Text:** selecione a imagem no Finder, pressione Espaço. O macOS detecta QR Codes automaticamente e exibe um link clicável no painel do Quick Look. Clique para abrir ou copiar o conteúdo.
+  - **Preview (Visualização):** abra a imagem no app Preview. Com o cursor parado sobre o QR Code, o Live Text ativa e identifica o conteúdo. Funciona no macOS Monterey e versões mais recentes.
+  - **Chrome no Mac:** botão direito sobre a imagem → "Pesquisar imagem com Google Lens" — idêntico ao Windows.
+
+  **Para QR Codes físicos com a câmera do Mac:**
+
+  O macOS não tem um app de câmera com leitor de QR Code nativo como o Windows 11. As alternativas:
+
+  - **Leitor online do GeraCode** no Safari ou Chrome: acesse o [leitor de código de barras](/leitor-de-codigo-de-barras), clique em "Usar câmera" e aponte a câmera FaceTime do MacBook para o QR Code. Funciona via WebRTC, sem instalar nada.
+  - **Continuity Camera (macOS Ventura+):** conecte o iPhone ao Mac como câmera externa. Você aponta a câmera traseira do iPhone — muito superior à webcam frontal do MacBook — diretamente para o QR Code enquanto o resultado aparece na tela do Mac.
+
+  ## Método 4: Leitor online com webcam ou upload (GeraCode)
+
+  O [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) funciona direto no navegador — Windows, Mac ou Linux — sem instalar extensões ou aplicativos.
 
   **Para QR Codes físicos com webcam:**
   1. Acesse o [leitor online](/leitor-de-codigo-de-barras).
@@ -72,36 +89,86 @@ bodyMarkdown: |
   2. Clique em **Enviar imagem** ou arraste o arquivo para a área do leitor.
   3. O conteúdo aparece na tela em menos de um segundo.
 
-  Além de QR Codes, o leitor detecta EAN-13, Code 128, Code 39 e mais 9 formatos de código de barras — útil quando você quer verificar produtos no estoque.
+  Além de QR Codes, o leitor detecta EAN-13, Code 128, Code 39 e mais 9 formatos de código de barras — útil quando você quer verificar produtos no estoque. Todo o processamento usa a [BarcodeDetector API do W3C](https://www.w3.org/TR/shape-detection-api/) diretamente no seu navegador: nenhuma imagem é enviada a servidores.
 
-  ## Método 4: Extensão de navegador (para uso frequente)
+  ## Método 5: Extensão de navegador (para uso frequente)
 
-  Se você lê QR Codes no computador com frequência, instalar uma extensão economiza tempo. No Chrome, procure por **"QR Code Reader"** na Chrome Web Store — as extensões mais bem avaliadas adicionam um botão na barra do navegador que lê QR Codes de qualquer aba aberta, sem precisar clicar com botão direito.
+  Se você lê QR Codes no computador com frequência, uma extensão economiza tempo. No Chrome Web Store, procure por **"QR Code Reader"** — as mais bem avaliadas adicionam um botão na barra do navegador que lê QR Codes de qualquer aba, sem precisar clicar com botão direito. Para Firefox, a Firefox Add-ons Store tem equivalentes (busque por "QR Code Scanner").
 
-  > Para uso ocasional, os métodos 1–3 são mais rápidos sem precisar instalar nada.
+  > Para uso ocasional, os métodos 1–4 são mais rápidos sem precisar instalar nada.
+
+  ## Como usar o celular para ler um QR Code exibido na tela do computador
+
+  Às vezes o caminho mais prático é o inverso: usar o celular para ler um QR Code que aparece na tela do computador — em reuniões, e-mails ou sites.
+
+  **iPhone (iOS 11+):**
+  Aponte a câmera nativa para a tela. O iOS reconhece QR Codes automaticamente e exibe um banner na parte superior. Toque no banner para abrir o link ou ação correspondente.
+
+  **Android 8+:**
+  A câmera nativa já lê QR Codes diretamente. Em versões anteriores ao Android 8 (Oreo), use o **Google Lens** (disponível no Google app ou como opção dentro da câmera do Google).
+
+  **Google Lens no celular:**
+  1. Abra o Google Lens — ícone de câmera colorida no Google app.
+  2. Aponte para o QR Code na tela do computador.
+  3. O resultado aparece na tela do celular.
+
+  **Dica:** telas brilhantes criam reflexo que dificulta a câmera do celular. Diminua o brilho do monitor ou incline levemente o celular para reduzir o reflexo antes de escanear.
+
+  ## Lendo QR Code pelo WhatsApp
+
+  O WhatsApp tem um leitor de QR Code integrado, embora pouco conhecido:
+
+  1. Abra o WhatsApp no celular.
+  2. **Android:** toque nos três pontos → "Código QR". **iPhone:** toque em "Configurações" → "Código QR".
+  3. Aponte para o QR Code.
+
+  Esse scanner funciona para QR Codes de contato (vCard), links e textos. É especialmente útil para adicionar contatos via QR Code sem sair do app. Não processa QR Codes de Wi-Fi nem QR Code PIX — esses devem ser lidos pela câmera nativa do celular.
+
+  ## Como pagar um Pix com QR Code que está no computador
+
+  Uma dúvida frequente: "recebi o QR Code Pix por e-mail no computador — como pago?"
+
+  O pagamento PIX precisa ser feito pelo **app do banco no celular**. O fluxo:
+
+  1. Use o Google Lens no celular ou a câmera nativa do iPhone.
+  2. Aponte para o QR Code Pix exibido na tela do computador.
+  3. O celular exibe o código de pagamento ou redireciona para o app do banco.
+  4. Confirme o pagamento no app.
+
+  Alternativa mais prática: o GeraCode exibe o **código Copia e Cola** junto com cada QR Code PIX gerado. Você copia o código no computador, transfere para o celular (via WhatsApp ou AirDrop) e cola diretamente no app do banco — sem precisar apontar a câmera para a tela.
 
   ## Comparativo rápido
 
   | Situação | Melhor método |
   |---|---|
-  | QR Code em imagem no computador | Google Lens (botão direito) |
-  | QR Code impresso ou em outra tela | Câmera do Windows / Leitor online com webcam |
-  | QR Code salvo como arquivo | Upload no leitor online |
-  | Quer também gerar QR Codes | [Gerador de QR Code](/gerador-de-qr-code) |
+  | QR Code em imagem no Windows | Google Lens (botão direito no Chrome) |
+  | QR Code em imagem no Mac | Quick Look / Live Text ou Chrome |
+  | QR Code físico no Windows | App Câmera do Windows |
+  | QR Code físico no Mac | Leitor online do GeraCode |
+  | QR Code em arquivo salvo | Upload no leitor online |
+  | QR Code na tela do computador (via celular) | iPhone / Android câmera nativa |
+  | Uso frequente | Extensão de navegador |
+  | Gerar QR Codes | [Gerador de QR Code](/gerador-de-qr-code) |
 
   ## Por que o QR Code não está sendo lido?
 
   **Imagem com baixa resolução.** Fotos tremidas ou QR Codes muito pequenos falham. Tente ampliar a imagem antes de fazer upload.
 
-  **QR Code cortado.** O código precisa estar completo na imagem, incluindo a margem branca ao redor (zona de silêncio).
+  **QR Code cortado.** O código precisa estar completo na imagem, incluindo a margem branca ao redor (zona de silêncio). Se um dos três quadrados de posicionamento nos cantos estiver cortado, a leitura falha.
 
-  **Câmera sem foco.** Webcams antigas podem não focar em distâncias curtas. Tente afastar o objeto com o QR Code.
+  **Câmera sem foco.** Webcams antigas podem não focar em distâncias curtas. Tente afastar o objeto com o QR Code ou usar a opção de upload em vez da câmera ao vivo.
 
-  **Reflexo ou brilho.** Telas com brilho intenso criam reflexo. Diminua o brilho ou imprima o QR Code em papel.
+  **Reflexo ou brilho.** Telas com brilho intenso criam reflexo. Diminua o brilho do monitor ou imprima o QR Code em papel antes de escanear.
+
+  **Formato não suportado pelo leitor.** A câmera nativa do iPhone lê QR Codes mas não lê códigos de barras lineares como EAN-13 ou Code 128. Para esses formatos, use o [leitor do GeraCode](/leitor-de-codigo-de-barras).
+
+  **Permissão de câmera negada no navegador.** Se o leitor online pedir acesso à câmera mas nada acontecer: no Chrome, clique no ícone de cadeado na barra de endereço e confirme que a câmera está permitida para o site.
+
+  **QR Code danificado.** QR Codes com nível de correção de erro L (7%) podem falhar se mais de 7% da imagem estiver danificada. Tente um leitor diferente ou faça upload em vez de usar a webcam.
 
   ## Os dados ficam seguros?
 
-  Sim. No leitor do GeraCode, todo o processamento acontece no seu próprio navegador — a imagem não é enviada para nenhum servidor. A câmera também não grava nada. Saiba mais na [política de privacidade](/privacidade).
+  Sim. No leitor do GeraCode, todo o processamento acontece no seu próprio navegador usando a BarcodeDetector API — a imagem não é enviada para nenhum servidor. A câmera não grava nada. Saiba mais na [política de privacidade](/privacidade).
 
   ## Quer criar um QR Code também?
 
