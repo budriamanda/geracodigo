@@ -32,6 +32,24 @@ twitterDescription: "Guia completo: impressora, tamanho, arquivo e impressão em
 bodyMarkdown: |
   Você gerou o código de barras, mandou imprimir e o leitor do caixa não reconheceu. Isso acontece com frequência — e quase sempre o problema não é o código em si, mas a forma como ele foi impresso. Este guia explica o que determina a qualidade de uma etiqueta e como acertar na primeira tentativa.
 
+  ## GS1 Brasil vs. gerador gratuito: quando cada um é adequado
+
+  Antes de imprimir etiquetas, você precisa entender uma distinção legal fundamental que muita gente descobre tarde:
+
+  **Gerador gratuito (como o GeraCode):** adequado para **uso interno** — controle de estoque, patrimônio, logística interna, e-commerce onde a plataforma aceita qualquer código numérico único. O código gerado é tecnicamente correto e lido por qualquer leitor, mas o número não é registrado em nenhum sistema global.
+
+  **Código GS1 (GTIN):** necessário quando:
+  - O produto vai para **gôndola de supermercado, farmácia ou loja física** com PDV
+  - O produto é **listado em marketplace** que exige GTIN válido (Amazon, Mercado Livre Vendas Globais)
+  - O produto é **exportado** para mercados que verificam GTINs
+  - O GTIN precisa ser **declarado na Nota Fiscal Eletrônica** (campos cEAN e cEANTrib)
+
+  **Obrigatoriedade na NF-e:** desde 2019, a SEFAZ exige que, se o produto tem código de barras, o GTIN seja informado corretamente nos campos cEAN/cEANTrib da NF-e. Declarar um GTIN inválido ou não registrado na GS1 pode resultar em rejeição da nota. Para uso interno sem NF-e com código EAN, geradores gratuitos funcionam normalmente.
+
+  **Registro na GS1 Brasil:** a filiação básica (prefixo de empresa GS1) para MEI e microempresa custa aproximadamente R$150 de adesão + R$100/ano, com direito a 1.000 GTINs. Para consulta oficial de preços e prazos, acesse [gs1br.org/solicitar-codigo-de-barras](https://www.gs1br.org/solicitar-codigo-de-barras).
+
+  **Resumo prático:** se você vende para o consumidor final via varejo ou marketplace com GTIN obrigatório, registre na GS1. Para tudo mais (estoque, patrimônio, rastreamento interno, embalagens não varejistas), um gerador gratuito resolve sem custo.
+
   ## Por que etiquetas de código de barras falham na leitura?
 
   As causas mais comuns, em ordem de frequência:

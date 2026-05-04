@@ -84,6 +84,14 @@ bodyMarkdown: |
 
   Para negócios, use o **WhatsApp Business** — além das funcionalidades extras, o perfil comercial transmite mais credibilidade. O link wa.me é idêntico para os dois tipos de conta.
 
+  ### Expiração e redefinição do QR Code nativo do WhatsApp Business
+
+  O QR Code gerado pelo WhatsApp Business em *Configurações → Ferramentas comerciais → Link curto* pode ser **redefinido (resetado)** a qualquer momento. Isso é uma funcionalidade de segurança: se o QR Code for exposto a pessoas que não deveriam ter acesso (ex: foto do código foi compartilhada indevidamente), você pode gerar um novo QR Code e o anterior para de funcionar imediatamente.
+
+  Segundo a [central de ajuda do WhatsApp Business](https://faq.whatsapp.com/), o QR Code nativo não expira automaticamente — só deixa de funcionar se você o resetar manualmente ou encerrar a conta.
+
+  **Atenção:** QR Codes criados com link `wa.me` (como os gerados no GeraCode) não expiram e não podem ser "resetados" — o link permanece ativo enquanto o número estiver em uso. Se precisar da funcionalidade de reset por segurança, use o QR Code nativo do WhatsApp Business.
+
   ### O QR Code nativo do WhatsApp Business
 
   O WhatsApp Business gera um QR Code próprio em *Configurações → Ferramentas comerciais → Link curto*. Esse QR Code usa um link `wa.me` com um token de rastreamento e pode incluir uma mensagem padrão definida no app.

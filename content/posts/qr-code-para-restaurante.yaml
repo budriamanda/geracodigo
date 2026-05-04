@@ -123,6 +123,26 @@ bodyMarkdown: |
 
   **Manutenção periódica:** uma vez por mês, escaneie todos os QR Codes do estabelecimento para garantir que ainda funcionam. Um QR Code ilegível ou com destino errado passa despercebido por semanas se ninguém verificar.
 
+  ## QR Code com pedido automático: o próximo passo do cardápio digital
+
+  O QR Code de cardápio tradicional apenas mostra o menu — o cliente lê e pede verbalmente ao garçom. A evolução natural é o **QR Code com self-ordering**: o cliente escaneia, visualiza o cardápio, faz o pedido e paga, tudo no próprio celular, sem interagir com a equipe.
+
+  Como funciona:
+  1. O QR Code em cada mesa aponta para um sistema de pedidos online vinculado àquela mesa específica.
+  2. O cliente navega pelo cardápio digital, adiciona itens ao carrinho e confirma o pedido.
+  3. O pedido aparece automaticamente na tela da cozinha ou no tablet do garçom.
+  4. O pagamento pode ser feito pelo próprio app (cartão, Pix integrado) ou na mesa ao final.
+
+  **Plataformas brasileiras com self-ordering por QR Code:**
+  - **Anota AI:** integra cardápio digital, pedido e PDV. A partir de R$99/mês, com suporte a iFood e Rappi.
+  - **Saipos / Go Cheff:** sistema de gestão completo com cardápio digital e QR por mesa.
+  - **Abrahão:** focado em food service, com integração com balanças e sistemas de comanda.
+  - **iFood Shop:** para estabelecimentos já na plataforma iFood, permite pedido na mesa integrado ao painel do restaurante.
+
+  **Para quem vale o investimento:** estabelecimentos com mais de 5–10 mesas e alto giro de clientes. O self-ordering reduz erros de anotação, acelera o tempo de saída do pedido e permite que a equipe se concentre em atendimento, não em tomar pedidos.
+
+  Para a maioria dos restaurantes pequenos, o QR Code de cardápio estático (GeraCode + Google Drive) ainda é a melhor relação custo-benefício. O self-ordering é o passo seguinte quando o volume justifica.
+
   ## A trinca do restaurante moderno: cardápio + Pix + Wi-Fi
 
   Restaurantes bem equipados têm três QR Codes diferentes, cada um com função clara:

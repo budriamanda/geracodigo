@@ -187,6 +187,26 @@ bodyMarkdown: |
 
   Para restaurantes, veja o guia completo: [QR Code para restaurante](/blog/qr-code-para-restaurante).
 
+  ## Por que meu QR Code não escaneia?
+
+  Antes de reimprimir tudo, verifique as causas mais comuns:
+
+  **1. Tamanho abaixo do mínimo.** Para leitura a 30 cm (mesa, balcão), o código precisa ter no mínimo 3 × 3 cm. Para cartão de visita (30–40 cm), 2 × 2 cm é o limite.
+
+  **2. Contraste insuficiente.** Módulos cinza-escuros em fundo cinza-claro podem parecer bons na tela mas falham na impressão. Use módulos pretos (`#000000`) em fundo branco — é o padrão mais seguro para qualquer impressora.
+
+  **3. Logo ocupando mais de 30% da área.** Com nível de correção H, o código tolera até 30% de dano. Se a logo ultrapassar isso, alguns leitores falham. Teste com Android e iPhone antes de imprimir.
+
+  **4. QR Code distorcido.** Nunca estique o QR Code horizontalmente nem verticalmente para encaixar em um espaço. Adicione margem branca em vez de distorcer. Um QR Code não quadrado não é lido.
+
+  **5. Zona de silêncio cortada.** A margem branca ao redor do código (pelo menos 4 módulos) é obrigatória. Se você recortou a imagem rente ao código em um editor, reimporte o SVG original sem cortar.
+
+  **6. PNG em baixa resolução esticado.** PNG gerado em 200×200 px e impresso em 5×5 cm vira 40 DPI — barras desfocadas. Use sempre SVG para impressão.
+
+  **7. Link de destino incorreto.** O QR Code pode ser lido corretamente, mas o link não ter `https://` — em alguns leitores, `exemplo.com.br` sem o prefixo é tratado como texto, não como URL.
+
+  Se nenhuma dessas causas resolver, use o [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) para verificar o conteúdo decodificado — se o leitor lê mas o link não abre, o problema está no destino, não no código.
+
   ## Checklist antes de imprimir em quantidade
 
   Antes de mandar 500 panfletos para a gráfica:

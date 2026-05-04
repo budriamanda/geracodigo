@@ -100,6 +100,22 @@ bodyMarkdown: |
 
   **QR Code de Wi-Fi**: conecta visitantes e clientes à rede sem digitar senha.
 
+  ## QR Code no Brasil: onde você já encontrou sem perceber
+
+  O Brasil é um dos países com maior penetração de QR Code do mundo — em grande parte graças ao PIX. Mas há muito mais contextos onde o QR Code aparece no cotidiano brasileiro:
+
+  **PIX:** o QR Code BR Code EMV é o mecanismo de pagamento Pix mais usado. Desde o lançamento em novembro de 2020, o Banco Central registra mais de 4 bilhões de transações via PIX por mês — uma fração significativa via QR Code estático e dinâmico.
+
+  **DANFE / Nota Fiscal Eletrônica:** toda NF-e emitida no Brasil tem um QR Code impresso no DANFE (documento auxiliar). Ao escanear, o consumidor acessa a nota no portal da SEFAZ estadual e pode verificar a autenticidade do documento. É obrigatório desde o ajuste SINIEF 07/2005 e suas atualizações.
+
+  **Passagens aéreas e de ônibus:** o boarding pass eletrônico e a passagem de ônibus digital usam QR Code (formato Aztec em passagens aéreas IATA; QR Code simples em aplicativos de ônibus). Você escaneia no embarque e não precisa de bilhete impresso.
+
+  **Certificados de vacinação:** durante a pandemia de COVID-19, o Conecte SUS usou QR Code no comprovante de vacinação para verificação de autenticidade — adotado em aeroportos, eventos e estabelecimentos com acesso controlado.
+
+  **Embalagens de medicamentos:** a ANVISA exige DataMatrix (código 2D similar ao QR Code) em embalagens de medicamentos sujeitos à rastreabilidade, conforme a RDC 54/2013 e regulamentações posteriores do SCTM (Sistema Nacional de Controle de Medicamentos).
+
+  **Etiquetas de produto e e-commerce:** alguns marketplace e sistemas de logística usam QR Code para rastreamento interno de pacotes, complementando ou substituindo o código de barras linear.
+
   ## QR Code tem prazo de validade?
 
   O QR Code em si **não expira** — é uma imagem com texto codificado. O que pode "vencer" é o conteúdo:
