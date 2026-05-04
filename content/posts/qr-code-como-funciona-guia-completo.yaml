@@ -9,7 +9,7 @@ persona: geral
 dataPublicacao: "2026-04-28"
 dataAtualizacao: "2026-04-28"
 autor: Amanda Budri
-tempoLeitura: 8
+tempoLeitura: 11
 tags:
   - qr-code
   - como-funciona
@@ -118,6 +118,58 @@ bodyMarkdown: |
   - **Desconfie de QR Codes colados sobre outros**: em restaurantes e bares, golpistas colam etiquetas sobre QR Codes legítimos. Verifique se a etiqueta está íntegra.
   - **Não insira dados sensíveis após escanear um QR Code desconhecido**: banco, senha ou dados de cartão nunca são pedidos por link de QR Code legítimo.
   - **Use um leitor que mostra o conteúdo antes de agir**: o [leitor do GeraCode](/leitor-de-codigo-de-barras) exibe o texto decodificado para que você possa verificar antes de abrir qualquer link.
+
+  ## Versões do QR Code: de 1 a 40
+
+  Você já notou que alguns QR Codes parecem mais "cheios" de quadradinhos que outros? Isso é determinado pela **versão** do QR Code, que vai de 1 a 40.
+
+  - **Versão 1:** matriz 21×21 módulos — armazena até 41 caracteres numéricos com nível de correção L.
+  - **Versão 40:** matriz 177×177 módulos — armazena até 7.089 dígitos numéricos ou 4.296 caracteres alfanuméricos.
+
+  A versão é escolhida automaticamente pelo gerador — você não precisa configurar isso manualmente. O gerador usa a menor versão que comporte o conteúdo no nível de correção de erro escolhido.
+
+  **Por isso links curtos geram QR Codes mais simples:** `https://ab.cd/x` versão 2 vs. `https://www.minhalojaonline.com.br/categoria/produto?ref=instagram` versão 5 ou superior.
+
+  ## Modos de codificação: como o QR Code armazena dados
+
+  Dentro do QR Code, os dados são codificados em um de quatro modos, dependendo do tipo de conteúdo:
+
+  | Modo | Caracteres | Eficiência |
+  |---|---|---|
+  | Numérico | 0–9 | Máxima (3 bits/dígito) — melhor para números longos |
+  | Alfanumérico | 0–9, A–Z, 8 especiais | Alta — para códigos internos e URLs curtas em maiúsculas |
+  | Byte | ASCII (0–255) | Média — para URLs completas, vCards, JSON |
+  | Kanji | Caracteres japoneses | Específico para japonês |
+
+  Na prática, a maioria dos QR Codes usados no Brasil usa o modo **Byte** (para URLs e textos com acentos) ou **Numérico** (para PIX e código de barras 2D). O gerador seleciona automaticamente o modo mais eficiente para o conteúdo digitado.
+
+  ## Reed-Solomon: a matemática por trás da correção de erros
+
+  O QR Code usa o algoritmo de correção de erros **Reed-Solomon** — o mesmo algoritmo usado em CDs, DVDs e comunicações espaciais. Foi desenvolvido em 1960 por Irving S. Reed e Gustave Solomon no MIT Lincoln Laboratory.
+
+  A ideia central: ao codificar dados, adicionar bytes redundantes calculados matematicamente. Se parte dos dados for danificada, os bytes redundantes permitem reconstruir o original — desde que o dano não exceda o limite do nível de correção escolhido.
+
+  Por isso um QR Code com uma logo no centro funciona: a logo "apaga" uma área, mas o algoritmo reconstrói os dados a partir dos bytes redundantes ao redor. No nível H (30% de dano tolerado), logos de até 30% da área total do QR Code não prejudicam a leitura.
+
+  ## A história completa: de Denso Wave ao PIX
+
+  - **1994:** Masahiro Hara, engenheiro da Denso Wave (subsidiária da Toyota), cria o QR Code para rastrear peças de veículos nas linhas de montagem. O objetivo: ler 100 vezes mais rápido que um código de barras linear.
+  - **1999:** Denso Wave publica o QR Code como padrão aberto (JIS X 0510), sem cobrar royalties — decisão que acelera a adoção global.
+  - **2002–2006:** primeiros celulares japoneses com leitor de QR Code integrado. No Japão, QR Codes já aparecem em embalagens, revistas e cartazes nessa época.
+  - **2010–2012:** popularização global com a chegada dos smartphones com câmera de alta qualidade e apps de leitura gratuitos (iOS/Android).
+  - **2017:** Apple adiciona leitura nativa de QR Code à câmera do iPhone (iOS 11) — ponto de virada para adoção em massa no Brasil.
+  - **2020:** Banco Central do Brasil lança o **Pix** com o QR Code BR Code EMV como padrão de pagamento. O Brasil passa a ter um dos maiores volumes de transações via QR Code do mundo.
+  - **2023:** [ISO/IEC 18004:2015](https://www.iso.org/standard/62021.html) permanece o padrão internacional do QR Code, com mais de 10 bilhões de QR Codes escaneados por dia globalmente.
+
+  ## Além do QR Code quadrado: DataMatrix e Aztec
+
+  O QR Code é o formato 2D mais popular, mas não é o único. Outros formatos são usados em contextos específicos:
+
+  - **DataMatrix:** matriz menor, muito usada na indústria farmacêutica e eletrônica. A ANVISA exige DataMatrix em embalagens de medicamentos no Brasil (Resolução RDC 54/2013 para rastreabilidade). Armazena os mesmos tipos de dado que o QR Code em menos espaço.
+  - **Aztec Code:** formato 2D sem zona de silêncio (pode ser impresso até a borda), usado em passagens aéreas (IATA) e bilhetes de trem no mundo todo. Você já viu ele no boarding pass do celular.
+  - **PDF417:** código 2D linear usado em documentos de identidade (CNH no Brasil), embalagens de remédios e alguns tickets de evento.
+
+  Para aplicações comerciais gerais no Brasil, o QR Code padrão é a escolha certa. Os formatos alternativos são para casos de uso muito específicos, geralmente com requisitos regulatórios.
 
   ## Como gerar seu QR Code gratuitamente
 

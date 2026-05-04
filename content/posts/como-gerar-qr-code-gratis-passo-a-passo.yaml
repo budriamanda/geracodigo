@@ -9,7 +9,7 @@ persona: geral
 dataPublicacao: "2026-04-28"
 dataAtualizacao: "2026-04-28"
 autor: Amanda Budri
-tempoLeitura: 6
+tempoLeitura: 9
 tags:
   - qr-code
   - gratis
@@ -119,6 +119,88 @@ bodyMarkdown: |
   **Superfícies fosca, não brilhante.** Acrílico e plástico brilhante criam reflexo que atrapalha a câmera. Prefira papel fosco ou laminação fosca.
 
   **Para PIX**, use sempre o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix) — ele gera o código no padrão BR Code exigido pelo Banco Central e inclui o código Copia e Cola junto. Veja o guia completo em [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+
+  ## QR Code de contato (vCard): como formatar corretamente
+
+  O formato vCard codificado em QR Code é suportado nativamente por iOS e Android — ao escanear, o celular oferece salvar o contato diretamente na agenda. O formato básico:
+
+  ```
+  BEGIN:VCARD
+  VERSION:3.0
+  FN:João Silva
+  ORG:Empresa Ltda
+  TEL:+5511999887766
+  EMAIL:joao@empresa.com.br
+  URL:https://empresa.com.br
+  END:VCARD
+  ```
+
+  Pontos importantes:
+  - Use `VERSION:3.0` — mais compatível que a versão 4.0 com Android antigo
+  - O telefone deve estar no formato internacional: `+55` + DDD + número
+  - Cole o bloco vCard completo (sem modificações) no campo de texto do [gerador de QR Code](/gerador-de-qr-code)
+  - Para múltiplos telefones, repita a linha `TEL:` com tipo: `TEL;TYPE=WORK:` e `TEL;TYPE=CELL:`
+
+  O QR Code de vCard é estático — se o telefone mudar, você precisará gerar e reimprimir um novo código.
+
+  ## QR Code para redes sociais: Instagram, YouTube, LinkedIn
+
+  QR Codes que apontam para perfis sociais são muito usados em cartões de visita, banners e embalagens. Basta gerar um QR Code com o link do perfil:
+
+  | Rede social | Link a usar no QR Code |
+  |---|---|
+  | Instagram | `https://instagram.com/seuperfil` |
+  | YouTube | `https://youtube.com/@seucanal` |
+  | LinkedIn | `https://linkedin.com/in/seuperfil` |
+  | TikTok | `https://tiktok.com/@seuperfil` |
+  | WhatsApp | `https://wa.me/5511999887766` |
+
+  **Dica:** use links curtos (como `bit.ly` ou `go.link`) quando o perfil tem URL longa ou você quer rastrear cliques. Links mais curtos geram QR Codes com menos módulos, facilitando a leitura em tamanhos pequenos.
+
+  ## Como rastrear quem escaneou seu QR Code (analytics)
+
+  QR Codes estáticos não têm analytics nativo — você não sabe quantas pessoas escanearam. Mas com UTM parameters, você rastreia no Google Analytics:
+
+  Em vez de apontar para `https://seusite.com/pagina`, use:
+  ```
+  https://seusite.com/pagina?utm_source=qrcode&utm_medium=impresso&utm_campaign=panfleto-maio
+  ```
+
+  O Google Analytics vai registrar as visitas com essa fonte. Você vê quantas pessoas escanearam o QR Code em cada material impresso.
+
+  Outra opção: use um encurtador com analytics (bit.ly ou Dub.co) como destino do QR Code. O encurtador rastreia os cliques e o QR Code continua funcionando se você trocar o destino posteriormente.
+
+  ## QR Code por tipo de negócio: o que usar em cada caso
+
+  Diferentes negócios têm usos diferentes para QR Codes. Um guia rápido:
+
+  | Tipo de negócio | QR Code recomendado | Conteúdo |
+  |---|---|---|
+  | Restaurante / lanchonete | Link + Pix | Cardápio digital + pagamento Pix |
+  | Loja de roupas | Link + vCard | Catálogo online + contato WhatsApp |
+  | Salão de beleza | Link | Agendamento online (Trinks, Booksy) |
+  | E-commerce | Link | Página do produto ou rastreamento |
+  | Profissional liberal | vCard + Link | Contato + site profissional |
+  | Hotel / pousada | Wi-Fi + Link | Senha do Wi-Fi + serviços do hotel |
+  | Academia | Link | Tabela de treinos, avaliação física |
+  | Consultório médico | Link | Formulário de anamnese ou telemedicina |
+
+  Para restaurantes, veja o guia completo: [QR Code para restaurante](/blog/qr-code-para-restaurante).
+
+  ## Checklist antes de imprimir em quantidade
+
+  Antes de mandar 500 panfletos para a gráfica:
+
+  - [ ] Digitou o link com `https://` no começo?
+  - [ ] Testou o QR Code com Android (câmera nativa)?
+  - [ ] Testou com iPhone?
+  - [ ] O link de destino está funcionando?
+  - [ ] O QR Code tem pelo menos 3 × 3 cm no arquivo de impressão?
+  - [ ] O contraste está alto (código escuro em fundo claro)?
+  - [ ] Baixou em SVG (não PNG)?
+  - [ ] Se tiver logo no centro, o nível de correção está em H?
+
+  Um QR Code que não funciona no panfleto impresso é desperdício de dinheiro e oportunidade. Cinco minutos de teste evitam isso.
 
   ## Próximos passos
 

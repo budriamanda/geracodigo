@@ -9,7 +9,7 @@ persona: restaurante
 dataPublicacao: "2026-04-28"
 dataAtualizacao: "2026-04-28"
 autor: Amanda Budri
-tempoLeitura: 6
+tempoLeitura: 9
 tags:
   - qr-code
   - restaurante
@@ -122,6 +122,67 @@ bodyMarkdown: |
   **Pix:** o QR Code Pix estático não expira enquanto a chave Pix estiver ativa no banco. Se você trocar a chave Pix ou mudar de banco, gere um novo QR Code e reimprima.
 
   **Manutenção periódica:** uma vez por mês, escaneie todos os QR Codes do estabelecimento para garantir que ainda funcionam. Um QR Code ilegível ou com destino errado passa despercebido por semanas se ninguém verificar.
+
+  ## A trinca do restaurante moderno: cardápio + Pix + Wi-Fi
+
+  Restaurantes bem equipados têm três QR Codes diferentes, cada um com função clara:
+
+  | QR Code | Função | Fica onde |
+  |---|---|---|
+  | Cardápio digital | Link para o menu | Em cada mesa |
+  | Pix | Pagamento | Balcão / comanda / mesa |
+  | Wi-Fi | Senha da rede | Mesa + balcão + recepção |
+
+  Os três devem ter **rótulos claros e visuais distintos** para evitar confusão. Uma boa solução: um suporte de mesa triplo ou um cartão com os três QR Codes identificados com ícones (prato para cardápio, símbolo Pix para pagamento, símbolo Wi-Fi para internet).
+
+  Para o Wi-Fi, crie uma **rede de convidados separada** — os clientes acessam a internet sem ver os dispositivos da rede operacional do restaurante (caixas, tablets de pedido, câmeras). Veja como criar: [QR Code para Wi-Fi](/blog/qr-code-wifi-como-criar).
+
+  ## QR Code por mesa: como organizar e numerar
+
+  Restaurantes com sistema de pedido digital ou delivery de mesa precisam identificar qual mesa fez qual pedido. O QR Code pode conter o número da mesa no link:
+
+  - Crie um link diferente para cada mesa: `https://seusite.com/cardapio?mesa=5`
+  - O sistema de pedido recebe o parâmetro `mesa=5` e já associa o pedido à mesa correta
+  - Gere um QR Code separado para cada mesa no [gerador de QR Code](/gerador-de-qr-code)
+
+  Se você usa plataformas como Goomer, Abrahão ou iFood Shop, elas já têm essa funcionalidade de QR Code por mesa — cada código é único e rastreável.
+
+  **Organização prática:** numere os QR Codes impressos durante a geração, salve os SVGs nomeados (`mesa-01.svg`, `mesa-02.svg`) e guarde todos em uma pasta para facilitar a reimpressão de apenas as mesas danificadas.
+
+  ## Integrando com delivery: iFood, Rappi e Uber Eats
+
+  Se o restaurante opera nas plataformas de delivery, o QR Code pode direcionar para a página do estabelecimento no app — mas com uma ressalva importante:
+
+  - **iFood:** cada estabelecimento tem uma URL pública como `https://ifood.com.br/delivery/sua-cidade/nome-restaurante`. Gere um QR Code com esse link.
+  - **Rappi e Uber Eats:** funcionam da mesma forma — copie o link da página do estabelecimento no app ou no site e use no QR Code.
+
+  **Atenção:** links de plataformas de delivery podem mudar. Use um encurtador de link (bit.ly, Dub.co) como intermediário — assim você pode atualizar o destino sem reimprimir os QR Codes.
+
+  Uma estratégia eficaz: o QR Code no balcão leva para uma página do próprio site do restaurante com botões para todos os canais (delivery, WhatsApp, reservas). Você controla a página e nunca precisa trocar o QR Code impresso.
+
+  ## Coleta de feedback via QR Code
+
+  O QR Code é uma forma prática de coletar avaliações de clientes antes de eles saírem:
+
+  - **Google Business Profile:** copie o link de avaliação do seu estabelecimento no Google Maps e gere um QR Code. Coloque na conta ou na nota fiscal — "Gostou? Avalie no Google!"
+  - **Formulário Google:** crie um formulário de satisfação no Google Forms (NPS, avaliação do prato, sugestão) e gere o QR Code com o link. As respostas ficam em planilha acessível.
+  - **TripAdvisor / iFliid:** mesma lógica — link para avaliação direto no QR Code.
+
+  Clientes satisfeitos raramente avaliam espontaneamente. Um QR Code na conta, com chamada para ação clara ("Avalie nossa pizza — leva 30 segundos"), aumenta o volume de avaliações positivas sem custo adicional.
+
+  ## Custo: plataforma paga vs. solução gratuita
+
+  Restaurantes frequentemente se deparam com plataformas que cobram mensalidade por QR Code de cardápio. Comparativo:
+
+  | Solução | Custo | Quando faz sentido |
+  |---|---|---|
+  | GeraCode + Google Drive (PDF) | Grátis | Cardápio que muda pouco; até ~50 mesas |
+  | GeraCode + Google Sites | Grátis | Cardápio visual sem programação |
+  | Goomer / Abrahão | R$100–300/mês | Pedido digital + integração com PDV |
+  | iFood Shop | Taxa por pedido | Delivery + pedido na mesa integrado |
+  | QR Code dinâmico (plataforma paga) | R$30–100/mês | Atualização frequente de cardápio sem reimprimir |
+
+  Para a maioria dos restaurantes de pequeno porte, a combinação **GeraCode + Google Drive** resolve: cardápio em PDF atualizado no Drive, QR Code estático do GeraCode impresso nas mesas. Custo: zero.
 
   ## Próximos passos
 

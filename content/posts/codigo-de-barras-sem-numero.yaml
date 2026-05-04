@@ -9,7 +9,7 @@ persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
 dataAtualizacao: "2026-04-28"
 autor: Amanda Budri
-tempoLeitura: 5
+tempoLeitura: 8
 tags:
   - codigo-de-barras
   - hri
@@ -91,6 +91,61 @@ bodyMarkdown: |
   ## Código de barras sem número é o mesmo código?
 
   Sim — a informação codificada nas barras é idêntica com ou sem o HRI. O número embaixo é apenas a representação visual para leitura humana. O leitor de código de barras lê as barras, não o número impresso. Se o código visual estiver correto, o leitor retorna o mesmo valor independentemente de o HRI estar visível ou não.
+
+  ## A fonte correta para o HRI: OCR-B
+
+  O padrão GS1 especifica a fonte **OCR-B** para o HRI do EAN-13 e EAN-8. Não é uma escolha estética — a OCR-B foi projetada para ser legível tanto por humanos quanto por sistemas OCR (reconhecimento óptico de caracteres) usados em alguns ambientes de logística.
+
+  Especificações da GS1 para o HRI do EAN-13:
+  - **Fonte:** OCR-B
+  - **Tamanho mínimo:** 2,75 mm de altura de caractere (equivalente a aproximadamente 7,8 pt em 72 DPI)
+  - **Tamanho recomendado:** 3,5 mm de altura (tamanho padrão 100%)
+  - **Posição:** dentro da zona de silêncio inferior, centralizado abaixo das barras
+  - **Agrupamento:** `X XXXXXX XXXXXX` — um dígito do sistema, seis do fabricante, seis do produto e verificador
+
+  Para Code 128 e Code 39, a GS1 não define uma fonte específica — mas recomenda fontes sem serifa (sans-serif) de alta legibilidade, como Arial ou Helvetica. O que não pode acontecer: usar fontes decorativas ou de difícil leitura manual.
+
+  O [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras) aplica automaticamente a fonte OCR-B no HRI do EAN-13, seguindo o padrão GS1.
+
+  ## O que acontece se o HRI estiver errado?
+
+  Um HRI incorreto não impede a leitura pelo scanner (o leitor lê as barras, não os dígitos), mas pode causar problemas sérios:
+
+  - **Auditoria manual falha:** o operador que confere visualmente um recebimento vai identificar uma divergência entre o número lido pelo scanner e o número impresso. Isso gera retrabalho e suspeita de produto incorreto.
+  - **Digitação errada:** se o scanner falhar e o operador precisar digitar o código manualmente, um HRI errado leva ao registro do produto errado no sistema.
+  - **Reprovação em certificação GS1:** para produtos que passam por verificação de conformidade GS1 (exigido por algumas redes de supermercado e exportação), o HRI incorreto pode resultar em reprovação.
+
+  A situação mais comum de HRI errado: o gerador não inclui o dígito verificador no HRI, ou inclui um dígito verificador calculado errado. No GeraCode, o dígito verificador é calculado automaticamente e o HRI sempre reflete o código real.
+
+  ## Marketplaces e HRI: exigências por plataforma
+
+  Para produtos vendidos em marketplaces, o código de barras é usado para cadastro e controle de estoque. Cada plataforma tem sua orientação sobre o HRI:
+
+  | Marketplace | Exige HRI visível? | Observação |
+  |---|---|---|
+  | Mercado Livre | Recomendado | Exige GTIN válido; HRI facilita conferência manual |
+  | Amazon Brasil | Sim (para FBA) | Etiquetas enviadas ao centro de distribuição precisam de HRI legível |
+  | Shopee | Não especifica | Usa código interno próprio para logística; EAN para cadastro |
+  | Magalu | Recomendado | Conferência no recebimento do CD usa HRI |
+  | Americanas | Recomendado | Padrão GS1 aplicado no CD |
+
+  Para produtos enviados ao centro de distribuição (CD) de qualquer marketplace, manter o HRI é a prática mais segura. O CD pode usar leitores manuais em situações de exceção, e o HRI garante que a conferência manual seja possível.
+
+  ## Como configurar o HRI no software de impressão
+
+  Se você usa software de layout de etiquetas (como ZebraDesigner, Bartender, Nicelabel ou CorelDraw), a visibilidade do HRI é uma propriedade do objeto de código de barras:
+
+  **ZebraDesigner:**
+  Selecione o objeto de código de barras → propriedades → aba "Human Readable" → marque ou desmarque "Show human readable text".
+
+  **Bartender:**
+  Duplo clique no objeto de barcode → aba "Human Readable" → campo "Position" → selecione "Below" para mostrar ou "None" para ocultar.
+
+  **CorelDraw / Illustrator (via plugin):**
+  Ao inserir um código de barras pelo menu Objects, o assistente pergunta se deve incluir o texto legível — responda Não para omitir o HRI.
+
+  **Impressão direta do navegador (GeraCode):**
+  No gerador, use o toggle "Mostrar número" antes de baixar — o SVG gerado já vem com ou sem o HRI conforme sua escolha.
 
   ## Próximos passos
 
