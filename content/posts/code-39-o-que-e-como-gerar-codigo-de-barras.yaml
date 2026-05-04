@@ -48,6 +48,21 @@ bodyMarkdown: |
   - Leitura bidirecional (o leitor lê da esquerda para direita ou vice-versa)
   - Amplamente suportado por praticamente todos os leitores de código de barras do mercado
 
+  ## Tabela completa de caracteres do Code 39
+
+  O Code 39 padrão aceita exatamente **43 caracteres**. Qualquer coisa fora dessa lista causará erro na geração:
+
+  | Tipo | Caracteres |
+  |---|---|
+  | Números | `0 1 2 3 4 5 6 7 8 9` |
+  | Letras | `A B C D E F G H I J K L M N O P Q R S T U V W X Y Z` (somente maiúsculas) |
+  | Especiais | `- . (espaço) $ / + %` |
+  | Delimitador | `*` (início e fim — não faz parte dos dados) |
+
+  Se o seu conteúdo tem letras minúsculas (`a–z`) ou símbolos como `@`, `#`, `:`, `;`, `\`, use o **Full Extended Code 39** — que codifica todos os 128 caracteres ASCII — ou mude para Code 128, que é mais compacto e suporta ASCII nativo.
+
+  O padrão técnico do Code 39 é definido pela norma **ISO/IEC 16388** (última edição: 2007; revisão em andamento como ISO/IEC 16388:2023). Equipamentos e sistemas certificados para uso industrial e saúde seguem esse padrão.
+
   ## Full Extended Code 39: quando precisar de mais caracteres
 
   O Code 39 padrão só aceita maiúsculas. Se você precisar codificar letras minúsculas ou qualquer caractere ASCII (como `@`, `#`, ou `:`) existe o **Full Extended Code 39**, que usa combinações de dois símbolos para representar os 128 caracteres ASCII.
@@ -79,9 +94,13 @@ bodyMarkdown: |
 
   Hospitais, clínicas e farmácias usam Code 39 em prontuários, crachás e embalagens de medicamentos de controle interno. O setor farmacêutico ainda mantém muitos sistemas legados configurados para este formato.
 
+  ### Indústria automotiva (padrão AIAG)
+
+  A **AIAG** (Automotive Industry Action Group) padronizou o Code 39 para rastreamento de peças automotivas na América do Norte. O padrão AIAG B-1 (Shipping/Parts Identification Label Standard) especifica Code 39 em etiquetas de containers e embalagens de peças entre fabricantes e montadoras. Fornecedores da cadeia automotiva (Tier 1 e Tier 2) para montadoras como Ford, GM e Stellantis frequentemente precisam gerar etiquetas Code 39 para conformidade com o padrão AIAG.
+
   ### Setor de defesa e aeroespacial
 
-  O Departamento de Defesa dos EUA (DoD) padronizou o Code 39 para rastreamento de materiais militares. Empresas do setor aeroespacial e de defesa ainda usam amplamente.
+  O Departamento de Defesa dos EUA (DoD) padronizou o Code 39 para rastreamento de materiais militares (MIL-STD-1189). Empresas do setor aeroespacial e de defesa ainda usam amplamente.
 
   ### Linhas de produção com sistemas legados
 

@@ -92,6 +92,27 @@ bodyMarkdown: |
 
   Sim — a informação codificada nas barras é idêntica com ou sem o HRI. O número embaixo é apenas a representação visual para leitura humana. O leitor de código de barras lê as barras, não o número impresso. Se o código visual estiver correto, o leitor retorna o mesmo valor independentemente de o HRI estar visível ou não.
 
+  ## Norma técnica: o que a ISO/IEC 15416 diz sobre o HRI
+
+  A qualidade de impressão de um código de barras — incluindo o HRI — é regulada pela norma **ISO/IEC 15416** (*Linear bar code print quality test specification*). Ela define os parâmetros de verificação (contraste de impressão, modulação, dano, etc.) e, no contexto do HRI:
+
+  - O HRI deve ser gerado a partir dos mesmos dados codificados nas barras — não pode divergir
+  - O tamanho da fonte deve permitir leitura visual sem ampliação em condições normais de iluminação
+  - A posição do HRI não pode sobrepor nenhum elemento do código ou da zona de silêncio
+
+  Para produtos que passam por certificação GS1 (como produtos exportados ou fornecidos a grandes redes que exigem conformidade), um verificador de código de barras calibrado conforme a ISO/IEC 15416 é usado para verificar a qualidade. Um HRI ausente ou fora de posição pode resultar em nota de não-conformidade.
+
+  Na prática cotidiana (pequenas e médias empresas, controle interno), a norma serve como referência de boas práticas, mas não é auditada formalmente.
+
+  ## Contraste e legibilidade do HRI
+
+  O HRI precisa de contraste suficiente para ser lido por humanos — não apenas pelo scanner. Regras práticas:
+
+  - **Tinta preta sobre fundo branco** é o padrão máximo de contraste e o mais seguro
+  - Evite fundos coloridos mesmo para etiquetas internas — pode dificultar a leitura em ambientes com iluminação fraca (depósitos, câmaras frias)
+  - O HRI não deve usar fontes menores que 6pt — abaixo disso, ilegível a distâncias normais de trabalho
+  - Em etiquetas coloridas ou de embalagem premium, o HRI pode ser impresso em cor escura sobre a cor de fundo, desde que o contraste seja alto (relação de luminância ≥ 5:1)
+
   ## A fonte correta para o HRI: OCR-B
 
   O padrão GS1 especifica a fonte **OCR-B** para o HRI do EAN-13 e EAN-8. Não é uma escolha estética — a OCR-B foi projetada para ser legível tanto por humanos quanto por sistemas OCR (reconhecimento óptico de caracteres) usados em alguns ambientes de logística.

@@ -166,6 +166,15 @@ bodyMarkdown: |
 
   **QR Code danificado.** QR Codes com nível de correção de erro L (7%) podem falhar se mais de 7% da imagem estiver danificada. Tente um leitor diferente ou faça upload em vez de usar a webcam.
 
+  ## Tenho só uma imagem (não tenho webcam nem quero instalar nada)
+
+  Se o QR Code está salvo como imagem ou você consegue fazer um screenshot, há duas opções rápidas além do GeraCode:
+
+  - **ZXing Decoder Online** (`zxing.org/w/decode.jspx`): ferramenta de código aberto, aceita upload de imagem diretamente. Suporta QR Code, Code 128, EAN-13 e dezenas de outros formatos. Zero cadastro, código aberto auditável.
+  - **Google Lens via browser:** arraste a imagem para a barra de pesquisa do Google.com (ícone de câmera) — funciona para imagens na área de transferência também (Ctrl+V em alguns navegadores).
+
+  Para o GeraCode, a mesma opção de upload já está disponível em [leitor de código de barras](/leitor-de-codigo-de-barras) — clique em "Enviar imagem" sem precisar de câmera.
+
   ## Os dados ficam seguros?
 
   Sim. No leitor do GeraCode, todo o processamento acontece no seu próprio navegador usando a BarcodeDetector API — a imagem não é enviada para nenhum servidor. A câmera não grava nada. Saiba mais na [política de privacidade](/privacidade).

@@ -34,6 +34,24 @@ bodyMarkdown: |
 
   Mas o QR Code de Wi-Fi não é um link. Ele usa um formato técnico específico que os sistemas operacionais conhecem. Este guia explica o formato correto, como criar, onde imprimir e em quais dispositivos funciona.
 
+  ## Compartilhamento nativo de Wi-Fi: sem app, sem QR Code gerado
+
+  Antes de criar um QR Code manualmente, vale saber que tanto Android quanto iPhone têm recursos nativos de compartilhamento de Wi-Fi que geram o QR Code diretamente das configurações:
+
+  **Android (8+):**
+  1. Abra **Configurações → Wi-Fi** (ou Conexões → Wi-Fi).
+  2. Toque na rede à qual você está conectado.
+  3. Toque em **"Compartilhar"** ou no ícone de QR Code (varia por fabricante: Samsung, Motorola e Xiaomi têm esse botão em posições ligeiramente diferentes).
+  4. Um QR Code aparece — o outro dispositivo aponta a câmera e se conecta.
+
+  **iPhone (iOS 16+):**
+  1. Abra **Ajustes → Wi-Fi**.
+  2. Toque no ícone `ⓘ` ao lado da rede conectada.
+  3. Toque em **"Compartilhar senha"** — o iOS envia a senha automaticamente para outro dispositivo Apple próximo por AirDrop, sem mostrar o QR Code.
+  4. Para gerar um QR Code visual no iPhone, use o app **Atalhos (Shortcuts)**: pesquise "QR Your Wi-Fi" na Galeria de Atalhos, configure uma vez e use sempre que precisar.
+
+  > **Quando usar o GeraCode em vez do recurso nativo:** o QR Code nativo é pessoal e temporário — ideal para compartilhar com uma pessoa. O QR Code do GeraCode é para impressão e distribuição — cartões de mesa, adesivos, cartões de boas-vindas. Para uso comercial permanente, o GeraCode é a opção certa.
+
   ## Como funciona o QR Code de Wi-Fi
 
   O QR Code de Wi-Fi não abre um site — ele codifica um texto no formato **WIFI:** que os sistemas operacionais iOS e Android reconhecem nativamente como uma instrução de conexão. Quando a câmera detecta esse formato, ela exibe uma notificação "Conectar à rede [nome]" e completa a autenticação automaticamente.
