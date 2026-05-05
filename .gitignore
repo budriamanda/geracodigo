@@ -46,3 +46,7 @@ next-env.d.ts
 .claude/
 
 .vercel
+
+# Working files (não versionados)
+drafts/
+research/
