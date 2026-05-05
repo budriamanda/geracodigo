@@ -1,0 +1,231 @@
+slug: gerador-de-codigo-gratis-qual-usar
+title: "Gerador de Código Grátis: Qual Usar para Cada Caso?"
+metaDescription: "Código de barras, QR Code ou QR Code Pix? Descubra qual gerador de código grátis usar para cada necessidade. 5 ferramentas para lojistas. Sem cadastro."
+h1: "Gerador de código grátis: qual usar para cada caso?"
+subtitle: "Código de barras, QR Code, QR Pix ou SKU? Em 3 minutos você sabe exatamente qual ferramenta usar."
+resumo: "O GeraCode oferece 5 geradores de código completamente gratuitos. Qual usar depende do que você precisa: vender em supermercado exige código de barras EAN-13, receber Pix na mesa exige QR Code Pix, controlar estoque exige SKU ou Code 128. Este guia resolve essa dúvida com uma tabela de decisão direta."
+categoria: geral
+persona: geral
+dataPublicacao: "2026-05-05"
+dataAtualizacao: "2026-05-05"
+autor: Amanda Budri
+tempoLeitura: 7
+tags:
+  - codigo-de-barras
+  - qr-code
+  - pix
+  - sku
+  - lojista
+  - gratis
+ferramentaRelacionadaSlug: gerador-de-codigo-de-barras
+keywordPrimaria: "gerador de código grátis"
+keywordsSecundarias:
+  - "gerador de código grátis online"
+  - "qual tipo de código gerar"
+  - "tipos de código para lojista"
+  - "código de barras vs qr code qual usar"
+  - "ferramentas grátis para lojista"
+ogTitle: "Gerador de Código Grátis: Qual Usar? | GeraCode"
+ogDescription: "Código de barras, QR Code ou QR Pix? Descubra qual gerador usar para cada caso. 5 ferramentas grátis para lojistas, sem cadastro."
+ogAccent: "#4f46e5"
+twitterTitle: "Gerador de código grátis: qual usar para cada caso?"
+twitterDescription: "5 ferramentas grátis, sem cadastro. Descubra qual tipo de código você precisa."
+bodyMarkdown: |
+  O GeraCode oferece cinco ferramentas de gerador de código grátis: código de barras, QR Code, QR Code Pix, EAN-13 e SKU. Todas funcionam no navegador, sem cadastro, sem marca d'água e sem custo.
+
+  **Atenção:** este guia é sobre códigos para produtos, estoque e pagamentos — não sobre geração de código de programação por IA. Se você procura gerador de código de programação, esse não é o artigo certo.
+
+  Qual ferramenta usar depende de uma pergunta direta: o que você precisa fazer com esse código? Cada tipo tem uma função específica. Usar o errado significa código que não lê no caixa, pagamento Pix que não funciona ou estoque desorganizado.
+
+  Este guia resolve isso com uma tabela de decisão, exemplos reais de lojistas e respostas às dúvidas mais comuns.
+
+  ## Qual gerador de código grátis usar: os 5 tipos explicados
+
+  ### 1. Gerador de Código de Barras
+
+  O [gerador de código de barras](/gerador-de-codigo-de-barras) cria códigos lineares (as "listras") em 12 formatos: EAN-13, Code 128, Code 39, UPC-A, ITF-14, Codabar e mais. É o tipo lido por scanners a laser no caixa do supermercado, no leitor USB do estoque e pelas pistolas de inventário.
+
+  **Use quando você precisar de:**
+  - Código para produto vendido em varejo físico (supermercado, farmácia, loja)
+  - Código para cadastrar produto em marketplace (Mercado Livre, Shopee, Magalu)
+  - Etiqueta de prateleira ou controle de inventário com leitor a laser
+  - Rastreio de caixas na logística (ITF-14, Code 128)
+  - Campo GTIN/cEAN da Nota Fiscal Eletrônica (NF-e)
+
+  Gera em PNG, SVG e PDF. Suporta lote (vários códigos de uma vez) e impressão de etiquetas diretamente no A4.
+
+  ### 2. Gerador de QR Code
+
+  O [gerador de QR Code](/gerador-de-qr-code) cria os quadrados bidimensionais que o celular lê com a câmera. Diferente do código de barras linear, o QR Code armazena muito mais informação e é lido por qualquer smartphone moderno sem app adicional.
+
+  **Use quando você precisar de:**
+  - Link para site, cardápio digital ou portfólio
+  - Cartão de visita digital (vCard com nome, telefone e e-mail)
+  - Conexão automática de Wi-Fi para clientes (sem digitar senha)
+  - Link direto para o WhatsApp da sua loja
+  - QR Code personalizado com logo ou cores da marca
+
+  QR Code estático, sem prazo de validade, sem cadastro. O arquivo é gerado localmente, nenhum dado passa por servidores externos.
+
+  ### 3. Gerador de QR Code Pix
+
+  O [gerador de QR Code Pix](/gerador-de-qr-code-pix) cria o payload EMV BR Code válido para recebimento via Pix. O Pix já representa mais de 40% das transações financeiras no Brasil, [segundo o Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pix), e aceitar esse meio de pagamento sem maquininha é uma vantagem real para pequenos negócios.
+
+  **Use quando você precisar de:**
+  - Receber Pix em loja física sem maquininha
+  - QR Code de pagamento fixo na mesa do restaurante ou balcão
+  - Cobrança com valor preenchido automaticamente ao escanear
+  - QR Code Pix para cardápio, panfleto, WhatsApp ou stories
+  - Aceitar Pix em feiras, mercadinhos e atendimento porta a porta
+
+  Funciona com qualquer banco e qualquer app de pagamento que aceite Pix. O código é gerado e processado localmente, sem transmitir dados financeiros a servidores.
+
+  **QR Code Pix estático ou dinâmico?** O GeraCode gera QR Pix estático: o código é fixo, pode ser reutilizado infinitas vezes e aceita qualquer valor que o pagador digitar. É o formato ideal para placas, mesas de restaurante, banners e cardápios. O QR Pix dinâmico gera um código por transação e é usado por sistemas de cobrança automatizados via API. Para a maioria dos pequenos negócios, o estático resolve.
+
+  ### 4. Gerador de EAN
+
+  O [gerador de EAN](/gerador-de-ean) é especializado nos formatos EAN-13 e EAN-8, com validação automática do dígito verificador. O EAN-13 é o padrão internacional para produtos de consumo no Brasil, identificado pelo prefixo 789 ou 790 atribuído ao país.
+
+  **Use quando você precisar de:**
+  - EAN-13 para produto com GTIN destinado a varejo ou marketplace
+  - EAN-8 para embalagens pequenas (sachê, bala, produto com pouco espaço)
+  - Validar se um EAN existente tem o dígito verificador correto
+  - Gerar números EAN válidos para testes de sistema ou layout de embalagem
+
+  Para quem vende em marketplace e precisa de um GTIN válido sem registro na GS1, o gerador de EAN é o ponto de partida. O campo cEAN da NF-e aceita esses números para produtos sem registro oficial.
+
+  ### 5. Gerador de SKU
+
+  O [gerador de SKU](/gerador-de-sku) cria códigos de identificação interna para o seu catálogo. SKU (Stock Keeping Unit) é o identificador que você mesmo define para cada produto no seu sistema, independente de qualquer padrão externo.
+
+  **Use quando você precisar de:**
+  - Criar um sistema de códigos próprio para o estoque
+  - Gerar SKUs estruturados por categoria/variação (ex: CAM-AZL-GG para camisa azul GG)
+  - Organizar produtos com múltiplas variações (cor, tamanho, sabor) com referências únicas
+  - Exportar lista de SKUs em CSV para importar em Bling, Tiny, Omie ou planilha
+
+  SKU não é um código de barras: é a referência interna. Você pode combiná-lo com um Code 128 para ter os dois: referência legível por humanos e código escaneável por leitores.
+
+  ## Tabela de decisão: qual gerador de código usar para cada caso?
+
+  | O que você precisa fazer | Código certo | Ferramenta gratuita |
+  |---|---|---|
+  | Vender em supermercado ou farmácia | EAN-13 | [Gerador de EAN](/gerador-de-ean) |
+  | Cadastrar produto em marketplace (ML, Shopee, Magalu) | EAN-13 | [Gerador de EAN](/gerador-de-ean) |
+  | Preencher GTIN/cEAN na Nota Fiscal (NF-e) | EAN-13 ou "SEM GTIN" | [Gerador de EAN](/gerador-de-ean) |
+  | Controlar estoque interno com leitor a laser | Code 128 | [Gerador de Código de Barras](/gerador-de-codigo-de-barras) |
+  | Etiquetar caixas de transporte e pallets | ITF-14 | [Gerador de Código de Barras](/gerador-de-codigo-de-barras) |
+  | Receber Pix na loja, mesa ou feira | QR Code Pix | [Gerador de QR Code Pix](/gerador-de-qr-code-pix) |
+  | Cardápio digital no restaurante | QR Code (URL) | [Gerador de QR Code](/gerador-de-qr-code) |
+  | Link para WhatsApp ou redes sociais | QR Code (URL) | [Gerador de QR Code](/gerador-de-qr-code) |
+  | Wi-Fi para clientes sem digitar senha | QR Code (Wi-Fi) | [Gerador de QR Code](/gerador-de-qr-code) |
+  | Organizar catálogo com variações de produto | SKU | [Gerador de SKU](/gerador-de-sku) |
+  | Testar se um código gerado lê corretamente | (qualquer formato) | [Leitor de Código de Barras](/leitor-de-codigo-de-barras) |
+
+  ## Código de barras vs QR Code: qual a diferença?
+
+  Essa é a dúvida mais comum. As diferenças práticas são estas:
+
+  | | Código de barras linear | QR Code |
+  |---|---|---|
+  | Leitura | Leitor a laser (scanner de caixa, pistola USB) | Câmera de celular |
+  | Capacidade de dados | Até ~80 caracteres | Até ~3.000 caracteres |
+  | Uso principal | Produto, estoque, logística | Links, pagamentos, informações |
+  | Padrão varejista | Sim (EAN-13 obrigatório no PDV) | Não |
+  | Funciona offline | Sim | Sim (se o conteúdo for texto/dado fixo) |
+
+  Em resumo: se o destino final é um scanner de caixa ou leitor de estoque, use código de barras linear. Se o destino final é um celular apontando a câmera, use QR Code.
+
+  ## Exemplos reais: quando usar mais de um tipo
+
+  A maioria dos negócios combina dois ou três tipos. Veja como:
+
+  **Restaurante (Carlos, hamburgueria em São Paulo)**
+
+  Carlos configurou três ferramentas no mesmo dia de abertura:
+  - **QR Code (URL)** nas mesas, apontando para o cardápio no Instagram
+  - **QR Code Pix** no balcão, com valor zerado para o cliente digitar
+  - **Code 128** nas embalagens dos insumos no freezer, escaneado com leitor USB no controle de estoque
+
+  Os três foram gerados em menos de 10 minutos, todos sem custo.
+
+  **Loja de roupas no Mercado Livre (Fernanda, marca própria)**
+
+  Fernanda vende peças de roupa de marca própria — ela mesma cria as peças, sem revender marcas conhecidas. Neste cenário, o Mercado Livre aceita EAN-13 gerado localmente. Ela usa três ferramentas:
+  - **EAN-13** gerado no GeraCode para cadastrar os anúncios e preencher o campo GTIN da NF-e
+  - **SKU** no formato CAMISETA-PRETA-P para controle de variações no Bling
+  - **QR Code Pix** no cartão que acompanha cada pedido, para recebimentos diretos de clientes recorrentes
+
+  Importante: se você revende produtos de marcas conhecidas (Nike, Samsung, Nestlé), os marketplaces exigem o EAN oficial registrado na GS1. O gerador grátis não serve para esse caso.
+
+  **MEI de produtos naturais (Rodrigo, sabonetes artesanais)**
+
+  Rodrigo faz sabonetes artesanais e vende em feiras e pelo WhatsApp. Como é produto próprio sem revenda em grandes redes, o gerador grátis resolve tudo:
+  - **Code 128** nas etiquetas de cada produto para organizar o estoque em casa com leitor de celular
+  - **QR Code Pix** impresso no banner da banca e fixado no status do WhatsApp
+
+  Rodrigo não precisou se registrar na GS1 nem pagar nada.
+
+  ## Quando o gerador de código grátis é suficiente (e quando não é)
+
+  Para a maioria dos casos, o gerador de código grátis do GeraCode atende completamente. A exceção é específica.
+
+  **O gerador grátis basta para:**
+  - Controle interno de estoque (qualquer formato)
+  - E-commerce próprio (loja virtual, sem dependência de catálogo de varejista)
+  - Marketplace com produtos de marca própria ou artesanais (a maioria aceita GTIN livre)
+  - Pix, QR Code, Wi-Fi, WhatsApp e qualquer uso não-varejista
+  - Campo cEAN da NF-e para produtos sem código GS1 registrado (use "SEM GTIN")
+  - Testes, protótipos e validação de layouts de embalagem
+
+  **O registro na [GS1 Brasil](https://www.gs1br.org) é necessário quando:**
+  - Você vai vender em redes de supermercado, farmácias ou grandes varejistas físicos (eles exigem prefixo GS1 válido para integração no PDV)
+  - Seu produto precisa aparecer em bases de dados globais de GTIN (Amazon US, por exemplo)
+  - A plataforma ou varejista exige GTIN oficial validado na base GS1
+
+  O custo do registro na GS1 varia pelo faturamento anual da empresa. Para entender exatamente quando essa obrigação existe, leia o guia completo sobre [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo).
+
+  ## Como gerar seu código em 3 passos
+
+  O processo é o mesmo para qualquer um dos cinco geradores:
+
+  1. **Abra a ferramenta certa** — use a tabela de decisão acima para escolher o tipo de código
+  2. **Preencha os dados** — número do produto, chave Pix, URL ou referência interna, dependendo do tipo
+  3. **Baixe ou imprima** — PNG para uso digital, SVG para impressão profissional, PDF para etiquetas em lote
+
+  Não há cadastro, tempo de espera nem watermark. O código fica disponível imediatamente para download.
+
+  ## Perguntas frequentes sobre geradores de código grátis
+
+  **Qual é o melhor gerador de código de barras grátis?**
+  Para código de barras com múltiplos formatos (EAN-13, Code 128, ITF-14), geração em lote e impressão de etiquetas, o [GeraCode](/gerador-de-codigo-de-barras) é a opção mais completa no Brasil sem cadastro. Para QR Code Pix especificamente, use o [gerador de QR Pix](/gerador-de-qr-code-pix) integrado ao mesmo site.
+
+  **Preciso me cadastrar na GS1 para ter código de barras?**
+  Apenas se você vai vender em redes de supermercado, farmácias ou grandes varejistas físicos — ou se a plataforma/marketplace exigir GTIN oficialmente validado. Para uso interno, e-commerce próprio, feiras e produtos de marca própria em marketplace, o gerador grátis basta.
+
+  **Qual a diferença entre QR Code e código de barras?**
+  Código de barras linear (as "listras") é lido por scanners a laser e usado em caixas de supermercado, estoques e logística. QR Code é lido por câmera de celular e usado para links, pagamentos e informações digitais. São formatos complementares, não substitutos — muitos negócios usam os dois.
+
+  **QR Code Pix estático ou dinâmico: qual usar para minha loja?**
+  Estático para a maioria dos casos: placa no balcão, mesa de restaurante, banner ou cardápio impresso. O cliente escaneia, digita o valor e paga. Dinâmico é necessário apenas quando você precisa gerar cobranças automáticas com valores fixos por transação, via integração com sistema de gestão.
+
+  **Posso usar código gerado online para emitir nota fiscal (NF-e)?**
+  Sim, com uma condição: se o produto não tem EAN registrado na GS1, preencha o campo cEAN da NF-e com o literal `SEM GTIN`. Usar um número inventado ou inválido pode resultar em rejeição da nota pela SEFAZ. Se o produto tem EAN gerado pelo GeraCode e não está registrado na GS1, use `SEM GTIN` na NF-e.
+
+  ## Por onde começar agora
+
+  Se ainda não sabe qual ferramenta usar, a resposta mais provável é uma dessas:
+
+  - **Produto físico para loja ou marketplace:** [Gerador de Código de Barras](/gerador-de-codigo-de-barras) (EAN-13 ou Code 128)
+  - **Receber pagamento via Pix:** [Gerador de QR Code Pix](/gerador-de-qr-code-pix)
+  - **Organizar estoque com referências internas:** [Gerador de SKU](/gerador-de-sku)
+  - **Cardápio, link ou Wi-Fi:** [Gerador de QR Code](/gerador-de-qr-code)
+
+  Todos os geradores são gratuitos, funcionam no navegador e não armazenam nenhum dado. Se tiver dúvida sobre qual formato de código de barras específico usar, o guia [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo) detalha cada situação com tabela completa e exemplos por canal de venda.
+faqsSlugs:
+  - geracode-e-gratuito
+  - dados-ficam-seguros
+  - funciona-no-celular
+  - cb-qual-formato-usar
+  - sku-vs-codigo-de-barras
+  - pix-estatico-vs-dinamico
