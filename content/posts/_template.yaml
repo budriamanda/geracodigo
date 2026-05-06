@@ -1,0 +1,35 @@
+slug: SLUG_AQUI
+title: "Título do Artigo | GeraCode"
+metaDescription: "Meta description com keyword primária, 150-160 caracteres."
+h1: "H1 do artigo com keyword primária"
+subtitle: "Subtítulo descritivo de uma linha."
+resumo: "Resumo de 2-3 frases para cards e previews. Deve incluir keyword primária e proposta de valor clara."
+categoria: geral  # pix | codigo-barras | ean | sku | leitor | qr-code | geral
+persona: geral    # mei | lojista-ecommerce | lojista-fisico | restaurante | dev | geral
+dataPublicacao: "2026-01-01"
+dataAtualizacao: "2026-01-01"
+autor: Amanda Budri
+tempoLeitura: 5   # minutos (calcule: palavras / 200)
+tags:
+  - tag-1
+  - tag-2
+ferramentaRelacionadaSlug: gerador-de-codigo-de-barras  # slug da tool page relacionada
+keywordPrimaria: "keyword primária aqui"
+keywordsSecundarias:
+  - "variação 1"
+  - "variação 2"
+  - "variação 3"
+ogTitle: "OG Title (pode ser igual ao title, ≤60 chars)"
+ogDescription: "OG description, 1-2 frases, ≤160 chars."
+ogAccent: "#4f46e5"
+twitterTitle: "Twitter title, ≤70 chars"
+twitterDescription: "Twitter description, ≤200 chars."
+faqsSlugs:
+  - geracode-e-gratuito
+  - dados-ficam-seguros
+  - funciona-no-celular
+bodyMarkdown: |
+  Conteúdo do artigo em markdown aqui.
+
+  Mínimo 1.500 palavras (cluster) ou 2.000+ (pilar).
+  Keyword primária: no H1, nos primeiros 100 words, em ≥2 H2s.

@@ -73,6 +73,23 @@ content/
 - Sempre verificar mapa acima antes de propor novo conteúdo
 - `faqsSlugs` referencia slugs de `content/faqs/` — não duplicar FAQ no bodyMarkdown
 
+## Prioridades de conteúdo (próximos artigos)
+
+| # | Keyword-alvo | Vol/mês | Tipo | Nota |
+|---|---|---|---|---|
+| 1 | leitor de qr code online | 18k–25k | Nova ferramenta | Maior oportunidade |
+| 2 | qr code instagram / link na bio | 12k–18k | Post informacional | Ângulo: lojista |
+| 3 | codigo de barras mercado livre | 9k–14k | Post informacional | Não canibaliza /gerador-de-ean |
+| 4 | qr code dinâmico | 8k–12k | Post informacional | Diferença estático vs dinâmico |
+| 5 | como receber pix sem maquininha | 7k–10k | Atualizar post existente | Adicionar seção QR Pix |
+| 6 | qr code personalizado com logo | 5k–8k | Post/ferramenta | Funcionalidade já existe |
+| 7 | gerador de etiquetas | 5k–7k | Nova ferramenta | Pós-geração de código |
+| 8 | qr code para evento | 4k–6k | Post informacional | Vertical inexplorada |
+| 9 | como cadastrar produto mercado livre | 3k–5k | Post informacional | Alta intenção comercial |
+| 10 | ean-13 gratis | 3k–5k | Reforçar /gerador-de-ean | Atualizar tool page |
+
+**Regra:** Verificar mapa de keywords acima antes de começar qualquer item.
+
 ## Workflow de conteúdo
 
 ```
@@ -80,6 +97,9 @@ content/
 /write [slug]        → gera draft em drafts/ + YAML em content/posts/ (drafts/ não commitado)
 /scrub [arquivo]     → limpa watermarks e em-dashes do draft
 ```
+
+Scrub manual: `python3 scripts/scrub.py drafts/[arquivo].md`
+Template de post: `content/posts/_template.yaml` (copiar e renomear)
 
 **Apenas `content/posts/*.yaml` e `content/ferramentas/*.yaml` vão para o git.**
 `drafts/` e `research/` estão no `.gitignore`.
