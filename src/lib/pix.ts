@@ -6,8 +6,10 @@ function emvField(id: string, value: string): string {
   return id + len + value
 }
 
+export type PixKeyType = 'CPF' | 'CNPJ' | 'EMAIL' | 'TELEFONE' | 'ALEATORIA'
+
 export interface PixParams {
-  keyType: 'CPF' | 'CNPJ' | 'EMAIL' | 'TELEFONE' | 'ALEATORIA'
+  keyType: PixKeyType
   key: string
   name: string
   city: string
@@ -16,7 +18,102 @@ export interface PixParams {
   description?: string
 }
 
-function normalizePixKey(keyType: PixParams['keyType'], key: string): string {
+// ---------------------------------------------------------------------------
+// Metadados por tipo de chave — usados pelo formulário
+// ---------------------------------------------------------------------------
+
+export const KEY_TYPES: readonly PixKeyType[] = ['CPF', 'CNPJ', 'EMAIL', 'TELEFONE', 'ALEATORIA']
+
+export const KEY_META: Record<PixKeyType, { label: string; placeholder: string; maxLength: number }> = {
+  CPF:       { label: 'CPF',                   placeholder: '000.000.000-00',                       maxLength: 14 },
+  CNPJ:      { label: 'CNPJ',                  placeholder: '00.000.000/0000-00',                   maxLength: 18 },
+  EMAIL:     { label: 'E-mail',                placeholder: 'exemplo@email.com',                    maxLength: 77 },
+  TELEFONE:  { label: 'Telefone',              placeholder: '+5511999998888',                        maxLength: 15 },
+  ALEATORIA: { label: 'Chave aleatória (UUID)', placeholder: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', maxLength: 36 },
+}
+
+// ---------------------------------------------------------------------------
+// Validação de formulário
+// ---------------------------------------------------------------------------
+
+export interface PixFormFields {
+  keyType: PixKeyType
+  key: string
+  name: string
+  city: string
+  value?: string       // string vinda do input (parseFloat interno)
+  txid?: string
+  description?: string
+}
+
+export type PixFieldErrors = Partial<Record<'key' | 'name' | 'city', string>>
+
+export function validatePixForm(fields: PixFormFields): PixFieldErrors {
+  const errors: PixFieldErrors = {}
+  const { keyType, key, name, city } = fields
+  const trimmedKey = key.trim()
+
+  if (!trimmedKey) {
+    errors.key = 'Informe a chave Pix'
+  } else {
+    const digits = trimmedKey.replace(/\D/g, '')
+    if (keyType === 'CPF' && digits.length !== 11) {
+      errors.key = 'CPF deve ter 11 dígitos'
+    } else if (keyType === 'CNPJ' && digits.length !== 14) {
+      errors.key = 'CNPJ deve ter 14 dígitos'
+    } else if (keyType === 'EMAIL' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedKey)) {
+      errors.key = 'Informe um e-mail válido'
+    } else if (keyType === 'TELEFONE' && !/^\+\d{10,14}$/.test(trimmedKey)) {
+      errors.key = 'Telefone deve iniciar com + e código do país (ex: +5511999998888)'
+    } else if (keyType === 'ALEATORIA' && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(trimmedKey)) {
+      errors.key = 'Chave aleatória deve estar no formato UUID'
+    }
+  }
+
+  if (!name.trim()) errors.name = 'Informe o nome do recebedor'
+  if (!city.trim()) errors.city = 'Informe a cidade'
+
+  return errors
+}
+
+// ---------------------------------------------------------------------------
+// Build — valida + gera payload em 1 call, retorna union sem throw
+// ---------------------------------------------------------------------------
+
+export type BuildResult =
+  | { ok: true; payload: string; valueCapped: boolean }
+  | { ok: false; errors: PixFieldErrors }
+
+export function buildPixPayload(fields: PixFormFields): BuildResult {
+  const errors = validatePixForm(fields)
+  if (Object.keys(errors).length > 0) return { ok: false, errors }
+
+  const { keyType, key, name, city, value, txid, description } = fields
+
+  const parsedValue = value ? parseFloat(value) : undefined
+  const valueCapped = parsedValue !== undefined && !isNaN(parsedValue) && parsedValue > 999_999.99
+  const numValue = parsedValue !== undefined && !isNaN(parsedValue) && parsedValue > 0
+    ? Math.min(999_999.99, parsedValue)
+    : undefined
+
+  const payload = generatePixPayload({
+    keyType,
+    key: key.trim(),
+    name: name.trim(),
+    city: city.trim(),
+    value: numValue,
+    txid: txid?.trim() || undefined,
+    description: description?.trim() || undefined,
+  })
+
+  return { ok: true, payload, valueCapped }
+}
+
+// ---------------------------------------------------------------------------
+// Geração interna — sem validação (use buildPixPayload para formulários)
+// ---------------------------------------------------------------------------
+
+function normalizePixKey(keyType: PixKeyType, key: string): string {
   if (keyType === 'CPF' || keyType === 'CNPJ') {
     return key.replace(/\D/g, '')
   }

@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react'
 import QRCode from 'qrcode'
-import { generatePixPayload, PixParams } from '@/lib/pix'
+import { buildPixPayload, validatePixForm, KEY_TYPES, KEY_META, type PixKeyType } from '@/lib/pix'
 import { trackGenerate, trackDownload, trackCopy } from '@/lib/analytics'
 import { incrementCount } from '@/lib/counter'
 import { downloadDataUrl, downloadBlob } from '@/lib/download'
@@ -12,31 +12,7 @@ import { showToast } from '@/components/Toast'
 import PreviewArea from '@/components/ui/PreviewArea'
 import PrivacyChip from '@/components/ui/PrivacyChip'
 
-type KeyType = PixParams['keyType']
-
-const KEY_TYPE_LABELS: Record<KeyType, string> = {
-  CPF: 'CPF',
-  CNPJ: 'CNPJ',
-  EMAIL: 'E-mail',
-  TELEFONE: 'Telefone',
-  ALEATORIA: 'Chave aleatória (UUID)',
-}
-
-const KEY_PLACEHOLDERS: Record<KeyType, string> = {
-  CPF: '000.000.000-00',
-  CNPJ: '00.000.000/0000-00',
-  EMAIL: 'exemplo@email.com',
-  TELEFONE: '+5511999998888',
-  ALEATORIA: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx',
-}
-
-const KEY_MAX_LENGTHS: Record<KeyType, number> = {
-  CPF: 14,
-  CNPJ: 18,
-  EMAIL: 77,
-  TELEFONE: 15,
-  ALEATORIA: 36,
-}
+type KeyType = PixKeyType
 
 interface FieldErrors {
   key?: string
@@ -89,15 +65,7 @@ export default function PixGenerator() {
   }
 
   const validateKeyField = useCallback((currentKey: string, currentKeyType: KeyType): string | undefined => {
-    const trimmed = currentKey.trim()
-    if (!trimmed) return 'Informe a chave Pix'
-    const digitsOnly = trimmed.replace(/\D/g, '')
-    if (currentKeyType === 'CPF' && digitsOnly.length !== 11) return 'CPF deve ter 11 dígitos'
-    if (currentKeyType === 'CNPJ' && digitsOnly.length !== 14) return 'CNPJ deve ter 14 dígitos'
-    if (currentKeyType === 'EMAIL' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return 'Informe um e-mail válido'
-    if (currentKeyType === 'TELEFONE' && !/^\+\d{10,14}$/.test(trimmed)) return 'Telefone deve iniciar com + e código do país (ex: +5511999998888)'
-    if (currentKeyType === 'ALEATORIA' && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(trimmed)) return 'Chave aleatória deve estar no formato UUID'
-    return undefined
+    return validatePixForm({ keyType: currentKeyType, key: currentKey, name: 'x', city: 'x' }).key
   }, [])
 
   const handleBlur = (field: keyof FieldErrors) => {
@@ -126,55 +94,22 @@ export default function PixGenerator() {
   }
 
   const handleGenerate = useCallback(async () => {
-    const errors: FieldErrors = {}
-    const trimmedKey = key.trim()
-    if (!trimmedKey) {
-      errors.key = 'Informe a chave Pix'
-    } else {
-      const digitsOnly = trimmedKey.replace(/\D/g, '')
-      if (keyType === 'CPF' && digitsOnly.length !== 11) {
-        errors.key = 'CPF deve ter 11 dígitos'
-      } else if (keyType === 'CNPJ' && digitsOnly.length !== 14) {
-        errors.key = 'CNPJ deve ter 14 dígitos'
-      } else if (keyType === 'EMAIL' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedKey)) {
-        errors.key = 'Informe um e-mail válido'
-      } else if (keyType === 'TELEFONE' && !/^\+\d{10,14}$/.test(trimmedKey)) {
-        errors.key = 'Telefone deve iniciar com + e código do país (ex: +5511999998888)'
-      } else if (keyType === 'ALEATORIA' && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(trimmedKey)) {
-        errors.key = 'Chave aleatória deve estar no formato UUID (ex: 123e4567-e89b-12d3-a456-426614174000)'
-      }
-    }
-    if (!name.trim()) errors.name = 'Informe o nome do recebedor'
-    if (!city.trim()) errors.city = 'Informe a cidade'
-
-    setFieldErrors(errors)
-    if (Object.keys(errors).length > 0) {
+    const result = buildPixPayload({ keyType, key, name, city, value, txid, description })
+    if (!result.ok) {
+      setFieldErrors(result.errors)
       setQrDataUrl('')
       setPayload('')
       setIsValid(false)
       return
     }
 
+    setFieldErrors({})
     setIsGenerating(true)
     setError('')
     try {
-      const parsedValue = value ? parseFloat(value) : undefined
-      const isCapped = parsedValue !== undefined && !isNaN(parsedValue) && parsedValue > 999999.99
-      setValueCapped(isCapped)
-      const numValue = parsedValue !== undefined && !isNaN(parsedValue) && parsedValue > 0
-        ? Math.min(999999.99, parsedValue)
-        : undefined
-      const pix = generatePixPayload({
-        keyType,
-        key: key.trim(),
-        name: name.trim(),
-        city: city.trim(),
-        value: numValue,
-        txid: txid.trim() || undefined,
-        description: description.trim() || undefined,
-      })
-      setPayload(pix)
-      const dataUrl = await QRCode.toDataURL(pix, {
+      setValueCapped(result.valueCapped)
+      setPayload(result.payload)
+      const dataUrl = await QRCode.toDataURL(result.payload, {
         width: 400,
         margin: 2,
         color: { dark: '#000000', light: '#ffffff' },
@@ -260,8 +195,8 @@ export default function PixGenerator() {
               }}
               className={inputNormal}
             >
-              {(Object.keys(KEY_TYPE_LABELS) as KeyType[]).map(k => (
-                <option key={k} value={k}>{KEY_TYPE_LABELS[k]}</option>
+              {KEY_TYPES.map(k => (
+                <option key={k} value={k}>{KEY_META[k].label}</option>
               ))}
             </select>
           </div>
@@ -278,8 +213,8 @@ export default function PixGenerator() {
                 value={key}
                 onChange={e => { setKey(e.target.value); clearFieldError('key'); markStale() }}
                 onBlur={() => handleBlur('key')}
-                placeholder={KEY_PLACEHOLDERS[keyType]}
-                maxLength={KEY_MAX_LENGTHS[keyType]}
+                placeholder={KEY_META[keyType].placeholder}
+                maxLength={KEY_META[keyType].maxLength}
                 className={`${fieldErrors.key ? inputErr : inputNormal} pr-8`}
                 aria-required="true"
                 aria-invalid={!!fieldErrors.key}
@@ -476,7 +411,7 @@ export default function PixGenerator() {
                 </div>
                 <div className="flex justify-between gap-2">
                   <dt className="text-gray-400 shrink-0">Chave</dt>
-                  <dd className="font-medium text-right truncate">{KEY_TYPE_LABELS[keyType]}: {key.trim()}</dd>
+                  <dd className="font-medium text-right truncate">{KEY_META[keyType].label}: {key.trim()}</dd>
                 </div>
                 {value && parseFloat(value) > 0 && (
                   <div className="flex justify-between gap-2">

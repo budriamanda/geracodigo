@@ -1,4 +1,5 @@
-const STORAGE_KEY = 'geracode_barcode_history'
+import { createStore } from '@/lib/storage/typed-store'
+
 const MAX_ITEMS = 30
 
 export interface BarcodeHistoryItem {
@@ -19,49 +20,36 @@ function isValidItem(item: unknown): item is BarcodeHistoryItem {
   )
 }
 
+const historyStore = createStore<BarcodeHistoryItem[]>({
+  key: 'geracode_barcode_history',
+  defaultValue: [],
+  validate: (v): v is BarcodeHistoryItem[] => Array.isArray(v) && v.every(isValidItem),
+})
+
 export function getHistory(): BarcodeHistoryItem[] {
-  if (typeof window === 'undefined') return []
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return []
-    const parsed: unknown = JSON.parse(raw)
-    if (!Array.isArray(parsed)) return []
-    return parsed.filter(isValidItem)
-  } catch {
-    return []
-  }
+  return historyStore.get()
 }
 
 export function addToHistory(value: string, format: string): void {
-  if (typeof window === 'undefined') return
-  try {
-    const items = getHistory()
-    const existing = items.findIndex(i => i.value === value && i.format === format)
-    if (existing !== -1) items.splice(existing, 1)
-
-    items.unshift({
-      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-      value,
-      format,
-      createdAt: Date.now(),
-    })
-
-    if (items.length > MAX_ITEMS) items.length = MAX_ITEMS
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-  } catch { /* localStorage full or unavailable */ }
+  historyStore.update(items => {
+    const deduped = items.filter(i => !(i.value === value && i.format === format))
+    const next = [
+      {
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        value,
+        format,
+        createdAt: Date.now(),
+      },
+      ...deduped,
+    ]
+    return next.length > MAX_ITEMS ? next.slice(0, MAX_ITEMS) : next
+  })
 }
 
 export function removeFromHistory(id: string): void {
-  if (typeof window === 'undefined') return
-  try {
-    const items = getHistory().filter(i => i.id !== id)
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items))
-  } catch { /* noop */ }
+  historyStore.update(items => items.filter(i => i.id !== id))
 }
 
 export function clearHistory(): void {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.removeItem(STORAGE_KEY)
-  } catch { /* noop */ }
+  historyStore.clear()
 }

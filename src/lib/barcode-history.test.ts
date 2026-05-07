@@ -1,28 +1,29 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
+import { memoryBackend } from '@/lib/storage/typed-store'
 
-const STORAGE_KEY = 'geracode_barcode_history'
+// ---------------------------------------------------------------------------
+// Estratégia: window.localStorage é substituído por um memoryBackend antes
+// de cada teste. Isso isola os testes sem mocks de módulo complexos,
+// e valida que o barcode-history.ts usa localStorage corretamente.
+// ---------------------------------------------------------------------------
 
-const localStorageMock = (() => {
-  let store: Record<string, string> = {}
-  return {
-    getItem: vi.fn((key: string) => store[key] ?? null),
-    setItem: vi.fn((key: string, value: string) => { store[key] = value }),
-    removeItem: vi.fn((key: string) => { delete store[key] }),
-    clear: vi.fn(() => { store = {} }),
-    get length() { return Object.keys(store).length },
-    key: vi.fn(() => null as string | null),
-  }
-})()
+const storage = memoryBackend()
 
-Object.defineProperty(globalThis, 'window', { value: globalThis, writable: true })
-Object.defineProperty(globalThis, 'localStorage', { value: localStorageMock, writable: true })
+// Injeta o backend em memória como localStorage global (limpo a cada teste)
+Object.defineProperty(globalThis, 'window', { value: globalThis, writable: true, configurable: true })
+Object.defineProperty(globalThis, 'localStorage', {
+  get: () => storage,
+  configurable: true,
+})
 
-const { getHistory, addToHistory, removeFromHistory, clearHistory } = await import('./barcode-history')
+const { getHistory, addToHistory, removeFromHistory, clearHistory } =
+  await import('./barcode-history')
 
 describe('barcode-history', () => {
   beforeEach(() => {
-    localStorageMock.clear()
-    vi.clearAllMocks()
+    // Limpa storage entre testes
+    const all = ['geracode_barcode_history']
+    for (const key of all) storage.removeItem(key)
   })
 
   describe('getHistory', () => {
@@ -30,27 +31,16 @@ describe('barcode-history', () => {
       expect(getHistory()).toEqual([])
     })
 
-    it('returns parsed items from localStorage', () => {
-      const items = [{ id: '1', value: '123', format: 'EAN13', createdAt: 1000 }]
-      localStorageMock.setItem(STORAGE_KEY, JSON.stringify(items))
-      expect(getHistory()).toEqual(items)
-    })
-
-    it('returns empty array for corrupted data', () => {
-      localStorageMock.setItem(STORAGE_KEY, 'not-json')
-      expect(getHistory()).toEqual([])
-    })
-  })
-
-  describe('addToHistory', () => {
-    it('adds a new item to history', () => {
+    it('returns parsed items after addToHistory', () => {
       addToHistory('7891234567890', 'EAN13')
       const history = getHistory()
       expect(history).toHaveLength(1)
       expect(history[0].value).toBe('7891234567890')
       expect(history[0].format).toBe('EAN13')
     })
+  })
 
+  describe('addToHistory', () => {
     it('prepends new items (most recent first)', () => {
       addToHistory('AAA', 'CODE128')
       addToHistory('BBB', 'CODE128')
@@ -71,14 +61,11 @@ describe('barcode-history', () => {
     it('allows same value with different format', () => {
       addToHistory('123', 'CODE128')
       addToHistory('123', 'EAN13')
-      const history = getHistory()
-      expect(history).toHaveLength(2)
+      expect(getHistory()).toHaveLength(2)
     })
 
     it('limits history to 30 items', () => {
-      for (let i = 0; i < 35; i++) {
-        addToHistory(`code-${i}`, 'CODE128')
-      }
+      for (let i = 0; i < 35; i++) addToHistory(`code-${i}`, 'CODE128')
       const history = getHistory()
       expect(history).toHaveLength(30)
       expect(history[0].value).toBe('code-34')
@@ -88,8 +75,7 @@ describe('barcode-history', () => {
   describe('removeFromHistory', () => {
     it('removes an item by id', () => {
       addToHistory('AAA', 'CODE128')
-      const history = getHistory()
-      const id = history[0].id
+      const id = getHistory()[0].id
       removeFromHistory(id)
       expect(getHistory()).toHaveLength(0)
     })

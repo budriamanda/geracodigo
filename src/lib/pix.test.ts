@@ -1,7 +1,129 @@
 import { describe, it, expect } from 'vitest'
-import { generatePixPayload, type PixParams } from './pix'
+import { generatePixPayload, validatePixForm, buildPixPayload, KEY_META, KEY_TYPES, type PixParams, type PixFormFields } from './pix'
 import { crc16 } from './crc16'
 import { normalize } from './normalize'
+
+const baseFields: PixFormFields = {
+  keyType: 'EMAIL',
+  key: 'fulano@email.com',
+  name: 'Fulano de Tal',
+  city: 'Sao Paulo',
+}
+
+describe('KEY_META / KEY_TYPES', () => {
+  it('KEY_TYPES has 5 entries', () => {
+    expect(KEY_TYPES).toHaveLength(5)
+  })
+
+  it('every KEY_TYPE has label, placeholder and maxLength in KEY_META', () => {
+    for (const kt of KEY_TYPES) {
+      expect(KEY_META[kt].label).toBeTruthy()
+      expect(KEY_META[kt].placeholder).toBeTruthy()
+      expect(KEY_META[kt].maxLength).toBeGreaterThan(0)
+    }
+  })
+})
+
+describe('validatePixForm', () => {
+  it('returns empty errors for valid EMAIL', () => {
+    expect(validatePixForm(baseFields)).toEqual({})
+  })
+
+  it('errors on empty key', () => {
+    const r = validatePixForm({ ...baseFields, key: '' })
+    expect(r.key).toBeTruthy()
+  })
+
+  it('errors on CPF with wrong digit count', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'CPF', key: '123' })
+    expect(r.key).toMatch(/11 dígitos/)
+  })
+
+  it('accepts CPF with 11 digits stripped of formatting', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'CPF', key: '123.456.789-00' })
+    expect(r.key).toBeUndefined()
+  })
+
+  it('errors on CNPJ with wrong digit count', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'CNPJ', key: '12345' })
+    expect(r.key).toMatch(/14 dígitos/)
+  })
+
+  it('accepts CNPJ with 14 digits', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'CNPJ', key: '12.345.678/0001-90' })
+    expect(r.key).toBeUndefined()
+  })
+
+  it('errors on invalid EMAIL', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'EMAIL', key: 'not-an-email' })
+    expect(r.key).toBeTruthy()
+  })
+
+  it('errors on TELEFONE without +', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'TELEFONE', key: '11999998888' })
+    expect(r.key).toMatch(/\+/)
+  })
+
+  it('accepts valid TELEFONE', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'TELEFONE', key: '+5511999998888' })
+    expect(r.key).toBeUndefined()
+  })
+
+  it('errors on invalid ALEATORIA UUID', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'ALEATORIA', key: 'not-a-uuid' })
+    expect(r.key).toMatch(/UUID/)
+  })
+
+  it('accepts valid UUID for ALEATORIA', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'ALEATORIA', key: '123e4567-e89b-12d3-a456-426614174000' })
+    expect(r.key).toBeUndefined()
+  })
+
+  it('errors on empty name', () => {
+    const r = validatePixForm({ ...baseFields, name: '' })
+    expect(r.name).toBeTruthy()
+  })
+
+  it('errors on empty city', () => {
+    const r = validatePixForm({ ...baseFields, city: '' })
+    expect(r.city).toBeTruthy()
+  })
+})
+
+describe('buildPixPayload', () => {
+  it('returns ok:true for valid fields', () => {
+    const r = buildPixPayload(baseFields)
+    expect(r.ok).toBe(true)
+    if (r.ok) expect(r.payload).toBeTruthy()
+  })
+
+  it('returns ok:false for invalid fields', () => {
+    const r = buildPixPayload({ ...baseFields, key: '' })
+    expect(r.ok).toBe(false)
+    if (!r.ok) expect(r.errors.key).toBeTruthy()
+  })
+
+  it('valueCapped = false when value <= 999999.99', () => {
+    const r = buildPixPayload({ ...baseFields, value: '100' })
+    expect(r.ok).toBe(true)
+    if (r.ok) expect(r.valueCapped).toBe(false)
+  })
+
+  it('valueCapped = true and payload clamps to 999999.99 when value > max', () => {
+    const r = buildPixPayload({ ...baseFields, value: '2000000' })
+    expect(r.ok).toBe(true)
+    if (r.ok) {
+      expect(r.valueCapped).toBe(true)
+      expect(r.payload).toContain('999999.99')
+    }
+  })
+
+  it('no value field in payload when value is empty', () => {
+    const r = buildPixPayload(baseFields)
+    expect(r.ok).toBe(true)
+    if (r.ok) expect(r.payload).not.toMatch(/54\d{2}\d+\.\d{2}/)
+  })
+})
 
 describe('crc16', () => {
   it('returns a 4-char uppercase hex string', () => {

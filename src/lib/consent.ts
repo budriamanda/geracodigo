@@ -1,4 +1,4 @@
-const CONSENT_KEY = 'geracode_cookie_consent'
+import { createStore } from '@/lib/storage/typed-store'
 
 export interface ConsentPreferences {
   analytics: boolean
@@ -25,30 +25,22 @@ function isValidConsent(data: unknown): data is ConsentPreferences {
   )
 }
 
+const consentStore = createStore<ConsentPreferences | null>({
+  key: 'geracode_cookie_consent',
+  defaultValue: null,
+  validate: (v): v is ConsentPreferences | null => v === null || isValidConsent(v),
+})
+
 export function getConsent(): ConsentPreferences | null {
-  if (typeof window === 'undefined') return null
-  try {
-    const raw = localStorage.getItem(CONSENT_KEY)
-    if (!raw) return null
-    const parsed: unknown = JSON.parse(raw)
-    return isValidConsent(parsed) ? parsed : null
-  } catch {
-    return null
-  }
+  return consentStore.get()
 }
 
 export function saveConsent(prefs: Omit<ConsentPreferences, 'timestamp'>): void {
-  if (typeof window === 'undefined') return
-
   const consent: ConsentPreferences = {
     ...prefs,
     timestamp: new Date().toISOString(),
   }
-
-  try {
-    localStorage.setItem(CONSENT_KEY, JSON.stringify(consent))
-  } catch { /* localStorage unavailable */ }
-
+  consentStore.set(consent)
   applyConsent(consent)
 }
 
@@ -62,11 +54,7 @@ export function applyConsent(prefs: ConsentPreferences): void {
 }
 
 export function revokeConsent(): void {
-  if (typeof window === 'undefined') return
-  try {
-    localStorage.removeItem(CONSENT_KEY)
-  } catch { /* localStorage unavailable */ }
-
+  consentStore.clear()
   gtag('consent', 'update', {
     analytics_storage: 'denied',
     ad_storage: 'denied',

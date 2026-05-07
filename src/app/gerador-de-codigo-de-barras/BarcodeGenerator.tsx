@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useRef, useCallback, useEffect } from 'react'
-import { downloadSvgFromElement, downloadPngFromElement, downloadBlob, exportSvgsToPdf } from '@/lib/download'
+import React, { useState, useRef, useCallback, useEffect } from 'react'
+import { downloadSvg, downloadBlob, exportSvgsToPdf, serializeSvg } from '@/lib/download'
 import { showToast } from '@/components/Toast'
 import PrivacyChip from '@/components/ui/PrivacyChip'
 import { incrementCount } from '@/lib/counter'
-import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-check-digit'
+import { createBarcodeService, type BarcodeService, type BatchItem } from '@/lib/barcode-service'
 import { addToHistory, getHistory, removeFromHistory, clearHistory, type BarcodeHistoryItem } from '@/lib/barcode-history'
 import { trackGenerate, trackBatchGenerate, trackDownload, trackPrint } from '@/lib/analytics'
 import ConfirmDialog from '@/components/ConfirmDialog'
@@ -13,12 +13,6 @@ import ShareBlock from '@/components/ShareBlock'
 import { getShareConfig } from '@/lib/share-config'
 
 const SHARE = getShareConfig('gerador-de-codigo-de-barras')
-
-type JsBarcodeFn = (
-  element: SVGSVGElement | string | null,
-  data: string,
-  options?: Record<string, unknown>,
-) => void
 
 const FORMATS = [
   { value: 'EAN13', label: 'EAN-13', placeholder: '7891234567890', hint: '13 dígitos' },
@@ -56,8 +50,7 @@ export default function BarcodeGenerator() {
   const [showText, setShowText] = useState(true)
   const [fontSize, setFontSize] = useState(14)
 
-  const [batchResults, setBatchResults] = useState<{ id: string; value: string; error?: string }[]>([])
-  const [batchRendered, setBatchRendered] = useState(false)
+  const [batchResults, setBatchResults] = useState<BatchItem[]>([])
 
   const [history, setHistoryState] = useState<BarcodeHistoryItem[]>([])
   const [isExporting, setIsExporting] = useState(false)
@@ -66,12 +59,11 @@ export default function BarcodeGenerator() {
   const [showShare, setShowShare] = useState(false)
 
   const svgRef = useRef<SVGSVGElement>(null)
-  const batchContainerRef = useRef<HTMLDivElement>(null)
-  const jsBarcodeRef = useRef<JsBarcodeFn | null>(null)
+  const serviceRef = useRef<BarcodeService | null>(null)
 
   useEffect(() => {
     import('jsbarcode').then(mod => {
-      jsBarcodeRef.current = mod.default as JsBarcodeFn
+      serviceRef.current = createBarcodeService(mod.default as Parameters<typeof createBarcodeService>[0])
       setBarcodeReady(true)
     })
   }, [])
@@ -82,24 +74,7 @@ export default function BarcodeGenerator() {
 
   const currentFormat = FORMATS.find(f => f.value === format)
 
-  useEffect(() => {
-    if ((format === 'EAN13' || format === 'EAN8') && /^\d+$/.test(input)) {
-      if (format === 'EAN13' && input.length === 12) {
-        const cd = calculateEan13CheckDigit(input)
-        setCheckDigitHint(`Dígito verificador: ${cd} (código completo: ${input}${cd})`)
-      } else if (format === 'EAN8' && input.length === 7) {
-        const cd = calculateEan8CheckDigit(input)
-        setCheckDigitHint(`Dígito verificador: ${cd} (código completo: ${input}${cd})`)
-      } else {
-        setCheckDigitHint('')
-      }
-    } else {
-      setCheckDigitHint('')
-    }
-  }, [input, format])
-
-  const getBarcodeOptions = useCallback(() => ({
-    format,
+  const getRenderOptions = useCallback(() => ({
     lineColor,
     background: bgColor,
     width: barWidth,
@@ -107,116 +82,91 @@ export default function BarcodeGenerator() {
     displayValue: showText,
     fontSize,
     margin: 10,
-  }), [format, lineColor, bgColor, barWidth, barHeight, showText, fontSize])
+  }), [lineColor, bgColor, barWidth, barHeight, showText, fontSize])
 
-  const resolveInput = useCallback((raw: string): string => {
-    const trimmed = raw.trim()
-    if (format === 'EAN13' && /^\d{12}$/.test(trimmed)) {
-      return trimmed + calculateEan13CheckDigit(trimmed)
+  useEffect(() => {
+    if (!serviceRef.current) return
+    const hint = serviceRef.current.getCheckDigitHint(input, format as Parameters<typeof serviceRef.current.getCheckDigitHint>[1])
+    if (hint) {
+      setCheckDigitHint(`Dígito verificador: ${hint.checkDigit} (código completo: ${hint.fullCode})`)
+    } else {
+      setCheckDigitHint('')
     }
-    if (format === 'EAN8' && /^\d{7}$/.test(trimmed)) {
-      return trimmed + calculateEan8CheckDigit(trimmed)
-    }
-    return trimmed
-  }, [format])
+  }, [input, format])
 
   const generate = useCallback(() => {
-    if (!jsBarcodeRef.current || !svgRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
-    const val = resolveInput(input)
-    if (!val) { setError('Digite um valor para o código de barras.'); return }
+    if (!serviceRef.current || !svgRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     try {
-      jsBarcodeRef.current(svgRef.current, val, getBarcodeOptions())
+      const resolved = serviceRef.current.renderInto(svgRef.current, input, format as Parameters<typeof serviceRef.current.renderInto>[2], getRenderOptions())
+      if (!resolved) { setError('Digite um valor para o código de barras.'); return }
       setGenerated(true)
       setError('')
-      addToHistory(val, format)
+      addToHistory(resolved, format)
       trackGenerate('barcode_generator', format)
       incrementCount()
     } catch {
       setError('Valor inválido para o formato selecionado.')
       setGenerated(false)
     }
-  }, [input, format, getBarcodeOptions, resolveInput])
+  }, [input, format, getRenderOptions])
 
   const MAX_BATCH = 200
 
   const generateBatch = useCallback(() => {
-    if (!jsBarcodeRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
+    if (!serviceRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     const lines = batchInput.split('\n').map(l => l.trim()).filter(Boolean)
     if (lines.length === 0) { setError('Insira pelo menos um código.'); return }
     if (lines.length > MAX_BATCH) { setError(`Máximo de ${MAX_BATCH} códigos por vez. Você inseriu ${lines.length}.`); return }
     setError('')
 
-    const renderBarcode = jsBarcodeRef.current
-    const results = lines.map((line, i) => {
-      const val = resolveInput(line)
-      const id = `${Date.now()}-${i}`
-      const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGSVGElement
-      try {
-        renderBarcode(tempSvg, val, getBarcodeOptions())
-        return { id, value: val }
-      } catch {
-        return { id, value: val, error: `Valor inválido: ${val}` }
-      }
-    })
+    const results = serviceRef.current.generateBatch(
+      lines,
+      format as Parameters<typeof serviceRef.current.generateBatch>[1],
+      getRenderOptions(),
+    )
 
-    const successResults = results.filter(r => !r.error)
-    for (const r of successResults) {
+    for (const r of results.filter(r => !r.error)) {
       addToHistory(r.value, format)
     }
     setBatchResults(results)
-    setBatchRendered(false)
     const successCount = results.filter(r => !r.error).length
     trackBatchGenerate('barcode_generator', format, successCount)
     incrementCount(successCount)
-  }, [batchInput, format, getBarcodeOptions, resolveInput])
-
-  useEffect(() => {
-    if (batchResults.length === 0 || !batchContainerRef.current || !jsBarcodeRef.current) return
-    const renderBarcode = jsBarcodeRef.current
-    const svgs = batchContainerRef.current.querySelectorAll<SVGSVGElement>('[data-batch-value]')
-    svgs.forEach(el => {
-      const val = el.getAttribute('data-batch-value')
-      if (val) {
-        try { renderBarcode(el, val, getBarcodeOptions()) } catch { /* skip */ }
-      }
-    })
-    setBatchRendered(true)
-  }, [batchResults, getBarcodeOptions, tab])
+  }, [batchInput, format, getRenderOptions])
 
   const downloadBatchZip = useCallback(async () => {
-    if (!batchContainerRef.current) return
     setIsExporting(true)
     try {
       const JSZip = (await import('jszip')).default
       const zip = new JSZip()
-      const svgs = batchContainerRef.current.querySelectorAll<SVGSVGElement>('[data-batch-value]')
-
       const nameCount = new Map<string, number>()
-      for (const svg of svgs) {
-        const val = svg.getAttribute('data-batch-value') ?? 'barcode'
-        const count = nameCount.get(val) ?? 0
-        nameCount.set(val, count + 1)
-        const filename = count === 0 ? `${val}.svg` : `${val}_${count}.svg`
-        const svgStr = new XMLSerializer().serializeToString(svg)
-        zip.file(filename, svgStr)
+      let count = 0
+      for (const r of batchResults) {
+        if (!r.svgElement) continue
+        const val = r.value ?? 'barcode'
+        const n = nameCount.get(val) ?? 0
+        nameCount.set(val, n + 1)
+        const filename = n === 0 ? `${val}.svg` : `${val}_${n}.svg`
+        zip.file(filename, serializeSvg(r.svgElement))
+        count++
       }
       const blob = await zip.generateAsync({ type: 'blob' })
       downloadBlob(blob, 'codigos-de-barras.zip')
       trackDownload('barcode_generator', format, 'zip')
-      showToast(`Download iniciado — ZIP com ${svgs.length} códigos`, 'success')
+      showToast(`Download iniciado — ZIP com ${count} códigos`, 'success')
       setShowShare(true)
     } catch {
       setError('Erro ao gerar ZIP. Tente novamente.')
     } finally {
       setIsExporting(false)
     }
-  }, [format])
+  }, [batchResults, format])
 
   const downloadPdf = useCallback(async () => {
     setIsExporting(true)
     try {
       const svgs = tab === 'batch'
-        ? Array.from(batchContainerRef.current?.querySelectorAll<SVGSVGElement>('[data-batch-value]') ?? [])
+        ? batchResults.map(r => r.svgElement).filter((el): el is SVGSVGElement => !!el)
         : svgRef.current ? [svgRef.current] : []
 
       if (svgs.length === 0) {
@@ -233,11 +183,11 @@ export default function BarcodeGenerator() {
     } finally {
       setIsExporting(false)
     }
-  }, [tab, bgColor, format])
+  }, [tab, batchResults, bgColor, format])
 
   const printLabels = useCallback((cols: number, rows: number) => {
-    const svgs = tab === 'batch'
-      ? batchContainerRef.current?.querySelectorAll<SVGSVGElement>('[data-batch-value]') ?? []
+    const svgs: Iterable<SVGSVGElement> = tab === 'batch'
+      ? batchResults.map(r => r.svgElement).filter((el): el is SVGSVGElement => !!el)
       : svgRef.current ? [svgRef.current] : []
 
     const printWindow = window.open('', '_blank')
@@ -246,9 +196,7 @@ export default function BarcodeGenerator() {
       return
     }
 
-    const svgHtmls = Array.from(svgs).map(svg =>
-      new XMLSerializer().serializeToString(svg)
-    )
+    const svgHtmls = Array.from(svgs).map(svg => serializeSvg(svg))
 
     const cellW = Math.floor(100 / cols)
     const perPage = cols * rows
@@ -276,9 +224,9 @@ ${pages.join('\n')}
     trackPrint('barcode_generator', `${cols}x${rows}`)
   }, [tab])
 
-  const downloadSvg = () => {
+  const downloadSvgSingle = () => {
     if (svgRef.current) {
-      downloadSvgFromElement(svgRef.current, 'codigo-de-barras.svg')
+      void downloadSvg(svgRef.current, 'svg', { filename: 'codigo-de-barras' })
       trackDownload('barcode_generator', format, 'svg')
       showToast('Download iniciado — SVG', 'success')
       setShowShare(true)
@@ -288,7 +236,7 @@ ${pages.join('\n')}
     if (!svgRef.current) return
     setIsExporting(true)
     try {
-      await downloadPngFromElement(svgRef.current, 'codigo-de-barras.png', 2, bgColor)
+      await downloadSvg(svgRef.current, 'png', { filename: 'codigo-de-barras', bgColor, scale: 2 })
       trackDownload('barcode_generator', format, 'png')
       showToast('Download iniciado — PNG', 'success')
       setShowShare(true)
@@ -300,7 +248,9 @@ ${pages.join('\n')}
   }
 
   const copyValue = useCallback(async () => {
-    const val = resolveInput(input)
+    // Usa o service para resolver o valor (check digit, etc.)
+    const result = serviceRef.current?.validate(input, format as Parameters<NonNullable<typeof serviceRef.current>['validate']>[1])
+    const val = result?.valid ? result.resolved : input.trim()
     if (!val) return
     try {
       await navigator.clipboard.writeText(val)
@@ -308,7 +258,7 @@ ${pages.join('\n')}
     } catch {
       showToast('Não foi possível copiar', 'error')
     }
-  }, [input, resolveInput])
+  }, [input, format])
 
   const handleHistoryClick = (item: BarcodeHistoryItem) => {
     setInput(item.value)
@@ -493,7 +443,7 @@ ${pages.join('\n')}
                   PNG
                 </button>
                 <button
-                  onClick={downloadSvg}
+                  onClick={downloadSvgSingle}
                   disabled={isExporting}
                   aria-label="Baixar SVG"
                   className="bg-white border border-indigo-600 text-indigo-600 px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
@@ -554,20 +504,24 @@ ${pages.join('\n')}
 
           {batchResults.length > 0 && (
             <>
-              <div ref={batchContainerRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {batchResults.map((r) => (
                   <div key={r.id} className="border border-gray-100 rounded-lg p-3 bg-gray-50 flex flex-col items-center gap-2">
                     {r.error ? (
                       <p className="text-red-500 text-xs">{r.error}</p>
                     ) : (
-                      <svg data-batch-value={r.value} aria-label={`Código ${r.value}`} role="img" />
+                      <div
+                        ref={el => { if (el && r.svgElement) el.replaceChildren(r.svgElement) }}
+                        aria-label={`Código ${r.value}`}
+                        role="img"
+                      />
                     )}
                     <span className="text-xs text-gray-500 font-mono">{r.value}</span>
                   </div>
                 ))}
               </div>
 
-              {batchRendered && (
+              {batchResults.some(r => r.svgElement) && (
                 <>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                     <button onClick={downloadBatchZip} disabled={isExporting} aria-label="Baixar lote em ZIP (SVG)" className="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">

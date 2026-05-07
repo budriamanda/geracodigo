@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useCallback, useRef, useSyncExternalStore } from 'react'
 import Link from 'next/link'
-import { getConsent, saveConsent, applyConsent } from '@/lib/consent'
+import { getConsent, saveConsent } from '@/lib/consent'
+import { tracker } from '@/lib/tracker'
 
 const subscribeNoop = () => () => {}
 const getClientSnapshot = () => true
@@ -11,11 +12,14 @@ const getServerSnapshot = () => false
 export default function CookieConsent() {
   const mounted = useSyncExternalStore(subscribeNoop, getClientSnapshot, getServerSnapshot)
   const [hasConsent, setHasConsent] = useState(() => {
+    // Não chama applyConsent() aqui — isso corre com o script inline do <head>.
+    // tracker.init() é chamado em useEffect abaixo, após o mount.
     if (typeof window === 'undefined') return true
-    const existing = getConsent()
-    if (existing) applyConsent(existing)
-    return existing !== null
+    return getConsent() !== null
   })
+
+  // Aplica consentimento salvo após o mount (resolve race condition com consent mode inline)
+  useEffect(() => { tracker.init() }, [])
   const [dismissed, setDismissed] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
   const [analytics, setAnalytics] = useState(false)
