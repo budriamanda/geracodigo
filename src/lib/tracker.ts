@@ -23,7 +23,7 @@
  * que por sua vez leem do mesmo consentStore usado aqui.
  */
 
-import { getConsent, saveConsent, applyConsent, revokeConsent } from '@/lib/consent'
+import { getConsent, saveConsent, revokeConsent } from '@/lib/consent'
 import type { ConsentPreferences } from '@/lib/consent'
 
 export interface ConsentChoices {

@@ -29,11 +29,11 @@ bodyMarkdown: |
 
   Utilizamos tecnologias modernas e confiáveis: o gerador de QR Code Pix implementa o padrão **BR Code EMV** definido pelo Banco Central do Brasil, com checksum CRC16 válido. Os códigos de barras são gerados com a biblioteca JsBarcode, amplamente reconhecida no mercado. Os QR Codes utilizam a biblioteca QRCode para Node.js.
 
-  Cada ferramenta é coberta por uma **suíte de testes automatizados** que valida a conformidade com as especificações oficiais — desde o cálculo do dígito verificador EAN (algoritmo módulo 10) até a geração do payload Pix (verificação CRC16-CCITT e validação dos campos EMV obrigatórios). Os códigos gerados podem ser validados por qualquer leitor ou aplicativo bancário padrão de mercado.
+  Cada ferramenta é coberta por uma **suíte de testes automatizados** que valida a conformidade com as especificações oficiais; desde o cálculo do dígito verificador EAN (algoritmo módulo 10) até a geração do payload Pix (verificação CRC16-CCITT e validação dos campos EMV obrigatórios). Os códigos gerados podem ser validados por qualquer leitor ou aplicativo bancário padrão de mercado.
 
   ## Política Editorial e Compromisso com Qualidade
 
-  Todo o conteúdo publicado no GeraCode — textos explicativos, FAQs, guias de uso e referências técnicas — é escrito com base em **fontes oficiais e verificáveis**, como a documentação do Banco Central do Brasil para o Pix, as especificações públicas da GS1 (padrões EAN/GTIN) e as normas ISO/IEC aplicáveis a códigos de barras 1D e 2D.
+  Todo o conteúdo publicado no GeraCode; textos explicativos, FAQs, guias de uso e referências técnicas; é escrito com base em **fontes oficiais e verificáveis**, como a documentação do Banco Central do Brasil para o Pix, as especificações públicas da GS1 (padrões EAN/GTIN) e as normas ISO/IEC aplicáveis a códigos de barras 1D e 2D.
 
   Adotamos os seguintes princípios editoriais:
 
@@ -51,7 +51,7 @@ bodyMarkdown: |
 
   Depois de perceber que a mesma dor atingia milhares de MEIs, autônomos e pequenas empresas no Brasil, decidimos abrir o acesso gratuito, preservando os dois compromissos que consideramos inegociáveis: **privacidade por padrão** (processamento local) e **conformidade técnica** com os padrões oficiais (Banco Central, GS1, ISO/IEC).
 
-  O funcionamento das ferramentas é auditável pelo próprio usuário — basta abrir o DevTools do navegador (F12), aba "Network", e acompanhar que nenhuma requisição é feita para servidores externos durante a geração dos códigos. A única comunicação com a rede acontece para carregar a página inicial, os scripts estáticos e os anúncios que sustentam o projeto gratuito.
+  O funcionamento das ferramentas é auditável pelo próprio usuário; basta abrir o DevTools do navegador (F12), aba "Network", e acompanhar que nenhuma requisição é feita para servidores externos durante a geração dos códigos. A única comunicação com a rede acontece para carregar a página inicial, os scripts estáticos e os anúncios que sustentam o projeto gratuito.
 
   ## Contato
 
@@ -62,15 +62,15 @@ bodyMarkdown: |
   - **Assuntos editoriais** (correção em guia, FAQ desatualizada, sugestão de tema): indique a URL da página e, se possível, a fonte oficial que embasa a correção.
   - **Imprensa e parcerias:** use o mesmo e-mail identificando no assunto "Imprensa" ou "Parceria".
 
-  Respondemos em até 3 dias úteis. O GeraCode não oferece suporte para integrações customizadas, APIs de bancos ou desenvolvimento sob demanda — somos apenas uma plataforma de ferramentas prontas para uso.
+  Respondemos em até 3 dias úteis. O GeraCode não oferece suporte para integrações customizadas, APIs de bancos ou desenvolvimento sob demanda; somos apenas uma plataforma de ferramentas prontas para uso.
 
   ## Como Nos Financiamos
 
   O GeraCode é gratuito para todos os usuários e não tem plano pago, assinatura, limite de uso ou versão "premium". O projeto é sustentado por **anúncios exibidos nas páginas de ferramentas**, sempre em áreas claramente identificadas e nunca intercalados ao resultado da geração (para evitar confusão entre o código gerado e conteúdo patrocinado).
 
-  Os anúncios são servidos por redes reconhecidas e seguem as boas práticas de transparência: não são exibidos banners que imitam botões das ferramentas, não há pop-ups intrusivos e não há cobrança disfarçada. Usuários podem utilizar bloqueadores de anúncios livremente — as ferramentas continuam funcionando normalmente.
+  Os anúncios são servidos por redes reconhecidas e seguem as boas práticas de transparência: não são exibidos banners que imitam botões das ferramentas, não há pop-ups intrusivos e não há cobrança disfarçada. Usuários podem utilizar bloqueadores de anúncios livremente; as ferramentas continuam funcionando normalmente.
 
-  Coletamos métricas agregadas de uso (página visitada, tempo de engajamento, ferramenta mais utilizada) através do Google Analytics 4 com consentimento prévio, conforme descrito na nossa [Política de Privacidade](/privacidade). Nenhum dado inserido nas ferramentas (chave Pix, códigos, valores, nomes) é coletado — isso é garantido pela arquitetura client-side.
+  Coletamos métricas agregadas de uso (página visitada, tempo de engajamento, ferramenta mais utilizada) através do Google Analytics 4 com consentimento prévio, conforme descrito na nossa [Política de Privacidade](/privacidade). Nenhum dado inserido nas ferramentas (chave Pix, códigos, valores, nomes) é coletado; isso é garantido pela arquitetura client-side.
 
   ## Nossas Ferramentas
 

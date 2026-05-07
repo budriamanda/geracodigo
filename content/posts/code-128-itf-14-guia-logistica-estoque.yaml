@@ -3,7 +3,7 @@ title: "Code 128 e ITF-14: Guia para Logística e Controle de Estoque"
 metaDescription: "Entenda Code 128 e ITF-14: quando usar cada formato, diferenças para EAN-13, variantes do Code 128 (A, B, C) e como gerar grátis para etiquetas de estoque e caixas de transporte."
 h1: "Code 128 e ITF-14: o guia para logística e controle de estoque"
 subtitle: "Quando usar Code 128 em vez de EAN-13, as três variantes do Code 128 e por que o ITF-14 é o padrão para caixas de transporte."
-resumo: "Code 128 e ITF-14 são os formatos de código de barras mais usados em logística e controle de estoque no Brasil — mas pouca gente sabe quando escolher um ou outro, nem o que são as variantes A, B e C do Code 128. Este guia explica tudo com exemplos práticos para lojistas e operações de estoque."
+resumo: "Code 128 e ITF-14 são os formatos de código de barras mais usados em logística e controle de estoque no Brasil; mas pouca gente sabe quando escolher um ou outro, nem o que são as variantes A, B e C do Code 128. Este guia explica tudo com exemplos práticos para lojistas e operações de estoque."
 categoria: codigo-barras
 persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
@@ -30,11 +30,11 @@ ogAccent: "#2563eb"
 twitterTitle: "Code 128 e ITF-14: guia completo"
 twitterDescription: "Diferenças, variantes A/B/C, quando usar e como gerar grátis para estoque e logística."
 bodyMarkdown: |
-  Se você trabalha com estoque, logística ou e-commerce, já viu Code 128 e ITF-14 em etiquetas de rastreio, caixas de transporte e prateleiras de armazém. São os formatos mais usados fora do varejo de consumo — onde o EAN-13 domina — e por razões bem específicas. Este guia explica o que cada um faz, quando escolher um ou outro, e como gerar gratuitamente.
+  Se você trabalha com estoque, logística ou e-commerce, já viu Code 128 e ITF-14 em etiquetas de rastreio, caixas de transporte e prateleiras de armazém. São os formatos mais usados fora do varejo de consumo; onde o EAN-13 domina; e por razões bem específicas. Este guia explica o que cada um faz, quando escolher um ou outro, e como gerar gratuitamente.
 
   ## O que é Code 128?
 
-  O **Code 128** é um formato de código de barras linear de alta densidade introduzido em 1981. Diferente do EAN-13 (que só aceita números), o Code 128 pode codificar **todos os 128 caracteres ASCII** — letras maiúsculas e minúsculas, números e símbolos.
+  O **Code 128** é um formato de código de barras linear de alta densidade introduzido em 1981. Diferente do EAN-13 (que só aceita números), o Code 128 pode codificar **todos os 128 caracteres ASCII**, letras maiúsculas e minúsculas, números e símbolos.
 
   Isso o torna extremamente versátil para aplicações onde o EAN-13 não serve: etiquetas de envio com letras, referências internas alfanuméricas, números de pedido, lotes e datas.
 
@@ -48,7 +48,7 @@ bodyMarkdown: |
   | **Code 128B** | Números, maiúsculas e minúsculas, símbolos | Uso geral — o mais comum |
   | **Code 128C** | Apenas pares de dígitos (00–99) | Números longos; ocupa metade do espaço do 128B |
 
-  Na prática, leitores e geradores modernos selecionam automaticamente o subconjunto mais eficiente para o conteúdo. Quando o código é puramente numérico e longo, o gerador usa Code 128C — que é duas vezes mais denso. Para conteúdo misto (letras + números), usa Code 128B.
+  Na prática, leitores e geradores modernos selecionam automaticamente o subconjunto mais eficiente para o conteúdo. Quando o código é puramente numérico e longo, o gerador usa Code 128C, que é duas vezes mais denso. Para conteúdo misto (letras + números), usa Code 128B.
 
   O [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras) seleciona a variante ótima automaticamente ao gerar Code 128.
 
@@ -56,11 +56,11 @@ bodyMarkdown: |
 
   Code 128 é a escolha certa quando:
 
-  - **O código tem letras** — referências internas como `PROD-CAM-AZL-M` não cabem em EAN.
-  - **Você quer controle de estoque interno** — sem precisar registrar na GS1.
-  - **O código tem comprimento variável** — Code 128 não impõe limite fixo de dígitos.
-  - **Precisa de alta densidade** — em embalagens com espaço limitado, Code 128 ocupa menos que Code 39 para o mesmo conteúdo.
-  - **Etiquetas de envio e rastreio** — Correios, Jadlog e transportadoras privadas usam Code 128 (ou variante GS1-128) para números de rastreio.
+  - **O código tem letras**, referências internas como `PROD-CAM-AZL-M` não cabem em EAN.
+  - **Você quer controle de estoque interno**, sem precisar registrar na GS1.
+  - **O código tem comprimento variável**, Code 128 não impõe limite fixo de dígitos.
+  - **Precisa de alta densidade**, em embalagens com espaço limitado, Code 128 ocupa menos que Code 39 para o mesmo conteúdo.
+  - **Etiquetas de envio e rastreio**, Correios, Jadlog e transportadoras privadas usam Code 128 (ou variante GS1-128) para números de rastreio.
 
   ### Code 128 vs. Code 39: qual a diferença?
 
@@ -76,13 +76,13 @@ bodyMarkdown: |
 
   ## O que é ITF-14?
 
-  O **ITF-14** (Interleaved Two of Five de 14 dígitos) é o formato padrão da GS1 para identificar **unidades logísticas** — caixas de transporte, fardos, pallets e embalagens de despacho. Enquanto o EAN-13 identifica o produto individual, o ITF-14 identifica a caixa que contém um conjunto de produtos.
+  O **ITF-14** (Interleaved Two of Five de 14 dígitos) é o formato padrão da GS1 para identificar **unidades logísticas**, caixas de transporte, fardos, pallets e embalagens de despacho. Enquanto o EAN-13 identifica o produto individual, o ITF-14 identifica a caixa que contém um conjunto de produtos.
 
   O ITF-14 tem exatamente 14 dígitos, dos quais os 13 últimos são o GTIN-13 do produto, precedido por um **indicador de embalagem** (0 a 8, que indica o nível da unidade logística).
 
   ### Por que ITF-14 e não Code 128 para caixas?
 
-  O ITF-14 usa o algoritmo **Interleaved 2 of 5** — uma codificação que intercala barras e espaços de forma que é legível mesmo em papel ondulado com impressão de baixa qualidade. Isso é essencial para caixas de papelão ondulado, onde a superfície irregular degrada outras impressões.
+  O ITF-14 usa o algoritmo **Interleaved 2 of 5**, uma codificação que intercala barras e espaços de forma que é legível mesmo em papel ondulado com impressão de baixa qualidade. Isso é essencial para caixas de papelão ondulado, onde a superfície irregular degrada outras impressões.
 
   | Característica | ITF-14 | Code 128 |
   |---|---|---|
@@ -92,7 +92,7 @@ bodyMarkdown: |
   | Padrão GS1 | Sim (GTIN-14) | Sim (GS1-128, variante) |
   | Leitura em superfície ondulada | Excelente | Boa |
 
-  > O **GS1-128** é uma versão do Code 128 com regras GS1 para incluir informações como lote, data de validade e número de série — muito usado em indústria alimentícia e farmacêutica. Diferente do ITF-14, o GS1-128 pode conter informações variáveis além do GTIN.
+  > O **GS1-128** é uma versão do Code 128 com regras GS1 para incluir informações como lote, data de validade e número de série; muito usado em indústria alimentícia e farmacêutica. Diferente do ITF-14, o GS1-128 pode conter informações variáveis além do GTIN.
 
   ## Tamanhos mínimos (padrão GS1)
 
@@ -103,7 +103,7 @@ bodyMarkdown: |
   | Code 128 | variável | mín. 15 mm | Largura cresce com o número de caracteres |
   | ITF-14 | ~142 mm | ~32 mm | Tamanho nominal; mínimo de 25% = ~35 mm |
 
-  Para o ITF-14, o tamanho grande é intencional — a caixa é escaneada de longe por leitores omnidirecionais em esteiras de distribuição. Reduções abaixo de 50% do nominal aumentam muito o risco de falha de leitura em papelão ondulado.
+  Para o ITF-14, o tamanho grande é intencional; a caixa é escaneada de longe por leitores omnidirecionais em esteiras de distribuição. Reduções abaixo de 50% do nominal aumentam muito o risco de falha de leitura em papelão ondulado.
 
   ## Como gerar Code 128 e ITF-14
 
@@ -119,7 +119,7 @@ bodyMarkdown: |
   1. Selecione o formato **ITF-14**.
   2. Digite o GTIN-14 de 14 dígitos (indicador de embalagem + GTIN-13 do produto).
   3. Use o tamanho nominal (~142 mm × 32 mm) sempre que possível; reduza no máximo a 50% para caixas com pouco espaço.
-  4. Baixe em **SVG** — essencial para manter qualidade na impressão em papelão.
+  4. Baixe em **SVG**, essencial para manter qualidade na impressão em papelão.
 
   ## Aplicações práticas por setor
 
@@ -130,22 +130,22 @@ bodyMarkdown: |
   Code 128 para identificação de matérias-primas, lotes de produção e produtos acabados. ITF-14 para caixas de embarque. GS1-128 quando precisar registrar lote e validade no próprio código.
 
   **Correios e transportadoras:**
-  Os Correios usam **Code 128** e **Interleaved 2 of 5 (I2of5)** para etiquetas de objetos postais, conforme o Manual de Pré-postagem dos Correios. Transportadoras privadas (Jadlog, Total Express, Azul Cargo) geralmente usam Code 128 para números de rastreio — consulte o manual de integração de cada transportadora para o formato exato.
+  Os Correios usam **Code 128** e **Interleaved 2 of 5 (I2of5)** para etiquetas de objetos postais, conforme o Manual de Pré-postagem dos Correios. Transportadoras privadas (Jadlog, Total Express, Azul Cargo) geralmente usam Code 128 para números de rastreio; consulte o manual de integração de cada transportadora para o formato exato.
 
   **Supermercados (caixas de reposição):**
   ITF-14 na caixa identifica automaticamente o produto quando a caixa passa pelo leitor de recebimento, sem precisar abrir. O leitor do PDV vai ler o EAN-13 do produto individual.
 
   ## Code 128 lê letras minúsculas?
 
-  Sim — mas depende da variante:
+  Sim; mas depende da variante:
 
   - **Code 128B**: aceita **letras maiúsculas e minúsculas**, números e símbolos. É a variante correta se o seu SKU ou referência tem letras minúsculas (ex: `prod-azul-m`).
   - **Code 128A**: aceita maiúsculas e caracteres de controle, mas **não lê minúsculas**. Use apenas para sistemas legados.
   - **Code 128C**: aceita somente **dígitos numéricos** (em pares). Mais denso, mas sem letras.
 
-  Geradores modernos como o GeraCode selecionam automaticamente Code 128B quando o conteúdo tem letras minúsculas — você não precisa escolher manualmente.
+  Geradores modernos como o GeraCode selecionam automaticamente Code 128B quando o conteúdo tem letras minúsculas; você não precisa escolher manualmente.
 
-  **Na prática**: se você escaneou um Code 128 e as letras minúsculas apareceram em maiúsculas ou como caracteres estranhos, o leitor está configurado para Code 128A. Reprograme o leitor para aceitar Code 128B — consulte o manual do fabricante (Honeywell, Zebra, Datalogic) e escaneie o código de programação correspondente.
+  **Na prática**: se você escaneou um Code 128 e as letras minúsculas apareceram em maiúsculas ou como caracteres estranhos, o leitor está configurado para Code 128A. Reprograme o leitor para aceitar Code 128B, consulte o manual do fabricante (Honeywell, Zebra, Datalogic) e escaneie o código de programação correspondente.
 
   ## Onde colocar o código de barras na caixa e no pallet
 
@@ -166,11 +166,11 @@ bodyMarkdown: |
   **Etiquetas Code 128 em prateleiras e localizações:**
   - Posicionar na **borda frontal da prateleira** ao nível dos olhos do operador (1,2 m do chão)
   - Ou na **lateral do módulo** de prateleira, se o layout do armazém usa leitura lateral
-  - Use etiquetas com fundo branco e laminação — evita desbotamento em ambientes com luz UV intensa
+  - Use etiquetas com fundo branco e laminação; evita desbotamento em ambientes com luz UV intensa
 
   ## GS1-128: a variante industrial do Code 128
 
-  O **GS1-128** é uma aplicação específica do Code 128 com regras adicionais definidas pela GS1 para codificar múltiplos campos de dados em um único código. Enquanto o Code 128 simples codifica um valor, o GS1-128 usa **Application Identifiers (AIs)** — prefixos numéricos entre parênteses que definem o significado de cada dado.
+  O **GS1-128** é uma aplicação específica do Code 128 com regras adicionais definidas pela GS1 para codificar múltiplos campos de dados em um único código. Enquanto o Code 128 simples codifica um valor, o GS1-128 usa **Application Identifiers (AIs)**, prefixos numéricos entre parênteses que definem o significado de cada dado.
 
   Exemplos de AIs mais usados:
 
@@ -183,7 +183,7 @@ bodyMarkdown: |
   | (30) | Quantidade variável | (30)48 |
   | (310n) | Peso líquido em kg | (3102)1500 = 15,00 kg |
 
-  Um único código GS1-128 pode conter: GTIN + lote + validade + peso — tudo que o recebimento de um fornecedor precisa registrar com um único scan.
+  Um único código GS1-128 pode conter: GTIN + lote + validade + peso; tudo que o recebimento de um fornecedor precisa registrar com um único scan.
 
   ### Quando usar GS1-128
 
@@ -204,20 +204,20 @@ bodyMarkdown: |
   Os Correios utilizam **Code 128** e **Interleaved 2 of 5 (I2of5)** para etiquetas de objetos postais:
 
   - O número de rastreio dos Correios (ex: `AA123456789BR`) é gerado em Code 128.
-  - Transportadoras privadas (Jadlog, Total Express, Azul Cargo, Sequoia) geralmente usam Code 128 para números de rastreio — consulte o manual de integração de cada uma para o formato exato do campo.
+  - Transportadoras privadas (Jadlog, Total Express, Azul Cargo, Sequoia) geralmente usam Code 128 para números de rastreio; consulte o manual de integração de cada uma para o formato exato do campo.
   - O formato `PDF417` (2D) está sendo adotado por algumas transportadoras para incluir mais dados na etiqueta.
 
   Se você integra com transportadoras via API, o código de rastreio fornecido pela API já vem pronto para gerar em Code 128.
 
   ## Configurando leitores para Code 128 e ITF-14
 
-  A maioria dos leitores de código de barras modernos (USB, Bluetooth) lê Code 128 automaticamente — não precisa de configuração especial. Para ITF-14, verifique:
+  A maioria dos leitores de código de barras modernos (USB, Bluetooth) lê Code 128 automaticamente; não precisa de configuração especial. Para ITF-14, verifique:
 
   - **Comprimento fixo de 14 dígitos**: alguns leitores precisam ser configurados para aceitar ITF de 14 dígitos específicos (evita confusão com ITF de outros comprimentos).
   - **Check digit ITF**: configure o leitor para validar o dígito verificador do ITF-14 automaticamente.
   - **Leitores de pedestal/omnidirecional** para recebimento de caixas: precisam de configuração de varredura mais ampla para ler ITF-14 em superfícies onduladas.
 
-  Consulte o manual do fabricante do leitor (Honeywell, Zebra, Datalogic) para os comandos de programação — geralmente feitos escaneando códigos de configuração do próprio manual.
+  Consulte o manual do fabricante do leitor (Honeywell, Zebra, Datalogic) para os comandos de programação; geralmente feitos escaneando códigos de configuração do próprio manual.
 
   ## Custo de implementação
 

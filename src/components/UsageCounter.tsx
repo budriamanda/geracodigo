@@ -1,15 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { getCount } from '@/lib/counter'
 
 export default function UsageCounter() {
-  const [count, setCount] = useState<number | null>(null)
-
-  useEffect(() => {
+  const [count] = useState<number | null>(() => {
     const n = getCount()
-    if (n > 0) setCount(n)
-  }, [])
+    return n > 0 ? n : null
+  })
 
   if (!count) return null
 

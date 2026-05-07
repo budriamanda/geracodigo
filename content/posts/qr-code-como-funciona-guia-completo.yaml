@@ -2,7 +2,7 @@ slug: qr-code-como-funciona-guia-completo
 title: "Como Funciona o QR Code: Guia Completo e Simples"
 metaDescription: "Entenda como o QR Code funciona: o que armazena, como é lido, tipos (estático, dinâmico, PIX), níveis de correção de erro e como se proteger de QR Codes maliciosos."
 h1: "Como funciona o QR Code: explicação simples e completa"
-subtitle: "Da invenção japonesa nos anos 90 ao PIX, ao Wi-Fi e ao golpe do QRishing — tudo que você precisa entender."
+subtitle: "Da invenção japonesa nos anos 90 ao PIX, ao Wi-Fi e ao golpe do QRishing; tudo que você precisa entender."
 resumo: "O QR Code está em todo lugar: no balcão do restaurante, na embalagem do produto, na cobrança PIX. Mas como ele realmente funciona? Este guia explica o que o código armazena, como é lido, quais são os tipos e como se proteger de fraudes com QR Code."
 categoria: qr-code
 persona: geral
@@ -29,19 +29,19 @@ ogAccent: "#7c3aed"
 twitterTitle: "Como funciona o QR Code?"
 twitterDescription: "Do pixel preto-e-branco ao PIX e ao QRishing: explicação simples e completa."
 bodyMarkdown: |
-  O QR Code está em todo lugar — no cardápio do restaurante, na embalagem do produto, na cobrança do delivery, nas campanhas de marketing. Mas poucos sabem o que acontece no segundo em que a câmera do celular aponta para aquela matriz de quadradinhos. Este guia explica tudo.
+  O QR Code está em todo lugar; no cardápio do restaurante, na embalagem do produto, na cobrança do delivery, nas campanhas de marketing. Mas poucos sabem o que acontece no segundo em que a câmera do celular aponta para aquela matriz de quadradinhos. Este guia explica tudo.
 
   ## O que é um QR Code?
 
-  QR Code vem de *Quick Response Code* — código de resposta rápida. Foi criado em 1994 pela empresa japonesa Denso Wave para rastrear peças automotivas em linhas de montagem. A ideia era ter um código lido muito mais rápido que o código de barras linear e capaz de armazenar muito mais informação.
+  QR Code vem de *Quick Response Code*, código de resposta rápida. Foi criado em 1994 pela empresa japonesa Denso Wave para rastrear peças automotivas em linhas de montagem. A ideia era ter um código lido muito mais rápido que o código de barras linear e capaz de armazenar muito mais informação.
 
-  Ao contrário do código de barras linear (linhas verticais, como o EAN-13 de produtos de supermercado), o QR Code é **bidimensional** — armazena dados tanto no eixo horizontal quanto no vertical, multiplicando a capacidade de armazenamento.
+  Ao contrário do código de barras linear (linhas verticais, como o EAN-13 de produtos de supermercado), o QR Code é **bidimensional**, armazena dados tanto no eixo horizontal quanto no vertical, multiplicando a capacidade de armazenamento.
 
   ## O que o QR Code armazena?
 
   A matriz de quadrados pretos e brancos é, essencialmente, um número binário muito grande: cada célula escura representa 1, cada célula clara representa 0.
 
-  Um QR Code padrão armazena até **7.089 dígitos numéricos** ou **4.296 caracteres alfanuméricos** — comparado aos 13 dígitos de um EAN-13.
+  Um QR Code padrão armazena até **7.089 dígitos numéricos** ou **4.296 caracteres alfanuméricos**, comparado aos 13 dígitos de um EAN-13.
 
   O conteúdo pode ser qualquer texto:
 
@@ -53,7 +53,7 @@ bodyMarkdown: |
   | `BEGIN:VCARD...` | Salva contato na agenda |
   | Texto simples | Exibe o texto na tela |
 
-  O app de câmera interpreta o texto e decide a ação — não é o QR Code que "sabe" abrir o navegador.
+  O app de câmera interpreta o texto e decide a ação; não é o QR Code que "sabe" abrir o navegador.
 
   ## Como o celular lê um QR Code?
 
@@ -71,7 +71,7 @@ bodyMarkdown: |
 
   Além dos dados, o QR Code tem componentes fixos:
 
-  - **Quadrados de alinhamento** (três cantos): indicam ao leitor a orientação e os limites do código — por isso o QR Code pode ser lido mesmo inclinado.
+  - **Quadrados de alinhamento** (três cantos): indicam ao leitor a orientação e os limites do código; por isso o QR Code pode ser lido mesmo inclinado.
   - **Módulos de temporização** (linhas que conectam os cantos): permitem calcular o tamanho de cada célula.
   - **Padrão de formato**: armazena o nível de correção de erro e a máscara aplicada.
 
@@ -92,7 +92,7 @@ bodyMarkdown: |
 
   **QR Code de URL**: o mais comum. Aponta para um site, produto, cardápio ou formulário. Fácil de criar no [gerador de QR Code](/gerador-de-qr-code).
 
-  **QR Code PIX (BR Code EMV)**: formato específico do Banco Central para pagamentos Pix. Contém chave, nome, cidade e — opcionalmente — valor. Gere o seu no [gerador de QR Code PIX](/gerador-de-qr-code-pix). Para entender mais sobre PIX, veja [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+  **QR Code PIX (BR Code EMV)**: formato específico do Banco Central para pagamentos Pix. Contém chave, nome, cidade e; opcionalmente; valor. Gere o seu no [gerador de QR Code PIX](/gerador-de-qr-code-pix). Para entender mais sobre PIX, veja [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
 
   **QR Code estático**: o conteúdo está fixo na imagem. Você gera uma vez e usa para sempre.
 
@@ -102,15 +102,15 @@ bodyMarkdown: |
 
   ## QR Code no Brasil: onde você já encontrou sem perceber
 
-  O Brasil é um dos países com maior penetração de QR Code do mundo — em grande parte graças ao PIX. Mas há muito mais contextos onde o QR Code aparece no cotidiano brasileiro:
+  O Brasil é um dos países com maior penetração de QR Code do mundo; em grande parte graças ao PIX. Mas há muito mais contextos onde o QR Code aparece no cotidiano brasileiro:
 
-  **PIX:** o QR Code BR Code EMV é o mecanismo de pagamento Pix mais usado. Desde o lançamento em novembro de 2020, o Banco Central registra mais de 4 bilhões de transações via PIX por mês — uma fração significativa via QR Code estático e dinâmico.
+  **PIX:** o QR Code BR Code EMV é o mecanismo de pagamento Pix mais usado. Desde o lançamento em novembro de 2020, o Banco Central registra mais de 4 bilhões de transações via PIX por mês; uma fração significativa via QR Code estático e dinâmico.
 
   **DANFE / Nota Fiscal Eletrônica:** toda NF-e emitida no Brasil tem um QR Code impresso no DANFE (documento auxiliar). Ao escanear, o consumidor acessa a nota no portal da SEFAZ estadual e pode verificar a autenticidade do documento. É obrigatório desde o ajuste SINIEF 07/2005 e suas atualizações.
 
   **Passagens aéreas e de ônibus:** o boarding pass eletrônico e a passagem de ônibus digital usam QR Code (formato Aztec em passagens aéreas IATA; QR Code simples em aplicativos de ônibus). Você escaneia no embarque e não precisa de bilhete impresso.
 
-  **Certificados de vacinação:** durante a pandemia de COVID-19, o Conecte SUS usou QR Code no comprovante de vacinação para verificação de autenticidade — adotado em aeroportos, eventos e estabelecimentos com acesso controlado.
+  **Certificados de vacinação:** durante a pandemia de COVID-19, o Conecte SUS usou QR Code no comprovante de vacinação para verificação de autenticidade; adotado em aeroportos, eventos e estabelecimentos com acesso controlado.
 
   **Embalagens de medicamentos:** a ANVISA exige DataMatrix (código 2D similar ao QR Code) em embalagens de medicamentos sujeitos à rastreabilidade, conforme a RDC 54/2013 e regulamentações posteriores do SCTM (Sistema Nacional de Controle de Medicamentos).
 
@@ -118,7 +118,7 @@ bodyMarkdown: |
 
   ## QR Code tem prazo de validade?
 
-  O QR Code em si **não expira** — é uma imagem com texto codificado. O que pode "vencer" é o conteúdo:
+  O QR Code em si **não expira**, é uma imagem com texto codificado. O que pode "vencer" é o conteúdo:
 
   - Se o link de destino sair do ar, o código é lido mas não abre.
   - PIX estático não tem validade.
@@ -139,10 +139,10 @@ bodyMarkdown: |
 
   Você já notou que alguns QR Codes parecem mais "cheios" de quadradinhos que outros? Isso é determinado pela **versão** do QR Code, que vai de 1 a 40.
 
-  - **Versão 1:** matriz 21×21 módulos — armazena até 41 caracteres numéricos com nível de correção L.
-  - **Versão 40:** matriz 177×177 módulos — armazena até 7.089 dígitos numéricos ou 4.296 caracteres alfanuméricos.
+  - **Versão 1:** matriz 21×21 módulos; armazena até 41 caracteres numéricos com nível de correção L.
+  - **Versão 40:** matriz 177×177 módulos; armazena até 7.089 dígitos numéricos ou 4.296 caracteres alfanuméricos.
 
-  A versão é escolhida automaticamente pelo gerador — você não precisa configurar isso manualmente. O gerador usa a menor versão que comporte o conteúdo no nível de correção de erro escolhido.
+  A versão é escolhida automaticamente pelo gerador; você não precisa configurar isso manualmente. O gerador usa a menor versão que comporte o conteúdo no nível de correção de erro escolhido.
 
   **Por isso links curtos geram QR Codes mais simples:** `https://ab.cd/x` versão 2 vs. `https://www.minhalojaonline.com.br/categoria/produto?ref=instagram` versão 5 ou superior.
 
@@ -161,19 +161,19 @@ bodyMarkdown: |
 
   ## Reed-Solomon: a matemática por trás da correção de erros
 
-  O QR Code usa o algoritmo de correção de erros **Reed-Solomon** — o mesmo algoritmo usado em CDs, DVDs e comunicações espaciais. Foi desenvolvido em 1960 por Irving S. Reed e Gustave Solomon no MIT Lincoln Laboratory.
+  O QR Code usa o algoritmo de correção de erros **Reed-Solomon**, o mesmo algoritmo usado em CDs, DVDs e comunicações espaciais. Foi desenvolvido em 1960 por Irving S. Reed e Gustave Solomon no MIT Lincoln Laboratory.
 
-  A ideia central: ao codificar dados, adicionar bytes redundantes calculados matematicamente. Se parte dos dados for danificada, os bytes redundantes permitem reconstruir o original — desde que o dano não exceda o limite do nível de correção escolhido.
+  A ideia central: ao codificar dados, adicionar bytes redundantes calculados matematicamente. Se parte dos dados for danificada, os bytes redundantes permitem reconstruir o original; desde que o dano não exceda o limite do nível de correção escolhido.
 
   Por isso um QR Code com uma logo no centro funciona: a logo "apaga" uma área, mas o algoritmo reconstrói os dados a partir dos bytes redundantes ao redor. No nível H (30% de dano tolerado), logos de até 30% da área total do QR Code não prejudicam a leitura.
 
   ## A história completa: de Denso Wave ao PIX
 
   - **1994:** Masahiro Hara, engenheiro da Denso Wave (subsidiária da Toyota), cria o QR Code para rastrear peças de veículos nas linhas de montagem. O objetivo: ler 100 vezes mais rápido que um código de barras linear.
-  - **1999:** Denso Wave publica o QR Code como padrão aberto (JIS X 0510), sem cobrar royalties — decisão que acelera a adoção global.
+  - **1999:** Denso Wave publica o QR Code como padrão aberto (JIS X 0510), sem cobrar royalties; decisão que acelera a adoção global.
   - **2002–2006:** primeiros celulares japoneses com leitor de QR Code integrado. No Japão, QR Codes já aparecem em embalagens, revistas e cartazes nessa época.
   - **2010–2012:** popularização global com a chegada dos smartphones com câmera de alta qualidade e apps de leitura gratuitos (iOS/Android).
-  - **2017:** Apple adiciona leitura nativa de QR Code à câmera do iPhone (iOS 11) — ponto de virada para adoção em massa no Brasil.
+  - **2017:** Apple adiciona leitura nativa de QR Code à câmera do iPhone (iOS 11); ponto de virada para adoção em massa no Brasil.
   - **2020:** Banco Central do Brasil lança o **Pix** com o QR Code BR Code EMV como padrão de pagamento. O Brasil passa a ter um dos maiores volumes de transações via QR Code do mundo.
   - **2023:** [ISO/IEC 18004:2015](https://www.iso.org/standard/62021.html) permanece o padrão internacional do QR Code, com mais de 10 bilhões de QR Codes escaneados por dia globalmente.
 

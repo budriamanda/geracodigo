@@ -2,7 +2,7 @@ slug: codigo-de-barras-para-produtos-guia-completo
 title: "Código de Barras para Produtos: Guia Completo para Lojistas"
 metaDescription: "Aprenda como criar código de barras para seus produtos: qual formato usar, GTIN, como gerar grátis, como imprimir etiquetas e o que marketplaces exigem. Guia para lojistas."
 h1: "Código de barras para produtos: tudo que o lojista precisa saber"
-subtitle: "Do formato certo para cada canal de venda até a impressão da etiqueta — com ou sem registro no GS1."
+subtitle: "Do formato certo para cada canal de venda até a impressão da etiqueta; com ou sem registro no GS1."
 resumo: "Precisa colocar código de barras nos seus produtos mas não sabe por onde começar? Este guia explica qual formato usar para varejo, e-commerce e estoque interno, o que é GTIN, quando registrar no GS1 e como gerar gratuitamente."
 categoria: codigo-barras
 persona: lojista-ecommerce
@@ -31,15 +31,15 @@ ogAccent: "#2563eb"
 twitterTitle: "Código de barras para produtos: guia do lojista"
 twitterDescription: "Formato certo, GTIN, geração grátis e impressão de etiquetas. Tudo que você precisa."
 bodyMarkdown: |
-  Se você vende em loja física com PDV, em marketplace ou em e-commerce, seu produto precisa de código de barras. Sem ele, você não consegue dar entrada automatizada no estoque, anunciar em redes como Mercado Livre e Shopee nem colocar produtos em redes de supermercado. Para vendas informais, feiras e artesanato, o código é opcional — mas facilita a gestão. Este guia explica o essencial sem enrolação.
+  Se você vende em loja física com PDV, em marketplace ou em e-commerce, seu produto precisa de código de barras. Sem ele, você não consegue dar entrada automatizada no estoque, anunciar em redes como Mercado Livre e Shopee nem colocar produtos em redes de supermercado. Para vendas informais, feiras e artesanato, o código é opcional; mas facilita a gestão. Este guia explica o essencial sem enrolação.
 
   ## O que é GTIN e por que os marketplaces pedem?
 
-  GTIN significa *Global Trade Item Number* — é o número que identifica um produto de forma única no mundo inteiro. O EAN-13, o EAN-8 e o UPC-A são todos formas de GTIN.
+  GTIN significa *Global Trade Item Number*, é o número que identifica um produto de forma única no mundo inteiro. O EAN-13, o EAN-8 e o UPC-A são todos formas de GTIN.
 
   Quando o Mercado Livre, a Shopee ou a Magalu pedem "GTIN" no cadastro do produto, é exatamente isso que querem: o número do código de barras. Isso permite que a plataforma cruze o seu produto com bases globais de dados, melhore o ranqueamento nos resultados de busca e evite duplicatas no catálogo.
 
-  **Se você vende em marketplace**, ter o GTIN correto é cada vez mais obrigatório — e anúncios sem GTIN perdem visibilidade nos algoritmos de busca das plataformas.
+  **Se você vende em marketplace**, ter o GTIN correto é cada vez mais obrigatório; e anúncios sem GTIN perdem visibilidade nos algoritmos de busca das plataformas.
 
   ## Qual formato de código de barras usar?
 
@@ -47,7 +47,7 @@ bodyMarkdown: |
 
   ### EAN-13: para varejo e marketplaces
 
-  O **EAN-13** é o padrão internacional usado em supermercados, farmácias e nos principais marketplaces brasileiros. Se você vai vender em qualquer desses canais, precisa de EAN-13. O código tem 13 dígitos — o último é um dígito verificador calculado automaticamente.
+  O **EAN-13** é o padrão internacional usado em supermercados, farmácias e nos principais marketplaces brasileiros. Se você vai vender em qualquer desses canais, precisa de EAN-13. O código tem 13 dígitos; o último é um dígito verificador calculado automaticamente.
 
   Para gerar EAN-13, acesse o [gerador de EAN](/gerador-de-ean) do GeraCode. Você pode criar o número ou inserir um GTIN já registrado no GS1.
 
@@ -65,9 +65,9 @@ bodyMarkdown: |
 
   Depende do canal de venda.
 
-  **Para vender em redes de supermercado e grandes varejistas físicos**: sim, o EAN-13 precisa ser registrado no [GS1 Brasil](https://www.gs1br.org). Eles emitem um prefixo de empresa exclusivo que garante que o código não vai colidir com o de outro fabricante no mundo. O custo varia pelo faturamento anual da empresa — consulte o site do GS1 para os valores vigentes, pois são reajustados periodicamente.
+  **Para vender em redes de supermercado e grandes varejistas físicos**: sim, o EAN-13 precisa ser registrado no [GS1 Brasil](https://www.gs1br.org). Eles emitem um prefixo de empresa exclusivo que garante que o código não vai colidir com o de outro fabricante no mundo. O custo varia pelo faturamento anual da empresa; consulte o site do GS1 para os valores vigentes, pois são reajustados periodicamente.
 
-  **Para marketplaces (Mercado Livre, Shopee, Magalu)**: depende. Muitos aceitam GTINs gerados livremente para produtos sem código oficial — especialmente produtos artesanais, personalizados ou de marcas próprias. Verifique a política de cada plataforma.
+  **Para marketplaces (Mercado Livre, Shopee, Magalu)**: depende. Muitos aceitam GTINs gerados livremente para produtos sem código oficial; especialmente produtos artesanais, personalizados ou de marcas próprias. Verifique a política de cada plataforma.
 
   **Para controle interno, e-commerce próprio ou gestão de estoque**: não é obrigatório. Você pode gerar e usar livremente.
 
@@ -76,7 +76,7 @@ bodyMarkdown: |
   Com o [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras):
 
   1. Escolha o formato (EAN-13 para varejo e marketplace, Code 128 para estoque).
-  2. Digite o número do produto — ou clique em **Gerar número aleatório** para EAN.
+  2. Digite o número do produto; ou clique em **Gerar número aleatório** para EAN.
   3. Defina a largura e altura para o tamanho da etiqueta.
   4. Baixe em **SVG** para impressão de alta qualidade ou **PNG** para uso digital.
 
@@ -84,11 +84,11 @@ bodyMarkdown: |
 
   ### Precisa de vários códigos de uma vez?
 
-  Para gerar em lote — quando você tem um catálogo de produtos — use a função de geração em lote. Veja como funciona na FAQ: [como gerar código de barras em lote](/gerador-de-codigo-de-barras).
+  Para gerar em lote; quando você tem um catálogo de produtos; use a função de geração em lote. Veja como funciona na FAQ: [como gerar código de barras em lote](/gerador-de-codigo-de-barras).
 
   ## Tamanho de referência para a etiqueta
 
-  Os valores abaixo seguem o tamanho nominal (100% de ampliação) recomendado pela GS1. O mínimo aceitável é 80% desses valores para EAN — abaixo disso, o risco de falha de leitura no PDV aumenta.
+  Os valores abaixo seguem o tamanho nominal (100% de ampliação) recomendado pela GS1. O mínimo aceitável é 80% desses valores para EAN, abaixo disso, o risco de falha de leitura no PDV aumenta.
 
   | Formato | Largura nominal | Altura nominal |
   |---|---|---|
@@ -97,15 +97,15 @@ bodyMarkdown: |
   | Code 128 | variável | mín. 15 mm |
   | ITF-14 | ~142 mm | ~32 mm |
 
-  Em embalagens muito pequenas (cosméticos, temperos), use **EAN-8** em vez de EAN-13 — 8 dígitos ocupam menos espaço. O [gerador de EAN](/gerador-de-ean) suporta ambos os formatos.
+  Em embalagens muito pequenas (cosméticos, temperos), use **EAN-8** em vez de EAN-13, 8 dígitos ocupam menos espaço. O [gerador de EAN](/gerador-de-ean) suporta ambos os formatos.
 
   ## Como imprimir etiquetas de qualidade
 
   Impressão ruim é a principal causa de código de barras que não lê no caixa:
 
-  - **Use SVG** ao exportar — garante qualidade independente do tamanho de impressão.
+  - **Use SVG** ao exportar; garante qualidade independente do tamanho de impressão.
   - **Impressoras laser ou térmicas** produzem barras com bordas mais nítidas que jato de tinta.
-  - **Fundo branco, barras pretas** — evite cores invertidas ou fundos estampados.
+  - **Fundo branco, barras pretas**, evite cores invertidas ou fundos estampados.
   - **Margem de silêncio**: deixe pelo menos 5 mm em branco em cada lado do código (padrão GS1).
   - **Teste antes de imprimir em escala**: escaneie com o [leitor online](/leitor-de-codigo-de-barras) ou com um celular antes de fazer centenas de etiquetas.
 
@@ -113,13 +113,13 @@ bodyMarkdown: |
 
   **Mercado Livre**: exige GTIN para produtos com código de barras existente no mercado. Produtos artesanais ou de marca própria sem código oficial podem ser cadastrados sem GTIN, mas têm menor visibilidade.
 
-  **Shopee**: segue lógica similar — produtos de marcas conhecidas devem ter EAN correto; produtos próprios podem usar código interno.
+  **Shopee**: segue lógica similar; produtos de marcas conhecidas devem ter EAN correto; produtos próprios podem usar código interno.
 
   **Magalu e Amazon Brasil**: cada vez mais rigorosos com GTIN. Para categorias como eletrônicos e cosméticos, o GTIN oficial é praticamente obrigatório.
 
   ## É obrigatório ter código de barras no Brasil?
 
-  **Depende do canal de venda** — não existe uma lei federal que obrigue todo produto a ter código de barras, mas na prática vários canais tornam obrigatório:
+  **Depende do canal de venda**, não existe uma lei federal que obrigue todo produto a ter código de barras, mas na prática vários canais tornam obrigatório:
 
   | Canal | Obrigação | Base |
   |---|---|---|
@@ -129,7 +129,7 @@ bodyMarkdown: |
   | E-commerce próprio | Não | Sem obrigação legal |
   | Feiras, vendas diretas, artesanato | Não | Sem obrigação legal |
 
-  A obrigação prática mais relevante é a da **NF-e**: se o produto tem EAN, ele deve constar na nota. Usar número errado resulta em rejeição da nota pela SEFAZ. Se o produto não tem EAN, usa-se "SEM GTIN" — perfeitamente legal.
+  A obrigação prática mais relevante é a da **NF-e**: se o produto tem EAN, ele deve constar na nota. Usar número errado resulta em rejeição da nota pela SEFAZ. Se o produto não tem EAN, usa-se "SEM GTIN"; perfeitamente legal.
 
   ## MEI precisa de código de barras?
 
@@ -137,10 +137,10 @@ bodyMarkdown: |
 
   - **MEI que vende em feiras, porta a porta ou entrega direta**: não precisa de código de barras.
   - **MEI com loja virtual própria**: não é obrigatório, mas facilita o controle de estoque.
-  - **MEI que quer vender em supermercados ou grandes varejistas**: precisará de EAN-13 registrado na GS1 Brasil — o custo vale a pena só quando o volume justificar.
+  - **MEI que quer vender em supermercados ou grandes varejistas**: precisará de EAN-13 registrado na GS1 Brasil; o custo vale a pena só quando o volume justificar.
   - **MEI que vende em marketplace (Mercado Livre, Shopee)**: depende da categoria. Para produtos artesanais ou de marca própria, muitas categorias aceitam sem EAN.
 
-  O MEI pode se associar à GS1 Brasil normalmente — não há restrição por porte empresarial. O plano de entrada é acessível para microempresas.
+  O MEI pode se associar à GS1 Brasil normalmente; não há restrição por porte empresarial. O plano de entrada é acessível para microempresas.
 
   ## Onde colocar o código de barras na embalagem
 
@@ -154,29 +154,29 @@ bodyMarkdown: |
   - Em embalagens cilíndricas (garrafas, latas): posicionar na face com menos curvatura, com a altura do código ao longo do eixo da lata
 
   **Para embalagens pequenas:**
-  Se não houver espaço para o EAN-13 com tamanho mínimo (~29,8 mm), use **EAN-8** — foi criado exatamente para esse caso.
+  Se não houver espaço para o EAN-13 com tamanho mínimo (~29,8 mm), use **EAN-8**, foi criado exatamente para esse caso.
 
   **Para caixas de transporte:**
   Use **ITF-14** (não EAN-13) e posicione em pelo menos duas faces opostas. Veja mais no guia [Code 128 e ITF-14](/blog/code-128-itf-14-guia-logistica-estoque).
 
   ## UPC-A: quando você encontra esse formato
 
-  O **UPC-A** é o equivalente americano do EAN-13 — 12 dígitos em vez de 13. Leitores brasileiros modernos leem os dois formatos automaticamente.
+  O **UPC-A** é o equivalente americano do EAN-13, 12 dígitos em vez de 13. Leitores brasileiros modernos leem os dois formatos automaticamente.
 
   Você precisa conhecer o UPC-A quando:
   - Recebe produtos importados dos EUA com código de 12 dígitos
   - Vende no Amazon ou planeja exportar para os Estados Unidos (Amazon US exige UPC registrado na GS1 US)
-  - Seu sistema ERP importou produtos com EAN de 12 dígitos — verifique se são UPC-A e adicione o "0" na frente para completar 13 dígitos
+  - Seu sistema ERP importou produtos com EAN de 12 dígitos; verifique se são UPC-A e adicione o "0" na frente para completar 13 dígitos
 
   Para o mercado brasileiro, use sempre EAN-13 com prefixo 789 ou 790.
 
   ## Breve história: como os códigos de barras chegaram ao varejo brasileiro
 
-  O código de barras surgiu nos Estados Unidos em 1974, quando uma embalagem de chicletes Wrigley's foi o primeiro produto a ser escaneado num supermercado de Ohio. O padrão UPC (Universal Product Code) foi criado para agilizar os caixas de supermercado — antes, cada item era digitado manualmente.
+  O código de barras surgiu nos Estados Unidos em 1974, quando uma embalagem de chicletes Wrigley's foi o primeiro produto a ser escaneado num supermercado de Ohio. O padrão UPC (Universal Product Code) foi criado para agilizar os caixas de supermercado; antes, cada item era digitado manualmente.
 
   O Brasil adotou o padrão EAN (European Article Number, hoje parte do sistema GS1) na década de 1980, com os prefixos 789 e 790 sendo atribuídos exclusivamente ao país. A GS1 Brasil (então chamada de EAN Brasil) começou a emitir prefixos para empresas brasileiras em 1983.
 
-  Hoje, mais de 6 bilhões de leituras de código de barras acontecem por dia no mundo. No Brasil, o uso nos PDVs de supermercados e farmácias é praticamente universal — a loja que não usa código de barras opera com uma desvantagem operacional enorme em velocidade de caixa e controle de estoque.
+  Hoje, mais de 6 bilhões de leituras de código de barras acontecem por dia no mundo. No Brasil, o uso nos PDVs de supermercados e farmácias é praticamente universal; a loja que não usa código de barras opera com uma desvantagem operacional enorme em velocidade de caixa e controle de estoque.
 
   ## Como escolher o formato certo: tabela de decisão
 
@@ -197,13 +197,13 @@ bodyMarkdown: |
   Antes de mandar imprimir 500 etiquetas, valide o código:
 
   1. **Gere o código** no GeraCode e salve em SVG ou PNG.
-  2. **Escaneie com o celular** — use qualquer app de leitor de código de barras (ou a câmera nativa no iOS 11+ e Android 8+).
+  2. **Escaneie com o celular**, use qualquer app de leitor de código de barras (ou a câmera nativa no iOS 11+ e Android 8+).
   3. **Verifique se o número lido bate** com o número que você digitou.
   4. **Imprima uma etiqueta teste** na impressora que você vai usar para produção.
   5. **Escaneie a etiqueta impressa** com o leitor de mão que você vai usar no PDV ou estoque.
   6. Se passar nos dois testes, está pronto para escala.
 
-  O [leitor de código de barras online](/leitor-de-codigo-de-barras) do GeraCode permite testar diretamente pelo navegador usando a câmera do celular — sem precisar instalar nada.
+  O [leitor de código de barras online](/leitor-de-codigo-de-barras) do GeraCode permite testar diretamente pelo navegador usando a câmera do celular; sem precisar instalar nada.
 
   ## Código de barras na nota fiscal eletrônica
 
@@ -226,17 +226,17 @@ bodyMarkdown: |
   | Impressora de etiquetas térmica | R$ 800 a R$ 3.000 |
   | Software de gestão com integração EAN | R$ 0 (planilha) a R$ 300+/mês |
 
-  Para produtos de venda própria sem necessidade de GS1 (artesanal, marca própria em marketplace), o custo de implementação é **zero** — o GeraCode gera o código visual gratuitamente e você imprime na impressora que já tem.
+  Para produtos de venda própria sem necessidade de GS1 (artesanal, marca própria em marketplace), o custo de implementação é **zero**, o GeraCode gera o código visual gratuitamente e você imprime na impressora que já tem.
 
   ## Erros comuns
 
   **Usar o mesmo código em variações diferentes.** Cada variação (cor, tamanho, sabor) precisa de um código único. Tênis preto 38 e tênis branco 38 são GTINs distintos.
 
-  **Reutilizar o código de um produto descontinuado.** Plataformas e sistemas de PDV guardam histórico — reaproveitar o código causa conflito de cadastro.
+  **Reutilizar o código de um produto descontinuado.** Plataformas e sistemas de PDV guardam histórico; reaproveitar o código causa conflito de cadastro.
 
-  **Imprimir sem o número embaixo.** O EAN-13 precisa ter os 13 dígitos em texto abaixo das barras — é exigido pelo padrão GS1 e serve de backup quando o scanner não consegue ler a imagem.
+  **Imprimir sem o número embaixo.** O EAN-13 precisa ter os 13 dígitos em texto abaixo das barras; é exigido pelo padrão GS1 e serve de backup quando o scanner não consegue ler a imagem.
 
-  **Não testar antes de imprimir em escala.** Um código com dígito verificador errado ou impresso pequeno demais vai falhar no leitor — sempre valide antes de produzir em quantidade.
+  **Não testar antes de imprimir em escala.** Um código com dígito verificador errado ou impresso pequeno demais vai falhar no leitor; sempre valide antes de produzir em quantidade.
 faqsSlugs:
   - cb-qual-formato-usar
   - cb-quantos-formatos

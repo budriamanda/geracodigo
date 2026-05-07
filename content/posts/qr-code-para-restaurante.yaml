@@ -2,7 +2,7 @@ slug: qr-code-para-restaurante
 title: "QR Code para Restaurante: Cardápio Digital e PIX no Balcão"
 metaDescription: "Como usar QR Code no restaurante: cardápio digital nas mesas, QR Code Pix para receber pagamentos e dicas de impressão para não ter código que não lê."
 h1: "QR Code para restaurante: cardápio digital e PIX no balcão"
-subtitle: "Do cardápio nas mesas ao recebimento via Pix — como configurar, imprimir e manter os QR Codes do seu restaurante."
+subtitle: "Do cardápio nas mesas ao recebimento via Pix; como configurar, imprimir e manter os QR Codes do seu restaurante."
 resumo: "QR Code virou ferramenta padrão em restaurantes e lanchonetes: cardápio digital nas mesas e pagamento via Pix no balcão. Este guia explica como criar os dois tipos, onde imprimir, como posicionar e quais erros evitar para que os clientes consigam escanear sem dificuldade."
 categoria: qr-code
 persona: restaurante
@@ -30,11 +30,11 @@ ogAccent: "#f59e0b"
 twitterTitle: "QR Code para restaurante: cardápio e PIX"
 twitterDescription: "Como criar QR Code de cardápio e Pix, onde imprimir e como posicionar na mesa."
 bodyMarkdown: |
-  Dois usos de QR Code dominam restaurantes brasileiros: o **cardápio digital** nas mesas e o **QR Code Pix** no balcão ou na comanda. São QR Codes diferentes, criados de formas diferentes — e misturá-los é um erro comum que confunde o cliente. Este guia explica cada um.
+  Dois usos de QR Code dominam restaurantes brasileiros: o **cardápio digital** nas mesas e o **QR Code Pix** no balcão ou na comanda. São QR Codes diferentes, criados de formas diferentes; e misturá-los é um erro comum que confunde o cliente. Este guia explica cada um.
 
   ## QR Code de cardápio: como funciona
 
-  O QR Code de cardápio é simplesmente um link (URL) codificado em QR Code. Quando o cliente escaneia, o celular abre o link — que pode ser:
+  O QR Code de cardápio é simplesmente um link (URL) codificado em QR Code. Quando o cliente escaneia, o celular abre o link; que pode ser:
 
   - Um **PDF do cardápio** hospedado no Google Drive ou Dropbox
   - Uma página no **Google Sites**, Notion ou site próprio
@@ -54,13 +54,13 @@ bodyMarkdown: |
 
   ### Opção com QR Code dinâmico
 
-  Se você atualiza o cardápio frequentemente e não quer reimprimir os QR Codes toda vez, considere um **QR Code dinâmico** — que aponta para um servidor e permite trocar o destino sem trocar o código impresso. Plataformas como Goomer, Abrahão e iFood Shop oferecem cardápio digital com QR Code dinâmico incluído.
+  Se você atualiza o cardápio frequentemente e não quer reimprimir os QR Codes toda vez, considere um **QR Code dinâmico**, que aponta para um servidor e permite trocar o destino sem trocar o código impresso. Plataformas como Goomer, Abrahão e iFood Shop oferecem cardápio digital com QR Code dinâmico incluído.
 
   Para uso simples (cardápio que muda pouco), o QR Code estático do GeraCode resolve sem custo.
 
   ## QR Code Pix: para receber pagamentos
 
-  O **QR Code Pix** é um código completamente diferente — ele contém os dados da sua chave Pix num formato específico chamado BR Code EMV, definido pelo Banco Central do Brasil. Não é um link; é um payload de pagamento.
+  O **QR Code Pix** é um código completamente diferente; ele contém os dados da sua chave Pix num formato específico chamado BR Code EMV, definido pelo Banco Central do Brasil. Não é um link; é um payload de pagamento.
 
   Quando o cliente escaneia com o app do banco, ele vai direto para a tela de pagamento com os seus dados preenchidos.
 
@@ -73,7 +73,7 @@ bodyMarkdown: |
   3. **Valor:** deixe em branco para que o cliente informe o valor, ou fixe se o ticket é sempre o mesmo.
   4. Baixe em SVG para impressão ou PNG para WhatsApp e redes sociais.
 
-  O código gerado segue o padrão BR Code EMV do Banco Central e funciona em todos os bancos participantes do Pix. Para entender mais: [gerador de PIX grátis — guia completo](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+  O código gerado segue o padrão BR Code EMV do Banco Central e funciona em todos os bancos participantes do Pix. Para entender mais: [gerador de PIX grátis; guia completo](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
 
   ### PIX estático vs. dinâmico no restaurante
 
@@ -89,20 +89,20 @@ bodyMarkdown: |
 
   ## Não confunda os dois QR Codes na mesa
 
-  Um erro frequente: colocar o QR Code Pix e o QR Code de cardápio no mesmo suporte, sem identificar qual é qual. O cliente escaneia o Pix achando que é o cardápio — e vai parar na tela de pagamento. Resultado: confusão e desconfiança.
+  Um erro frequente: colocar o QR Code Pix e o QR Code de cardápio no mesmo suporte, sem identificar qual é qual. O cliente escaneia o Pix achando que é o cardápio; e vai parar na tela de pagamento. Resultado: confusão e desconfiança.
 
   **Solução simples:** identifique claramente cada QR Code com um rótulo:
-  - 🍽️ **"Acesse o cardápio"** — aponta para o cardápio digital
-  - 💰 **"Pague via Pix"** — aponta para o QR Code Pix
+  - 🍽️ **"Acesse o cardápio"**, aponta para o cardápio digital
+  - 💰 **"Pague via Pix"**, aponta para o QR Code Pix
 
   Use ícones e cores diferentes para que o cliente entenda à primeira olhada.
 
   ## Onde posicionar e como imprimir
 
   ### Na mesa (cardápio)
-  - **Porta-cardápio acrílico de mesa** — dura mais que papel e não amassa. Encontrado em papelarias e lojas de embalagens por R$ 5–15 a unidade.
+  - **Porta-cardápio acrílico de mesa**, dura mais que papel e não amassa. Encontrado em papelarias e lojas de embalagens por R$ 5–15 a unidade.
   - **Tamanho mínimo**: 5 × 5 cm para leitura confortável à distância de 30–50 cm.
-  - **Plastifique** se não tiver acrílico — umidade e gordura degradam o papel.
+  - **Plastifique** se não tiver acrílico; umidade e gordura degradam o papel.
 
   ### No balcão (Pix)
   - Imprima em **tamanho A5 (14,8 × 21 cm)** para visibilidade máxima.
@@ -110,7 +110,7 @@ bodyMarkdown: |
   - Coloque em local visível para quem está em frente ao caixa, não em ângulo.
 
   ### Dicas de impressão
-  - Use **SVG** no arquivo — não perde qualidade em nenhum tamanho.
+  - Use **SVG** no arquivo; não perde qualidade em nenhum tamanho.
   - **Impressora laser** produz barras mais nítidas que jato de tinta.
   - Fundo branco e código escuro: evite fundos coloridos.
   - **Teste antes de imprimir em quantidade**: escaneie com seu próprio celular e com o de outra pessoa.
@@ -125,7 +125,7 @@ bodyMarkdown: |
 
   ## QR Code com pedido automático: o próximo passo do cardápio digital
 
-  O QR Code de cardápio tradicional apenas mostra o menu — o cliente lê e pede verbalmente ao garçom. A evolução natural é o **QR Code com self-ordering**: o cliente escaneia, visualiza o cardápio, faz o pedido e paga, tudo no próprio celular, sem interagir com a equipe.
+  O QR Code de cardápio tradicional apenas mostra o menu; o cliente lê e pede verbalmente ao garçom. A evolução natural é o **QR Code com self-ordering**: o cliente escaneia, visualiza o cardápio, faz o pedido e paga, tudo no próprio celular, sem interagir com a equipe.
 
   Como funciona:
   1. O QR Code em cada mesa aponta para um sistema de pedidos online vinculado àquela mesa específica.
@@ -155,7 +155,7 @@ bodyMarkdown: |
 
   Os três devem ter **rótulos claros e visuais distintos** para evitar confusão. Uma boa solução: um suporte de mesa triplo ou um cartão com os três QR Codes identificados com ícones (prato para cardápio, símbolo Pix para pagamento, símbolo Wi-Fi para internet).
 
-  Para o Wi-Fi, crie uma **rede de convidados separada** — os clientes acessam a internet sem ver os dispositivos da rede operacional do restaurante (caixas, tablets de pedido, câmeras). Veja como criar: [QR Code para Wi-Fi](/blog/qr-code-wifi-como-criar).
+  Para o Wi-Fi, crie uma **rede de convidados separada**, os clientes acessam a internet sem ver os dispositivos da rede operacional do restaurante (caixas, tablets de pedido, câmeras). Veja como criar: [QR Code para Wi-Fi](/blog/qr-code-wifi-como-criar).
 
   ## QR Code por mesa: como organizar e numerar
 
@@ -165,18 +165,18 @@ bodyMarkdown: |
   - O sistema de pedido recebe o parâmetro `mesa=5` e já associa o pedido à mesa correta
   - Gere um QR Code separado para cada mesa no [gerador de QR Code](/gerador-de-qr-code)
 
-  Se você usa plataformas como Goomer, Abrahão ou iFood Shop, elas já têm essa funcionalidade de QR Code por mesa — cada código é único e rastreável.
+  Se você usa plataformas como Goomer, Abrahão ou iFood Shop, elas já têm essa funcionalidade de QR Code por mesa; cada código é único e rastreável.
 
   **Organização prática:** numere os QR Codes impressos durante a geração, salve os SVGs nomeados (`mesa-01.svg`, `mesa-02.svg`) e guarde todos em uma pasta para facilitar a reimpressão de apenas as mesas danificadas.
 
   ## Integrando com delivery: iFood, Rappi e Uber Eats
 
-  Se o restaurante opera nas plataformas de delivery, o QR Code pode direcionar para a página do estabelecimento no app — mas com uma ressalva importante:
+  Se o restaurante opera nas plataformas de delivery, o QR Code pode direcionar para a página do estabelecimento no app; mas com uma ressalva importante:
 
   - **iFood:** cada estabelecimento tem uma URL pública como `https://ifood.com.br/delivery/sua-cidade/nome-restaurante`. Gere um QR Code com esse link.
-  - **Rappi e Uber Eats:** funcionam da mesma forma — copie o link da página do estabelecimento no app ou no site e use no QR Code.
+  - **Rappi e Uber Eats:** funcionam da mesma forma; copie o link da página do estabelecimento no app ou no site e use no QR Code.
 
-  **Atenção:** links de plataformas de delivery podem mudar. Use um encurtador de link (bit.ly, Dub.co) como intermediário — assim você pode atualizar o destino sem reimprimir os QR Codes.
+  **Atenção:** links de plataformas de delivery podem mudar. Use um encurtador de link (bit.ly, Dub.co) como intermediário; assim você pode atualizar o destino sem reimprimir os QR Codes.
 
   Uma estratégia eficaz: o QR Code no balcão leva para uma página do próprio site do restaurante com botões para todos os canais (delivery, WhatsApp, reservas). Você controla a página e nunca precisa trocar o QR Code impresso.
 
@@ -184,11 +184,11 @@ bodyMarkdown: |
 
   O QR Code é uma forma prática de coletar avaliações de clientes antes de eles saírem:
 
-  - **Google Business Profile:** copie o link de avaliação do seu estabelecimento no Google Maps e gere um QR Code. Coloque na conta ou na nota fiscal — "Gostou? Avalie no Google!"
+  - **Google Business Profile:** copie o link de avaliação do seu estabelecimento no Google Maps e gere um QR Code. Coloque na conta ou na nota fiscal, "Gostou? Avalie no Google!"
   - **Formulário Google:** crie um formulário de satisfação no Google Forms (NPS, avaliação do prato, sugestão) e gere o QR Code com o link. As respostas ficam em planilha acessível.
-  - **TripAdvisor / iFliid:** mesma lógica — link para avaliação direto no QR Code.
+  - **TripAdvisor / iFliid:** mesma lógica; link para avaliação direto no QR Code.
 
-  Clientes satisfeitos raramente avaliam espontaneamente. Um QR Code na conta, com chamada para ação clara ("Avalie nossa pizza — leva 30 segundos"), aumenta o volume de avaliações positivas sem custo adicional.
+  Clientes satisfeitos raramente avaliam espontaneamente. Um QR Code na conta, com chamada para ação clara ("Avalie nossa pizza; leva 30 segundos"), aumenta o volume de avaliações positivas sem custo adicional.
 
   ## Custo: plataforma paga vs. solução gratuita
 

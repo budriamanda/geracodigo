@@ -2,7 +2,7 @@ slug: como-gerar-qr-code-gratis-passo-a-passo
 title: "Como Gerar QR Code Grátis: Passo a Passo Completo"
 metaDescription: "Aprenda como criar QR Code grátis online em menos de 1 minuto: para link, texto, Wi-Fi ou PIX. Sem cadastro, sem marca d'água e sem limite de uso."
 h1: "Como gerar QR Code grátis: passo a passo"
-subtitle: "Para link, texto, Wi-Fi ou PIX — pronto em menos de 1 minuto, sem cadastro, sem marca d'água, sem validade."
+subtitle: "Para link, texto, Wi-Fi ou PIX, pronto em menos de 1 minuto, sem cadastro, sem marca d'água, sem validade."
 resumo: "Criar um QR Code grátis é simples e rápido. Neste guia você aprende como gerar para qualquer tipo de conteúdo, a diferença entre QR Code estático (gratuito) e dinâmico (pago), o formato certo para impressão e dicas para QR Codes que sempre funcionam."
 categoria: qr-code
 persona: geral
@@ -28,25 +28,25 @@ ogAccent: "#7c3aed"
 twitterTitle: "Como gerar QR Code grátis"
 twitterDescription: "Sem cadastro, sem marca d'água, sem validade. Menos de 1 minuto. Para link, Wi-Fi, PIX ou texto."
 bodyMarkdown: |
-  Criar um QR Code gratuito é mais simples do que parece — e não exige conta em nenhum serviço. Um gerador online resolve em menos de 1 minuto. Mas atenção: muitas ferramentas gratuitas têm limitações importantes que pouca gente percebe antes de usar. Este guia explica tudo.
+  Criar um QR Code gratuito é mais simples do que parece; e não exige conta em nenhum serviço. Um gerador online resolve em menos de 1 minuto. Mas atenção: muitas ferramentas gratuitas têm limitações importantes que pouca gente percebe antes de usar. Este guia explica tudo.
 
   ## QR Code estático vs. dinâmico: a diferença que ninguém conta
 
   Antes de escolher um gerador, entenda essa diferença:
 
-  - **QR Code estático**: o conteúdo está embutido na imagem. Você gera uma vez, baixa e usa para sempre — sem conta, sem assinatura, sem validade. Se você imprimir em mil panfletos, vai funcionar daqui a 10 anos.
-  - **QR Code dinâmico**: a imagem aponta para um servidor; você pode trocar o destino sem mudar o código impresso. Mas exige conta ativa em uma plataforma — se você cancelar, o QR Code para de funcionar.
+  - **QR Code estático**: o conteúdo está embutido na imagem. Você gera uma vez, baixa e usa para sempre; sem conta, sem assinatura, sem validade. Se você imprimir em mil panfletos, vai funcionar daqui a 10 anos.
+  - **QR Code dinâmico**: a imagem aponta para um servidor; você pode trocar o destino sem mudar o código impresso. Mas exige conta ativa em uma plataforma; se você cancelar, o QR Code para de funcionar.
 
   Ferramentas como Adobe Express, Canva e QR Code Generator cobram pelo QR Code dinâmico ou exigem conta paga para manter o redirecionamento ativo. **O GeraCode gera QR Code estático gratuito**, sem dependência de servidor, sem risco de expiração.
 
-  Para a maioria dos casos — balcão, cardápio, cartão de visita, panfleto — o estático é tudo que você precisa.
+  Para a maioria dos casos; balcão, cardápio, cartão de visita, panfleto; o estático é tudo que você precisa.
 
   ## O que você pode colocar em um QR Code
 
   - **Link (URL)**: direciona para site, produto, formulário, cardápio digital ou perfil de rede social.
   - **Texto simples**: exibe uma mensagem, endereço ou instrução.
   - **Wi-Fi**: conecta automaticamente à rede sem digitar a senha.
-  - **PIX**: gera uma cobrança com sua chave (use o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix) — ele segue o padrão BR Code do Banco Central).
+  - **PIX**: gera uma cobrança com sua chave (use o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix); ele segue o padrão BR Code do Banco Central).
   - **Contato (vCard)**: salva um contato direto na agenda do celular.
   - **E-mail ou SMS**: abre o app já com destinatário e texto preenchidos.
 
@@ -60,18 +60,18 @@ bodyMarkdown: |
 
   Cole o link ou escreva o texto que você quer codificar.
 
-  > Para links: inclua sempre o `https://` no começo — sem ele, alguns leitores mostram o texto em vez de abrir o navegador.
+  > Para links: inclua sempre o `https://` no começo; sem ele, alguns leitores mostram o texto em vez de abrir o navegador.
 
   ### 3. Ajuste as configurações (opcional)
 
   - **Tamanho**: aumente para impressão em formatos maiores (A5, A4).
-  - **Margem**: mantenha a margem padrão — ela é necessária para que leitores consigam detectar o código.
+  - **Margem**: mantenha a margem padrão; ela é necessária para que leitores consigam detectar o código.
   - **Cores**: troque o preto por uma cor da sua marca e o branco por outra, desde que o contraste seja alto.
 
   ### 4. Baixe o arquivo
 
   - **PNG**: ideal para telas (site, e-mail, WhatsApp, redes sociais).
-  - **SVG**: ideal para impressão — não perde qualidade em nenhum tamanho.
+  - **SVG**: ideal para impressão; não perde qualidade em nenhum tamanho.
 
   Para impressão, **sempre prefira SVG**.
 
@@ -95,7 +95,7 @@ bodyMarkdown: |
 
   ## O QR Code gerado tem marca d'água?
 
-  Não. O GeraCode gera QR Codes limpos, sem marca d'água, sem limite de uso e sem data de expiração. O arquivo que você baixa é seu — não depende de nenhum servidor para funcionar.
+  Não. O GeraCode gera QR Codes limpos, sem marca d'água, sem limite de uso e sem data de expiração. O arquivo que você baixa é seu; não depende de nenhum servidor para funcionar.
 
   ## Preciso de conta ou cadastro?
 
@@ -105,24 +105,24 @@ bodyMarkdown: |
 
   Depende do conteúdo:
 
-  - **Texto, Wi-Fi, contato**: não precisam de internet — o conteúdo está dentro do código.
+  - **Texto, Wi-Fi, contato**: não precisam de internet; o conteúdo está dentro do código.
   - **Links (URLs)**: precisam de internet para abrir o site, mas o código em si é lido offline.
 
   ## Dicas para QR Codes que sempre funcionam
 
   **Teste antes de imprimir.** Escaneie com Android e iPhone antes de mandar para a gráfica.
 
-  **Mantenha contraste alto.** Tons pastéis podem funcionar na tela mas falhar na impressão — fundo claro e código escuro é o mais seguro.
+  **Mantenha contraste alto.** Tons pastéis podem funcionar na tela mas falhar na impressão; fundo claro e código escuro é o mais seguro.
 
-  **Não distorça.** Se precisar encaixar em um espaço não quadrado, adicione margem em branco — nunca estique o QR Code em formato retangular.
+  **Não distorça.** Se precisar encaixar em um espaço não quadrado, adicione margem em branco; nunca estique o QR Code em formato retangular.
 
   **Superfícies fosca, não brilhante.** Acrílico e plástico brilhante criam reflexo que atrapalha a câmera. Prefira papel fosco ou laminação fosca.
 
-  **Para PIX**, use sempre o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix) — ele gera o código no padrão BR Code exigido pelo Banco Central e inclui o código Copia e Cola junto. Veja o guia completo em [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+  **Para PIX**, use sempre o [gerador específico de QR Code PIX](/gerador-de-qr-code-pix); ele gera o código no padrão BR Code exigido pelo Banco Central e inclui o código Copia e Cola junto. Veja o guia completo em [como criar QR Code PIX grátis](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
 
   ## QR Code de contato (vCard): como formatar corretamente
 
-  O formato vCard codificado em QR Code é suportado nativamente por iOS e Android — ao escanear, o celular oferece salvar o contato diretamente na agenda. O formato básico:
+  O formato vCard codificado em QR Code é suportado nativamente por iOS e Android; ao escanear, o celular oferece salvar o contato diretamente na agenda. O formato básico:
 
   ```
   BEGIN:VCARD
@@ -136,12 +136,12 @@ bodyMarkdown: |
   ```
 
   Pontos importantes:
-  - Use `VERSION:3.0` — mais compatível que a versão 4.0 com Android antigo
+  - Use `VERSION:3.0`, mais compatível que a versão 4.0 com Android antigo
   - O telefone deve estar no formato internacional: `+55` + DDD + número
   - Cole o bloco vCard completo (sem modificações) no campo de texto do [gerador de QR Code](/gerador-de-qr-code)
   - Para múltiplos telefones, repita a linha `TEL:` com tipo: `TEL;TYPE=WORK:` e `TEL;TYPE=CELL:`
 
-  O QR Code de vCard é estático — se o telefone mudar, você precisará gerar e reimprimir um novo código.
+  O QR Code de vCard é estático; se o telefone mudar, você precisará gerar e reimprimir um novo código.
 
   ## QR Code para redes sociais: Instagram, YouTube, LinkedIn
 
@@ -159,7 +159,7 @@ bodyMarkdown: |
 
   ## Como rastrear quem escaneou seu QR Code (analytics)
 
-  QR Codes estáticos não têm analytics nativo — você não sabe quantas pessoas escanearam. Mas com UTM parameters, você rastreia no Google Analytics:
+  QR Codes estáticos não têm analytics nativo; você não sabe quantas pessoas escanearam. Mas com UTM parameters, você rastreia no Google Analytics:
 
   Em vez de apontar para `https://seusite.com/pagina`, use:
   ```
@@ -193,7 +193,7 @@ bodyMarkdown: |
 
   **1. Tamanho abaixo do mínimo.** Para leitura a 30 cm (mesa, balcão), o código precisa ter no mínimo 3 × 3 cm. Para cartão de visita (30–40 cm), 2 × 2 cm é o limite.
 
-  **2. Contraste insuficiente.** Módulos cinza-escuros em fundo cinza-claro podem parecer bons na tela mas falham na impressão. Use módulos pretos (`#000000`) em fundo branco — é o padrão mais seguro para qualquer impressora.
+  **2. Contraste insuficiente.** Módulos cinza-escuros em fundo cinza-claro podem parecer bons na tela mas falham na impressão. Use módulos pretos (`#000000`) em fundo branco; é o padrão mais seguro para qualquer impressora.
 
   **3. Logo ocupando mais de 30% da área.** Com nível de correção H, o código tolera até 30% de dano. Se a logo ultrapassar isso, alguns leitores falham. Teste com Android e iPhone antes de imprimir.
 
@@ -201,11 +201,11 @@ bodyMarkdown: |
 
   **5. Zona de silêncio cortada.** A margem branca ao redor do código (pelo menos 4 módulos) é obrigatória. Se você recortou a imagem rente ao código em um editor, reimporte o SVG original sem cortar.
 
-  **6. PNG em baixa resolução esticado.** PNG gerado em 200×200 px e impresso em 5×5 cm vira 40 DPI — barras desfocadas. Use sempre SVG para impressão.
+  **6. PNG em baixa resolução esticado.** PNG gerado em 200×200 px e impresso em 5×5 cm vira 40 DPI, barras desfocadas. Use sempre SVG para impressão.
 
-  **7. Link de destino incorreto.** O QR Code pode ser lido corretamente, mas o link não ter `https://` — em alguns leitores, `exemplo.com.br` sem o prefixo é tratado como texto, não como URL.
+  **7. Link de destino incorreto.** O QR Code pode ser lido corretamente, mas o link não ter `https://`, em alguns leitores, `exemplo.com.br` sem o prefixo é tratado como texto, não como URL.
 
-  Se nenhuma dessas causas resolver, use o [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) para verificar o conteúdo decodificado — se o leitor lê mas o link não abre, o problema está no destino, não no código.
+  Se nenhuma dessas causas resolver, use o [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) para verificar o conteúdo decodificado; se o leitor lê mas o link não abre, o problema está no destino, não no código.
 
   ## Checklist antes de imprimir em quantidade
 

@@ -33,7 +33,7 @@ twitterDescription: "5 ferramentas grátis, sem cadastro. Descubra qual tipo de 
 bodyMarkdown: |
   O GeraCode oferece cinco ferramentas de gerador de código grátis: código de barras, QR Code, QR Code Pix, EAN-13 e SKU. Todas funcionam no navegador, sem cadastro, sem marca d'água e sem custo.
 
-  **Atenção:** este guia é sobre códigos para produtos, estoque e pagamentos — não sobre geração de código de programação por IA. Se você procura gerador de código de programação, esse não é o artigo certo.
+  **Atenção:** este guia é sobre códigos para produtos, estoque e pagamentos; não sobre geração de código de programação por IA. Se você procura gerador de código de programação, esse não é o artigo certo.
 
   Qual ferramenta usar depende de uma pergunta direta: o que você precisa fazer com esse código? Cada tipo tem uma função específica. Usar o errado significa código que não lê no caixa, pagamento Pix que não funciona ou estoque desorganizado.
 
@@ -151,7 +151,7 @@ bodyMarkdown: |
 
   **Loja de roupas no Mercado Livre (Fernanda, marca própria)**
 
-  Fernanda vende peças de roupa de marca própria — ela mesma cria as peças, sem revender marcas conhecidas. Neste cenário, o Mercado Livre aceita EAN-13 gerado localmente. Ela usa três ferramentas:
+  Fernanda vende peças de roupa de marca própria; ela mesma cria as peças, sem revender marcas conhecidas. Neste cenário, o Mercado Livre aceita EAN-13 gerado localmente. Ela usa três ferramentas:
   - **EAN-13** gerado no GeraCode para cadastrar os anúncios e preencher o campo GTIN da NF-e
   - **SKU** no formato CAMISETA-PRETA-P para controle de variações no Bling
   - **QR Code Pix** no cartão que acompanha cada pedido, para recebimentos diretos de clientes recorrentes
@@ -189,9 +189,9 @@ bodyMarkdown: |
 
   O processo é o mesmo para qualquer um dos cinco geradores:
 
-  1. **Abra a ferramenta certa** — use a tabela de decisão acima para escolher o tipo de código
-  2. **Preencha os dados** — número do produto, chave Pix, URL ou referência interna, dependendo do tipo
-  3. **Baixe ou imprima** — PNG para uso digital, SVG para impressão profissional, PDF para etiquetas em lote
+  1. **Abra a ferramenta certa**, use a tabela de decisão acima para escolher o tipo de código
+  2. **Preencha os dados**, número do produto, chave Pix, URL ou referência interna, dependendo do tipo
+  3. **Baixe ou imprima**, PNG para uso digital, SVG para impressão profissional, PDF para etiquetas em lote
 
   Não há cadastro, tempo de espera nem watermark. O código fica disponível imediatamente para download.
 
@@ -201,10 +201,10 @@ bodyMarkdown: |
   Para código de barras com múltiplos formatos (EAN-13, Code 128, ITF-14), geração em lote e impressão de etiquetas, o [GeraCode](/gerador-de-codigo-de-barras) é a opção mais completa no Brasil sem cadastro. Para QR Code Pix especificamente, use o [gerador de QR Pix](/gerador-de-qr-code-pix) integrado ao mesmo site.
 
   **Preciso me cadastrar na GS1 para ter código de barras?**
-  Apenas se você vai vender em redes de supermercado, farmácias ou grandes varejistas físicos — ou se a plataforma/marketplace exigir GTIN oficialmente validado. Para uso interno, e-commerce próprio, feiras e produtos de marca própria em marketplace, o gerador grátis basta.
+  Apenas se você vai vender em redes de supermercado, farmácias ou grandes varejistas físicos; ou se a plataforma/marketplace exigir GTIN oficialmente validado. Para uso interno, e-commerce próprio, feiras e produtos de marca própria em marketplace, o gerador grátis basta.
 
   **Qual a diferença entre QR Code e código de barras?**
-  Código de barras linear (as "listras") é lido por scanners a laser e usado em caixas de supermercado, estoques e logística. QR Code é lido por câmera de celular e usado para links, pagamentos e informações digitais. São formatos complementares, não substitutos — muitos negócios usam os dois.
+  Código de barras linear (as "listras") é lido por scanners a laser e usado em caixas de supermercado, estoques e logística. QR Code é lido por câmera de celular e usado para links, pagamentos e informações digitais. São formatos complementares, não substitutos; muitos negócios usam os dois.
 
   **QR Code Pix estático ou dinâmico: qual usar para minha loja?**
   Estático para a maioria dos casos: placa no balcão, mesa de restaurante, banner ou cardápio impresso. O cliente escaneia, digita o valor e paga. Dinâmico é necessário apenas quando você precisa gerar cobranças automáticas com valores fixos por transação, via integração com sistema de gestão.

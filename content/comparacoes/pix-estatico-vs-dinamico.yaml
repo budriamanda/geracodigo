@@ -6,32 +6,32 @@ metaDescription: "Diferença entre Pix estático e dinâmico: quando usar cada, 
 h1: "Pix estático vs dinâmico: qual QR Code escolher?"
 subtitle: "Comparação prática entre os dois tipos de QR Code Pix para você decidir qual faz sentido no seu negócio."
 introducao: |
-  Ambos são QR Codes válidos para receber pagamentos via Pix — mas servem a propósitos diferentes. O **estático** é fixo e gratuito para gerar; o **dinâmico** é gerado pela API do banco, permite confirmação automática e geralmente envolve integração técnica (ou um parceiro que cobra).
+  Ambos são QR Codes válidos para receber pagamentos via Pix; mas servem a propósitos diferentes. O **estático** é fixo e gratuito para gerar; o **dinâmico** é gerado pela API do banco, permite confirmação automática e geralmente envolve integração técnica (ou um parceiro que cobra).
 tabelaComparativa:
   - criterio: "Como é gerado"
-    valorA: "Você gera em uma ferramenta (gratuito). Fica fixo."
-    valorB: "Gerado pela API do banco ou fintech a cada cobrança."
+  valorA: "Você gera em uma ferramenta (gratuito). Fica fixo."
+  valorB: "Gerado pela API do banco ou fintech a cada cobrança."
   - criterio: "Custo"
-    valorA: "Grátis (sem taxa para MEI e PF na maioria dos bancos)."
-    valorB: "Depende do banco/parceiro. Pode ter taxa por transação."
+  valorA: "Grátis (sem taxa para MEI e PF na maioria dos bancos)."
+  valorB: "Depende do banco/parceiro. Pode ter taxa por transação."
   - criterio: "Valor"
-    valorA: "Fixo ou aberto (cliente digita)."
-    valorB: "Fixo por cobrança, com expiração."
+  valorA: "Fixo ou aberto (cliente digita)."
+  valorB: "Fixo por cobrança, com expiração."
   - criterio: "Confirmação automática"
-    valorA: "Não. Você confere no app do banco."
-    valorB: "Sim. Webhook/notificação do banco ao receber."
+  valorA: "Não. Você confere no app do banco."
+  valorB: "Sim. Webhook/notificação do banco ao receber."
   - criterio: "Reutilização"
-    valorA: "Mesmo QR serve para vários pagamentos."
-    valorB: "Cada QR é único, normalmente com validade."
+  valorA: "Mesmo QR serve para vários pagamentos."
+  valorB: "Cada QR é único, normalmente com validade."
   - criterio: "Melhor para"
-    valorA: "Balcão, mesa, adesivo, feira, MEI autônomo."
-    valorB: "E-commerce, cobranças com controle, marketplaces."
+  valorA: "Balcão, mesa, adesivo, feira, MEI autônomo."
+  valorB: "E-commerce, cobranças com controle, marketplaces."
   - criterio: "Tempo para começar"
-    valorA: "1 minuto — gera e imprime."
-    valorB: "Horas ou dias, dependendo da API."
+  valorA: "1 minuto; gera e imprime."
+  valorB: "Horas ou dias, dependendo da API."
   - criterio: "Nível técnico"
-    valorA: "Zero — qualquer pessoa gera."
-    valorB: "Requer dev ou plataforma que integre."
+  valorA: "Zero; qualquer pessoa gera."
+  valorB: "Requer dev ou plataforma que integre."
 quandoUsarA: |
   - Você é MEI ou autônomo que recebe no balcão ou presencialmente.
   - Quer algo **grátis** e sem contratar API do banco.
@@ -43,7 +43,7 @@ quandoUsarB: |
   - Precisa de controle fino (cobrança única, expiração, conciliação).
   - Já tem desenvolvedor ou usa plataforma que integra com Pix.
 veredito: |
-  Para a **grande maioria dos MEIs e lojistas físicos**, o Pix estático resolve: é grátis, rápido de gerar e o dinheiro cai igual. O dinâmico só vale a pena quando o volume justifica a integração — tipicamente em e-commerce, SaaS ou operações com muitas cobranças por dia.
+  Para a **grande maioria dos MEIs e lojistas físicos**, o Pix estático resolve: é grátis, rápido de gerar e o dinheiro cai igual. O dinâmico só vale a pena quando o volume justifica a integração; tipicamente em e-commerce, SaaS ou operações com muitas cobranças por dia.
 
   Dica: comece com o estático, escale o negócio, e depois avalie se o dinâmico compensa.
 ferramentasRelacionadasSlugs:
@@ -57,7 +57,7 @@ postsRelacionadosSlugs:
   - gerador-pix-gratis-como-criar-qr-code-pix
 keywordPrimaria: "pix estatico vs dinamico"
 ogTitle: "Pix Estático vs Dinâmico: Qual usar"
-ogDescription: "Comparação prática entre os dois tipos de QR Pix — qual faz sentido para seu negócio."
+ogDescription: "Comparação prática entre os dois tipos de QR Pix; qual faz sentido para seu negócio."
 ogAccent: "#f59e0b"
 twitterTitle: "Pix estático vs dinâmico"
 twitterDescription: "Qual QR Code Pix usar no seu negócio? Comparação completa."

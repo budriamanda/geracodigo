@@ -222,7 +222,7 @@ ${pages.join('\n')}
 </body></html>`)
     printWindow.document.close()
     trackPrint('barcode_generator', `${cols}x${rows}`)
-  }, [tab])
+  }, [tab, batchResults])
 
   const downloadSvgSingle = () => {
     if (svgRef.current) {

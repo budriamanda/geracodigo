@@ -30,7 +30,7 @@ ogAccent: "#0ea5e9"
 twitterTitle: "QR Code para Wi-Fi: guia completo"
 twitterDescription: "Como criar, formato correto e compatibilidade com celulares. Sem digitar senha."
 bodyMarkdown: |
-  Quantas vezes por dia alguém te pede a senha do Wi-Fi? Em um café, hotel ou escritório, um QR Code de Wi-Fi resolve isso: o cliente aponta o celular, escaneia e se conecta automaticamente — sem digitar nada, sem errar a senha.
+  Quantas vezes por dia alguém te pede a senha do Wi-Fi? Em um café, hotel ou escritório, um QR Code de Wi-Fi resolve isso: o cliente aponta o celular, escaneia e se conecta automaticamente; sem digitar nada, sem errar a senha.
 
   Mas o QR Code de Wi-Fi não é um link. Ele usa um formato técnico específico que os sistemas operacionais conhecem. Este guia explica o formato correto, como criar, onde imprimir e em quais dispositivos funciona.
 
@@ -42,19 +42,19 @@ bodyMarkdown: |
   1. Abra **Configurações → Wi-Fi** (ou Conexões → Wi-Fi).
   2. Toque na rede à qual você está conectado.
   3. Toque em **"Compartilhar"** ou no ícone de QR Code (varia por fabricante: Samsung, Motorola e Xiaomi têm esse botão em posições ligeiramente diferentes).
-  4. Um QR Code aparece — o outro dispositivo aponta a câmera e se conecta.
+  4. Um QR Code aparece; o outro dispositivo aponta a câmera e se conecta.
 
   **iPhone (iOS 16+):**
   1. Abra **Ajustes → Wi-Fi**.
   2. Toque no ícone `ⓘ` ao lado da rede conectada.
-  3. Toque em **"Compartilhar senha"** — o iOS envia a senha automaticamente para outro dispositivo Apple próximo por AirDrop, sem mostrar o QR Code.
+  3. Toque em **"Compartilhar senha"**, o iOS envia a senha automaticamente para outro dispositivo Apple próximo por AirDrop, sem mostrar o QR Code.
   4. Para gerar um QR Code visual no iPhone, use o app **Atalhos (Shortcuts)**: pesquise "QR Your Wi-Fi" na Galeria de Atalhos, configure uma vez e use sempre que precisar.
 
-  > **Quando usar o GeraCode em vez do recurso nativo:** o QR Code nativo é pessoal e temporário — ideal para compartilhar com uma pessoa. O QR Code do GeraCode é para impressão e distribuição — cartões de mesa, adesivos, cartões de boas-vindas. Para uso comercial permanente, o GeraCode é a opção certa.
+  > **Quando usar o GeraCode em vez do recurso nativo:** o QR Code nativo é pessoal e temporário; ideal para compartilhar com uma pessoa. O QR Code do GeraCode é para impressão e distribuição; cartões de mesa, adesivos, cartões de boas-vindas. Para uso comercial permanente, o GeraCode é a opção certa.
 
   ## Como funciona o QR Code de Wi-Fi
 
-  O QR Code de Wi-Fi não abre um site — ele codifica um texto no formato **WIFI:** que os sistemas operacionais iOS e Android reconhecem nativamente como uma instrução de conexão. Quando a câmera detecta esse formato, ela exibe uma notificação "Conectar à rede [nome]" e completa a autenticação automaticamente.
+  O QR Code de Wi-Fi não abre um site; ele codifica um texto no formato **WIFI:** que os sistemas operacionais iOS e Android reconhecem nativamente como uma instrução de conexão. Quando a câmera detecta esse formato, ela exibe uma notificação "Conectar à rede [nome]" e completa a autenticação automaticamente.
 
   O formato completo é:
 
@@ -68,7 +68,7 @@ bodyMarkdown: |
   - **P** = senha (omita para redes abertas)
   - Os dois ponto-e-vírgula finais (`;;`) fecham o payload
 
-  O [gerador de QR Code do GeraCode](/gerador-de-qr-code) tem um modo específico para Wi-Fi que monta esse formato automaticamente — você preenche os campos e o código é gerado sem risco de erro de digitação.
+  O [gerador de QR Code do GeraCode](/gerador-de-qr-code) tem um modo específico para Wi-Fi que monta esse formato automaticamente; você preenche os campos e o código é gerado sem risco de erro de digitação.
 
   ## Compatibilidade com iOS e Android
 
@@ -79,11 +79,11 @@ bodyMarkdown: |
   | Android 9 ou anterior | — | Requer app de leitura de QR Code (ex: Google Lens) |
   | Windows 10/11 | — | App "Câmera" lê mas não conecta automaticamente |
 
-  Para a grande maioria dos clientes hoje (2026), a câmera nativa já resolve. Dispositivos muito antigos podem precisar de um app adicional — mas esses representam menos de 5% do uso, segundo dados de adoção do Android publicados pelo Google.
+  Para a grande maioria dos clientes hoje (2026), a câmera nativa já resolve. Dispositivos muito antigos podem precisar de um app adicional; mas esses representam menos de 5% do uso, segundo dados de adoção do Android publicados pelo Google.
 
   ### Redes com segurança WPA3
 
-  Redes com WPA3 usam o mesmo valor `T:WPA` no formato WIFI: — o dispositivo negocia o protocolo correto automaticamente. Não existe campo específico para WPA3 no padrão de QR Code de Wi-Fi.
+  Redes com WPA3 usam o mesmo valor `T:WPA` no formato WIFI:, o dispositivo negocia o protocolo correto automaticamente. Não existe campo específico para WPA3 no padrão de QR Code de Wi-Fi.
 
   ## Criando o QR Code de Wi-Fi no GeraCode
 
@@ -98,9 +98,9 @@ bodyMarkdown: |
   ## Onde imprimir e posicionar
 
   ### Em cafés, restaurantes e padarias
-  - **Mesa ou balcão**: porta-cartão acrílico (A7 ou A6), com o texto "Wi-Fi grátis — escaneie para conectar" e o nome da rede abaixo do código.
+  - **Mesa ou balcão**: porta-cartão acrílico (A7 ou A6), com o texto "Wi-Fi grátis; escaneie para conectar" e o nome da rede abaixo do código.
   - Tamanho mínimo do QR Code: **3 × 3 cm** para leitura a 30 cm de distância.
-  - Inclua o nome e a senha por extenso abaixo do QR Code — para quem não conseguir escanear.
+  - Inclua o nome e a senha por extenso abaixo do QR Code; para quem não conseguir escanear.
 
   ### Em hotéis e pousadas
   - Imprima em **cartão de boas-vindas** (tamanho cartão de crédito, frente e verso).
@@ -115,7 +115,7 @@ bodyMarkdown: |
 
   **Senha ou SSID com caractere especial não escapado.** Se o SSID é `Café & Cia`, o `&` precisa estar correto no payload. Use o gerador em vez de montar o texto na mão.
 
-  **Trocar a senha do Wi-Fi sem reimprimir.** O QR Code de Wi-Fi é estático — ele contém a senha literal. Se você mudar a senha do roteador, todos os QR Codes impressos param de funcionar. Guarde o arquivo SVG para reimprimir rapidamente.
+  **Trocar a senha do Wi-Fi sem reimprimir.** O QR Code de Wi-Fi é estático; ele contém a senha literal. Se você mudar a senha do roteador, todos os QR Codes impressos param de funcionar. Guarde o arquivo SVG para reimprimir rapidamente.
 
   **Rede oculta sem marcar a opção.** Redes com SSID oculto precisam do campo `H:true` no payload. Sem isso, o dispositivo não encontra a rede mesmo com a senha correta.
 
@@ -125,19 +125,19 @@ bodyMarkdown: |
 
   ## Devo incluir a senha em texto junto com o QR Code?
 
-  Sim — mas avalie o contexto. Em ambientes onde a senha é semipública (café, sala de espera), incluir a senha por extenso é conveniente para usuários com dispositivos mais antigos. Em ambientes corporativos onde a senha é controlada, imprima apenas o QR Code e instrua a recepção a fornecer a senha pessoalmente quando necessário.
+  Sim; mas avalie o contexto. Em ambientes onde a senha é semipública (café, sala de espera), incluir a senha por extenso é conveniente para usuários com dispositivos mais antigos. Em ambientes corporativos onde a senha é controlada, imprima apenas o QR Code e instrua a recepção a fornecer a senha pessoalmente quando necessário.
 
   ## Segurança: o que significa ter a senha no QR Code
 
-  O QR Code de Wi-Fi contém a senha da rede em texto simples dentro do payload. Qualquer pessoa que conseguir uma cópia do código — foto, screenshot, arquivo SVG — pode obter a senha e se conectar à rede.
+  O QR Code de Wi-Fi contém a senha da rede em texto simples dentro do payload. Qualquer pessoa que conseguir uma cópia do código; foto, screenshot, arquivo SVG, pode obter a senha e se conectar à rede.
 
   Implicações práticas:
 
-  - **Redes de uso público (café, hotel, restaurante):** o nível de risco é baixo — a senha já é semipública e o objetivo é exatamente facilitar o acesso.
+  - **Redes de uso público (café, hotel, restaurante):** o nível de risco é baixo; a senha já é semipública e o objetivo é exatamente facilitar o acesso.
   - **Redes corporativas ou domésticas:** pense antes de criar e distribuir o QR Code. Se a rede tem acesso a sistemas internos ou dados sensíveis, o QR Code pode ser um vetor de acesso não autorizado.
-  - **Solução recomendada para empresas:** crie uma **rede de convidados (guest network)** separada — com QR Code público — e mantenha a rede corporativa sem QR Code. Quase todos os roteadores modernos suportam guest network.
+  - **Solução recomendada para empresas:** crie uma **rede de convidados (guest network)** separada; com QR Code público; e mantenha a rede corporativa sem QR Code. Quase todos os roteadores modernos suportam guest network.
 
-  **O QR Code não expira automaticamente.** Se você trocar a senha do Wi-Fi, o QR Code antigo para de funcionar — mas qualquer cópia que alguém tirou antes ainda tem a senha antiga. Para redes corporativas, troque a senha de convidados periodicamente e regenere o QR Code.
+  **O QR Code não expira automaticamente.** Se você trocar a senha do Wi-Fi, o QR Code antigo para de funcionar; mas qualquer cópia que alguém tirou antes ainda tem a senha antiga. Para redes corporativas, troque a senha de convidados periodicamente e regenere o QR Code.
 
   ## Rede de convidados (Guest Network): por que separar
 
@@ -147,7 +147,7 @@ bodyMarkdown: |
   - Você controla a largura de banda da rede de convidados sem afetar a rede operacional.
   - A senha de convidados pode ser trocada com frequência sem impactar os dispositivos internos.
 
-  **Como configurar:** acesse o painel de administração do roteador (geralmente em `192.168.0.1` ou `192.168.1.1`), localize "Guest Network" ou "Rede de convidados" e ative. Defina o nome (SSID) e senha. Gere o QR Code com essas credenciais — não com as da rede principal.
+  **Como configurar:** acesse o painel de administração do roteador (geralmente em `192.168.0.1` ou `192.168.1.1`), localize "Guest Network" ou "Rede de convidados" e ative. Defina o nome (SSID) e senha. Gere o QR Code com essas credenciais; não com as da rede principal.
 
   Marcas de roteador mais comuns no Brasil (TP-Link, Intelbras, Multilaser, D-Link) têm essa função desde modelos intermediários.
 
@@ -156,7 +156,7 @@ bodyMarkdown: |
   Alguns modelos mais recentes já geram o QR Code de Wi-Fi diretamente no painel de administração ou no app do fabricante:
 
   - **TP-Link (app Tether):** em "Redes sem fio" → selecione a rede → "Compartilhar" → QR Code gerado pelo app.
-  - **Intelbras (app Conecta):** mesma lógica — o app gera o QR Code da rede cadastrada.
+  - **Intelbras (app Conecta):** mesma lógica; o app gera o QR Code da rede cadastrada.
   - **Roteadores com display (ex: TP-Link Deco):** alguns modelos com tela LCD exibem o QR Code diretamente no hardware.
 
   Esses QR Codes nativos são práticos para configuração inicial, mas têm limitações de personalização visual. Para criar um QR Code com identidade visual do estabelecimento (cores, logo), use o [gerador do GeraCode](/gerador-de-qr-code).
@@ -173,7 +173,7 @@ bodyMarkdown: |
   | Requer acesso físico ao roteador | Não | Sim (botão) ou configuração |
   | Recomendação atual | Preferível para visitantes | Evite o PIN; use apenas o botão físico |
 
-  O WPS por PIN foi considerado inseguro por pesquisadores de segurança desde 2011 — muitos roteadores modernos desabilitam o WPS completamente. O QR Code de Wi-Fi é a alternativa mais prática e razoavelmente segura para redes de convidados.
+  O WPS por PIN foi considerado inseguro por pesquisadores de segurança desde 2011, muitos roteadores modernos desabilitam o WPS completamente. O QR Code de Wi-Fi é a alternativa mais prática e razoavelmente segura para redes de convidados.
 
   ## Fallback para dispositivos sem suporte
 
@@ -182,9 +182,9 @@ bodyMarkdown: |
   1. **Imprima a senha por extenso** abaixo ou ao lado do QR Code. Isso cobre 100% dos dispositivos, independentemente de compatibilidade.
   2. **Inclua o nome da rede (SSID).** Sem o nome, o usuário não sabe em qual rede digitar a senha.
   3. **Formato sugerido no material impresso:**
-     - "Wi-Fi grátis — escaneie para conectar"
-     - QR Code (3×3 cm mínimo)
-     - "Ou conecte manualmente: Rede: *NomeDaRede* / Senha: *SenhaAqui*"
+  - "Wi-Fi grátis; escaneie para conectar"
+  - QR Code (3×3 cm mínimo)
+  - "Ou conecte manualmente: Rede: *NomeDaRede* / Senha: *SenhaAqui*"
 
   Em ambientes corporativos onde a senha não deve ser exposta, omita o fallback e oriente visitantes a solicitarem acesso à recepção.
 

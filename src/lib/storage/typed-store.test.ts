@@ -31,7 +31,7 @@ describe('createStore', () => {
     })
 
     it('returns defaultValue when validate fails', () => {
-      const { store } = makeStore({
+      makeStore({
         defaultValue: [] as number[],
         validate: (v): v is number[] => Array.isArray(v) && v.every(x => typeof x === 'number'),
       })

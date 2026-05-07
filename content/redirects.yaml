@@ -1,7 +1,7 @@
 items:
   - source: "/gerador-codigo-de-barras"
-    destination: "/gerador-de-codigo-de-barras"
-    permanent: true
+  destination: "/gerador-de-codigo-de-barras"
+  permanent: true
   - source: "/termos-e-privacidade"
-    destination: "/termos"
-    permanent: true
+  destination: "/termos"
+  permanent: true

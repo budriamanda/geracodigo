@@ -2,7 +2,7 @@ slug: code-39-o-que-e-como-gerar-codigo-de-barras
 title: "Code 39: O Que É, Como Funciona e Como Gerar"
 metaDescription: "Entenda o que é o Code 39 (3 of 9), quando usar no lugar do EAN-13 ou Code 128, setores que adotam o formato e como gerar gratuitamente online."
 h1: "Code 39: o que é, como funciona e quando usar"
-subtitle: "Um dos formatos mais versáteis — ainda essencial em estoque, patrimônio, saúde e indústria."
+subtitle: "Um dos formatos mais versáteis; ainda essencial em estoque, patrimônio, saúde e indústria."
 resumo: "O Code 39 é um dos formatos de código de barras mais usados no mundo para controle de estoque, patrimônio e uso industrial. Entenda como ele funciona, a diferença para o Code 128, quando escolhê-lo e como gerar gratuitamente."
 categoria: codigo-barras
 persona: lojista-ecommerce
@@ -30,7 +30,7 @@ ogAccent: "#2563eb"
 twitterTitle: "Code 39: o que é e quando usar"
 twitterDescription: "Formato alfanumérico para estoque, patrimônio e indústria. Gere grátis e entenda as diferenças."
 bodyMarkdown: |
-  Se você já viu um código de barras com letras e números misturados — como `COMP-0042` ou `INV-A123` — provavelmente estava olhando para um Code 39. É um dos formatos mais antigos e ainda um dos mais usados em ambientes industriais, de saúde, logística e patrimônio no mundo todo.
+  Se você já viu um código de barras com letras e números misturados; como `COMP-0042` ou `INV-A123`, provavelmente estava olhando para um Code 39. É um dos formatos mais antigos e ainda um dos mais usados em ambientes industriais, de saúde, logística e patrimônio no mundo todo.
 
   ## O que é o Code 39?
 
@@ -43,7 +43,7 @@ bodyMarkdown: |
   - Total de 43 caracteres disponíveis
 
   **Características técnicas:**
-  - Comprimento variável — você define quantos caracteres quer codificar
+  - Comprimento variável; você define quantos caracteres quer codificar
   - Sem dígito verificador obrigatório (simplifica implementação)
   - Leitura bidirecional (o leitor lê da esquerda para direita ou vice-versa)
   - Amplamente suportado por praticamente todos os leitores de código de barras do mercado
@@ -56,10 +56,10 @@ bodyMarkdown: |
   |---|---|
   | Números | `0 1 2 3 4 5 6 7 8 9` |
   | Letras | `A B C D E F G H I J K L M N O P Q R S T U V W X Y Z` (somente maiúsculas) |
-  | Especiais | `- . (espaço) $ / + %` |
+  | Especiais | `-. (espaço) $ / + %` |
   | Delimitador | `*` (início e fim — não faz parte dos dados) |
 
-  Se o seu conteúdo tem letras minúsculas (`a–z`) ou símbolos como `@`, `#`, `:`, `;`, `\`, use o **Full Extended Code 39** — que codifica todos os 128 caracteres ASCII — ou mude para Code 128, que é mais compacto e suporta ASCII nativo.
+  Se o seu conteúdo tem letras minúsculas (`a–z`) ou símbolos como `@`, `#`, `:`, `;`, `\`, use o **Full Extended Code 39**, que codifica todos os 128 caracteres ASCII, ou mude para Code 128, que é mais compacto e suporta ASCII nativo.
 
   O padrão técnico do Code 39 é definido pela norma **ISO/IEC 16388** (última edição: 2007; revisão em andamento como ISO/IEC 16388:2023). Equipamentos e sistemas certificados para uso industrial e saúde seguem esse padrão.
 
@@ -80,7 +80,7 @@ bodyMarkdown: |
   | Compatibilidade de leitores | Universal (leitores antigos e novos) | Universal | Universal |
   | Uso principal | Patrimônio, indústria, saúde | Logística, e-commerce, estoque | Varejo, supermercado, marketplace |
 
-  **Quando escolher Code 39 vs Code 128?** Se você precisa de compatibilidade máxima com leitores legados — especialmente em sistemas de saúde, defesa e linhas de produção antigas —, o Code 39 é mais seguro. Se o espaço na etiqueta for limitado ou você precisar codificar muitos caracteres, prefira o Code 128.
+  **Quando escolher Code 39 vs Code 128?** Se você precisa de compatibilidade máxima com leitores legados; especialmente em sistemas de saúde, defesa e linhas de produção antigas,, o Code 39 é mais seguro. Se o espaço na etiqueta for limitado ou você precisar codificar muitos caracteres, prefira o Code 128.
 
   Para produtos que vão para varejo ou marketplaces, use EAN-13. Saiba mais no guia de [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo).
 
@@ -88,7 +88,7 @@ bodyMarkdown: |
 
   ### Controle de patrimônio
 
-  É o padrão mais comum para etiquetas de patrimônio — computadores, monitores, móveis, equipamentos. Você pode codificar o código interno: `COMP-0042`, `MESA-LAB3`, `PROJ-001`.
+  É o padrão mais comum para etiquetas de patrimônio; computadores, monitores, móveis, equipamentos. Você pode codificar o código interno: `COMP-0042`, `MESA-LAB3`, `PROJ-001`.
 
   ### Setor de saúde
 
@@ -112,7 +112,7 @@ bodyMarkdown: |
 
   ## Quando NÃO usar o Code 39
 
-  - **Para produtos de varejo e marketplace**: use EAN-13 — supermercados e plataformas não reconhecem Code 39 como GTIN.
+  - **Para produtos de varejo e marketplace**: use EAN-13, supermercados e plataformas não reconhecem Code 39 como GTIN.
   - **Quando o espaço for muito limitado**: o Code 39 ocupa mais área que o Code 128 para o mesmo conteúdo. Em etiquetas pequenas, o Code 128 é mais eficiente.
   - **Para codificar letras minúsculas ou ASCII completo**: use Code 128 ou Full Extended Code 39.
 
@@ -135,21 +135,21 @@ bodyMarkdown: |
   - **Largura mínima da barra estreita**: 0,19 mm em impressão de alta qualidade; 0,25 mm em impressoras comuns
   - **Zona de silêncio lateral**: pelo menos 10× a largura da barra estreita
 
-  Exporte sempre em SVG para impressão — garante qualidade independente do tamanho final da etiqueta. Para verificar se o código foi gerado corretamente, use o [leitor online](/leitor-de-codigo-de-barras) antes de imprimir.
+  Exporte sempre em SVG para impressão; garante qualidade independente do tamanho final da etiqueta. Para verificar se o código foi gerado corretamente, use o [leitor online](/leitor-de-codigo-de-barras) antes de imprimir.
 
   ## História do Code 39: o primeiro código alfanumérico comercial
 
-  O Code 39 foi criado em **1974** pelos engenheiros David Allais e Ray Stevens, trabalhando para a empresa norte-americana **Intermec** (então chamada Interface Mechanisms). O objetivo era resolver um problema que o código de barras linear da época — o UPC, criado apenas um ano antes — não resolvia: codificar letras, não só números.
+  O Code 39 foi criado em **1974** pelos engenheiros David Allais e Ray Stevens, trabalhando para a empresa norte-americana **Intermec** (então chamada Interface Mechanisms). O objetivo era resolver um problema que o código de barras linear da época; o UPC, criado apenas um ano antes; não resolvia: codificar letras, não só números.
 
-  O nome "3 of 9" descreve a estrutura interna: de 9 elementos por caractere, exatamente 3 são largos. Essa proporção fixa permite que leitores identifiquem o início e o fim de cada caractere sem precisar de um dígito verificador obrigatório — uma característica incomum entre os formatos da época.
+  O nome "3 of 9" descreve a estrutura interna: de 9 elementos por caractere, exatamente 3 são largos. Essa proporção fixa permite que leitores identifiquem o início e o fim de cada caractere sem precisar de um dígito verificador obrigatório; uma característica incomum entre os formatos da época.
 
   Em 1983, o Departamento de Defesa dos Estados Unidos (DoD) adotou o Code 39 como padrão para rastreamento de materiais militares (MIL-STD-1189). Essa adoção acelerou a disseminação do formato em toda a cadeia de suprimentos da defesa e, por extensão, nas indústrias aeroespacial e automotiva.
 
-  Hoje, meio século após sua criação, o Code 39 ainda está em operação em hospitais, fábricas e sistemas de patrimônio no mundo todo — uma longevidade que poucos formatos tecnológicos alcançam.
+  Hoje, meio século após sua criação, o Code 39 ainda está em operação em hospitais, fábricas e sistemas de patrimônio no mundo todo; uma longevidade que poucos formatos tecnológicos alcançam.
 
   ## Dígito verificador no Code 39: quando e como usar
 
-  Diferente do EAN-13 e Code 128, o **dígito verificador é opcional no Code 39**. Mas em aplicações críticas — como etiquetas de medicamentos e inventário de equipamentos militares — ele é fortemente recomendado.
+  Diferente do EAN-13 e Code 128, o **dígito verificador é opcional no Code 39**. Mas em aplicações críticas; como etiquetas de medicamentos e inventário de equipamentos militares; ele é fortemente recomendado.
 
   O cálculo segue o módulo 43 (mod 43):
 
@@ -169,7 +169,7 @@ bodyMarkdown: |
   - Amostras de laboratório e bolsas de sangue
   - Implantes cirúrgicos e equipamentos médicos
 
-  O HIBC usa o Code 39 com o **dígito verificador obrigatório** e um prefixo `+` no início do código, seguido do código do fabricante (LIC — Labeler Identification Code), dados do produto e um caractere de verificação.
+  O HIBC usa o Code 39 com o **dígito verificador obrigatório** e um prefixo `+` no início do código, seguido do código do fabricante (LIC, Labeler Identification Code), dados do produto e um caractere de verificação.
 
   No Brasil, hospitais que importam equipamentos médicos dos EUA frequentemente recebem etiquetas HIBC. Para uso interno, a maioria das instituições usa Code 39 padrão sem os prefixos HIBC.
 
@@ -184,7 +184,7 @@ bodyMarkdown: |
   | Compatibilidade com leitores antigos | Universal | Moderada |
   | Uso atual | Ainda dominante | Nicho (transporte aéreo) |
 
-  O Code 93 é usado principalmente por Canada Post e alguns sistemas de logística norte-americanos. No Brasil, é raramente encontrado — o Code 39 padrão domina as aplicações de controle interno.
+  O Code 93 é usado principalmente por Canada Post e alguns sistemas de logística norte-americanos. No Brasil, é raramente encontrado; o Code 39 padrão domina as aplicações de controle interno.
 
   **Quando usar Code 93 em vez de Code 39?** Somente se o espaço na etiqueta for muito restrito e o sistema receptor suportar Code 93. Para compatibilidade máxima no Brasil, prefira Code 39.
 
@@ -192,12 +192,12 @@ bodyMarkdown: |
 
   Antes de imprimir em lote, sempre valide o código gerado:
 
-  1. Use o [leitor online do GeraCode](/leitor-de-codigo-de-barras) — suporta Code 39 e exibe o conteúdo decodificado.
+  1. Use o [leitor online do GeraCode](/leitor-de-codigo-de-barras); suporta Code 39 e exibe o conteúdo decodificado.
   2. Compare o texto decodificado com o que você digitou no gerador.
   3. Se o código contém dígito verificador, confirme que o caractere final está correto.
-  4. Teste com um leitor físico se disponível — comportamentos de leitores legados podem diferir.
+  4. Teste com um leitor físico se disponível; comportamentos de leitores legados podem diferir.
 
-  Um erro comum: copiar e colar conteúdo com caracteres não suportados pelo Code 39 padrão (letras minúsculas, `@`, `#`). O gerador deve alertar sobre caracteres inválidos — se não alertar, o código pode ser gerado incorretamente.
+  Um erro comum: copiar e colar conteúdo com caracteres não suportados pelo Code 39 padrão (letras minúsculas, `@`, `#`). O gerador deve alertar sobre caracteres inválidos; se não alertar, o código pode ser gerado incorretamente.
 faqsSlugs:
   - cb-qual-formato-usar
   - cb-quantos-formatos

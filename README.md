@@ -87,7 +87,11 @@ src/
 | Variável | Obrigatória | Descrição |
 |---|---|---|
 | `NEXT_PUBLIC_ADSENSE_CLIENT` | Não | ID do Google AdSense (`ca-pub-...`) |
-| `NEXT_PUBLIC_GA_ID` | Não | ID do Google Analytics 4 (`G-...`) — desnecessário se configurado via DNS |
+| `NEXT_PUBLIC_GA_ID` | Não | ID do Google Analytics 4 (`G-...`) |
+| `NEXT_PUBLIC_GA_DEBUG` | Não | `1` ou `true` ativa o debug_mode do GA4 (DebugView) |
+| `NEXT_PUBLIC_GOOGLE_ADS_ID` | Não | ID da tag do Google Ads (`AW-...`) |
+| `INDEXNOW_SECRET` | Não | Token para autenticar chamadas POST em `/api/indexnow` |
+| `INDEXNOW_KEY` | Não | Chave pública IndexNow (ex: `dc2556c8e22...`) |
 
 ## Fluxo de desenvolvimento
 
@@ -137,9 +141,23 @@ npm run test:watch    # modo watch para desenvolvimento
 
 ## Deploy
 
-O deploy é automático via Vercel, conectado ao branch `master` do GitHub. Cada push no `master` gera um novo deploy de produção.
+O deploy é **manual** via Vercel CLI, sempre a partir do diretório principal do repositório.
 
-Para preview de PRs, a Vercel gera URLs de preview automaticamente.
+```bash
+# 1. Sincronize o main antes de deployar
+git pull origin master
+
+# 2. Deploy para produção
+vercel deploy --prod
+```
+
+> **Atenção (worktrees):** se você commitar a partir de uma worktree Claude (`.claude/worktrees/`), o push chega ao origin normalmente via `git push origin HEAD:master`. Mas o diretório principal ainda precisa de `git pull` antes do `vercel deploy --prod` — caso contrário os arquivos novos não são incluídos no upload.
+
+Para preview de uma branch antes de promover para produção:
+
+```bash
+vercel deploy   # sem --prod — gera URL de preview
+```
 
 ## Licença
 

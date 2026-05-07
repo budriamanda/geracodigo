@@ -30,11 +30,11 @@ ogAccent: "#16a34a"
 twitterTitle: "Código de barras sem número: quando usar"
 twitterDescription: "HRI obrigatório no varejo, opcional no estoque interno. Guia completo."
 bodyMarkdown: |
-  Você já viu um código de barras sem aqueles números impressos embaixo? Ou o contrário — quis imprimir um código de barras limpo, sem os dígitos, e ficou em dúvida se isso é permitido? A resposta depende de onde o código vai ser usado. Este guia explica o que é o número do código de barras, quando ele é obrigatório e quando pode ser omitido.
+  Você já viu um código de barras sem aqueles números impressos embaixo? Ou o contrário; quis imprimir um código de barras limpo, sem os dígitos, e ficou em dúvida se isso é permitido? A resposta depende de onde o código vai ser usado. Este guia explica o que é o número do código de barras, quando ele é obrigatório e quando pode ser omitido.
 
   ## O que é o número abaixo do código de barras?
 
-  O número impresso abaixo (ou ao lado) das barras tem nome técnico: **HRI** — *Human Readable Interpretation*, ou "interpretação legível por humanos" em tradução livre. Ele representa o mesmo dado que está codificado nas barras, em formato que qualquer pessoa pode ler sem equipamento.
+  O número impresso abaixo (ou ao lado) das barras tem nome técnico: **HRI**, *Human Readable Interpretation*, ou "interpretação legível por humanos" em tradução livre. Ele representa o mesmo dado que está codificado nas barras, em formato que qualquer pessoa pode ler sem equipamento.
 
   O HRI existe por dois motivos:
   1. **Fallback de leitura**: se o leitor não conseguir ler o código visual (código danificado, impressão borrada, sujeira), o operador digita o número manualmente.
@@ -42,7 +42,7 @@ bodyMarkdown: |
 
   ## Quando o HRI é obrigatório?
 
-  O **padrão GS1** — que rege os códigos EAN-13, EAN-8 e ITF-14 para produtos comercializados no varejo — exige o HRI como parte das especificações técnicas. Segundo as [especificações da GS1 Brasil](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras), produtos destinados ao ponto de venda (PDV) de supermercados, farmácias e lojas de varejo devem ter:
+  O **padrão GS1**, que rege os códigos EAN-13, EAN-8 e ITF-14 para produtos comercializados no varejo; exige o HRI como parte das especificações técnicas. Segundo as [especificações da GS1 Brasil](https://www.gs1br.org/codigos-e-padroes/codigo-de-barras), produtos destinados ao ponto de venda (PDV) de supermercados, farmácias e lojas de varejo devem ter:
 
   - Os dígitos impressos abaixo das barras
   - Fonte legível (tamanho mínimo recomendado: 2,75 mm de altura)
@@ -52,7 +52,7 @@ bodyMarkdown: |
 
   ## Quando o HRI pode ser omitido?
 
-  O HRI é opcional — e muitas vezes preferível omitir — em usos **internos ou logísticos**:
+  O HRI é opcional; e muitas vezes preferível omitir; em usos **internos ou logísticos**:
 
   | Situação | HRI necessário? | Por quê |
   |---|---|---|
@@ -78,25 +78,25 @@ bodyMarkdown: |
 
   1. Gere o código normalmente (EAN-13, Code 128 ou outro formato).
   2. Nas opções de exibição, desmarque **"Mostrar número"** (ou "Mostrar HRI").
-  3. Baixe em SVG — o arquivo gerado terá apenas as barras, sem o texto numérico.
+  3. Baixe em SVG, o arquivo gerado terá apenas as barras, sem o texto numérico.
 
   > **Atenção para EAN-13**: o padrão GS1 exige o HRI para produtos de varejo. Se o código for usado em gôndola de supermercado ou PDV, mantenha o número impresso. Para uso interno de estoque, a omissão é válida.
 
   ## Posição do HRI: abaixo ou ao lado?
 
-  Na maioria dos formatos lineares (EAN-13, Code 128, Code 39), o HRI fica **abaixo** das barras. Em alguns formatos de etiqueta estreita ou em posições específicas de embalagem, o número pode aparecer ao lado — mas isso depende do software de impressão, não do padrão do código em si.
+  Na maioria dos formatos lineares (EAN-13, Code 128, Code 39), o HRI fica **abaixo** das barras. Em alguns formatos de etiqueta estreita ou em posições específicas de embalagem, o número pode aparecer ao lado; mas isso depende do software de impressão, não do padrão do código em si.
 
   No EAN-13, o padrão GS1 define a posição exata: os dígitos ficam **dentro** da zona tranquila inferior, separados nos grupos `X XXXXXX XXXXXX` (1 dígito do indicador de sistema, 6 dígitos da empresa, 6 dígitos do produto/verificador).
 
   ## Código de barras sem número é o mesmo código?
 
-  Sim — a informação codificada nas barras é idêntica com ou sem o HRI. O número embaixo é apenas a representação visual para leitura humana. O leitor de código de barras lê as barras, não o número impresso. Se o código visual estiver correto, o leitor retorna o mesmo valor independentemente de o HRI estar visível ou não.
+  Sim; a informação codificada nas barras é idêntica com ou sem o HRI. O número embaixo é apenas a representação visual para leitura humana. O leitor de código de barras lê as barras, não o número impresso. Se o código visual estiver correto, o leitor retorna o mesmo valor independentemente de o HRI estar visível ou não.
 
   ## Norma técnica: o que a ISO/IEC 15416 diz sobre o HRI
 
-  A qualidade de impressão de um código de barras — incluindo o HRI — é regulada pela norma **ISO/IEC 15416** (*Linear bar code print quality test specification*). Ela define os parâmetros de verificação (contraste de impressão, modulação, dano, etc.) e, no contexto do HRI:
+  A qualidade de impressão de um código de barras; incluindo o HRI, é regulada pela norma **ISO/IEC 15416** (*Linear bar code print quality test specification*). Ela define os parâmetros de verificação (contraste de impressão, modulação, dano, etc.) e, no contexto do HRI:
 
-  - O HRI deve ser gerado a partir dos mesmos dados codificados nas barras — não pode divergir
+  - O HRI deve ser gerado a partir dos mesmos dados codificados nas barras; não pode divergir
   - O tamanho da fonte deve permitir leitura visual sem ampliação em condições normais de iluminação
   - A posição do HRI não pode sobrepor nenhum elemento do código ou da zona de silêncio
 
@@ -106,25 +106,25 @@ bodyMarkdown: |
 
   ## Contraste e legibilidade do HRI
 
-  O HRI precisa de contraste suficiente para ser lido por humanos — não apenas pelo scanner. Regras práticas:
+  O HRI precisa de contraste suficiente para ser lido por humanos; não apenas pelo scanner. Regras práticas:
 
   - **Tinta preta sobre fundo branco** é o padrão máximo de contraste e o mais seguro
-  - Evite fundos coloridos mesmo para etiquetas internas — pode dificultar a leitura em ambientes com iluminação fraca (depósitos, câmaras frias)
-  - O HRI não deve usar fontes menores que 6pt — abaixo disso, ilegível a distâncias normais de trabalho
+  - Evite fundos coloridos mesmo para etiquetas internas; pode dificultar a leitura em ambientes com iluminação fraca (depósitos, câmaras frias)
+  - O HRI não deve usar fontes menores que 6pt; abaixo disso, ilegível a distâncias normais de trabalho
   - Em etiquetas coloridas ou de embalagem premium, o HRI pode ser impresso em cor escura sobre a cor de fundo, desde que o contraste seja alto (relação de luminância ≥ 5:1)
 
   ## A fonte correta para o HRI: OCR-B
 
-  O padrão GS1 especifica a fonte **OCR-B** para o HRI do EAN-13 e EAN-8. Não é uma escolha estética — a OCR-B foi projetada para ser legível tanto por humanos quanto por sistemas OCR (reconhecimento óptico de caracteres) usados em alguns ambientes de logística.
+  O padrão GS1 especifica a fonte **OCR-B** para o HRI do EAN-13 e EAN-8. Não é uma escolha estética; a OCR-B foi projetada para ser legível tanto por humanos quanto por sistemas OCR (reconhecimento óptico de caracteres) usados em alguns ambientes de logística.
 
   Especificações da GS1 para o HRI do EAN-13:
   - **Fonte:** OCR-B
   - **Tamanho mínimo:** 2,75 mm de altura de caractere (equivalente a aproximadamente 7,8 pt em 72 DPI)
   - **Tamanho recomendado:** 3,5 mm de altura (tamanho padrão 100%)
   - **Posição:** dentro da zona de silêncio inferior, centralizado abaixo das barras
-  - **Agrupamento:** `X XXXXXX XXXXXX` — um dígito do sistema, seis do fabricante, seis do produto e verificador
+  - **Agrupamento:** `X XXXXXX XXXXXX`, um dígito do sistema, seis do fabricante, seis do produto e verificador
 
-  Para Code 128 e Code 39, a GS1 não define uma fonte específica — mas recomenda fontes sem serifa (sans-serif) de alta legibilidade, como Arial ou Helvetica. O que não pode acontecer: usar fontes decorativas ou de difícil leitura manual.
+  Para Code 128 e Code 39, a GS1 não define uma fonte específica; mas recomenda fontes sem serifa (sans-serif) de alta legibilidade, como Arial ou Helvetica. O que não pode acontecer: usar fontes decorativas ou de difícil leitura manual.
 
   O [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras) aplica automaticamente a fonte OCR-B no HRI do EAN-13, seguindo o padrão GS1.
 
@@ -163,10 +163,10 @@ bodyMarkdown: |
   Duplo clique no objeto de barcode → aba "Human Readable" → campo "Position" → selecione "Below" para mostrar ou "None" para ocultar.
 
   **CorelDraw / Illustrator (via plugin):**
-  Ao inserir um código de barras pelo menu Objects, o assistente pergunta se deve incluir o texto legível — responda Não para omitir o HRI.
+  Ao inserir um código de barras pelo menu Objects, o assistente pergunta se deve incluir o texto legível; responda Não para omitir o HRI.
 
   **Impressão direta do navegador (GeraCode):**
-  No gerador, use o toggle "Mostrar número" antes de baixar — o SVG gerado já vem com ou sem o HRI conforme sua escolha.
+  No gerador, use o toggle "Mostrar número" antes de baixar; o SVG gerado já vem com ou sem o HRI conforme sua escolha.
 
   ## Próximos passos
 
