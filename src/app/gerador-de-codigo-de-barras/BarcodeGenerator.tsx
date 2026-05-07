@@ -9,6 +9,10 @@ import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-che
 import { addToHistory, getHistory, removeFromHistory, clearHistory, type BarcodeHistoryItem } from '@/lib/barcode-history'
 import { trackGenerate, trackBatchGenerate, trackDownload, trackPrint } from '@/lib/analytics'
 import ConfirmDialog from '@/components/ConfirmDialog'
+import ShareBlock from '@/components/ShareBlock'
+import { getShareConfig } from '@/lib/share-config'
+
+const SHARE = getShareConfig('gerador-de-codigo-de-barras')
 
 type JsBarcodeFn = (
   element: SVGSVGElement | string | null,
@@ -59,6 +63,7 @@ export default function BarcodeGenerator() {
   const [isExporting, setIsExporting] = useState(false)
   const [barcodeReady, setBarcodeReady] = useState(false)
   const [showClearConfirm, setShowClearConfirm] = useState(false)
+  const [showShare, setShowShare] = useState(false)
 
   const svgRef = useRef<SVGSVGElement>(null)
   const batchContainerRef = useRef<HTMLDivElement>(null)
@@ -199,6 +204,7 @@ export default function BarcodeGenerator() {
       downloadBlob(blob, 'codigos-de-barras.zip')
       trackDownload('barcode_generator', format, 'zip')
       showToast(`Download iniciado — ZIP com ${svgs.length} códigos`, 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar ZIP. Tente novamente.')
     } finally {
@@ -221,6 +227,7 @@ export default function BarcodeGenerator() {
       await exportSvgsToPdf(svgs, 'codigos-de-barras.pdf', bgColor)
       trackDownload('barcode_generator', format, 'pdf')
       showToast('Download iniciado — PDF', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar PDF. Tente baixar em outro formato.')
     } finally {
@@ -274,6 +281,7 @@ ${pages.join('\n')}
       downloadSvgFromElement(svgRef.current, 'codigo-de-barras.svg')
       trackDownload('barcode_generator', format, 'svg')
       showToast('Download iniciado — SVG', 'success')
+      setShowShare(true)
     }
   }
   const downloadPng = async () => {
@@ -283,6 +291,7 @@ ${pages.join('\n')}
       await downloadPngFromElement(svgRef.current, 'codigo-de-barras.png', 2, bgColor)
       trackDownload('barcode_generator', format, 'png')
       showToast('Download iniciado — PNG', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar PNG. Tente baixar em SVG.')
     } finally {
@@ -508,6 +517,7 @@ ${pages.join('\n')}
                   Imprimir
                 </button>
               </div>
+              <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
             </div>
           )}
         </div>
@@ -558,20 +568,23 @@ ${pages.join('\n')}
               </div>
 
               {batchRendered && (
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  <button onClick={downloadBatchZip} disabled={isExporting} aria-label="Baixar lote em ZIP (SVG)" className="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
-                    {isExporting ? 'Gerando…' : 'ZIP (SVG)'}
-                  </button>
-                  <button onClick={downloadPdf} disabled={isExporting} aria-label="Baixar lote em PDF" className="bg-white border border-indigo-600 text-indigo-600 px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
-                    {isExporting ? 'Gerando…' : 'PDF'}
-                  </button>
-                  <button onClick={() => printLabels(3, 5)} disabled={isExporting} aria-label="Imprimir etiquetas 3 colunas por 5 linhas" className="bg-white border border-gray-300 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2">
-                    Etiquetas 3x5
-                  </button>
-                  <button onClick={() => printLabels(2, 5)} disabled={isExporting} aria-label="Imprimir etiquetas 2 colunas por 5 linhas" className="bg-white border border-gray-300 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2">
-                    Etiquetas 2x5
-                  </button>
-                </div>
+                <>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <button onClick={downloadBatchZip} disabled={isExporting} aria-label="Baixar lote em ZIP (SVG)" className="bg-indigo-600 text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+                      {isExporting ? 'Gerando…' : 'ZIP (SVG)'}
+                    </button>
+                    <button onClick={downloadPdf} disabled={isExporting} aria-label="Baixar lote em PDF" className="bg-white border border-indigo-600 text-indigo-600 px-3 py-2 rounded-lg text-sm font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2">
+                      {isExporting ? 'Gerando…' : 'PDF'}
+                    </button>
+                    <button onClick={() => printLabels(3, 5)} disabled={isExporting} aria-label="Imprimir etiquetas 3 colunas por 5 linhas" className="bg-white border border-gray-300 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2">
+                      Etiquetas 3x5
+                    </button>
+                    <button onClick={() => printLabels(2, 5)} disabled={isExporting} aria-label="Imprimir etiquetas 2 colunas por 5 linhas" className="bg-white border border-gray-300 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors disabled:opacity-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2">
+                      Etiquetas 2x5
+                    </button>
+                  </div>
+                  <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
+                </>
               )}
             </>
           )}

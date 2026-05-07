@@ -6,6 +6,8 @@ import { generatePixPayload, PixParams } from '@/lib/pix'
 import { trackGenerate, trackDownload, trackCopy } from '@/lib/analytics'
 import { incrementCount } from '@/lib/counter'
 import { downloadDataUrl, downloadBlob } from '@/lib/download'
+import ShareBlock from '@/components/ShareBlock'
+import { getShareConfig } from '@/lib/share-config'
 import { showToast } from '@/components/Toast'
 import PreviewArea from '@/components/ui/PreviewArea'
 import PrivacyChip from '@/components/ui/PrivacyChip'
@@ -63,7 +65,9 @@ export default function PixGenerator() {
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
   const [touchedFields, setTouchedFields] = useState<Partial<Record<keyof FieldErrors, boolean>>>({})
   const [valueCapped, setValueCapped] = useState(false)
+  const [showShare, setShowShare] = useState(false)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const SHARE = getShareConfig('gerador-de-qr-code-pix')
 
   useEffect(() => () => {
     if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
@@ -216,6 +220,7 @@ export default function PixGenerator() {
     downloadDataUrl(qrDataUrl, 'qr-pix.png')
     trackDownload('pix_generator', 'pix', 'png')
     showToast('Download iniciado — PNG', 'success')
+    setShowShare(true)
   }
 
   const handleDownloadSvg = async () => {
@@ -225,6 +230,7 @@ export default function PixGenerator() {
       downloadBlob(new Blob([svgString], { type: 'image/svg+xml' }), 'qr-pix.svg')
       trackDownload('pix_generator', 'pix', 'svg')
       showToast('Download iniciado — SVG', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar SVG. Tente baixar em PNG.')
     }
@@ -499,6 +505,14 @@ export default function PixGenerator() {
             >
               Download SVG
             </button>
+            <a
+              href={`mailto:?subject=${encodeURIComponent('QR Code Pix para pagamento')}&body=${encodeURIComponent('Segue o QR Code Pix. Baixe a imagem pelo link abaixo e apresente ao cliente para pagamento:\nhttps://www.geracodigo.com.br/gerador-de-qr-code-pix')}`}
+              aria-label="Enviar QR Code por e-mail"
+              title="Abre o cliente de e-mail — nenhum dado passa pelo GeraCode"
+              className="flex-none bg-white border border-gray-300 text-gray-600 px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors min-h-[44px] flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2"
+            >
+              ✉️
+            </a>
           </div>
         </PreviewArea>
 
@@ -526,6 +540,8 @@ export default function PixGenerator() {
             />
           </div>
         )}
+
+        <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
       </div>
 
       {qrDataUrl && (

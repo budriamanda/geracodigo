@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import AdSlot from '@/components/AdSlot'
+import BlogShareBlock from '@/components/BlogShareBlock'
 import Breadcrumb from '@/components/Breadcrumb'
 import CTAFerramenta from '@/components/CTAFerramenta'
 import FAQSection from '@/components/FAQSection'
@@ -143,6 +144,8 @@ export default function BlogPostLayout({
       <div className="flex justify-center my-8">
         <AdSlot slot={`blog-${slug}-mid`} format="responsive" />
       </div>
+
+      <BlogShareBlock slug={slug} h1={h1} resumo={resumo} />
 
       {ctaHref && (
         <CTAFerramenta

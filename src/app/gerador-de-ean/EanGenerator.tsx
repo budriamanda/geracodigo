@@ -8,8 +8,10 @@ import { addToHistory } from '@/lib/barcode-history'
 import { trackGenerate, trackDownload } from '@/lib/analytics'
 import { incrementCount } from '@/lib/counter'
 import ExportActions from '@/components/ExportActions'
+import ShareBlock from '@/components/ShareBlock'
 import PreviewArea from '@/components/ui/PreviewArea'
 import PrivacyChip from '@/components/ui/PrivacyChip'
+import { getShareConfig } from '@/lib/share-config'
 
 type JsBarcodeFn = (
   element: SVGSVGElement | string | null,
@@ -17,11 +19,14 @@ type JsBarcodeFn = (
   options?: Record<string, unknown>,
 ) => void
 
+const SHARE = getShareConfig('gerador-de-ean')
+
 export default function EanGenerator() {
   const [input, setInput] = useState('')
   const [format, setFormat] = useState<'EAN13' | 'EAN8'>('EAN13')
   const [error, setError] = useState('')
   const [generated, setGenerated] = useState(false)
+  const [showShare, setShowShare] = useState(false)
   const [checkDigitHint, setCheckDigitHint] = useState('')
   const [exportingFormat, setExportingFormat] = useState<'png' | 'pdf' | null>(null)
   const [barcodeReady, setBarcodeReady] = useState(false)
@@ -88,6 +93,7 @@ export default function EanGenerator() {
       downloadSvgFromElement(svgRef.current, `${format.toLowerCase()}-barcode.svg`)
       trackDownload('ean_generator', format, 'svg')
       showToast('Download iniciado — SVG', 'success')
+      setShowShare(true)
     }
   }
 
@@ -98,6 +104,7 @@ export default function EanGenerator() {
       await downloadPngFromElement(svgRef.current, `${format.toLowerCase()}-barcode.png`)
       trackDownload('ean_generator', format, 'png')
       showToast('Download iniciado — PNG', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar PNG. Tente baixar em SVG.')
     } finally {
@@ -112,6 +119,7 @@ export default function EanGenerator() {
       await exportSvgsToPdf([svgRef.current], `${format.toLowerCase()}-barcode.pdf`)
       trackDownload('ean_generator', format, 'pdf')
       showToast('Download iniciado — PDF', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar PDF. Tente baixar em PNG ou SVG.')
     } finally {
@@ -194,6 +202,7 @@ export default function EanGenerator() {
                 { label: 'PDF', ariaLabel: 'Baixar PDF', onClick: downloadPdf, variant: 'secondary', loading: exportingFormat === 'pdf', loadingLabel: 'Gerando…' },
               ]}
             />
+            <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
           </div>
         )}
       </PreviewArea>

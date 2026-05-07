@@ -6,7 +6,7 @@ import AdSlot from '@/components/AdSlot'
 import MarkdownContent from '@/components/MarkdownContent'
 import { reader } from '@/lib/content'
 import BenefitCard from '@/components/ui/BenefitCard'
-import UsageCounter from '@/components/UsageCounter'
+import SiteCounter from '@/components/SiteCounter'
 import Stepper from '@/components/ui/Stepper'
 import { SITE_URL } from '@/lib/constants'
 
@@ -161,7 +161,7 @@ export default async function HomePage() {
             </a>
           </div>
         )}
-        <UsageCounter />
+        <SiteCounter />
       </section>
 
       {/* Ferramentas */}

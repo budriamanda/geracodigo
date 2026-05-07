@@ -14,11 +14,15 @@ function sendToGA4(metric: Metric) {
   if (!hasAnalyticsConsent()) return
   if (typeof window.gtag !== 'function') return
 
+  // Parâmetros GA4-nativos. Os campos UA (event_category, event_label, non_interaction)
+  // são ignorados silenciosamente pelo GA4 e foram removidos.
+  // metric_value usa a mesma escala dos Core Web Vitals: CLS × 1000 → inteiro comparável.
+  // metric_rating ('good' | 'needs-improvement' | 'poor') permite segmentar no Explorer.
   window.gtag('event', metric.name, {
-    value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-    event_category: 'Web Vitals',
-    event_label: metric.id,
-    non_interaction: true,
+    metric_value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+    metric_delta: Math.round(metric.name === 'CLS' ? metric.delta * 1000 : metric.delta),
+    metric_id: metric.id,
+    metric_rating: metric.rating,
   })
 }
 

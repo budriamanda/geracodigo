@@ -4,6 +4,10 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import { trackScan, trackCopy } from '@/lib/analytics'
 import { showToast } from '@/components/Toast'
 import ConfirmDialog from '@/components/ConfirmDialog'
+import ShareBlock from '@/components/ShareBlock'
+import { getShareConfig } from '@/lib/share-config'
+
+const SHARE = getShareConfig('leitor-de-codigo-de-barras')
 
 interface DecodedResult {
   value: string
@@ -21,6 +25,7 @@ export default function BarcodeReader() {
   const [copied, setCopied] = useState<string | null>(null)
   const [manualInput, setManualInput] = useState('')
   const [showClearConfirm, setShowClearConfirm] = useState(false)
+  const [showShare, setShowShare] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const streamRef = useRef<MediaStream | null>(null)
@@ -109,6 +114,7 @@ export default function BarcodeReader() {
             if (prev.some(r => r.value === bc.rawValue)) return prev
             queueMicrotask(() => {
               trackScan(bc.format)
+              setShowShare(true)
               try { navigator.vibrate?.(100) } catch { /* vibration not supported */ }
             })
             return [{ value: bc.rawValue, format: bc.format, timestamp: Date.now() }, ...prev].slice(0, 50)
@@ -149,6 +155,7 @@ export default function BarcodeReader() {
     })
     setManualInput('')
     trackScan('manual')
+    setShowShare(true)
   }
 
   const formatLabel = (fmt: string) => {
@@ -298,6 +305,7 @@ export default function BarcodeReader() {
           </div>
         </div>
       )}
+      <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
       <ConfirmDialog
         open={showClearConfirm}
         title="Limpar códigos"

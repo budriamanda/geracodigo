@@ -34,6 +34,7 @@ const CONVERSION_VALUE = {
 } as const
 
 const SESSION_TOOL_START = 'gc_tool_start_v1_'
+const SESSION_TOOL_COMPLETE = 'gc_tool_complete_v1_'
 const SESSION_QUALIFIED = 'gc_qualified_session_v1_'
 
 /** Mesma ferramenta + path disparada duas vezes em sequência (ex.: React Strict Mode em dev). */
@@ -117,6 +118,21 @@ function maybeFireToolStart(tool: ToolName) {
   })
 }
 
+/**
+ * Dispara `tool_complete` no GA4 uma única vez por ferramenta por sessão.
+ * O objetivo é medir "o usuário converteu nesta sessão?" — não contar cada ação individual.
+ * Conversões individuais (generate, download…) continuam sendo enviadas ao Google Ads
+ * via sendConversion(), que não tem essa deduplicação.
+ */
+function maybeFireToolComplete(tool: ToolName, params: Record<string, unknown>) {
+  if (typeof window === 'undefined') return
+  const k = SESSION_TOOL_COMPLETE + tool
+  if (sessionStorage.getItem(k)) return
+  sessionStorage.setItem(k, '1')
+  markToolCompleteState(tool, getPagePath())
+  sendEvent('tool_complete', params)
+}
+
 function isQualifiedAlreadyFired(tool: ToolName): boolean {
   if (typeof window === 'undefined') return true
   const k = `${SESSION_QUALIFIED}${tool}_${getPagePath()}`
@@ -142,9 +158,8 @@ function fireQualifiedSession(tool: ToolName, qualifiedReason: string, extra: Re
   })
 }
 
-/** Após conclusão de ação (generate, download, etc.): marca estado e dispara qualified por conversão */
+/** Após conclusão de ação (generate, download, etc.): dispara qualified por conversão */
 function notifyToolComplete(tool: ToolName) {
-  markToolCompleteState(tool, getPagePath())
   fireQualifiedSession(tool, 'tool_complete')
 }
 
@@ -224,10 +239,20 @@ export function trackCtaClick(tool: ToolName | undefined, ctaId: string, ctaLabe
   if (tool) tryFireQualifiedFromEngagement(tool)
 }
 
+export function trackShare(method: 'whatsapp' | 'copy_link', contentType: 'tool' | 'blog', itemId: string) {
+  sendEvent('share', {
+    ...baseParams(),
+    method,
+    content_type: contentType,
+    item_id: itemId,
+    event_id: generateEventId(),
+  })
+}
+
 export function trackGenerate(tool: ToolName, format: string) {
   maybeFireToolStart(tool)
   const eventId = generateEventId()
-  sendEvent('tool_complete', {
+  maybeFireToolComplete(tool, {
     ...baseParams(tool),
     conversion_type: 'generate',
     tool_format: format,
@@ -251,7 +276,7 @@ export function trackBatchGenerate(tool: ToolName, format: string, batchSuccessC
     engagement_batch_intent: batchSuccessCount >= 10,
     event_id: eventId,
   })
-  sendEvent('tool_complete', {
+  maybeFireToolComplete(tool, {
     ...baseParams(tool),
     conversion_type: 'batch',
     tool_format: format,
@@ -267,7 +292,7 @@ export function trackBatchGenerate(tool: ToolName, format: string, batchSuccessC
 export function trackDownload(tool: ToolName, format: string, fileType: string) {
   maybeFireToolStart(tool)
   const eventId = generateEventId()
-  sendEvent('tool_complete', {
+  maybeFireToolComplete(tool, {
     ...baseParams(tool),
     conversion_type: 'download',
     tool_format: format,
@@ -284,7 +309,7 @@ export function trackScan(format: string) {
   const tool = 'barcode_reader' as const
   maybeFireToolStart(tool)
   const eventId = generateEventId()
-  sendEvent('tool_complete', {
+  maybeFireToolComplete(tool, {
     ...baseParams(tool),
     conversion_type: 'scan',
     tool_format: format,
@@ -299,7 +324,7 @@ export function trackScan(format: string) {
 export function trackPrint(tool: ToolName, layout: string) {
   maybeFireToolStart(tool)
   const eventId = generateEventId()
-  sendEvent('tool_complete', {
+  maybeFireToolComplete(tool, {
     ...baseParams(tool),
     conversion_type: 'print',
     tool_layout: layout,
@@ -314,7 +339,7 @@ export function trackPrint(tool: ToolName, layout: string) {
 export function trackCopy(tool: ToolName, contentType: string) {
   maybeFireToolStart(tool)
   const eventId = generateEventId()
-  sendEvent('tool_complete', {
+  maybeFireToolComplete(tool, {
     ...baseParams(tool),
     conversion_type: 'copy',
     content_type: contentType,

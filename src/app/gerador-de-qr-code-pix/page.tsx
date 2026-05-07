@@ -6,6 +6,7 @@ import SchemaMarkup from '@/components/SchemaMarkup'
 import RelatedTools from '@/components/RelatedTools'
 import Breadcrumb from '@/components/Breadcrumb'
 import LastUpdated from '@/components/LastUpdated'
+import SiteCounter from '@/components/SiteCounter'
 import GeneratorSkeleton from '@/components/GeneratorSkeleton'
 import ToolEngagementTracker from '@/components/ToolEngagementTracker'
 import ToolPageSections, { type ContentSection } from '@/components/ToolPageSections'
@@ -94,6 +95,7 @@ export default async function PixPage() {
           <p className="text-sm text-indigo-600 mt-1"><span aria-hidden="true">{'\u{1F512}'}</span> {tool.privacyBadgeText}</p>
         )}
         <LastUpdated date={LAST_UPDATED} isoDate={tool.dataAtualizacao || LAST_UPDATED_ISO} />
+        <SiteCounter />
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">

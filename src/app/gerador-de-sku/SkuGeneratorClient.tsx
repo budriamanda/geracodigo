@@ -6,7 +6,11 @@ import { trackGenerate, trackBatchGenerate, trackCopy, trackDownload } from '@/l
 import { downloadBlob } from '@/lib/download'
 import { showToast } from '@/components/Toast'
 import PrivacyChip from '@/components/ui/PrivacyChip'
+import ShareBlock from '@/components/ShareBlock'
+import { getShareConfig } from '@/lib/share-config'
 import { incrementCount } from '@/lib/counter'
+
+const SHARE = getShareConfig('gerador-de-sku')
 
 const SEPARATORS = [
   { value: '-', label: 'Hífen (-)' },
@@ -33,6 +37,7 @@ export default function SkuGeneratorClient() {
   const [copied, setCopied] = useState(false)
   const [copyError, setCopyError] = useState(false)
   const [validationError, setValidationError] = useState('')
+  const [showShare, setShowShare] = useState(false)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => () => {
@@ -102,6 +107,7 @@ export default function SkuGeneratorClient() {
     downloadBlob(new Blob([csv], { type: 'text/csv' }), 'skus.csv')
     trackDownload('sku_generator', 'sku', 'csv')
     showToast('Download iniciado \u2014 CSV', 'success')
+    setShowShare(true)
   }
 
   return (
@@ -262,6 +268,7 @@ export default function SkuGeneratorClient() {
                 </div>
               ))}
             </div>
+            <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
           </div>
         ) : (
           <div className="bg-white rounded-xl border border-gray-200 p-6 flex items-center justify-center min-h-[300px]">

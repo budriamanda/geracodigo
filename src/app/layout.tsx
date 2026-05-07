@@ -101,7 +101,7 @@ export default async function RootLayout({
             <link rel="dns-prefetch" href="https://www.google-analytics.com" />
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_PRIMARY_ID}`}
-              strategy="beforeInteractive"
+              strategy="afterInteractive"
             />
             <Script
               id="gtag-init"

@@ -7,8 +7,10 @@ import { incrementCount } from '@/lib/counter'
 import { downloadDataUrl, downloadBlob } from '@/lib/download'
 import { showToast } from '@/components/Toast'
 import ExportActions from '@/components/ExportActions'
+import ShareBlock from '@/components/ShareBlock'
 import PreviewArea from '@/components/ui/PreviewArea'
 import PrivacyChip from '@/components/ui/PrivacyChip'
+import { getShareConfig } from '@/lib/share-config'
 
 type ExportState = 'idle' | 'pdf'
 
@@ -35,6 +37,8 @@ function contrastRatio(a: string, b: string): number {
   return (lighter + 0.05) / (darker + 0.05)
 }
 
+const SHARE = getShareConfig('gerador-de-qr-code')
+
 export default function QrGenerator() {
   const [input, setInput] = useState('')
   const [size, setSize] = useState(300)
@@ -43,6 +47,7 @@ export default function QrGenerator() {
   const [qrDataUrl, setQrDataUrl] = useState('')
   const [error, setError] = useState('')
   const [exporting, setExporting] = useState<ExportState>('idle')
+  const [showShare, setShowShare] = useState(false)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const hasTrackedRef = useRef(false)
 
@@ -88,6 +93,7 @@ export default function QrGenerator() {
     downloadDataUrl(qrDataUrl, 'qrcode.png')
     trackDownload('qr_code_generator', 'qr_code', 'png')
     showToast('Download iniciado — PNG', 'success')
+    setShowShare(true)
   }
 
   const downloadSvg = async () => {
@@ -97,6 +103,7 @@ export default function QrGenerator() {
       downloadBlob(new Blob([svgStr], { type: 'image/svg+xml' }), 'qrcode.svg')
       trackDownload('qr_code_generator', 'qr_code', 'svg')
       showToast('Download iniciado — SVG', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar SVG. Tente baixar em PNG.')
     }
@@ -115,6 +122,7 @@ export default function QrGenerator() {
       doc.save('qrcode.pdf')
       trackDownload('qr_code_generator', 'qr_code', 'pdf')
       showToast('Download iniciado — PDF', 'success')
+      setShowShare(true)
     } catch {
       setError('Erro ao gerar PDF. Tente baixar em PNG.')
     } finally {
@@ -197,6 +205,7 @@ export default function QrGenerator() {
               { label: 'PDF', ariaLabel: 'Baixar QR Code em formato PDF', onClick: downloadPdf, variant: 'secondary', loading: exporting === 'pdf', loadingLabel: 'Gerando…' },
             ]}
           />
+          <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
         </div>
       </PreviewArea>
     </div>
