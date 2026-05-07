@@ -44,7 +44,7 @@ bodyMarkdown: |
   Um EAN-13 é dividido em quatro partes:
 
   ```
-  789 | 12345 | 6789 | 0
+  789  |  12345  |  6789  |  0
   País | Empresa | Produto | Verificador
   ```
 

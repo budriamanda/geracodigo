@@ -56,7 +56,7 @@ bodyMarkdown: |
   |---|---|
   | Números | `0 1 2 3 4 5 6 7 8 9` |
   | Letras | `A B C D E F G H I J K L M N O P Q R S T U V W X Y Z` (somente maiúsculas) |
-  | Especiais | `-. (espaço) $ / + %` |
+  | Especiais | `- . (espaço) $ / + %` |
   | Delimitador | `*` (início e fim — não faz parte dos dados) |
 
   Se o seu conteúdo tem letras minúsculas (`a–z`) ou símbolos como `@`, `#`, `:`, `;`, `\`, use o **Full Extended Code 39**, que codifica todos os 128 caracteres ASCII, ou mude para Code 128, que é mais compacto e suporta ASCII nativo.
@@ -80,7 +80,7 @@ bodyMarkdown: |
   | Compatibilidade de leitores | Universal (leitores antigos e novos) | Universal | Universal |
   | Uso principal | Patrimônio, indústria, saúde | Logística, e-commerce, estoque | Varejo, supermercado, marketplace |
 
-  **Quando escolher Code 39 vs Code 128?** Se você precisa de compatibilidade máxima com leitores legados; especialmente em sistemas de saúde, defesa e linhas de produção antigas,, o Code 39 é mais seguro. Se o espaço na etiqueta for limitado ou você precisar codificar muitos caracteres, prefira o Code 128.
+  **Quando escolher Code 39 vs Code 128?** Se você precisa de compatibilidade máxima com leitores legados; especialmente em sistemas de saúde, defesa e linhas de produção antigas, , o Code 39 é mais seguro. Se o espaço na etiqueta for limitado ou você precisar codificar muitos caracteres, prefira o Code 128.
 
   Para produtos que vão para varejo ou marketplaces, use EAN-13. Saiba mais no guia de [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo).
 

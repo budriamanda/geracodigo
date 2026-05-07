@@ -131,10 +131,10 @@ bodyMarkdown: |
 
   ```
   [TIPO]-[MODELO]-[COR]-[TAMANHO]
-  CAM-POL-AZL-P → Camisa Polo Azul P
-  CAM-POL-AZL-M → Camisa Polo Azul M
-  TEN-AIR-PTO-38 → Tênis Air Preto 38
-  BOL-TIR-MAR-UN → Bolsa Tiracolo Marrom Único
+  CAM-POL-AZL-P   → Camisa Polo Azul P
+  CAM-POL-AZL-M   → Camisa Polo Azul M
+  TEN-AIR-PTO-38  → Tênis Air Preto 38
+  BOL-TIR-MAR-UN  → Bolsa Tiracolo Marrom Único
   ```
 
   Para moda, o tamanho e a cor são os atributos mais críticos; cada combinação é um SKU independente.
@@ -143,10 +143,10 @@ bodyMarkdown: |
 
   ```
   [PRODUTO]-[SABOR/TIPO]-[GRAMAGEM]-[EMBALAGEM]
-  CAF-TOR-250-PAC → Café Torrado 250g Pacote
-  CAF-TOR-500-PAC → Café Torrado 500g Pacote
-  SUC-LJA-1L-TPK → Suco Laranja 1L Tetra Pak
-  BAR-CHO-40-UNI → Barra Chocolate 40g Unitária
+  CAF-TOR-250-PAC  → Café Torrado 250g Pacote
+  CAF-TOR-500-PAC  → Café Torrado 500g Pacote
+  SUC-LJA-1L-TPK   → Suco Laranja 1L Tetra Pak
+  BAR-CHO-40-UNI   → Barra Chocolate 40g Unitária
   ```
 
   Para alimentos, gramagem e embalagem definem o SKU, mesmo sabor em tamanhos diferentes são produtos distintos para fins de controle de estoque.
@@ -155,9 +155,9 @@ bodyMarkdown: |
 
   ```
   [CATEGORIA]-[MARCA]-[MODELO/SPEC]-[COR]
-  NOT-DEL-I7-PTO → Notebook Dell i7 Preto
-  FNE-SAM-A55-AZL → Fone Samsung A55 Azul
-  CBL-USB-3M-PTO → Cabo USB 3m Preto
+  NOT-DEL-I7-PTO   → Notebook Dell i7 Preto
+  FNE-SAM-A55-AZL  → Fone Samsung A55 Azul
+  CBL-USB-3M-PTO   → Cabo USB 3m Preto
   ```
 
   Para eletrônicos, especificações técnicas (memória, processador, voltagem) são os atributos mais importantes.
@@ -166,9 +166,9 @@ bodyMarkdown: |
 
   ```
   [PRODUTO]-[LINHA]-[VOLUME]-[TIPO]
-  SHA-HID-400-LIS → Shampoo Hidratação 400ml Liso
-  SHA-HID-400-CAC → Shampoo Hidratação 400ml Cacheado
-  CRE-DES-50-FEM → Creme Desodorante 50g Feminino
+  SHA-HID-400-LIS  → Shampoo Hidratação 400ml Liso
+  SHA-HID-400-CAC  → Shampoo Hidratação 400ml Cacheado
+  CRE-DES-50-FEM   → Creme Desodorante 50g Feminino
   ```
 
   ## Como migrar de planilha para SKU estruturado

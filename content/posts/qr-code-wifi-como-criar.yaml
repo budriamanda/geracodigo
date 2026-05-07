@@ -182,9 +182,9 @@ bodyMarkdown: |
   1. **Imprima a senha por extenso** abaixo ou ao lado do QR Code. Isso cobre 100% dos dispositivos, independentemente de compatibilidade.
   2. **Inclua o nome da rede (SSID).** Sem o nome, o usuário não sabe em qual rede digitar a senha.
   3. **Formato sugerido no material impresso:**
-  - "Wi-Fi grátis; escaneie para conectar"
-  - QR Code (3×3 cm mínimo)
-  - "Ou conecte manualmente: Rede: *NomeDaRede* / Senha: *SenhaAqui*"
+     - "Wi-Fi grátis; escaneie para conectar"
+     - QR Code (3×3 cm mínimo)
+     - "Ou conecte manualmente: Rede: *NomeDaRede* / Senha: *SenhaAqui*"
 
   Em ambientes corporativos onde a senha não deve ser exposta, omita o fallback e oriente visitantes a solicitarem acesso à recepção.
 
