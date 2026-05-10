@@ -1,13 +1,13 @@
 slug: qr-code-como-funciona-guia-completo
 title: "Como Funciona o QR Code: Guia Completo e Simples"
-metaDescription: "Entenda como o QR Code funciona: o que armazena, como é lido, tipos (estático, dinâmico, PIX), níveis de correção de erro e como se proteger de QR Codes maliciosos."
+metaDescription: "QR Code: como funciona, o que armazena, como é lido e os tipos (estático, dinâmico, PIX). Guia completo com segurança, níveis de correção de erro e exemplos do dia a dia."
 h1: "Como funciona o QR Code: explicação simples e completa"
 subtitle: "Da invenção japonesa nos anos 90 ao PIX, ao Wi-Fi e ao golpe do QRishing; tudo que você precisa entender."
 resumo: "O QR Code está em todo lugar: no balcão do restaurante, na embalagem do produto, na cobrança PIX. Mas como ele realmente funciona? Este guia explica o que o código armazena, como é lido, quais são os tipos e como se proteger de fraudes com QR Code."
 categoria: qr-code
 persona: geral
 dataPublicacao: "2026-04-28"
-dataAtualizacao: "2026-04-28"
+dataAtualizacao: "2026-05-07"
 autor: Amanda Budri
 tempoLeitura: 11
 tags:
@@ -23,13 +23,16 @@ keywordsSecundarias:
   - "qr code o que armazena"
   - "tipos de qr code"
   - "qr code seguranca"
+  - "qr code estatico como funciona"
+  - "qr code dinamico como funciona"
+  - "qr code gratis como funciona"
 ogTitle: "Como Funciona o QR Code: Guia Completo"
 ogDescription: "O que armazena, como é lido, tipos, níveis de erro e como se proteger de QR Codes maliciosos."
 ogAccent: "#7c3aed"
 twitterTitle: "Como funciona o QR Code?"
 twitterDescription: "Do pixel preto-e-branco ao PIX e ao QRishing: explicação simples e completa."
 bodyMarkdown: |
-  O QR Code está em todo lugar; no cardápio do restaurante, na embalagem do produto, na cobrança do delivery, nas campanhas de marketing. Mas poucos sabem o que acontece no segundo em que a câmera do celular aponta para aquela matriz de quadradinhos. Este guia explica tudo.
+  QR Code: como funciona esse padrão que está em todo lugar — no cardápio do restaurante, na embalagem do produto, na cobrança do delivery e nas campanhas de marketing? Poucos sabem o que acontece no segundo em que a câmera aponta para aquela matriz de quadradinhos. Este guia explica tudo.
 
   ## O que é um QR Code?
 
@@ -55,7 +58,7 @@ bodyMarkdown: |
 
   O app de câmera interpreta o texto e decide a ação; não é o QR Code que "sabe" abrir o navegador.
 
-  ## Como o celular lê um QR Code?
+  ## Como funciona o QR Code na leitura pelo celular
 
   O processo acontece em milissegundos:
 
@@ -67,7 +70,7 @@ bodyMarkdown: |
 
   Tudo isso leva menos de 0,5 segundo em celulares modernos. Para ler pelo computador, veja as formas de [escanear QR Code pelo computador](/blog/como-escanear-qr-code-pelo-computador).
 
-  ## Estrutura do QR Code
+  ## Como funciona o QR Code por dentro: estrutura e componentes
 
   Além dos dados, o QR Code tem componentes fixos:
 

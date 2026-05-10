@@ -1,13 +1,13 @@
 slug: codigo-de-barras-para-produtos-guia-completo
 title: "Código de Barras para Produtos: Guia Completo para Lojistas"
-metaDescription: "Aprenda como criar código de barras para seus produtos: qual formato usar, GTIN, como gerar grátis, como imprimir etiquetas e o que marketplaces exigem. Guia para lojistas."
+metaDescription: "Código de barras para produtos: qual formato usar (EAN-13, Code 128), como gerar grátis, o que Mercado Livre e Shopee exigem e como imprimir etiquetas. Guia para lojistas."
 h1: "Código de barras para produtos: tudo que o lojista precisa saber"
 subtitle: "Do formato certo para cada canal de venda até a impressão da etiqueta; com ou sem registro no GS1."
 resumo: "Precisa colocar código de barras nos seus produtos mas não sabe por onde começar? Este guia explica qual formato usar para varejo, e-commerce e estoque interno, o que é GTIN, quando registrar no GS1 e como gerar gratuitamente."
 categoria: codigo-barras
 persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
-dataAtualizacao: "2026-05-02"
+dataAtualizacao: "2026-05-07"
 autor: Amanda Budri
 tempoLeitura: 17
 tags:
@@ -25,13 +25,16 @@ keywordsSecundarias:
   - "gerar codigo de barras produto gratis"
   - "etiqueta codigo de barras produto"
   - "gtin ean produto brasil"
+  - "codigo de barras para produtos mercado livre"
+  - "codigo de barras produto artesanal"
+  - "ean-13 para marketplace"
 ogTitle: "Código de Barras para Produtos: Guia para Lojistas"
 ogDescription: "Qual formato usar, GTIN, como gerar grátis e o que Mercado Livre e Shopee exigem. Guia prático para lojistas."
 ogAccent: "#2563eb"
 twitterTitle: "Código de barras para produtos: guia do lojista"
 twitterDescription: "Formato certo, GTIN, geração grátis e impressão de etiquetas. Tudo que você precisa."
 bodyMarkdown: |
-  Se você vende em loja física com PDV, em marketplace ou em e-commerce, seu produto precisa de código de barras. Sem ele, você não consegue dar entrada automatizada no estoque, anunciar em redes como Mercado Livre e Shopee nem colocar produtos em redes de supermercado. Para vendas informais, feiras e artesanato, o código é opcional; mas facilita a gestão. Este guia explica o essencial sem enrolação.
+  Código de barras para produtos é obrigatório em qualquer canal de venda estruturado: loja física com PDV, marketplace como Mercado Livre e Shopee, e-commerce ou rede de supermercado. Sem ele, você não consegue dar entrada automatizada no estoque nem anunciar corretamente nessas plataformas. Para vendas informais, feiras e artesanato, o código é opcional; mas facilita a gestão. Este guia explica o essencial sem enrolação.
 
   ## O que é GTIN e por que os marketplaces pedem?
 
@@ -41,7 +44,7 @@ bodyMarkdown: |
 
   **Se você vende em marketplace**, ter o GTIN correto é cada vez mais obrigatório; e anúncios sem GTIN perdem visibilidade nos algoritmos de busca das plataformas.
 
-  ## Qual formato de código de barras usar?
+  ## Qual formato de código de barras para produtos usar?
 
   A escolha depende de onde o produto vai ser vendido.
 
@@ -71,7 +74,7 @@ bodyMarkdown: |
 
   **Para controle interno, e-commerce próprio ou gestão de estoque**: não é obrigatório. Você pode gerar e usar livremente.
 
-  ## Como gerar o código de barras do seu produto
+  ## Como gerar código de barras para seus produtos
 
   Com o [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras):
 

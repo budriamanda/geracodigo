@@ -7,7 +7,7 @@ resumo: "O número impresso abaixo do código de barras tem nome técnico: HRI (
 categoria: codigo-barras
 persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
-dataAtualizacao: "2026-04-28"
+dataAtualizacao: "2026-05-07"
 autor: Amanda Budri
 tempoLeitura: 8
 tags:
@@ -30,7 +30,7 @@ ogAccent: "#16a34a"
 twitterTitle: "Código de barras sem número: quando usar"
 twitterDescription: "HRI obrigatório no varejo, opcional no estoque interno. Guia completo."
 bodyMarkdown: |
-  Você já viu um código de barras sem aqueles números impressos embaixo? Ou o contrário; quis imprimir um código de barras limpo, sem os dígitos, e ficou em dúvida se isso é permitido? A resposta depende de onde o código vai ser usado. Este guia explica o que é o número do código de barras, quando ele é obrigatório e quando pode ser omitido.
+  Código de barras sem número é possível e tem nome técnico: quando você omite os dígitos impressos abaixo das barras, está removendo o HRI (Human Readable Interpretation). Se isso é permitido depende de onde o código vai ser usado — no varejo com PDV o número é obrigatório; em estoque interno, pode ser suprimido sem problema. Este guia explica cada situação.
 
   ## O que é o número abaixo do código de barras?
 

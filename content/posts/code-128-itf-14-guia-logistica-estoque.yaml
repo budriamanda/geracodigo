@@ -1,13 +1,13 @@
 slug: code-128-itf-14-guia-logistica-estoque
-title: "Code 128 e ITF-14: Guia para Logística e Controle de Estoque"
-metaDescription: "Entenda Code 128 e ITF-14: quando usar cada formato, diferenças para EAN-13, variantes do Code 128 (A, B, C) e como gerar grátis para etiquetas de estoque e caixas de transporte."
-h1: "Code 128 e ITF-14: o guia para logística e controle de estoque"
-subtitle: "Quando usar Code 128 em vez de EAN-13, as três variantes do Code 128 e por que o ITF-14 é o padrão para caixas de transporte."
+title: "Código de Barras 128 e ITF-14: guia para logística e estoque"
+metaDescription: "Código de barras 128 e ITF-14: quando usar cada formato, diferenças para o EAN-13, variantes A/B/C e como gerar grátis para etiquetas de estoque e caixas de transporte."
+h1: "Código de barras 128 e ITF-14: guia para logística e estoque"
+subtitle: "Quando usar o código de barras 128 no lugar do EAN-13, as três variantes (A, B, C) e por que o ITF-14 é o padrão para caixas de transporte."
 resumo: "Code 128 e ITF-14 são os formatos de código de barras mais usados em logística e controle de estoque no Brasil; mas pouca gente sabe quando escolher um ou outro, nem o que são as variantes A, B e C do Code 128. Este guia explica tudo com exemplos práticos para lojistas e operações de estoque."
 categoria: codigo-barras
 persona: lojista-ecommerce
 dataPublicacao: "2026-04-28"
-dataAtualizacao: "2026-05-02"
+dataAtualizacao: "2026-05-07"
 autor: Amanda Budri
 tempoLeitura: 18
 tags:
@@ -17,22 +17,25 @@ tags:
   - logistica
   - estoque
 ferramentaRelacionadaSlug: gerador-de-codigo-de-barras
-keywordPrimaria: "code 128 codigo de barras"
+keywordPrimaria: "codigo de barras 128"
 keywordsSecundarias:
-  - "codigo de barras 128"
-  - "itf 14 codigo de barras"
+  - "code 128 codigo de barras"
   - "codigo de barras itf 14"
+  - "itf 14 codigo de barras"
   - "code 128 o que e"
   - "codigo de barras logistica"
-ogTitle: "Code 128 e ITF-14: Guia para Logística e Estoque"
-ogDescription: "Quando usar cada formato, variantes A/B/C do Code 128 e por que o ITF-14 é o padrão para caixas. Com exemplos práticos."
+  - "codigo ean 128"
+  - "codigo 2d barras"
+  - "codigo de barras itf"
+ogTitle: "Código de Barras 128 e ITF-14: guia de logística"
+ogDescription: "Quando usar cada formato, variantes A/B/C do código de barras 128 e por que o ITF-14 é o padrão para caixas. Com exemplos práticos."
 ogAccent: "#2563eb"
-twitterTitle: "Code 128 e ITF-14: guia completo"
+twitterTitle: "Código de barras 128 e ITF-14: guia completo"
 twitterDescription: "Diferenças, variantes A/B/C, quando usar e como gerar grátis para estoque e logística."
 bodyMarkdown: |
-  Se você trabalha com estoque, logística ou e-commerce, já viu Code 128 e ITF-14 em etiquetas de rastreio, caixas de transporte e prateleiras de armazém. São os formatos mais usados fora do varejo de consumo; onde o EAN-13 domina; e por razões bem específicas. Este guia explica o que cada um faz, quando escolher um ou outro, e como gerar gratuitamente.
+  Código de barras 128 e ITF-14 são os formatos padrão em logística e estoque no Brasil: aparecem em etiquetas de rastreio, prateleiras de armazém e caixas de transporte — tudo onde o EAN-13 não serve. Este guia explica o que cada um faz, quando escolher um ou outro, e como gerar gratuitamente.
 
-  ## O que é Code 128?
+  ## O que é o código de barras 128 (Code 128)?
 
   O **Code 128** é um formato de código de barras linear de alta densidade introduzido em 1981. Diferente do EAN-13 (que só aceita números), o Code 128 pode codificar **todos os 128 caracteres ASCII**, letras maiúsculas e minúsculas, números e símbolos.
 
@@ -80,6 +83,27 @@ bodyMarkdown: |
 
   O ITF-14 tem exatamente 14 dígitos, dos quais os 13 últimos são o GTIN-13 do produto, precedido por um **indicador de embalagem** (0 a 8, que indica o nível da unidade logística).
 
+  ### Como determinar o indicador de embalagem do ITF-14 (0–8)
+
+  O primeiro dígito do GTIN-14 é o indicador de embalagem. Ele não tem um significado fixo e universal — cada empresa define internamente qual número representa qual nível de agrupamento. A convenção mais comum no mercado brasileiro:
+
+  | Indicador | Nível típico | Exemplo |
+  |---|---|---|
+  | **0** | Produto unitário com variação de peso | Frutas, carnes (quantidade variável) |
+  | **1** | Embalagem menor (inner pack) | Caixa com 6 unidades |
+  | **2–8** | Outros níveis de agrupamento | Fardo com 12, caixa-mestre com 24 |
+  | **9** | Unidade de medida variável | Produto vendido por kg em varejo |
+
+  **Como montar o GTIN-14 na prática:**
+
+  1. Pegue o EAN-13 do produto (ex: `7891000315507`).
+  2. Remova o dígito verificador: `789100031550` (12 dígitos).
+  3. Coloque o indicador de embalagem no início (ex: `1`): `1789100031550`.
+  4. Calcule o dígito verificador módulo 10 para os 13 dígitos: resultado `7`.
+  5. GTIN-14 final: **`17891000315507`**.
+
+  O [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras) calcula o dígito verificador automaticamente; informe os 13 primeiros dígitos (indicador + EAN-13 sem o verificador) e ele completa o 14°. Para dúvidas sobre qual indicador usar para cada nível da sua hierarquia de embalagem, consulte a documentação específica do [ITF-14 na GS1 Brasil](https://www.gs1br.org/itf-14).
+
   ### Por que ITF-14 e não Code 128 para caixas?
 
   O ITF-14 usa o algoritmo **Interleaved 2 of 5**, uma codificação que intercala barras e espaços de forma que é legível mesmo em papel ondulado com impressão de baixa qualidade. Isso é essencial para caixas de papelão ondulado, onde a superfície irregular degrada outras impressões.
@@ -96,7 +120,7 @@ bodyMarkdown: |
 
   ## Tamanhos mínimos (padrão GS1)
 
-  Segundo as [especificações técnicas da GS1 Brasil](https://www.gs1br.org/especificacoes-tecnicas) para símbolos de código de barras:
+  Segundo as [especificações técnicas da GS1 Brasil](https://www.gs1br.org/itf-14) para símbolos de código de barras:
 
   | Formato | Largura mínima | Altura mínima | Observação |
   |---|---|---|---|
@@ -105,7 +129,7 @@ bodyMarkdown: |
 
   Para o ITF-14, o tamanho grande é intencional; a caixa é escaneada de longe por leitores omnidirecionais em esteiras de distribuição. Reduções abaixo de 50% do nominal aumentam muito o risco de falha de leitura em papelão ondulado.
 
-  ## Como gerar Code 128 e ITF-14
+  ## Como gerar código de barras 128 e ITF-14 gratuitamente
 
   Com o [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras):
 
@@ -169,6 +193,8 @@ bodyMarkdown: |
   - Use etiquetas com fundo branco e laminação; evita desbotamento em ambientes com luz UV intensa
 
   ## GS1-128: a variante industrial do Code 128
+
+  > **"EAN 128" ou "código EAN 128"** é o nome antigo do GS1-128, usado até 2009 quando a GS1 unificou a nomenclatura global. Se você encontrar referências a "EAN 128" em sistemas legados, manuais de fornecedores ou especificações de varejistas, estão falando do mesmo formato. O nome atual é GS1-128.
 
   O **GS1-128** é uma aplicação específica do Code 128 com regras adicionais definidas pela GS1 para codificar múltiplos campos de dados em um único código. Enquanto o Code 128 simples codifica um valor, o GS1-128 usa **Application Identifiers (AIs)**, prefixos numéricos entre parênteses que definem o significado de cada dado.
 

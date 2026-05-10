@@ -71,6 +71,7 @@ src/
 │   ├── gerador-de-qr-code-pix/
 │   ├── gerador-de-sku/
 │   ├── leitor-de-codigo-de-barras/
+│   ├── blog/[slug]/              # Posts do blog (gerados a partir de content/posts/)
 │   ├── sobre/
 │   ├── termos-e-privacidade/
 │   ├── layout.tsx                # Layout raiz
@@ -80,7 +81,17 @@ src/
 ├── components/                   # Componentes reutilizáveis
 ├── lib/                          # Utilitários e lógica de negócio
 └── types/                        # Definições de tipos TypeScript
+
+content/                          # Conteúdo gerenciado via Keystatic (YAML)
+├── posts/                        # Artigos de blog (/blog/[slug])
+├── ferramentas/                  # Tool pages (/gerador-de-*, /leitor-de-*)
+├── faqs/                         # Snippets de FAQ reutilizáveis
+├── comparacoes/                  # Páginas comparativas (/comparar/[slug])
+├── landings-verticais/           # Landing pages por vertical
+└── publicos-alvo/                # Páginas por persona
 ```
+
+> **Conteúdo vs. código:** arquivos em `content/` são os únicos que precisam ser editados para criar ou atualizar posts e tool pages. `drafts/` e `research/` são diretórios locais de trabalho (`.gitignore`) e nunca vão para o repositório.
 
 ## Variáveis de ambiente
 
@@ -97,7 +108,7 @@ src/
 
 ### Branches
 
-- `master` — branch de produção; deploy automático na Vercel a cada push
+- `master` — branch de produção; **deploy é manual** via `vercel deploy --prod` (não há CI/CD automático)
 
 ### Antes de commitar
 
