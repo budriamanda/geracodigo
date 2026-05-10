@@ -1,5 +1,5 @@
 slug: gerador-de-qr-code-pix
-title: "Gerador de QR Code Pix Gratuito, Online, Sem Cadastro | GeraCode"
+title: "Gerador de QR Code Pix Grátis, Online, Sem Cadastro"
 metaDescription: "Gere QR Code Pix gratuitamente para receber pagamentos em segundos. Chave CPF, CNPJ, e-mail ou aleatória. Compatível com Nubank, Itaú e todos os bancos. Sem cadastro."
 ogTitle: "Gerador de QR Code Pix Gratuito | Online, Sem Cadastro | GeraCode"
 ogDescription: "Gere QR Code Pix grátis para receber pagamentos em segundos. CPF, CNPJ, e-mail ou chave aleatória. Compatível com todos os bancos. Sem cadastro, 100% no navegador."
@@ -167,6 +167,11 @@ secoesConteudo:
         descricao: "Qual QR Code Pix faz mais sentido para o seu negócio; com tabela comparativa."
         badgeText: "Comparação"
         badgeColor: "text-amber-700 bg-amber-50"
+      - href: "/solucoes/qr-pix-para-mei"
+        label: "QR Code Pix para MEI: guia de bolso"
+        descricao: "Página direta com os passos essenciais para MEI receber por Pix no balcão, sem maquininha e sem cadastro."
+        badgeText: "MEI"
+        badgeColor: "text-green-700 bg-green-50"
   - tipo: cards
     titulo: "QR Code Pix por Tipo de Negócio"
     subtitulo: ""

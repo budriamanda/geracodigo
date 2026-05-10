@@ -10,7 +10,7 @@ import { formatDateHuman } from '@/lib/dates'
 const BASE = 'https://www.geracodigo.com.br'
 
 export const metadata: Metadata = {
-  title: 'Blog | GeraCode — Guias de QR Code Pix, Código de Barras, EAN e SKU',
+  title: 'Blog: guias de QR Code Pix, código de barras e SKU',
   description: 'Guias práticos, tutoriais e dicas para lojistas, MEIs e restaurantes que usam QR Code Pix, código de barras, EAN e SKU no dia a dia.',
   alternates: { canonical: `${BASE}/blog` },
   openGraph: {

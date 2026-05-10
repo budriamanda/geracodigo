@@ -139,7 +139,7 @@ bodyMarkdown: |
 
   Exporte sempre em SVG para impressão; garante qualidade independente do tamanho final da etiqueta. Para verificar se o código foi gerado corretamente, use o [leitor online](/leitor-de-codigo-de-barras) antes de imprimir.
 
-  Para mais detalhes sobre especificações técnicas, consulte a documentação oficial do Code 39 em [KEYENCE — Fundamentos de Código de Barras](https://www.keyence.com.br/ss/products/auto_id/barcode_lecture/basic/code39/) e a norma [ISO/IEC 16388](https://www.iso.org/standard/43906.html).
+  Para mais detalhes sobre especificações técnicas, consulte a documentação oficial do Code 39 em [KEYENCE — Fundamentos de Código de Barras](https://www.keyence.com.br/ss/products/auto_id/barcode_lecture/basic/code39/) e a norma [ISO/IEC 16388](https://en.wikipedia.org/wiki/Code_39).
 
   ## História do Code 39: o primeiro código alfanumérico comercial
 

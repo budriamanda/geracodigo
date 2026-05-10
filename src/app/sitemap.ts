@@ -22,6 +22,7 @@ const staticPages: Array<{
   { path: '/gerador-de-sku', lastModified: '2026-03-27', changeFrequency: 'weekly', priority: 0.75 },
   { path: '/blog', lastModified: '2026-03-27', changeFrequency: 'daily', priority: 0.9 },
   { path: '/sobre', lastModified: '2026-03-01', changeFrequency: 'monthly', priority: 0.5 },
+  { path: '/autor/amanda-budri', lastModified: '2026-03-01', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/privacidade', lastModified: '2026-01-15', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/termos', lastModified: '2026-01-15', changeFrequency: 'yearly', priority: 0.3 },
 ]

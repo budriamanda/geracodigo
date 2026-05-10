@@ -35,7 +35,7 @@ bodyMarkdown: |
 
   ## O que é EAN-13?
 
-  **EAN** significa *European Article Number* (hoje chamado internacionalmente de **GTIN-13**, ou *Global Trade Item Number* de 13 dígitos). É o sistema de identificação de produtos comerciais mais usado no mundo, presente em mais de 100 países e administrado globalmente pela [GS1](https://www.gs1.org); no Brasil, pela [GS1 Brasil](https://www.gs1br.org), fundada em 1983.
+  **EAN** significa *European Article Number* (hoje chamado internacionalmente de **GTIN-13**, ou *Global Trade Item Number* de 13 dígitos). É o sistema de identificação de produtos comerciais mais usado no mundo, presente em mais de 100 países e administrado globalmente pela [GS1](https://www.gs1br.org/gs1-no-mundo/); no Brasil, pela [GS1 Brasil](https://www.gs1br.org), fundada em 1983.
 
   O EAN-13 não é apenas um número aleatório. Cada bloco de dígitos carrega uma informação específica sobre a origem e o produto.
 
@@ -49,7 +49,7 @@ bodyMarkdown: |
   ```
 
   ### 1. Prefixo GS1 (3 dígitos); identifica o país
-  Os três primeiros dígitos identificam o país no qual a empresa está registrada, conforme a tabela da [GS1 Global](https://www.gs1.org/standards/id-keys/company-prefix). Para o Brasil, os prefixos são **789** e **790**, ambos válidos e atribuídos pela GS1 Global exclusivamente ao Brasil.
+  Os três primeiros dígitos identificam o país no qual a empresa está registrada, conforme a tabela da [GS1 Global](https://www.gs1br.org/gs1-no-mundo/prefixos-gs1/). Para o Brasil, os prefixos são **789** e **790**, ambos válidos e atribuídos pela GS1 Global exclusivamente ao Brasil.
 
   Isso não significa que o produto foi fabricado no Brasil; apenas que a empresa detentora do código está registrada aqui.
 

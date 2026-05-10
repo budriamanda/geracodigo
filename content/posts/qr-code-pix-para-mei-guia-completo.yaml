@@ -1,6 +1,6 @@
 slug: qr-code-pix-para-mei-guia-completo
-title: "Como Receber PIX como MEI com QR Code: Passo a Passo (Grátis, Sem Maquininha)"
-metaDescription: "Aprenda a gerar e imprimir seu QR Code Pix como MEI, CPF ou CNPJ, limites, impostos e impressão para o balcão. Funciona com todos os bancos. Sem maquininha, sem cadastro."
+title: "QR Code Pix para MEI: receba sem maquininha"
+metaDescription: "Gere seu QR Code Pix como MEI em 2 minutos: CPF ou CNPJ, imprima no balcão e receba sem maquininha. Funciona com Nubank, Itaú e todos os bancos. Sem cadastro."
 h1: "QR Code Pix para MEI: o guia completo para receber pagamentos em minutos"
 subtitle: "Do cadastro da chave Pix à impressão do QR Code no balcão, sem precisar contratar maquininha."
 resumo: "Se você é MEI e quer começar a receber pagamentos via QR Code Pix ainda hoje, este guia cobre o essencial: tipo de chave, limites, imposto e impressão do QR no balcão; sem maquininha e sem taxa."
@@ -228,6 +228,7 @@ bodyMarkdown: |
   - Quer um guia ainda mais detalhado sobre como gerar QR Code PIX? Veja [gerador de PIX grátis: passo a passo completo](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
   - Quer entender como o QR Code funciona por dentro? Leia [como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
   - Para comparar os dois tipos de QR Pix: [Pix estático vs dinâmico](/comparar/pix-estatico-vs-dinamico).
+  - Quer um guia de bolso só para MEI? Veja a [página de QR Code Pix para MEI](/solucoes/qr-pix-para-mei) com os passos essenciais.
 faqsSlugs:
   - pix-tipos-chave
   - pix-qr-code-valido

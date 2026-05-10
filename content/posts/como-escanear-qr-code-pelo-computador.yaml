@@ -89,7 +89,7 @@ bodyMarkdown: |
   2. Clique em **Enviar imagem** ou arraste o arquivo para a área do leitor.
   3. O conteúdo aparece na tela em menos de um segundo.
 
-  Além de QR Codes, o leitor detecta EAN-13, Code 128, Code 39 e mais 9 formatos de código de barras; útil quando você quer verificar produtos no estoque. Todo o processamento usa a [BarcodeDetector API do W3C](https://www.w3.org/TR/shape-detection-api/) diretamente no seu navegador: nenhuma imagem é enviada a servidores.
+  Além de QR Codes, o leitor detecta EAN-13, Code 128, Code 39 e mais 9 formatos de código de barras; útil quando você quer verificar produtos no estoque. Todo o processamento usa a [BarcodeDetector API do W3C](https://developer.mozilla.org/en-US/docs/Web/API/BarcodeDetector) diretamente no seu navegador: nenhuma imagem é enviada a servidores.
 
   ## Método 5: Extensão de navegador (para uso frequente)
 

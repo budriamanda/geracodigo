@@ -1,6 +1,6 @@
 slug: qr-code-pix-sem-valor-fixo-api
-title: "Gerar QR Code Pix Sem Valor Fixo via API: Guia para Desenvolvedores"
-metaDescription: "Aprenda a gerar QR Code Pix sem valor fixo via API Pix do Banco Central. Pix estático vs dinâmico, endpoints, payload BR Code e exemplos práticos para devs."
+title: "QR Code Pix Sem Valor Fixo via API: guia para devs"
+metaDescription: "Gere QR Code Pix sem valor fixo via API do Banco Central: Pix estático vs dinâmico, estrutura do payload, endpoints e exemplos práticos de código."
 h1: "Gerar QR Code Pix Sem Valor Fixo via API: guia completo para desenvolvedores"
 subtitle: "Quando usar Pix estático (sem código) vs API Pix dinâmica; e como implementar cada um."
 resumo: "Precisa gerar QR Code Pix sem valor fixo via API? Este guia explica a diferença entre Pix estático (gerado no navegador, sem código) e Pix dinâmico via API do Banco Central; com endpoints, estrutura do payload e exemplos em Python e JavaScript."
@@ -57,7 +57,7 @@ bodyMarkdown: |
 
   ### Estrutura do payload BR Code EMV
 
-  O payload segue a especificação [EMV QRCPS-MPM](https://www.bcb.gov.br/content/estabilidadefinanceira/especialistas_sistemas_pagamentos/ManualBRCode.pdf) do Banco Central. Os campos obrigatórios para um Pix estático sem valor:
+  O payload segue a especificação [EMV QRCPS-MPM](https://www.bcb.gov.br/estabilidadefinanceira/pagamentosinstantaneos) do Banco Central. Os campos obrigatórios para um Pix estático sem valor:
 
   ```
   000201           → Payload Format Indicator (fixo)

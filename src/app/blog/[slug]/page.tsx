@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.title,
     description: post.metaDescription,
+    ...(slug === '_template' && { robots: { index: false, follow: false } }),
     alternates: { canonical: url },
     openGraph: {
       title: post.ogTitle || post.title,
@@ -128,21 +129,28 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
   ]
 
-  if (faqs.length > 0) {
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((f) => ({
-        '@type': 'Question',
-        name: f.question,
-        acceptedAnswer: { '@type': 'Answer', text: f.answer },
-      })),
-    })
-  }
+  const faqSchema =
+    faqs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        }
+      : null
 
   return (
     <>
       <SchemaMarkup schema={schemas} />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
+        />
+      )}
       <BlogPostLayout
         slug={slug}
         title={post.title}

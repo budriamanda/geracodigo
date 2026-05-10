@@ -48,7 +48,7 @@ export default function Footer({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-600">
           <div>
-            <h2 className="font-semibold text-gray-900 mb-3">Ferramentas</h2>
+            <p className="font-semibold text-gray-900 mb-3">Ferramentas</p>
             <ul className="space-y-2">
               {ferramentas.map(({ href, label }) => (
                 <li key={href}><Link href={href} className="hover:text-indigo-600">{label}</Link></li>
@@ -56,7 +56,7 @@ export default function Footer({
             </ul>
           </div>
           <div>
-            <h2 className="font-semibold text-gray-900 mb-3">Conteúdo</h2>
+            <p className="font-semibold text-gray-900 mb-3">Conteúdo</p>
             <ul className="space-y-2">
               {conteudo.map(({ href, label }) => (
                 <li key={href}><Link href={href} className="hover:text-indigo-600">{label}</Link></li>
@@ -64,7 +64,7 @@ export default function Footer({
             </ul>
           </div>
           <div>
-            <h2 className="font-semibold text-gray-900 mb-3">GeraCode</h2>
+            <p className="font-semibold text-gray-900 mb-3">GeraCode</p>
             <ul className="space-y-2">
               {institucional.map(({ href, label }) => (
                 <li key={href}><Link href={href} className="hover:text-indigo-600">{label}</Link></li>
