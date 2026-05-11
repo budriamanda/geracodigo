@@ -1,0 +1,178 @@
+slug: qr-code-dinamico-vs-estatico
+title: "QR Code Dinâmico vs. Estático: quando vale a pena pagar?"
+metaDescription: "QR Code dinâmico vs. estático: diferenças, quando usar cada um, custo das ferramentas pagas e como rastrear cliques em QR Code gratuito sem pagar nada."
+h1: "QR Code dinâmico vs. estático: quando vale a pena pagar?"
+subtitle: "A diferença fundamental é simples — mas a decisão entre pagar ou usar grátis depende do seu caso de uso."
+resumo: "QR Code dinâmico permite editar o destino do link depois de imprimir o código. QR Code estático é permanente e gerado de graça. Este guia explica a diferença real, quando o dinâmico justifica o custo e como rastrear cliques sem pagar nada usando UTM e encurtadores gratuitos."
+categoria: qr-code
+persona: geral
+dataPublicacao: "2026-05-10"
+dataAtualizacao: "2026-05-10"
+autor: Amanda Budri
+tempoLeitura: 10
+tags:
+  - qr-code
+  - marketing-digital
+  - qr-code-dinamico
+  - qr-code-estatico
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code dinamico"
+keywordsSecundarias:
+  - "qr code dinamico vs estatico"
+  - "qr code dinamico gratis"
+  - "qr code editavel"
+  - "qr code com rastreamento"
+  - "diferenca qr code dinamico estatico"
+  - "qr code que muda o link"
+  - "qr code dinamico o que e"
+ogTitle: "QR Code Dinâmico vs. Estático: quando vale a pena pagar?"
+ogDescription: "Diferença real entre QR Code dinâmico e estático, custo das ferramentas e como rastrear cliques de graça. Sem pagar mensalidade."
+ogAccent: "#7c3aed"
+twitterTitle: "QR Code dinâmico vs. estático: diferença e quando usar"
+twitterDescription: "Quando o dinâmico vale o custo e como rastrear cliques em QR Code grátis com UTM. Guia prático."
+faqsSlugs:
+  - geracode-e-gratuito
+  - funciona-no-celular
+bodyMarkdown: |
+  QR Code dinâmico é um dos termos mais mal compreendidos em marketing digital. A diferença para o estático é técnica e simples — mas a decisão de pagar por um serviço dinâmico ou usar um gerador gratuito depende de um detalhe específico do seu caso de uso. Este guia explica o que de fato muda e quando cada opção faz sentido.
+
+  ## O que é QR Code dinâmico
+
+  Um **QR Code dinâmico** não armazena o link diretamente no código. Ele armazena um link curto para um servidor intermediário, que redireciona o visitante para o destino real. Isso significa que você pode **trocar o destino sem reimprimir o QR Code**.
+
+  Exemplo: você imprime 1.000 flyers com um QR Code dinâmico apontando para a promoção de maio. Em junho, a promoção mudou — você vai ao painel da ferramenta, troca o link para a promoção de junho, e os mesmos flyers passam a levar para o novo destino. O código físico não mudou.
+
+  Um **QR Code estático** armazena o link diretamente nos módulos do código. Se o link mudar, o código se torna inválido — é preciso gerar e imprimir um novo.
+
+  ## Comparação completa: dinâmico vs. estático
+
+  | Característica | QR Code Estático | QR Code Dinâmico |
+  |---|---|---|
+  | Custo | **Grátis** | R$ 30–300/mês (varia pela ferramenta) |
+  | Editar o link depois de imprimir | ❌ Não | ✅ Sim |
+  | Rastreamento de scans (quantidade) | ❌ Não nativo | ✅ Sim |
+  | Rastreamento de localização e dispositivo | ❌ Não | ✅ Sim (planos pagos) |
+  | Funciona sem internet no destino | ✅ Sim | Depende do servidor |
+  | Tamanho do código (densidade) | Menor (link longo = código maior) | Menor (link curto = código compacto) |
+  | Validade | Permanente | Enquanto a assinatura estiver ativa |
+  | Privacidade do usuário | Alta (nenhum rastreamento) | Depende da política da ferramenta |
+
+  A diferença que mais importa na prática: **se você precisa mudar o destino depois de imprimir, precisa do dinâmico**. Se o destino é fixo e permanente, o estático resolve sem custo.
+
+  ## Quando usar QR Code estático (grátis)
+
+  O QR Code estático gerado no [GeraCode](/gerador-de-qr-code) é a escolha certa quando:
+
+  - **O link não vai mudar:** perfil do Instagram, site próprio, página de produto permanente, número de WhatsApp.
+  - **Uso único ou de curto prazo:** evento pontual, embalagem de uma única coleção, cartão de visita que você vai renovar em breve.
+  - **Privacidade é importante:** o usuário acessa diretamente o destino sem passar por um servidor de rastreamento.
+  - **Você quer rastreamento básico com UTM:** dá para medir cliques no Google Analytics sem pagar nada (explicamos abaixo).
+  - **Volume de impressão é baixo:** não faz sentido pagar mensalidade se você vai imprimir 50 flyers.
+
+  A grande maioria dos usos de QR Code se encaixa no estático: cardápio digital permanente, link do Pix, link do Instagram, QR Code de Wi-Fi, contato no cartão de visita.
+
+  ## Quando o QR Code dinâmico vale o custo
+
+  O QR Code dinâmico justifica o pagamento em cenários específicos:
+
+  **1. Material impresso em grande volume com link que muda**
+  Você imprimiu 10.000 embalagens com QR Code para a campanha de natal. Em fevereiro, precisa atualizar o destino para a coleção de verão. Sem o dinâmico, seriam 10.000 embalagens descartadas.
+
+  **2. Rastreamento detalhado por localização e campanha**
+  Você tem QR Codes em outdoors em São Paulo, Rio e Belo Horizonte e quer saber qual cidade converte mais. O dinâmico registra localização, dispositivo (Android/iOS) e horário de cada scan — dados que o estático não fornece nativamente.
+
+  **3. Campanhas A/B com QR Code**
+  Você quer testar dois destinos diferentes para o mesmo QR Code. Com ferramentas dinâmicas avançadas, é possível redirecionar metade dos scans para a versão A e metade para a versão B.
+
+  **4. QR Code em materiais de longa duração**
+  Banners, totens, placas metálicas e sinalização permanente custam caro para reimprimir. Se o destino pode mudar ao longo de anos, o dinâmico evita troca de material físico.
+
+  **Regra prática:** se você vai imprimir mais de 500 unidades do mesmo material e o link pode mudar, o QR Code dinâmico provavelmente paga o custo da assinatura.
+
+  ## Ferramentas de QR Code dinâmico e seus preços
+
+  | Ferramenta | Plano gratuito | Plano pago (base) | QR Codes | Scans/mês |
+  |---|---|---|---|---|
+  | **Beaconstac** | Não | ~US$ 15/mês | Ilimitado | Ilimitado |
+  | **QR.io** | Sim (1 QR) | ~US$ 6/mês | 3–ilimitado | Ilimitado |
+  | **Bitly** | Sim (limitado) | ~US$ 10/mês | 5–ilimitado | Ilimitado |
+  | **QRCode Monkey** | Sim (estático) | ~US$ 5/mês | Ilimitado | Limitado |
+  | **Flowcode** | Sim (1 QR) | ~US$ 10/mês | Ilimitado | Ilimitado |
+
+  *Preços em USD — convertidos ao câmbio do momento da contratação.*
+
+  **Atenção:** ferramentas com plano gratuito de QR Code dinâmico geralmente **desativam o código quando a assinatura expira**. Isso significa que todos os QR Codes dinâmicos impressos param de funcionar se você cancelar a assinatura — a URL curta do servidor some. O QR Code estático, por não depender de servidor, nunca expira.
+
+  ## QR Code dinâmico gratuito: existe?
+
+  Sim, com limitações importantes:
+
+  - **Bitly (plano gratuito):** cria links curtos com rastreamento básico. Funciona como QR Code dinâmico porque o link curto pode ser editado (apontando para destinos diferentes), mas o rastreamento é limitado a 1.000 cliques/mês.
+  - **QR.io (1 QR gratuito):** um QR Code dinâmico com rastreamento incluído. Suficiente para testar.
+  - **Flowcode (1 QR gratuito):** similar ao QR.io.
+
+  **O problema do gratuito limitado:** se o serviço encerrar ou mudar os termos, seus QR Codes dinâmicos param de funcionar. Para uso crítico (material impresso em larga escala), prefira um plano pago ou use QR Code estático com UTM.
+
+  ## Como rastrear cliques em QR Code estático sem pagar nada
+
+  A combinação de QR Code estático + UTM parameters + Google Analytics reproduz grande parte do que o dinâmico oferece — sem mensalidade:
+
+  **Passo 1: Monte o link com UTM**
+
+  ```
+  https://www.seusite.com.br/pagina?utm_source=qrcode&utm_medium=flyer&utm_campaign=lancamento-maio26
+  ```
+
+  - `utm_source`: origem do tráfego (qrcode)
+  - `utm_medium`: tipo de material (flyer, embalagem, vitrine, cardapio)
+  - `utm_campaign`: nome da campanha (lancamento-maio26)
+
+  **Passo 2: Gere o QR Code com esse link**
+
+  Cole a URL completa com UTM no [gerador de QR Code do GeraCode](/gerador-de-qr-code) e baixe o código.
+
+  **Passo 3: Veja os dados no Google Analytics**
+
+  Em GA4: **Relatórios → Aquisição → Aquisição de tráfego**. Filtre pela campanha UTM. Você verá quantas sessões vieram do QR Code, em quais dispositivos e quais páginas visitaram depois.
+
+  **O que o UTM não fornece que o dinâmico fornece:**
+  - Localização geográfica por scan (GA4 fornece por sessão, não por scan do QR)
+  - Dados sem Google Analytics (usuários com bloqueador de anúncios)
+  - Editar o destino sem reimprimir
+
+  Para a maioria dos pequenos negócios, o rastreamento por UTM é suficiente.
+
+  ## Mito: QR Code dinâmico tem "melhor qualidade de imagem"
+
+  Falso. A qualidade visual do QR Code (nitidez, resolução, módulos) não tem nada a ver com ser dinâmico ou estático. O que afeta a qualidade é o formato do arquivo (SVG > PNG) e o nível de correção de erro escolhido na geração.
+
+  O QR Code dinâmico tem um link interno menor (link curto) e por isso pode resultar num código com menos módulos — o que pode parecer "mais limpo". Mas um QR Code estático gerado com SVG em alta qualidade tem a mesma nitidez de impressão.
+
+  ## QR Code dinâmico vs. estático por caso de uso
+
+  | Caso de uso | Estático (grátis) | Dinâmico (pago) |
+  |---|---|---|
+  | Link do Instagram permanente | ✅ Ideal | Desnecessário |
+  | Cardápio digital que não muda | ✅ Ideal | Desnecessário |
+  | QR Code Pix no balcão | ✅ Ideal | Desnecessário |
+  | QR Code de Wi-Fi | ✅ Ideal | Desnecessário |
+  | Campanha de marketing com link temporário | ⚠️ Funciona, mas reimprima ao trocar | ✅ Ideal |
+  | Embalagem em grande escala (10k+ unidades) | ⚠️ Risco se link mudar | ✅ Ideal |
+  | Outdoor ou totem permanente | ⚠️ OK se link for permanente | ✅ Mais seguro |
+  | Rastreamento detalhado por localização | ❌ Não disponível | ✅ Disponível |
+
+  ## Qual escolher?
+
+  **Use QR Code estático (grátis) se:**
+  - O link de destino é permanente ou você não se importa em reimprimir
+  - Você quer privacidade para o usuário (sem rastreamento de terceiros)
+  - O volume de impressão é baixo (até 500 unidades)
+  - Você vai rastrear com UTM + Google Analytics
+
+  **Use QR Code dinâmico (pago) se:**
+  - Você precisa trocar o destino sem reimprimir o material
+  - O material físico é caro ou em grande volume
+  - Você precisa de rastreamento de scans por localização e dispositivo
+  - Você roda campanhas com múltiplos destinos por QR Code
+
+  Para gerar QR Code estático gratuitamente agora: [gerador de QR Code](/gerador-de-qr-code). Para o QR Code Pix em específico: [gerador Pix grátis](/gerador-de-qr-code-pix).

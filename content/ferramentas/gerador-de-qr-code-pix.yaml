@@ -1,11 +1,11 @@
 slug: gerador-de-qr-code-pix
-title: "Gerador de QR Code Pix Grátis, Online, Sem Cadastro"
-metaDescription: "Gere QR Code Pix gratuitamente para receber pagamentos em segundos. Chave CPF, CNPJ, e-mail ou aleatória. Compatível com Nubank, Itaú e todos os bancos. Sem cadastro."
-ogTitle: "Gerador de QR Code Pix Gratuito | Online, Sem Cadastro | GeraCode"
-ogDescription: "Gere QR Code Pix grátis para receber pagamentos em segundos. CPF, CNPJ, e-mail ou chave aleatória. Compatível com todos os bancos. Sem cadastro, 100% no navegador."
-twitterTitle: "Gerador de QR Code Pix Gratuito | GeraCode"
+title: "Gerador Pix Grátis: QR Code Pix Online, Sem Cadastro"
+metaDescription: "Gerador Pix grátis: crie QR Code Pix em segundos. Chave CPF, CNPJ, e-mail ou aleatória. Compatível com Nubank, Itaú e todos os bancos. Sem cadastro."
+ogTitle: "Gerador Pix Grátis — QR Code Pix Online | GeraCode"
+ogDescription: "Gerador Pix grátis para receber pagamentos em segundos. CPF, CNPJ, e-mail ou chave aleatória. Compatível com todos os bancos. Sem cadastro, 100% no navegador."
+twitterTitle: "Gerador Pix Grátis — QR Code Pix Online | GeraCode"
 twitterDescription: "Gere QR Code Pix para receber pagamentos. Funciona com todos os bancos. Sem cadastro, 100% gratuito."
-h1: "Gerador de QR Code Pix Grátis Online"
+h1: "Gerador Pix Grátis: crie seu QR Code Pix online"
 subtitle: "Gere QR Code Pix estático válido (payload BR Code EMV, padrão Banco Central do Brasil)"
 privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: "Mais popular"
@@ -15,8 +15,12 @@ cardDescription: "Gere QR Code para pagamento via Pix com chave CPF, CNPJ, e-mai
 ordem: 1
 
 ogAccent: "#16a34a"
-keywordPrimaria: "gerador qr code pix"
+keywordPrimaria: "gerador pix"
 keywordsSecundarias:
+  - "gerador de pix"
+  - "gerador pix qr code"
+  - "gerador qr pix"
+  - "gerador qr code pix"
   - "qr code pix grátis"
   - "gerar qr code pix online"
   - "qr code pix cpf cnpj"

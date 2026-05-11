@@ -4,6 +4,7 @@ export type ToolName =
   | 'qr_code_generator'
   | 'pix_generator'
   | 'barcode_reader'
+  | 'qr_reader'
   | 'sku_generator'
 
 /** Categoria para públicos e relatórios GA4 */
@@ -13,5 +14,6 @@ export const TOOL_CATEGORY: Record<ToolName, 'generator' | 'reader' | 'utility'>
   qr_code_generator: 'generator',
   pix_generator: 'generator',
   barcode_reader: 'reader',
+  qr_reader: 'reader',
   sku_generator: 'utility',
 }

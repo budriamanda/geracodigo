@@ -1,0 +1,156 @@
+slug: codigo-de-barras-mercado-livre
+title: "Código de Barras para Mercado Livre: EAN-13, GTIN e como gerar"
+metaDescription: "Código de barras para Mercado Livre: quando o EAN-13 é obrigatório, o que fazer sem GTIN registrado, como gerar gratuitamente e como cadastrar no anúncio."
+h1: "Código de barras para Mercado Livre: EAN-13, GTIN e como gerar"
+subtitle: "Quando o ML exige código de barras, o que acontece sem ele e como resolver — sem precisar comprar um GTIN na GS1."
+resumo: "O Mercado Livre exige código de barras EAN-13 em várias categorias, mas aceita anúncios sem GTIN em outras situações. Este guia explica quando o código é obrigatório, como gerar gratuitamente para uso interno e o que fazer quando o ML rejeita o anúncio por GTIN inválido ou ausente."
+categoria: ean
+persona: lojista-ecommerce
+dataPublicacao: "2026-05-10"
+dataAtualizacao: "2026-05-10"
+autor: Amanda Budri
+tempoLeitura: 11
+tags:
+  - codigo-de-barras
+  - ean-13
+  - mercado-livre
+  - ecommerce
+  - gtin
+ferramentaRelacionadaSlug: gerador-de-ean
+keywordPrimaria: "codigo de barras mercado livre"
+keywordsSecundarias:
+  - "ean mercado livre"
+  - "gtin mercado livre"
+  - "codigo de barras para anuncio mercado livre"
+  - "mercado livre pede codigo de barras"
+  - "ean 13 mercado livre"
+  - "como gerar ean para mercado livre"
+  - "codigo de barras ml"
+ogTitle: "Código de Barras para Mercado Livre: EAN-13, GTIN e como gerar"
+ogDescription: "Quando o ML exige EAN-13, como gerar gratuitamente e o que fazer se o anúncio for rejeitado por GTIN inválido. Guia prático para vendedores."
+ogAccent: "#ffe600"
+twitterTitle: "Código de barras no Mercado Livre: EAN-13, GTIN e como gerar"
+twitterDescription: "Quando é obrigatório, como gerar grátis e o que fazer quando o ML rejeita o GTIN. Guia para vendedores."
+faqsSlugs:
+  - geracode-e-gratuito
+  - funciona-no-celular
+bodyMarkdown: |
+  Código de barras para Mercado Livre é uma das dúvidas mais frequentes de quem começa a vender na plataforma. O ML exige código de barras em várias categorias — mas a lógica de quando é obrigatório, qual formato usar e o que acontece sem ele confunde muita gente. Este guia responde tudo com exemplos práticos.
+
+  ## O Mercado Livre exige código de barras?
+
+  Depende da categoria. O Mercado Livre classifica os produtos em duas situações:
+
+  **Categorias com GTIN obrigatório:**
+  Em categorias como Eletrônicos, Eletrodomésticos, Beleza, Saúde, Calçados e algumas linhas de Moda, o ML exige um código EAN-13, UPC-A ou ISBN válido. Se o produto não tem GTIN registrado, a plataforma pode rejeitar o anúncio ou rebaixar o posicionamento na busca.
+
+  **Categorias sem GTIN obrigatório:**
+  Em categorias como Artesanato, Produtos Usados, Colecionáveis, Peças de carro fora do catálogo oficial e produtos personalizados, o ML aceita anúncios sem código de barras. O campo fica como "Não aplicável".
+
+  **Como saber qual é o caso do seu produto:**
+  Ao criar o anúncio, o ML indica se o campo de GTIN é obrigatório (*) ou opcional. Se o campo for obrigatório e você deixar em branco, o anúncio não é publicado.
+
+  ## O que é GTIN e por que o Mercado Livre pede
+
+  **GTIN** (Global Trade Item Number) é o identificador global de produto — o EAN-13 que aparece no código de barras das embalagens é um GTIN de 13 dígitos, registrado na [GS1](https://www.gs1br.org). O Mercado Livre usa o GTIN para:
+
+  1. Cruzar o seu produto com o catálogo global de produtos
+  2. Exibir informações automáticas do produto (fotos, descrição, especificações)
+  3. Associar avaliações de outros vendedores ao mesmo produto
+  4. Facilitar a busca por consumidores que procuram por código específico
+
+  Quando você informa um GTIN válido, o ML verifica na base da GS1 se o código existe. Se não existir, o anúncio pode ser rejeitado com a mensagem "GTIN inválido" ou "código de barras não encontrado".
+
+  ## Quando o ML aceita EAN-13 gerado gratuitamente
+
+  O Mercado Livre aceita EAN-13 gerado sem registro na GS1 em dois cenários:
+
+  **1. Produto novo sem EAN na embalagem:**
+  Se você fabrica ou importa o produto e ele não veio com EAN-13 da fábrica, o ML permite informar "Não possui" em algumas categorias — ou aceita um EAN gerado por você para uso como identificador interno da plataforma.
+
+  **2. Produto para controle interno e fulfillment:**
+  Para usar o [Mercado Envios Full](https://www.mercadolivre.com.br/ajuda/envios) (estoque no galpão do ML), cada SKU precisa de um código de barras legível. O ML aceita qualquer código EAN-13 válido (com dígito verificador correto) para identificar os volumes no galpão — não precisa ser um GTIN registrado na GS1.
+
+  **Quando o EAN gerado NÃO funciona:**
+  Se o ML cruzar o EAN com o catálogo global e não encontrar correspondência para um produto de marca conhecida (ex: iPhone, Samsung TV, Nike), o anúncio pode ser associado ao produto errado ou rejeitado. Para produtos de marcas registradas, use o EAN original da embalagem.
+
+  ## Como gerar EAN-13 gratuitamente para o Mercado Livre
+
+  Para produtos próprios, artesanais ou de revenda sem código de barras na embalagem, o [gerador de EAN do GeraCode](/gerador-de-ean) gera EAN-13 com dígito verificador correto:
+
+  1. Acesse o [gerador de EAN-13](/gerador-de-ean).
+  2. Digite os primeiros 12 dígitos do seu código (ou deixe o GeraCode gerar aleatoriamente).
+  3. O 13° dígito (verificador) é calculado automaticamente.
+  4. Baixe o código em SVG para impressão ou PNG para uso no anúncio.
+  5. Use o mesmo código em todos os anúncios e em todas as unidades do mesmo produto.
+
+  **Importante:** use o mesmo EAN-13 para o mesmo produto em todos os canais (ML, Shopee, site próprio). Criar um EAN diferente para cada plataforma causa inconsistências de estoque.
+
+  ## Como cadastrar o código de barras no anúncio do Mercado Livre
+
+  Ao criar ou editar o anúncio:
+
+  1. Na seção **"Especificações técnicas"** ou **"Código de barras"**, localize o campo EAN/GTIN.
+  2. Insira o EAN-13 de 13 dígitos (sem espaços ou hífens).
+  3. O ML valida o dígito verificador automaticamente — se estiver errado, o campo mostra erro.
+  4. Se o produto não tem código, selecione "Não possui" (quando disponível na categoria).
+
+  **Para anúncios existentes sem EAN:**
+  Vá em Minha conta → Meus produtos → Selecione o produto → Editar → Especificações. Adicione o EAN e salve. Produtos com EAN válido tendem a ter melhor visibilidade na busca do ML.
+
+  ## Erros comuns de código de barras no Mercado Livre
+
+  **"GTIN inválido" ou "código de barras incorreto"**
+  O dígito verificador do EAN-13 está errado. Use o [gerador de EAN](/gerador-de-ean) para gerar um código com dígito verificador calculado corretamente, ou use uma [calculadora de dígito verificador EAN](https://www.gs1br.org/codigos-de-barras/verificar-digito-verificador).
+
+  **"Código já cadastrado para outro produto"**
+  O EAN que você informou já está associado a outro produto no catálogo do ML — seja porque é um EAN de outro fabricante ou porque o código foi gerado aleatoriamente e coincidiu com um produto existente. Gere um novo código com números diferentes.
+
+  **"Produto associado ao catálogo errado"**
+  O ML encontrou um produto no catálogo global com aquele EAN, mas não é o seu produto. Isso acontece quando se usa um EAN de outro fabricante ou um EAN gerado que coincidiu com um produto registrado. Solução: informe "Não possui" se a categoria aceitar, ou gere um novo EAN diferente.
+
+  **EAN diferente para cada variante (cor, tamanho)**
+  Cada variante de produto deve ter um EAN-13 **diferente**. Camisa azul P, M, G = 3 EANs diferentes. Camisa preta P, M, G = mais 3 EANs. Usar o mesmo EAN para variantes causa problemas de estoque no fulfillment.
+
+  ## Código de barras para Mercado Livre Full (Fulfillment)
+
+  Para usar o **Mercado Envios Full**, cada produto precisa ter um código de barras legível nas embalagens enviadas ao galpão do ML. As regras:
+
+  - **Formato aceito:** EAN-13, UPC-A ou código gerado pelo próprio ML (GTIN do ML)
+  - **Tamanho mínimo na etiqueta:** o código deve ser legível pelo leitor industrial do galpão — use no mínimo EAN-13 no tamanho padrão (37 × 26 mm)
+  - **Onde colocar:** na embalagem do produto, visível sem abrir a caixa
+  - **Etiqueta do ML:** o ML gera etiquetas de expedição com seu próprio código de rastreio — não confundir com o EAN do produto
+
+  Para imprimir etiquetas com código de barras para enviar ao Full, veja o guia de [como imprimir etiquetas com código de barras](/blog/como-imprimir-etiquetas-codigo-de-barras).
+
+  ## Código de barras no Mercado Livre vs. Shopee vs. Amazon BR
+
+  | Plataforma | EAN obrigatório | Aceita sem GTIN | Geração gratuita aceita |
+  |---|---|---|---|
+  | **Mercado Livre** | Por categoria | Sim ("Não possui") | Sim, em produtos sem marca |
+  | **Shopee** | Opcional (recomendado) | Sim | Sim |
+  | **Amazon BR** | Obrigatório na maioria | Apenas com isenção | Não — exige GTIN GS1 |
+  | **Magalu** | Por categoria | Sim | Sim, em produtos próprios |
+
+  A **Amazon Brasil** é a mais rígida: para produtos de marca, exige GTIN registrado na GS1. Para produtos próprios sem marca, é possível solicitar isenção de GTIN (GTIN exemption) direto na Seller Central.
+
+  O **Mercado Livre** é mais flexível que a Amazon para produtos sem EAN registrado, especialmente em categorias de artesanato, produtos regionais e fabricação própria.
+
+  ## Quando vale a pena registrar o EAN na GS1
+
+  O registro na [GS1 Brasil](https://www.gs1br.org) vale a pena quando:
+
+  - O produto vai para **gôndola de supermercado, farmácia ou loja física** com PDV
+  - A plataforma exige GTIN válido globalmente (Amazon, Americanas, grandes redes)
+  - Você **exporta** o produto ou vai para marketplaces internacionais
+  - O produto é **declarado na Nota Fiscal Eletrônica** com GTIN nos campos cEAN/cEANTrib
+
+  Para venda exclusiva no Mercado Livre, Shopee e e-commerce próprio com produtos sem marca conhecida, um EAN gerado pelo GeraCode atende a maioria dos casos sem custo de registro.
+
+  **Custo do registro GS1:** filiação básica para MEI/microempresa custa aproximadamente R$150 de adesão + R$100/ano, com direito a 1.000 GTINs. Consulte os preços atuais em [gs1br.org/solicitar-codigo-de-barras](https://www.gs1br.org/solicitar-codigo-de-barras).
+
+  ## Próximos passos
+
+  - Para gerar EAN-13 gratuito para o ML: [gerador de EAN-13](/gerador-de-ean)
+  - Para entender todos os formatos de código de barras: [código de barras para produtos: guia completo](/blog/codigo-de-barras-para-produtos-guia-completo)
+  - Para imprimir etiquetas com código de barras: [como imprimir etiquetas com código de barras](/blog/como-imprimir-etiquetas-codigo-de-barras)
