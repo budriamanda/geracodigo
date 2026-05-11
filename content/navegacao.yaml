@@ -8,7 +8,9 @@ headerLinks:
   - href: "/gerador-de-qr-code"
     label: "QR Code"
   - href: "/leitor-de-codigo-de-barras"
-    label: "Leitor"
+    label: "Leitor de Código de Barras"
+  - href: "/leitor-de-qr-code"
+    label: "Leitor de QR Code"
   - href: "/gerador-de-sku"
     label: "SKU"
   - href: "/blog"
@@ -16,21 +18,29 @@ headerLinks:
 
 footerFerramentas:
   - href: "/gerador-de-codigo-de-barras"
-    label: "Código de Barras"
+    label: "Gerador de Código de Barras"
   - href: "/gerador-de-ean"
-    label: "EAN-13 / EAN-8"
+    label: "Gerador EAN-13 / EAN-8"
   - href: "/gerador-de-qr-code-pix"
-    label: "QR Code Pix"
+    label: "Gerador QR Code Pix"
   - href: "/gerador-de-qr-code"
-    label: "QR Code"
+    label: "Gerador de QR Code"
   - href: "/leitor-de-codigo-de-barras"
     label: "Leitor de Código de Barras"
+  - href: "/leitor-de-qr-code"
+    label: "Leitor de QR Code"
   - href: "/gerador-de-sku"
     label: "Gerador de SKU"
 
 footerConteudo:
   - href: "/blog"
     label: "Blog"
+  - href: "/blog/codigo-de-barras-para-produtos-guia-completo"
+    label: "Código de Barras para Produtos"
+  - href: "/blog/qr-code-pix-para-mei-guia-completo"
+    label: "QR Code Pix para MEI"
+  - href: "/blog/como-gerar-qr-code-gratis-passo-a-passo"
+    label: "Como Gerar QR Code Grátis"
 
 footerInstitucional:
   - href: "/sobre"
@@ -40,5 +50,5 @@ footerInstitucional:
   - href: "/termos"
     label: "Termos de Uso"
 
-footerTagline: "Ferramentas gratuitas de geração de código de barras e QR Code Pix para lojistas brasileiros. 100% privado, sem cadastro."
+footerTagline: "Ferramentas gratuitas de geração e leitura de código de barras, QR Code e Pix para lojistas brasileiros. 100% privado, sem cadastro."
 copyrightText: "GeraCode · Ferramentas gratuitas para lojistas brasileiros"

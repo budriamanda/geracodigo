@@ -4,26 +4,52 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { trackCtaClick } from '@/lib/analytics'
-import { Barcode, Hash, QrCode, ScanBarcode, Tag, BookOpen, type LucideIcon } from 'lucide-react'
+import {
+  Barcode, Hash, QrCode, Wallet, ScanBarcode, ScanLine, Tag, BookOpen, ChevronDown,
+  type LucideIcon,
+} from 'lucide-react'
 
 export type NavLink = { href: string; label: string }
 
 const NAV_ICONS: Record<string, LucideIcon> = {
   '/gerador-de-codigo-de-barras': Barcode,
   '/gerador-de-ean': Hash,
-  '/gerador-de-qr-code-pix': QrCode,
+  '/gerador-de-qr-code-pix': Wallet,
   '/gerador-de-qr-code': QrCode,
   '/leitor-de-codigo-de-barras': ScanBarcode,
+  '/leitor-de-qr-code': ScanLine,
   '/gerador-de-sku': Tag,
   '/blog': BookOpen,
 }
+
+type DesktopNavItem =
+  | { type: 'link'; href: string; label: string }
+  | { type: 'group'; label: string; items: { href: string; label: string }[] }
+
+const DESKTOP_NAV: DesktopNavItem[] = [
+  { type: 'link', href: '/gerador-de-codigo-de-barras', label: 'Código de Barras' },
+  { type: 'link', href: '/gerador-de-ean', label: 'EAN-13 / EAN-8' },
+  { type: 'link', href: '/gerador-de-qr-code-pix', label: 'QR Code Pix' },
+  { type: 'link', href: '/gerador-de-qr-code', label: 'QR Code' },
+  {
+    type: 'group',
+    label: 'Leitores',
+    items: [
+      { href: '/leitor-de-codigo-de-barras', label: 'Leitor de Código de Barras' },
+      { href: '/leitor-de-qr-code', label: 'Leitor de QR Code' },
+    ],
+  },
+  { type: 'link', href: '/gerador-de-sku', label: 'SKU' },
+  { type: 'link', href: '/blog', label: 'Blog' },
+]
 
 const defaultNavLinks: NavLink[] = [
   { href: '/gerador-de-codigo-de-barras', label: 'Código de Barras' },
   { href: '/gerador-de-ean', label: 'EAN-13 / EAN-8' },
   { href: '/gerador-de-qr-code-pix', label: 'QR Code Pix' },
   { href: '/gerador-de-qr-code', label: 'QR Code' },
-  { href: '/leitor-de-codigo-de-barras', label: 'Leitor' },
+  { href: '/leitor-de-codigo-de-barras', label: 'Leitor de Código de Barras' },
+  { href: '/leitor-de-qr-code', label: 'Leitor de QR Code' },
   { href: '/gerador-de-sku', label: 'SKU' },
   { href: '/blog', label: 'Blog' },
 ]
@@ -31,11 +57,16 @@ const defaultNavLinks: NavLink[] = [
 export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavLink[] }) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
   const toggleBtnRef = useRef<HTMLButtonElement>(null)
+  const dropdownRef = useRef<HTMLLIElement>(null)
 
   useEffect(() => {
-    queueMicrotask(() => setMenuOpen(false))
+    queueMicrotask(() => {
+      setMenuOpen(false)
+      setDropdownOpen(false)
+    })
   }, [pathname])
 
   useEffect(() => {
@@ -93,6 +124,24 @@ export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavL
     }
   }, [menuOpen])
 
+  useEffect(() => {
+    if (!dropdownOpen) return
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape') setDropdownOpen(false)
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleEscape)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [dropdownOpen])
+
   return (
     <>
       <a
@@ -104,7 +153,7 @@ export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavL
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" aria-label="GeraCode — página inicial" className="flex items-center gap-2">
               <span className="text-2xl font-bold text-indigo-600">GeraCode</span>
             </Link>
             <nav
@@ -112,22 +161,69 @@ export default function Header({ navLinks = defaultNavLinks }: { navLinks?: NavL
               aria-label="Navegação principal"
             >
               <ul role="list" className="flex items-center gap-6">
-                {navLinks.map(({ href, label }) => {
-                  const isActive = pathname === href
+                {DESKTOP_NAV.map((item) => {
+                  if (item.type === 'link') {
+                    const isActive = pathname === item.href
+                    return (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          aria-current={isActive ? 'page' : undefined}
+                          className={`transition-colors ${
+                            isActive ? 'text-indigo-600 font-semibold' : 'hover:text-indigo-600'
+                          }`}
+                          onClick={() => trackCtaClick(undefined, `nav_desktop_${item.href}`, item.label)}
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    )
+                  }
+
+                  const groupActive = item.items.some((i) => pathname === i.href)
                   return (
-                    <li key={href}>
-                      <Link
-                        href={href}
-                        aria-current={isActive ? 'page' : undefined}
-                        className={`transition-colors ${
-                          isActive
-                            ? 'text-indigo-600 font-semibold'
-                            : 'hover:text-indigo-600'
+                    <li key={item.label} className="relative" ref={dropdownRef}>
+                      <button
+                        onClick={() => setDropdownOpen((o) => !o)}
+                        aria-expanded={dropdownOpen}
+                        aria-haspopup="true"
+                        className={`flex items-center gap-1 transition-colors ${
+                          groupActive ? 'text-indigo-600 font-semibold' : 'hover:text-indigo-600'
                         }`}
-                        onClick={() => trackCtaClick(undefined, `nav_desktop_${href}`, label)}
                       >
-                        {label}
-                      </Link>
+                        {item.label}
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform duration-150 ${dropdownOpen ? 'rotate-180' : ''}`}
+                          aria-hidden="true"
+                        />
+                      </button>
+                      {dropdownOpen && (
+                        <ul
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg py-1 min-w-max"
+                          role="menu"
+                        >
+                          {item.items.map(({ href, label }) => (
+                            <li key={href} role="none">
+                              <Link
+                                href={href}
+                                role="menuitem"
+                                aria-current={pathname === href ? 'page' : undefined}
+                                className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
+                                  pathname === href
+                                    ? 'text-indigo-600 font-semibold bg-indigo-50'
+                                    : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50'
+                                }`}
+                                onClick={() => {
+                                  setDropdownOpen(false)
+                                  trackCtaClick(undefined, `nav_desktop_${href}`, label)
+                                }}
+                              >
+                                {label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   )
                 })}

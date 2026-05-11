@@ -14,16 +14,20 @@ export interface FooterProps {
 }
 
 const defaultFerramentas: FooterLink[] = [
-  { href: '/gerador-de-codigo-de-barras', label: 'Código de Barras' },
-  { href: '/gerador-de-ean', label: 'EAN-13 / EAN-8' },
-  { href: '/gerador-de-qr-code-pix', label: 'QR Code Pix' },
-  { href: '/gerador-de-qr-code', label: 'QR Code' },
+  { href: '/gerador-de-codigo-de-barras', label: 'Gerador de Código de Barras' },
+  { href: '/gerador-de-ean', label: 'Gerador EAN-13 / EAN-8' },
+  { href: '/gerador-de-qr-code-pix', label: 'Gerador QR Code Pix' },
+  { href: '/gerador-de-qr-code', label: 'Gerador de QR Code' },
   { href: '/leitor-de-codigo-de-barras', label: 'Leitor de Código de Barras' },
+  { href: '/leitor-de-qr-code', label: 'Leitor de QR Code' },
   { href: '/gerador-de-sku', label: 'Gerador de SKU' },
 ]
 
 const defaultConteudo: FooterLink[] = [
   { href: '/blog', label: 'Blog' },
+  { href: '/blog/codigo-de-barras-para-produtos-guia-completo', label: 'Código de Barras para Produtos' },
+  { href: '/blog/qr-code-pix-para-mei-guia-completo', label: 'QR Code Pix para MEI' },
+  { href: '/blog/como-gerar-qr-code-gratis-passo-a-passo', label: 'Como Gerar QR Code Grátis' },
 ]
 
 const defaultInstitucional: FooterLink[] = [
@@ -36,8 +40,8 @@ export default function Footer({
   ferramentas = defaultFerramentas,
   conteudo = defaultConteudo,
   institucional = defaultInstitucional,
-  tagline = 'Ferramentas gratuitas de geração de código de barras e QR Code Pix para lojistas brasileiros. 100% privado, sem cadastro.',
-  copyrightText = 'GeraCode · Ferramentas gratuitas para lojistas brasileiros',
+  tagline = 'Ferramentas gratuitas de geração e leitura de código de barras, QR Code e Pix para lojistas brasileiros. 100% privado, sem cadastro.',
+  copyrightText = 'GeraCode',
 }: FooterProps) {
   const handleCookiePreferences = useCallback(() => {
     window.dispatchEvent(new CustomEvent('geracode:open-cookie-settings'))
@@ -46,12 +50,21 @@ export default function Footer({
   return (
     <footer className="bg-white border-t-2 border-gray-200 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="mb-8">
+          <Link href="/" className="text-xl font-bold text-indigo-600">
+            GeraCode
+          </Link>
+          <p className="mt-2 text-sm text-gray-500 max-w-xl leading-relaxed">
+            {tagline}
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm text-gray-600">
           <div>
             <p className="font-semibold text-gray-900 mb-3">Ferramentas</p>
             <ul className="space-y-2">
               {ferramentas.map(({ href, label }) => (
-                <li key={href}><Link href={href} className="hover:text-indigo-600">{label}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-indigo-600 transition-colors">{label}</Link></li>
               ))}
             </ul>
           </div>
@@ -59,7 +72,7 @@ export default function Footer({
             <p className="font-semibold text-gray-900 mb-3">Conteúdo</p>
             <ul className="space-y-2">
               {conteudo.map(({ href, label }) => (
-                <li key={href}><Link href={href} className="hover:text-indigo-600">{label}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-indigo-600 transition-colors">{label}</Link></li>
               ))}
             </ul>
           </div>
@@ -67,22 +80,20 @@ export default function Footer({
             <p className="font-semibold text-gray-900 mb-3">GeraCode</p>
             <ul className="space-y-2">
               {institucional.map(({ href, label }) => (
-                <li key={href}><Link href={href} className="hover:text-indigo-600">{label}</Link></li>
+                <li key={href}><Link href={href} className="hover:text-indigo-600 transition-colors">{label}</Link></li>
               ))}
               <li>
                 <button
                   onClick={handleCookiePreferences}
-                  className="hover:text-indigo-600 cursor-pointer text-left focus-visible:outline-none focus-visible:text-indigo-600 focus-visible:underline"
+                  className="hover:text-indigo-600 cursor-pointer text-left transition-colors focus-visible:outline-none focus-visible:text-indigo-600 focus-visible:underline"
                 >
                   Preferências de Cookies
                 </button>
               </li>
             </ul>
-            <p className="text-gray-500 text-xs leading-relaxed mt-3">
-              {tagline}
-            </p>
           </div>
         </div>
+
         <div className="mt-8 pt-6 border-t border-gray-200 text-center text-xs text-gray-400">
           © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {copyrightText}
         </div>
