@@ -281,8 +281,6 @@ export default function PixGenerator() {
         ctx.drawImage(img, 65, 140, 290, 290)
 
         // Rodapé
-        ctx.fillStyle = '#7c2d12'
-        ctx.font = 'bold 18px sans-serif'
         ctx.font = '16px sans-serif'
         ctx.fillStyle = '#6b7280'
         ctx.fillText('Recebedor:', 210, 470)

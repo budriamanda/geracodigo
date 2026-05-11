@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 interface CopyPayloadButtonProps {
   payload: string
@@ -8,14 +8,24 @@ interface CopyPayloadButtonProps {
 
 export default function CopyPayloadButton({ payload }: CopyPayloadButtonProps) {
   const [copied, setCopied] = useState(false)
+  const [copyError, setCopyError] = useState(false)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+  }, [])
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(payload)
       setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      setCopyError(false)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000)
     } catch {
-      // fallback manual selection
+      setCopyError(true)
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      timeoutRef.current = setTimeout(() => setCopyError(false), 3000)
     }
   }
 
@@ -39,6 +49,11 @@ export default function CopyPayloadButton({ payload }: CopyPayloadButtonProps) {
       >
         {copied ? '✓ Código copiado!' : 'Copiar código Pix'}
       </button>
+      {copyError && (
+        <p className="text-xs text-red-600 text-center" role="alert">
+          Não foi possível copiar. Selecione o texto acima manualmente.
+        </p>
+      )}
     </div>
   )
 }
