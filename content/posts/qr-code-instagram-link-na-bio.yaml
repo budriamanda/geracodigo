@@ -39,7 +39,7 @@ bodyMarkdown: |
 
   ## O que é QR Code para Instagram e por que criar um
 
-  Um QR Code para Instagram é um código que, quando escaneado com a câmera do celular, abre diretamente o seu perfil no app do Instagram ou no navegador. Você cola o link do seu perfil (`https://instagram.com/seuperfil`) dentro do QR Code e qualquer pessoa com celular consegue acessar sem digitar nada.
+  Um QR Code para Instagram (chamado de **"tag de nome"** ou **"nametag"** nas versões antigas do app, agora renomeado para "QR Code" pelo próprio Instagram) é um código que, quando escaneado com a câmera do celular, abre diretamente o seu perfil no app do Instagram ou no navegador. Você cola o link do seu perfil (`https://instagram.com/seuperfil`) dentro do QR Code e qualquer pessoa com celular consegue acessar sem digitar nada.
 
   **Por que funciona melhor do que pedir para "seguir no Instagram":**
 
@@ -160,6 +160,17 @@ bodyMarkdown: |
 
   **Alternativa gratuita:** use um encurtador de links como **bit.ly** (plano gratuito) para criar o link antes do QR Code. O bit.ly mostra quantas vezes o link foi clicado sem precisar de Google Analytics.
 
+  ## QR Code para post, reel ou produto específico
+
+  Além do QR Code do perfil, você pode criar QR Codes que apontam diretamente para conteúdos específicos — sem passar pela página principal do perfil:
+
+  - **Post ou reel específico:** copie o link do post (toque nos três pontos → "Copiar link") e gere o QR Code com essa URL. Útil para campanhas: "Escaneie para ver o tutorial completo".
+  - **Produto na loja do Instagram (Instagram Shopping):** copie o link direto do produto na vitrine do Instagram e coloque no QR Code da embalagem. O cliente vai direto para a página de compra.
+  - **Story salvo como destaque:** não dá para linkar diretamente, mas você pode criar um link para um post fixado no perfil que redireciona para o conteúdo.
+  - **Link do WhatsApp via bio:** se você usa o link do WhatsApp na bio do Instagram, crie um QR Code diretamente para o WhatsApp (`https://wa.me/5511999999999`) — mais direto e sem depender do Instagram como intermediário.
+
+  Para criar QR Code de qualquer URL do Instagram: [gerador de QR Code do GeraCode](/gerador-de-qr-code).
+
   ## QR Code do Instagram vs. QR Code nativo do app
 
   O próprio Instagram tem um QR Code nativo (acessível em Perfil → Menu → QR Code). A diferença:
@@ -182,7 +193,7 @@ bodyMarkdown: |
 
   **Fundo escuro com barras coloridas:** o leitor precisa de contraste entre as barras e o fundo. Barras escuras em fundo branco (ou brancas em fundo escuro) funcionam; barras coloridas em fundo colorido geralmente falham.
 
-  **Não testar antes de imprimir em escala:** sempre escaneie o QR Code com pelo menos dois celulares diferentes (Android + iPhone) antes de mandar para a gráfica ou imprimir etiquetas em lote.
+  **Não testar antes de imprimir em escala:** sempre escaneie o QR Code com pelo menos dois celulares diferentes (Android + iPhone) antes de mandar para a gráfica ou imprimir etiquetas em lote. A [central de ajuda do Instagram](https://help.instagram.com/973587816542868) explica como o recurso nativo de QR Code do perfil funciona para referência.
 
   **Link com @ em vez de URL:** o @ é um atalho para mencionar dentro do Instagram, não um link externo. O QR Code precisa de uma URL completa com `https://`.
 

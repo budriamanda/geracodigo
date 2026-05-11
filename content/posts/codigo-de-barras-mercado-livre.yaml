@@ -149,6 +149,19 @@ bodyMarkdown: |
 
   **Custo do registro GS1:** filiação básica para MEI/microempresa custa aproximadamente R$150 de adesão + R$100/ano, com direito a 1.000 GTINs. Consulte os preços atuais em [gs1br.org/solicitar-codigo-de-barras](https://www.gs1br.org/solicitar-codigo-de-barras).
 
+  ## Código de barras no EAN e visibilidade no Google Shopping
+
+  Um ponto que poucos vendedores conhecem: o Mercado Livre distribui seus anúncios no **Google Shopping** — e a ausência de EAN-13 válido é o principal motivo de produtos serem excluídos desse canal.
+
+  Segundo as [políticas do Google Shopping](https://support.google.com/merchants/answer/6219058), produtos sem GTIN válido em categorias que o exigem não são exibidos nas comparações de preço do Google. Na prática, isso significa:
+
+  - **Com EAN-13 válido:** seu anúncio do ML aparece no Google quando alguém busca "tênis Nike Air Max 90 preto 42", por exemplo
+  - **Sem EAN-13:** seu anúncio não compete nessa vitrine — você perde tráfego orgânico do Google além do tráfego interno do ML
+
+  Para produtos de marca conhecida, use o EAN original da embalagem. Para produtos próprios ou importados sem EAN, o EAN gerado pelo GeraCode funciona para o fulfillment e controle interno, mas pode não ser aceito pelo Google Shopping para produtos que já têm GTIN registrado — nesse caso, o correto é registrar na GS1.
+
+  **O erro "EMPTY_GTIN_REASON" em ERPs:** se você usa integração com ERP (Bling, Tiny, Omie) para exportar produtos ao ML e recebe o erro `EMPTY_GTIN_REASON`, significa que o campo GTIN está em branco e a categoria exige preenchimento. Solução: preencher o campo EAN-13 no cadastro do produto dentro do ERP antes de sincronizar com o ML.
+
   ## Próximos passos
 
   - Para gerar EAN-13 gratuito para o ML: [gerador de EAN-13](/gerador-de-ean)

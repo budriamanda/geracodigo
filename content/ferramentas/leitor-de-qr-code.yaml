@@ -1,5 +1,5 @@
 slug: leitor-de-qr-code
-title: "Leitor de QR Code Online Grátis — Escanear pelo Celular ou PC"
+title: "Leitor de QR Code Online Grátis: celular ou PC, sem app"
 metaDescription: "Leitor de QR Code online grátis. Escaneie QR Code pela câmera do celular ou computador sem instalar app. Funciona com qualquer QR Code: link, Pix, Wi-Fi, texto."
 ogTitle: "Leitor de QR Code Online Grátis | GeraCode"
 ogDescription: "Escaneie QR Code pela câmera do celular ou computador. Sem app, sem cadastro, 100% gratuito e privado."
@@ -85,8 +85,8 @@ secoesConteudo:
       - titulo: "QR Code de link e URL"
         descricao: "Lê links de sites, redes sociais, cardápios digitais, landing pages e qualquer URL codificada em QR Code. O link aparece clicável na tela."
         icone: ""
-      - titulo: "QR Code Pix"
-        descricao: "Lê o payload BR Code EMV do QR Pix e exibe os dados do recebedor (nome, chave, valor). Útil para conferir QR Codes antes de imprimir."
+      - titulo: "QR Code Pix — exibe dados do recebedor"
+        descricao: "Lê o payload BR Code EMV do QR Pix e exibe nome do recebedor, chave Pix, cidade e valor. Útil para conferir QR Codes antes de imprimir — e para verificar se um QR de Pix suspeito é legítimo antes de pagar."
         icone: ""
       - titulo: "QR Code Wi-Fi"
         descricao: "Lê QR Codes de rede Wi-Fi e exibe o nome da rede (SSID), senha e tipo de segurança. Perfeito para compartilhar senha de Wi-Fi sem digitar."
@@ -94,6 +94,16 @@ secoesConteudo:
       - titulo: "QR Code de texto e contato"
         descricao: "Lê QR Codes com texto simples, número de telefone, e-mail, vCard (contato) e outros tipos de dados codificados."
         icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Antes de escanear: como identificar QR Codes falsos (quishing)"
+    subtitulo: ""
+    conteudo: "**Quishing** é o phishing via QR Code — golpistas substituem QR Codes legítimos (Pix, cardápio, pagamento de estacionamento) por códigos falsos que redirecionam para sites fraudulentos. No Brasil, os casos cresceram com a popularização do Pix via QR.\n\n**Sinais de alerta:**\n- QR Code colado sobre outro código (especialmente em totens de pagamento e mesas de restaurante)\n- QR Code em papel impresso de qualidade baixa em locais onde o original seria profissional\n- URL estranha após escanear — sempre veja o link antes de clicar\n- QR Pix que pede senha ou dados além do app bancário\n\n**Use o leitor para verificar antes de agir:** escaneie o QR Code com o leitor do GeraCode para ver o conteúdo completo antes de abrir o link ou confirmar o pagamento. Se o link do QR Pix não começar com o domínio do seu banco ou for uma URL encurtada desconhecida, desconfie.\n\nEsta prática é especialmente importante em QR Codes em locais públicos: estacionamentos, caixas de supermercado, mesas de restaurante e panfletos na rua."
+    stepColor: "amber"
+    bgCard: true
+    columns: "3"
+    items: []
     tags: []
     links: []
   - tipo: prose
