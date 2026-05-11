@@ -20,6 +20,7 @@ const SCAN_INTERVAL_MS = 150
 export default function BarcodeReader() {
   const [isScanning, setIsScanning] = useState(false)
   const [isCameraLoading, setIsCameraLoading] = useState(false)
+  const [isProcessingImage, setIsProcessingImage] = useState(false)
   const [results, setResults] = useState<DecodedResult[]>([])
   const [error, setError] = useState('')
   const [copied, setCopied] = useState<string | null>(null)
@@ -31,6 +32,7 @@ export default function BarcodeReader() {
   const streamRef = useRef<MediaStream | null>(null)
   const detectorRef = useRef<BarcodeDetector | null>(null)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
@@ -158,6 +160,66 @@ export default function BarcodeReader() {
     setShowShare(true)
   }
 
+  const handleReadFromPhoto = useCallback(async (file: File) => {
+    setError('')
+    if (typeof BarcodeDetector === 'undefined') {
+      const browser = navigator.userAgent
+      const isSafari = /Safari/.test(browser) && !/Chrome/.test(browser)
+      const isFirefox = /Firefox/.test(browser)
+      const browserName = isSafari ? 'Safari' : isFirefox ? 'Firefox' : 'seu navegador'
+      setError(
+        `O ${browserName} ainda não suporta a leitura automática (API BarcodeDetector). ` +
+        'Use o Chrome 83+, Edge 83+ ou Opera 69+ para ler de foto.'
+      )
+      return
+    }
+
+    setIsProcessingImage(true)
+    let bitmap: ImageBitmap | null = null
+    try {
+      bitmap = await createImageBitmap(file)
+      const detector = new BarcodeDetector({
+        formats: ['ean_13', 'ean_8', 'code_128', 'code_39', 'code_93', 'upc_a', 'upc_e', 'itf', 'codabar', 'qr_code'],
+      })
+      const barcodes = await detector.detect(bitmap)
+
+      if (barcodes.length === 0) {
+        setError('Nenhum código encontrado na imagem. Tente uma foto com melhor iluminação e enquadramento.')
+        return
+      }
+
+      let added = 0
+      setResults(prev => {
+        let next = prev
+        for (const bc of barcodes) {
+          if (!next.some(r => r.value === bc.rawValue)) {
+            next = [{ value: bc.rawValue, format: bc.format, timestamp: Date.now() }, ...next].slice(0, 50)
+            added++
+            queueMicrotask(() => trackScan(bc.format))
+          }
+        }
+        return next
+      })
+
+      if (added > 0) {
+        setShowShare(true)
+        showToast(
+          added === 1
+            ? '1 código encontrado na foto!'
+            : `${added} códigos encontrados na foto!`,
+          'success'
+        )
+      }
+    } catch {
+      setError('Erro ao processar a imagem. Tente novamente com outro arquivo.')
+    } finally {
+      if (bitmap) bitmap.close()
+      setIsProcessingImage(false)
+      // Limpa o file input para permitir selecionar o mesmo arquivo novamente
+      if (fileInputRef.current) fileInputRef.current.value = ''
+    }
+  }, [])
+
   const formatLabel = (fmt: string) => {
     const labels: Record<string, string> = {
       ean_13: 'EAN-13', ean_8: 'EAN-8', code_128: 'Code 128', code_39: 'Code 39',
@@ -213,13 +275,34 @@ export default function BarcodeReader() {
 
         <div className="flex gap-2">
           {!isScanning ? (
-            <button
-              onClick={startCamera}
-              disabled={isCameraLoading}
-              className="flex-1 bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
-            >
-              {isCameraLoading ? 'Acessando…' : 'Iniciar Câmera'}
-            </button>
+            <>
+              <button
+                onClick={startCamera}
+                disabled={isCameraLoading || isProcessingImage}
+                className="flex-1 bg-indigo-600 text-white px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              >
+                {isCameraLoading ? 'Acessando…' : 'Iniciar Câmera'}
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                aria-hidden="true"
+                tabIndex={-1}
+                onChange={e => {
+                  const file = e.target.files?.[0]
+                  if (file) handleReadFromPhoto(file)
+                }}
+              />
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isCameraLoading || isProcessingImage}
+                className="flex-1 bg-white border border-indigo-600 text-indigo-600 px-4 py-2.5 rounded-lg font-medium hover:bg-indigo-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
+              >
+                {isProcessingImage ? 'Processando…' : 'Ler de foto'}
+              </button>
+            </>
           ) : (
             <button
               onClick={stopCamera}

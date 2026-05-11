@@ -42,11 +42,14 @@ export default function PixGenerator() {
   const [touchedFields, setTouchedFields] = useState<Partial<Record<keyof FieldErrors, boolean>>>({})
   const [valueCapped, setValueCapped] = useState(false)
   const [showShare, setShowShare] = useState(false)
+  const [copiedLink, setCopiedLink] = useState(false)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const copyLinkTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const SHARE = getShareConfig('gerador-de-qr-code-pix')
 
   useEffect(() => () => {
     if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current)
+    if (copyLinkTimeoutRef.current) clearTimeout(copyLinkTimeoutRef.current)
   }, [])
 
   const markStale = () => {
@@ -170,6 +173,190 @@ export default function PixGenerator() {
       setError('Erro ao gerar SVG. Tente baixar em PNG.')
     }
   }
+
+  const handleDownloadTemplate = useCallback((templateId: 'basico' | 'verde' | 'restaurante' | 'profissional') => {
+    if (!qrDataUrl) return
+
+    const canvas = document.createElement('canvas')
+    canvas.width = 420
+    canvas.height = 560
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const img = new Image()
+    img.onload = () => {
+      ctx.clearRect(0, 0, 420, 560)
+
+      if (templateId === 'basico') {
+        // Fundo branco com borda verde
+        ctx.fillStyle = '#ffffff'
+        ctx.fillRect(0, 0, 420, 560)
+        ctx.strokeStyle = '#16a34a'
+        ctx.lineWidth = 6
+        ctx.strokeRect(3, 3, 414, 554)
+
+        // Círculo verde com PIX
+        ctx.fillStyle = '#16a34a'
+        ctx.beginPath()
+        ctx.arc(210, 75, 52, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.fillStyle = '#ffffff'
+        ctx.font = 'bold 32px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText('PIX', 210, 75)
+
+        // QR Code
+        ctx.drawImage(img, 65, 130, 290, 290)
+
+        // Rodapé
+        ctx.fillStyle = '#6b7280'
+        ctx.font = '16px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'alphabetic'
+        ctx.fillText('Aponte a câmera para pagar', 210, 460)
+        ctx.fillStyle = '#374151'
+        ctx.font = 'bold 18px sans-serif'
+        ctx.fillText(name.trim() || 'Recebedor', 210, 490)
+
+      } else if (templateId === 'verde') {
+        // Fundo verde
+        ctx.fillStyle = '#16a34a'
+        ctx.fillRect(0, 0, 420, 560)
+
+        // Textos de topo
+        ctx.fillStyle = '#ffffff'
+        ctx.font = 'bold 32px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'alphabetic'
+        ctx.fillText('ACEITE', 210, 65)
+        ctx.font = 'bold 56px sans-serif'
+        ctx.fillText('PIX', 210, 125)
+
+        // Moldura branca para QR
+        ctx.fillStyle = '#ffffff'
+        const rx = 55, ry = 140, rw = 310, rh = 310, r = 12
+        ctx.beginPath()
+        ctx.moveTo(rx + r, ry)
+        ctx.lineTo(rx + rw - r, ry)
+        ctx.quadraticCurveTo(rx + rw, ry, rx + rw, ry + r)
+        ctx.lineTo(rx + rw, ry + rh - r)
+        ctx.quadraticCurveTo(rx + rw, ry + rh, rx + rw - r, ry + rh)
+        ctx.lineTo(rx + r, ry + rh)
+        ctx.quadraticCurveTo(rx, ry + rh, rx, ry + rh - r)
+        ctx.lineTo(rx, ry + r)
+        ctx.quadraticCurveTo(rx, ry, rx + r, ry)
+        ctx.closePath()
+        ctx.fill()
+
+        // QR Code dentro da moldura
+        ctx.drawImage(img, 65, 150, 290, 290)
+
+        // Rodapé
+        ctx.fillStyle = '#bbf7d0'
+        ctx.font = '18px sans-serif'
+        ctx.textBaseline = 'alphabetic'
+        ctx.fillText('pagamento instantâneo', 210, 490)
+
+      } else if (templateId === 'restaurante') {
+        // Fundo laranja claro
+        ctx.fillStyle = '#fff7ed'
+        ctx.fillRect(0, 0, 420, 560)
+
+        // Linha decorativa laranja no topo
+        ctx.fillStyle = '#f97316'
+        ctx.fillRect(0, 0, 420, 4)
+
+        // Textos de topo
+        ctx.fillStyle = '#9a3412'
+        ctx.font = 'bold 28px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'alphabetic'
+        ctx.fillText('PAGUE SUA CONTA', 210, 65)
+        ctx.fillStyle = '#f97316'
+        ctx.font = 'italic bold 38px sans-serif'
+        ctx.fillText('com Pix', 210, 115)
+
+        // QR Code
+        ctx.drawImage(img, 65, 140, 290, 290)
+
+        // Rodapé
+        ctx.fillStyle = '#7c2d12'
+        ctx.font = 'bold 18px sans-serif'
+        ctx.font = '16px sans-serif'
+        ctx.fillStyle = '#6b7280'
+        ctx.fillText('Recebedor:', 210, 470)
+        ctx.fillStyle = '#374151'
+        ctx.font = 'bold 20px sans-serif'
+        ctx.fillText(name.trim() || 'Recebedor', 210, 498)
+
+      } else if (templateId === 'profissional') {
+        // Fundo indigo escuro
+        ctx.fillStyle = '#1e1b4b'
+        ctx.fillRect(0, 0, 420, 560)
+
+        // Textos de topo
+        ctx.fillStyle = '#a5b4fc'
+        ctx.font = '18px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'alphabetic'
+        ctx.fillText('PAGAMENTO VIA', 210, 60)
+        ctx.fillStyle = '#ffffff'
+        ctx.font = 'bold 52px sans-serif'
+        ctx.fillText('PIX', 210, 120)
+
+        // Moldura branca arredondada para QR
+        ctx.fillStyle = '#ffffff'
+        const rx2 = 55, ry2 = 140, rw2 = 310, rh2 = 310, r2 = 12
+        ctx.beginPath()
+        ctx.moveTo(rx2 + r2, ry2)
+        ctx.lineTo(rx2 + rw2 - r2, ry2)
+        ctx.quadraticCurveTo(rx2 + rw2, ry2, rx2 + rw2, ry2 + r2)
+        ctx.lineTo(rx2 + rw2, ry2 + rh2 - r2)
+        ctx.quadraticCurveTo(rx2 + rw2, ry2 + rh2, rx2 + rw2 - r2, ry2 + rh2)
+        ctx.lineTo(rx2 + r2, ry2 + rh2)
+        ctx.quadraticCurveTo(rx2, ry2 + rh2, rx2, ry2 + rh2 - r2)
+        ctx.lineTo(rx2, ry2 + r2)
+        ctx.quadraticCurveTo(rx2, ry2, rx2 + r2, ry2)
+        ctx.closePath()
+        ctx.fill()
+
+        // QR Code dentro da moldura
+        ctx.drawImage(img, 65, 150, 290, 290)
+
+        // Rodapé
+        ctx.fillStyle = '#c7d2fe'
+        ctx.font = 'bold 18px sans-serif'
+        ctx.fillText(name.trim() || 'Recebedor', 210, 490)
+        ctx.fillStyle = '#6366f1'
+        ctx.font = '11px sans-serif'
+        ctx.fillText('geracodigo.com.br', 210, 520)
+      }
+
+      canvas.toBlob(blob => {
+        if (blob) {
+          downloadBlob(blob, `placa-pix-${templateId}.png`)
+          trackDownload('pix_generator', 'pix', `template-${templateId}`)
+          showToast('Download iniciado — Placa Pix PNG', 'success')
+        }
+      }, 'image/png')
+    }
+    img.src = qrDataUrl
+  }, [qrDataUrl, name])
+
+  const handleCopyLink = useCallback(async () => {
+    const { SITE_URL } = await import('@/lib/constants')
+    const link = `${SITE_URL}/pagar?t=${keyType}&k=${encodeURIComponent(key)}&n=${encodeURIComponent(name.trim())}&c=${encodeURIComponent(city.trim())}${value && parseFloat(value) > 0 ? `&v=${value}` : ''}`
+    try {
+      await navigator.clipboard.writeText(link)
+      setCopiedLink(true)
+      showToast('Link copiado! Compartilhe pelo WhatsApp ou e-mail', 'success')
+      if (copyLinkTimeoutRef.current) clearTimeout(copyLinkTimeoutRef.current)
+      copyLinkTimeoutRef.current = setTimeout(() => setCopiedLink(false), 2000)
+    } catch {
+      showToast('Não foi possível copiar o link.', 'error')
+    }
+  }, [keyType, key, name, city, value])
 
   return (
     <div className="flex flex-col lg:flex-row gap-8">
@@ -474,6 +661,47 @@ export default function PixGenerator() {
               className="w-full text-xs font-mono bg-gray-50 border border-gray-200 rounded-lg p-3 h-24 resize-none focus:outline-none"
             />
           </div>
+        )}
+
+        {isValid && (
+          <>
+            {/* Botão copiar link */}
+            <button
+              onClick={handleCopyLink}
+              className={`w-full px-4 py-2.5 rounded-lg text-sm font-medium transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
+                copiedLink
+                  ? 'bg-green-100 text-green-700 border border-green-200'
+                  : 'bg-white border border-gray-300 text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              {copiedLink ? '✓ Link copiado!' : 'Copiar link de pagamento'}
+            </button>
+
+            {/* Placas Pix */}
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h3 className="text-sm font-semibold text-gray-700 mb-3">Baixar placa Pix</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {(
+                  [
+                    { id: 'basico', label: 'Básico', bg: 'bg-white border-2 border-green-600', textColor: 'text-green-700' },
+                    { id: 'verde', label: 'Verde', bg: 'bg-green-600', textColor: 'text-white' },
+                    { id: 'restaurante', label: 'Restaurante', bg: 'bg-orange-50 border-2 border-orange-300', textColor: 'text-orange-700' },
+                    { id: 'profissional', label: 'Profissional', bg: 'bg-indigo-950', textColor: 'text-indigo-200' },
+                  ] as const
+                ).map(t => (
+                  <div key={t.id} className={`rounded-lg p-3 flex flex-col items-center gap-2 ${t.bg}`}>
+                    <span className={`text-xs font-semibold ${t.textColor}`}>{t.label}</span>
+                    <button
+                      onClick={() => handleDownloadTemplate(t.id)}
+                      className="w-full bg-white border border-gray-200 text-gray-700 text-xs px-3 py-1.5 rounded-md hover:bg-gray-50 transition-colors font-medium"
+                    >
+                      Baixar PNG
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
         )}
 
         <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />
