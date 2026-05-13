@@ -7,7 +7,7 @@ resumo: "O Code 39 é um dos formatos de código de barras mais usados no mundo 
 categoria: codigo-barras
 persona: lojista-ecommerce
 dataPublicacao: "2026-03-18"
-dataAtualizacao: "2026-05-07"
+dataAtualizacao: "2026-05-13"
 autor: Amanda Budri
 tempoLeitura: 9
 tags:
@@ -26,6 +26,8 @@ keywordsSecundarias:
   - "codigo de barras 3 de 9"
   - "codigo de barras code 39"
   - "barras 39 como gerar"
+  - "etiqueta patrimonial codigo de barras 39"
+  - "codigo 3 de 9"
 ogTitle: "Código de Barras 39 (Code 39): O Que É e Como Gerar"
 ogDescription: "Código de barras 39: diferença para o Code 128, setores que usam (estoque, saúde, patrimônio) e como gerar grátis."
 ogAccent: "#2563eb"
@@ -33,6 +35,8 @@ twitterTitle: "Código de barras 39: o que é e como gerar"
 twitterDescription: "Formato alfanumérico para estoque, patrimônio e indústria. Gere grátis e entenda as diferenças."
 bodyMarkdown: |
   Código de barras 39 — ou Code 39 — é o formato que aparece quando você vê barras com letras e números misturados, como `COMP-0042` ou `INV-A123`. É um dos formatos mais antigos e ainda um dos mais usados em ambientes industriais, de saúde, logística e patrimônio no mundo todo.
+
+  **Resposta rápida:** o código de barras 39 é um formato alfanumérico de comprimento variável que codifica letras maiúsculas (A–Z), números (0–9) e 8 símbolos especiais — sem dígito verificador obrigatório e lido por praticamente qualquer leitor do mercado. Diferente do EAN-13, que aceita apenas dígitos numéricos, o código de barras 39 permite criar identificadores como `TI-0042` ou `EQUIP-LAB-003`, o que o torna o padrão preferido para controle de patrimônio, estoque industrial e logística interna em empresas brasileiras.
 
   ## O que é o código de barras 39 (Code 39)?
 
@@ -86,7 +90,7 @@ bodyMarkdown: |
 
   Para produtos que vão para varejo ou marketplaces, use EAN-13. Saiba mais no guia de [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo).
 
-  ## Quando usar o Code 39
+  ## Quando usar o código de barras 39
 
   ### Controle de patrimônio
 
@@ -112,11 +116,41 @@ bodyMarkdown: |
 
   Escritórios, arquivos e bibliotecas usam Code 39 em pastas, processos e documentos. A leitura rápida de um número de protocolo acelera o atendimento.
 
-  ## Quando NÃO usar o Code 39
+  ## Quando NÃO usar o código de barras 39
 
   - **Para produtos de varejo e marketplace**: use EAN-13, supermercados e plataformas não reconhecem Code 39 como GTIN.
   - **Quando o espaço for muito limitado**: o Code 39 ocupa mais área que o Code 128 para o mesmo conteúdo. Em etiquetas pequenas, o Code 128 é mais eficiente.
   - **Para codificar letras minúsculas ou ASCII completo**: use Code 128 ou Full Extended Code 39.
+
+  ## Como criar etiqueta patrimonial com código de barras 39
+
+  A etiqueta patrimonial com código de barras 39 é a aplicação mais comum do formato em empresas brasileiras — e também a mais exigida por normas. A **ISO 9000** recomenda identificação rastreável para bens patrimoniais, e o **TCU (Tribunal de Contas da União)** exige controle patrimonial com código de barras nas entidades públicas federais brasileiras. Empresas privadas auditadas também adotam etiquetas patrimoniais para conformidade com auditorias e inventários anuais.
+
+  O código de barras 39 é o formato escolhido porque aceita letras e números — o que permite criar prefixos de categoria (`TI-`, `MOV-`, `VEIC-`) impossíveis com EAN-13 — e é lido por qualquer leitor disponível no mercado, incluindo os mais antigos.
+
+  ### Formato de numeração recomendado para patrimônio
+
+  | Categoria | Exemplo de código | Significado |
+  |---|---|---|
+  | Equipamentos de TI | `TI-0001` a `TI-9999` | Computadores, monitores, impressoras |
+  | Móveis | `MOV-001` | Mesas, cadeiras, armários |
+  | Veículos | `VEIC-001` | Frota da empresa |
+  | Equipamentos de laboratório | `EQ-LAB-001` | Instrumentos de medição |
+  | Projetores e TVs | `PROJ-001` | Equipamentos audiovisuais |
+
+  Use prefixos curtos (2–4 letras) para manter o código dentro do campo visual da etiqueta impressa. O número sequencial com zeros à esquerda (`0001`) garante ordenação correta em planilhas e sistemas ERP.
+
+  ### Passo a passo para gerar etiquetas patrimoniais
+
+  1. **Defina o padrão de numeração** — escolha prefixo de categoria + número sequencial com zeros à esquerda (ex.: `TI-0001`). Documente o padrão em uma planilha com os campos: `codigo`, `descricao`, `setor`, `responsavel`, `data_aquisicao`.
+  2. **Acesse o [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras)** e selecione o formato **Code 39** na lista de tipos.
+  3. **Digite o código** em letras maiúsculas e números — o código de barras 39 padrão não aceita letras minúsculas. O gerador alertará sobre caracteres inválidos.
+  4. **Ajuste o tamanho** para impressão em etiqueta patrimonial: largura mínima de 30 mm e altura mínima de 20 mm garantem leitura confiável com pistolas de mão.
+  5. **Baixe em SVG** para impressão profissional (resolução infinita) ou PNG para uso em planilhas e sistemas de gestão.
+  6. **Valide com o [leitor online do GeraCode](/leitor-de-codigo-de-barras)** antes de imprimir em lote — confirme que o texto decodificado bate exatamente com o que você digitou.
+  7. **Imprima em etiqueta com boa aderência** — para patrimônio físico, use etiqueta poliéster com adesivo permanente, mais resistente a umidade e abrasão que o papel comum.
+
+  > **Dica para inventários em lote:** use a função de geração em lote do GeraCode para criar centenas de etiquetas de uma vez. Exporte a lista de códigos de uma planilha `.csv` e gere todos em sequência sem redigitar.
 
   ## Como gerar código de barras 39 gratuitamente
 
@@ -141,7 +175,7 @@ bodyMarkdown: |
 
   Para mais detalhes sobre especificações técnicas, consulte a documentação oficial do Code 39 em [KEYENCE — Fundamentos de Código de Barras](https://www.keyence.com.br/ss/products/auto_id/barcode_lecture/basic/code39/) e a norma [ISO/IEC 16388](https://en.wikipedia.org/wiki/Code_39).
 
-  ## História do Code 39: o primeiro código alfanumérico comercial
+  ## História do código de barras 39: o primeiro formato alfanumérico comercial
 
   O Code 39 foi criado em **1974** pelos engenheiros David Allais e Ray Stevens, trabalhando para a empresa norte-americana **Intermec** (então chamada Interface Mechanisms). O objetivo era resolver um problema que o código de barras linear da época; o UPC, criado apenas um ano antes; não resolvia: codificar letras, não só números.
 
@@ -230,3 +264,4 @@ faqsSlugs:
   - cb-png-svg-pdf
   - cb-imprimir-etiquetas
   - cb-gerar-em-lote
+  - cb-digito-verificador

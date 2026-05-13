@@ -22,6 +22,10 @@ keywordsSecundarias:
   - "gerador qr code gratuito"
   - "gerar qr code online gratis"
   - "criar qr code sem cadastro sem marca dagua"
+  - "imagem qr"
+  - "qr code branco png"
+  - "qr code fundo escuro"
+  - "qr code invertido"
 ogTitle: "Como Gerar QR Code Grátis: Passo a Passo"
 ogDescription: "Crie QR Code para link, texto, Wi-Fi ou PIX. Sem cadastro, sem marca d'água e sem validade."
 ogAccent: "#7c3aed"
@@ -92,6 +96,23 @@ bodyMarkdown: |
   Sim. O QR Code tem correção de erro embutida (nível H) que permite cobrir até 30% da área sem prejudicar a leitura. Logotipos pequenos no centro funcionam bem.
 
   Depois de adicionar a logo, teste com pelo menos dois apps diferentes (Android e iPhone) antes de imprimir em escala.
+
+  ## QR Code branco: como gerar para fundo escuro
+
+  **QR Code branco** (ou QR Code invertido) é um QR Code com módulos brancos em fundo escuro; o inverso do padrão preto sobre branco. É usado em camisetas pretas, embalagens escuras, displays de acrílico colorido e materiais de marca que têm fundo escuro.
+
+  **Como gerar uma imagem QR para fundo escuro:**
+
+  1. No [gerador de QR Code](/gerador-de-qr-code), vá em **Cores**.
+  2. Troque a cor dos módulos (foreground) para **branco (#FFFFFF)**.
+  3. Troque a cor do fundo (background) para a cor escura que você precisa (ex.: preto #000000, marrom escuro, azul-marinho).
+  4. Baixe em **PNG** para uso digital ou em **SVG** para impressão sem perda de qualidade.
+
+  **Atenção: o contraste é o que importa, não a cor.** O leitor de QR Code mede diferença de luminância entre módulos e fundo. QR Code branco sobre fundo preto funciona perfeitamente. QR Code branco sobre fundo cinza-claro pode falhar. Use sempre a combinação de maior contraste possível.
+
+  **Não funciona:** QR Code de módulos claros em fundo claro (ex.: branco sobre amarelo-claro). Nesse caso, inverta — use módulos escuros.
+
+  Teste antes de imprimir: escaneie a imagem QR gerada com dois celulares diferentes. Se ambos leem, está pronto.
 
   ## O QR Code gerado tem marca d'água?
 

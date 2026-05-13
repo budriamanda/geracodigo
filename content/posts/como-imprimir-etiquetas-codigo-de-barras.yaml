@@ -7,7 +7,7 @@ resumo: "Imprimir etiquetas com código de barras parece simples, mas erros de t
 categoria: codigo-barras
 persona: lojista-fisico
 dataPublicacao: "2026-03-27"
-dataAtualizacao: "2026-05-07"
+dataAtualizacao: "2026-05-13"
 autor: Amanda Budri
 tempoLeitura: 10
 tags:
@@ -25,8 +25,11 @@ keywordsSecundarias:
   - "como fazer etiqueta com codigo de barras"
   - "impressora etiqueta codigo de barras"
   - "etiqueta ean 13"
+  - "etiquetas ean"
   - "etiquetas codigo barras"
   - "codigo de barras para etiquetas"
+  - "gerador codigo de barras sequencial"
+  - "gerador codigo de barras em lote"
 ogTitle: "Etiquetas com Código de Barras: como imprimir sem erro"
 ogDescription: "Código de barras para etiquetas: tamanho mínimo, impressora certa, arquivo SVG ou PNG e impressão em lote. Guia para lojistas."
 ogAccent: "#4f46e5"
@@ -109,6 +112,37 @@ bodyMarkdown: |
   **Para etiquetas físicas, sempre prefira SVG.** O PNG gerado em 200×200 px e esticado para 5×5 cm na impressão resulta em barras desfocadas.
 
   O [gerador de código de barras do GeraCode](/gerador-de-codigo-de-barras) exporta nos três formatos.
+
+  ## Etiquetas EAN: requisitos e como imprimir corretamente
+
+  A **etiqueta EAN** (ou etiqueta EAN-13) é o tipo de etiqueta com código de barras mais usado no varejo brasileiro: está em todo produto de supermercado, farmácia e marketplace. Ela tem requisitos específicos de tamanho e impressão definidos pela GS1 — se fora das medidas, o leitor de PDV não lê ou lê com erro.
+
+  ### Tamanho da etiqueta EAN-13
+
+  | Tamanho | Dimensões | Quando usar |
+  |---|---|---|
+  | **Nominal (100%)** | 37,29 mm × 26,26 mm | Padrão GS1 para varejo |
+  | **Mínimo (80%)** | 29,83 mm × 21,01 mm | Embalagens pequenas |
+  | **Máximo (200%)** | 74,58 mm × 52,52 mm | Embalagens grandes |
+
+  Nunca reduza abaixo de 80% do tamanho nominal. Abaixo disso, a leitura em PDV fica instável, especialmente em leitores omnidirecionais de supermercado que operam em alta velocidade.
+
+  ### O que uma etiqueta EAN completa deve ter
+
+  - O código de barras EAN-13 com as **13 barras + dígito verificador**
+  - O **número legível por humanos (HRI)** abaixo das barras — os 13 dígitos impressos em fonte OCR-B
+  - A **zona de silêncio lateral**: mínimo de 3,63 mm de cada lado (área branca sem impressão)
+  - Fundo branco (ou muito claro) — fundo colorido interfere na leitura
+
+  ### Como imprimir etiquetas EAN sem erro
+
+  1. Gere o código no [gerador de EAN do GeraCode](/gerador-de-ean) — o dígito verificador é calculado automaticamente.
+  2. **Exporte em SVG** para impressão: formato vetorial, sem perda de qualidade em qualquer escala.
+  3. Posicione o código na **face principal da embalagem** ou na base — nunca em superfícies curvas onde a curvatura distorce as barras.
+  4. Use impressora **laser** (para etiquetas em papel couché) ou **impressora térmica** (para etiquetas em rolo). Jato de tinta é aceitável acima de 600 dpi, mas evite em ambientes úmidos.
+  5. Antes de imprimir em lote, **teste com um leitor de PDV real** ou use o [leitor online do GeraCode](/leitor-de-codigo-de-barras) para confirmar a leitura.
+
+  > **Atenção:** o EAN-13 gerado por ferramentas gratuitas (incluindo o GeraCode) é válido para uso interno e controle de estoque, mas **não é registrado na GS1**. Para vender em grandes redes e marketplaces que exigem GTIN oficial, registre-se na [GS1 Brasil](https://www.gs1br.org). Veja mais em [código de barras para produtos](/blog/codigo-de-barras-para-produtos-guia-completo).
 
   ## Como imprimir em lote
 

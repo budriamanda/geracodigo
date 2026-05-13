@@ -1,0 +1,179 @@
+slug: codigo-2d-o-que-e-tipos-quando-usar
+title: "Código 2D: o que é, tipos (QR Code, Data Matrix, PDF417) e quando usar"
+metaDescription: "Código 2D: o que é, diferença para o código 1D, os 4 tipos principais (QR Code, Data Matrix, PDF417, Aztec) e quando usar cada um. Com exemplos brasileiros: PIX, CNH e ANVISA."
+h1: "Código 2D: o que é, tipos e quando usar"
+subtitle: "QR Code, Data Matrix e PDF417 são os tipos mais comuns — entenda qual usar em cada situação e como o Brasil já os adotou em PIX, CNH e medicamentos."
+resumo: "O código 2D armazena informações em duas direções (horizontal e vertical), o que permite guardar muito mais dados em muito menos espaço do que o código de barras 1D. Este guia explica o que é código 2D, os 4 tipos principais e quando usar cada um — com exemplos práticos do Brasil: QR Code PIX, CNH, rastreabilidade de medicamentos e nota fiscal eletrônica."
+categoria: codigo-barras
+persona: lojista-ecommerce
+dataPublicacao: "2026-05-13"
+dataAtualizacao: "2026-05-13"
+autor: Amanda Budri
+tempoLeitura: 10
+tags:
+  - codigo-de-barras
+  - qr-code
+  - 2d
+  - datamatrix
+  - pdf417
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "codigo 2d"
+keywordsSecundarias:
+  - "codigo de barras 2d"
+  - "tipos de codigo 2d"
+  - "qr code codigo 2d"
+  - "datamatrix codigo 2d"
+  - "pdf417 codigo 2d"
+  - "codigo 2d vs 1d"
+  - "o que e codigo 2d"
+ogTitle: "Código 2D: QR Code, Data Matrix e PDF417 explicados"
+ogDescription: "O que é código 2D, diferença para o 1D, os 4 tipos principais e quando usar cada um. Exemplos do Brasil: PIX, CNH, ANVISA e NF-e."
+ogAccent: "#2563eb"
+twitterTitle: "Código 2D: tipos, diferenças e quando usar"
+twitterDescription: "QR Code, Data Matrix, PDF417 e Aztec: entenda cada tipo de código 2D com exemplos brasileiros reais."
+bodyMarkdown: |
+  **Código 2D** (bidimensional) é um tipo de código que armazena informação em duas direções: horizontal e vertical. Ao contrário do código de barras 1D — que lê linhas só da esquerda para a direita —, o código 2D funciona como uma grade de pontos ou módulos, cada um carregando dados em ambos os eixos. O resultado: muito mais informação em muito menos espaço.
+
+  Você já usa códigos 2D todo dia sem perceber. O QR Code do balcão da padaria é um código 2D. O QR Code da sua CNH é um código 2D. O Data Matrix na embalagem de um medicamento controlado é um código 2D. E o QR Code que você escaneia para pagar via PIX é um código 2D que segue o padrão BRCode EMV do Banco Central.
+
+  ## O que é código 2D e como funciona?
+
+  O código de barras 1D tradicional (como o EAN-13 de um produto no supermercado) usa apenas barras verticais em diferentes larguras. Um leitor passa uma linha de luz horizontal sobre ele — por isso só precisa de uma direção.
+
+  O código 2D substitui as barras por uma matriz de módulos (quadradinhos, pontos ou hexágonos). O leitor captura a imagem inteira e a decodifica nas duas dimensões. Isso permite:
+
+  - **Muito mais dados**: um QR Code armazena até 7.089 dígitos numéricos ou 4.296 caracteres alfanuméricos — contra 13 dígitos do EAN-13.
+  - **Correção de erros**: algoritmos integrados permitem leitura mesmo com até 30% do código danificado (sujeira, amassado, desbotamento).
+  - **Leitura em qualquer orientação**: sem necessidade de alinhar o leitor em ângulo específico.
+  - **Escala reduzida**: o Data Matrix consegue ser impresso em áreas de 1 mm² — impossível com qualquer código 1D.
+
+  ## Código 2D vs. código 1D: comparação
+
+  | Característica | Código 1D (EAN-13, Code 128, Code 39) | Código 2D (QR Code, Data Matrix, PDF417) |
+  |---|---|---|
+  | Direção de leitura | Horizontal | Horizontal + vertical |
+  | Capacidade de dados | Até ~80 caracteres | Até 7.089+ caracteres |
+  | Tolerância a danos | Nenhuma | Até 30% danificado |
+  | Leitura em smartphones | Requer app | Câmera nativa (iOS 11+, Android 8+) |
+  | Requisito de espaço | Médio (cresce com dados) | Compacto (crescimento em 2D) |
+  | Padrão no varejo | EAN-13 obrigatório para GTINs | QR Code para links, PIX, rastreio |
+  | Custo de geração | Grátis | Grátis |
+
+  **Quando continuar usando 1D**: produtos que vão para varejo ou marketplace (EAN-13 é obrigatório para GTIN), sistemas legados configurados para leitores 1D e leitores de PDV antigos sem câmera 2D.
+
+  ## Os 4 principais tipos de código 2D
+
+  ### QR Code (Quick Response)
+
+  Criado pela empresa japonesa Denso Wave em 1994, o QR Code é o código 2D mais usado no Brasil e no mundo. É identificado pelos três quadrados nos cantos superior esquerdo, superior direito e inferior esquerdo.
+
+  **Capacidade:** até 7.089 dígitos numéricos ou 4.296 caracteres alfanuméricos.
+
+  **Níveis de correção de erros:** L (7%), M (15%), Q (25%) e H (30%). Quanto maior o nível, maior o QR Code — mas mais resistente a danos.
+
+  **Usos no Brasil:**
+  - QR Code PIX (padrão BRCode EMV do Banco Central)
+  - Cardápios digitais em restaurantes
+  - Links em embalagens e materiais de marketing
+  - QR Code em NF-e (DANFE) para consulta à SEFAZ
+  - Redes Wi-Fi (compartilha a senha automaticamente)
+  - WhatsApp Web e autenticação de dois fatores
+
+  O GeraCode gera QR Code no [gerador de QR Code grátis](/gerador-de-qr-code) e QR Code PIX no [gerador pix](/gerador-de-qr-code-pix).
+
+  ### Data Matrix
+
+  O Data Matrix é um código 2D de matriz quadrada ou retangular, identificado por uma borda sólida em "L" e uma borda pontilhada nos outros dois lados. É o código 2D industrial por excelência.
+
+  **Capacidade:** até 2.335 caracteres alfanuméricos ou 3.116 numéricos.
+
+  **Diferencial:** pode ser impresso em áreas a partir de 1 mm², com resolução industrial. É o único tipo de código 2D viável para peças minúsculas (parafusos, componentes eletrônicos, instrumentos cirúrgicos).
+
+  **Padrão técnico:** ISO/IEC 16022.
+
+  **Usos no Brasil:**
+  - **Medicamentos (ANVISA):** a RDC 657/2022 exige Data Matrix para rastreabilidade de medicamentos de uso humano no SNGRMS (Sistema Nacional de Gerenciamento de Rastreabilidade de Medicamentos). Fabricantes, distribuidores e farmácias precisam registrar cada unidade no sistema.
+  - **Componentes industriais:** peças automotivas, eletrônicas e aeroespaciais onde o espaço de etiquetagem é mínimo.
+  - **Dispositivos médicos:** implantes, instrumentos cirúrgicos e equipamentos hospitalares.
+
+  **Leitura:** câmera de smartphone geralmente **não lê** Data Matrix — é necessário leitor 2D específico (USB, Bluetooth) ou câmera industrial.
+
+  ### PDF417
+
+  O PDF417 (Portable Data File 417) é um código 2D linear empilhado: parece um conjunto de vários códigos de barras 1D sobrepostos em camadas. O nome vem de sua estrutura: cada palavra de código usa 4 barras e 4 espaços em 17 unidades.
+
+  **Capacidade:** até 2.710 caracteres alfanuméricos ou 1.850 bytes de dados binários — incluindo imagens e arquivos compactados em pequena escala.
+
+  **Usos no Brasil:**
+  - **CNH:** a Resolução 796/2020 do CONTRAN tornOU obrigatório o QR Code na Carteira Nacional de Habilitação. Os dados do motorista são encriptados e permitem verificação offline pelos agentes de trânsito.
+  - **Bilhetes de embarque:** a IATA (Associação Internacional de Transporte Aéreo) usa PDF417 como padrão para boarding passes de avião.
+  - **Documentos de identidade:** passaportes eletrônicos e RGs digitais em alguns países.
+
+  **Leitura:** câmera de smartphone com app específico ou leitor 2D USB/Bluetooth.
+
+  ### Aztec Code
+
+  O Aztec Code é identificado pelo padrão em forma de pirâmide no centro. Sua principal vantagem é não precisar de zona de silêncio (margem branca) ao redor, o que permite aplicação em espaços muito apertados.
+
+  **Capacidade:** até 3.832 caracteres alfanuméricos.
+
+  **Usos:** bilhetes de transporte público (metrô e ônibus em alguns sistemas brasileiros), passaportes eletrônicos da União Europeia e outros documentos de identidade.
+
+  **Leitura:** leitor 2D específico; câmera de smartphone com app.
+
+  ## Quando usar código 2D no lugar do código de barras 1D
+
+  **Use código 2D quando:**
+
+  - **O código precisa de letras, datas ou informações extras** — o EAN-13 só aceita 13 dígitos numéricos; qualquer dado adicional exige um código 2D.
+  - **O espaço físico é muito pequeno** — Data Matrix em 1 mm² é inviável com qualquer formato 1D.
+  - **Os clientes vão escanear com smartphone** — QR Code é lido nativamente pela câmera, sem app extra.
+  - **O código pode ser danificado** — correção de erros do QR Code e Data Matrix tolera até 30% de dano físico.
+  - **Você quer um link dinâmico** — um QR Code dinâmico pode redirecionar para páginas diferentes sem reimprimir o código.
+  - **Você precisa codificar mais de 20 caracteres** — qualquer código 1D se torna longo demais para imprimir em etiquetas pequenas.
+
+  **Continue com código 1D quando:**
+
+  - O produto vai para varejo ou marketplace — EAN-13 é o padrão GTIN obrigatório para PDVs.
+  - Seus leitores de PDV são modelos antigos sem câmera 2D.
+  - Seus sistemas ERP foram configurados para leitura de código 1D específico.
+
+  ## Código 2D no Brasil: exemplos reais
+
+  O Brasil tem uma das maiores adoções de código 2D do mundo, impulsionada especialmente pelo PIX.
+
+  **PIX (Banco Central):** o QR Code PIX segue o padrão BRCode EMV, definido pelo Banco Central. Com mais de 60 bilhões de transações em 2024, o QR Code PIX é hoje o código 2D mais escaneado no país.
+
+  **CNH (CONTRAN):** desde 2021 (Resolução 796/2020), toda CNH emitida no Brasil traz um QR Code com os dados do motorista encriptados. Os agentes de trânsito conseguem verificar a autenticidade do documento offline, sem acesso à internet.
+
+  **Medicamentos (ANVISA):** a RDC 657/2022 exige Data Matrix em embalagens de medicamentos de uso humano para rastreabilidade no SNGRMS. Fabricantes e distribuidores precisam registrar cada item no sistema antes de liberar para venda.
+
+  **NF-e (SEFAZ):** o DANFE (documento auxiliar da NF-e) impresso traz um QR Code que permite consulta à SEFAZ pelo smartphone, verificando a autenticidade da nota fiscal.
+
+  **GS1 Sunrise 2027:** a GS1 Brasil está liderando a transição do código de barras EAN-13 para o QR Code GS1 nos produtos de varejo. A partir de 2027, os PDVs brasileiros deverão ser capazes de ler tanto EAN-13 quanto QR Code GS1, que armazena dados adicionais como lote e validade no mesmo espaço do código atual.
+
+  ## Qual leitor de código 2D usar?
+
+  **Câmera do smartphone (QR Code):** iPhone iOS 11+ e Android 8+ leem QR Code nativamente — abra a câmera, aponte e aguarde o link aparecer. Não precisa de app.
+
+  **Leitor USB/Bluetooth 2D:** modelos como Honeywell Voyager 1202g, Zebra DS2208 e Datalogic QD2430 leem QR Code, Data Matrix e PDF417. Conectam como teclado USB, sem driver especial. Preço: R$ 300 a R$ 800. São a melhor opção para lojistas e operações de estoque.
+
+  **Scanner industrial:** para leitura de Data Matrix em peças minúsculas (1–5 mm) em linhas de produção, use câmeras de leitura industrial da Keyence, Cognex ou Zebra. Preço: a partir de R$ 3.000.
+
+  Para a maioria dos lojistas, restaurantes e MEIs, **o smartphone já é suficiente para QR Code**. Para rastrear produtos com Data Matrix (medicamentos, peças industriais), um leitor USB 2D é necessário.
+
+  ## Como gerar código 2D grátis
+
+  No GeraCode, você gera os tipos de código 2D mais usados no Brasil:
+
+  - **QR Code** (links, texto, WhatsApp, Wi-Fi): [gerador de QR Code](/gerador-de-qr-code) — gera PNG e SVG, sem cadastro.
+  - **QR Code PIX** (receber pagamentos): [gerador pix](/gerador-de-qr-code-pix) — gera QR Code + Copia e Cola seguindo o padrão BRCode EMV.
+
+  Para **Data Matrix** e **PDF417**, use ferramentas especializadas como Tec-It Barcode Studio, Aspose Barcode ou Zint (open source). Para uso em aplicações ANVISA (rastreabilidade de medicamentos), consulte um fornecedor certificado de software farmacêutico.
+
+  Para validar qualquer código 2D gerado, use o [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) antes de imprimir em lote.
+faqsSlugs:
+  - cb-quantos-formatos
+  - cb-qual-formato-usar
+  - qr-png-vs-svg
+  - funciona-no-celular

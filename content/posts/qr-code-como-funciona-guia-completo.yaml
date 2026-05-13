@@ -7,7 +7,7 @@ resumo: "O QR Code está em todo lugar: no balcão do restaurante, na embalagem 
 categoria: qr-code
 persona: geral
 dataPublicacao: "2026-03-11"
-dataAtualizacao: "2026-05-07"
+dataAtualizacao: "2026-05-13"
 autor: Amanda Budri
 tempoLeitura: 11
 tags:
@@ -26,6 +26,8 @@ keywordsSecundarias:
   - "qr code estatico como funciona"
   - "qr code dinamico como funciona"
   - "qr code gratis como funciona"
+  - "primeiro qr code"
+  - "historia do qr code"
 ogTitle: "Como Funciona o QR Code: Guia Completo"
 ogDescription: "O que armazena, como é lido, tipos, níveis de erro e como se proteger de QR Codes maliciosos."
 ogAccent: "#7c3aed"
@@ -170,9 +172,11 @@ bodyMarkdown: |
 
   Por isso um QR Code com uma logo no centro funciona: a logo "apaga" uma área, mas o algoritmo reconstrói os dados a partir dos bytes redundantes ao redor. No nível H (30% de dano tolerado), logos de até 30% da área total do QR Code não prejudicam a leitura.
 
-  ## A história completa: de Denso Wave ao PIX
+  ## O primeiro QR Code e a história completa: de Denso Wave ao PIX
 
-  - **1994:** Masahiro Hara, engenheiro da Denso Wave (subsidiária da Toyota), cria o QR Code para rastrear peças de veículos nas linhas de montagem. O objetivo: ler 100 vezes mais rápido que um código de barras linear.
+  **O primeiro QR Code** foi criado em 1994 por Masahiro Hara, engenheiro-chefe da equipe de desenvolvimento da Denso Wave, uma subsidiária da Toyota no Japão. O problema que ele queria resolver era simples: as linhas de montagem automotiva precisavam rastrear centenas de peças diferentes, mas o código de barras EAN/UPC linear só cabia 13 dígitos numéricos — insuficiente para identificar número de série, lote, fornecedor e destino na mesma etiqueta. O primeiro QR Code codificava caracteres Kanji (japoneses), o que também exigiu um novo modo de codificação específico para a escrita japonesa. A matrix original tinha dimensões muito maiores que os QR Codes atuais — a ideia era que a câmera industrial da linha de produção lesse o código em qualquer ângulo, em alta velocidade. Os três quadrados de alinhamento nos cantos foram inspirados pelo padrão de maior área preta-sobre-branca que Hara calculou ser menos provável de aparecer naturalmente em qualquer contexto impresso — a proporção 1:1:3:1:1 de cada finder pattern foi testada em centenas de amostras de embalagens.
+
+  - **1994:** Masahiro Hara e a equipe da Denso Wave criam o QR Code para rastrear peças de veículos nas linhas de montagem. O objetivo: ler 100 vezes mais rápido que um código de barras linear e armazenar Kanji, letras e números no mesmo código.
   - **1999:** Denso Wave publica o QR Code como padrão aberto (JIS X 0510), sem cobrar royalties; decisão que acelera a adoção global.
   - **2002–2006:** primeiros celulares japoneses com leitor de QR Code integrado. No Japão, QR Codes já aparecem em embalagens, revistas e cartazes nessa época.
   - **2010–2012:** popularização global com a chegada dos smartphones com câmera de alta qualidade e apps de leitura gratuitos (iOS/Android).

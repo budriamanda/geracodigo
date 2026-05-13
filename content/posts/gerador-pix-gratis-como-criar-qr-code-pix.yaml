@@ -1,13 +1,13 @@
 slug: gerador-pix-gratis-como-criar-qr-code-pix
-title: "Gerador de QR Code Pix Grátis: como criar e receber"
-metaDescription: "Crie QR Code PIX grátis em menos de 2 minutos: escolha a chave, defina o valor e baixe para imprimir ou compartilhar. Também gera o código Copia e Cola. Sem cadastro."
-h1: "Gerador de PIX grátis: crie seu QR Code PIX agora"
-subtitle: "Configure sua chave, defina o valor e gere o QR Code e o Copia e Cola; tudo no navegador, sem cadastro."
+title: "Gerador Pix Grátis: crie QR Code + Copia e Cola em 2 minutos"
+metaDescription: "Gerador pix grátis: crie QR Code PIX e código Copia e Cola em menos de 2 minutos, sem cadastro. Funciona para imprimir no balcão, WhatsApp e loja virtual."
+h1: "Gerador pix grátis: QR Code + Copia e Cola sem cadastro"
+subtitle: "Configure a chave, o valor e baixe o QR Code ou copie o código PIX — tudo no navegador, sem criar conta."
 resumo: "Quer receber pagamentos via PIX com QR Code, mas não sabe como gerar? Este guia mostra como criar QR Code PIX gratuito em menos de 2 minutos, para usar no balcão, no cardápio, no site ou no WhatsApp; incluindo o código Copia e Cola."
 categoria: pix
 persona: mei
 dataPublicacao: "2026-04-17"
-dataAtualizacao: "2026-05-07"
+dataAtualizacao: "2026-05-13"
 autor: Amanda Budri
 tempoLeitura: 10
 tags:
@@ -17,22 +17,26 @@ tags:
   - gratis
   - copia-e-cola
 ferramentaRelacionadaSlug: gerador-de-qr-code-pix
-keywordPrimaria: "gerador de pix gratis"
+keywordPrimaria: "gerador pix"
 keywordsSecundarias:
+  - "gerador de pix gratis"
   - "criar qr code pix gratis"
   - "gerar qr code pix"
   - "gerador pix online"
   - "como criar qr code pix"
   - "codigo pix copia e cola"
-ogTitle: "Gerador de PIX Grátis: Crie seu QR Code PIX"
-ogDescription: "Gere QR Code PIX e Copia e Cola em 2 minutos: chave, valor, nome e cidade. Sem cadastro."
+  - "gerador pix qr code"
+ogTitle: "Gerador Pix Grátis: QR Code + Copia e Cola sem cadastro"
+ogDescription: "Gerador pix grátis: QR Code e Copia e Cola prontos em 2 minutos. Funciona em qualquer banco. Sem cadastro."
 ogAccent: "#10b981"
-twitterTitle: "Gerador de PIX grátis: QR Code + Copia e Cola"
+twitterTitle: "Gerador pix grátis: QR Code + Copia e Cola"
 twitterDescription: "Configure a chave, o valor e baixe o QR Code ou copie o código PIX. Funciona em qualquer banco."
 bodyMarkdown: |
-  O PIX (sistema de pagamento instantâneo do Banco Central) virou o método de pagamento mais usado no Brasil, com mais de 60 bilhões de transações em 2024. A forma mais prática de receber em loja, restaurante ou pelo WhatsApp é com um QR Code fixo: o cliente escaneia, confirma o valor no banco e o dinheiro cai na hora. Este guia mostra como usar um gerador de PIX grátis para criar o seu em menos de 2 minutos, sem cadastro.
+  O PIX (sistema de pagamento instantâneo do Banco Central) virou o método de pagamento mais usado no Brasil, com mais de 60 bilhões de transações em 2024. A forma mais prática de receber em loja, restaurante ou pelo WhatsApp é com um QR Code fixo: o cliente escaneia, confirma o valor no banco e o dinheiro cai na hora. Este guia mostra como usar um gerador pix grátis para criar o seu em menos de 2 minutos, sem cadastro.
 
-  Use o [gerador de QR Code PIX do GeraCode](/gerador-de-qr-code-pix) direto no navegador. Sem instalar nada, sem criar conta.
+  **O que é um gerador pix?** É uma ferramenta que transforma sua chave PIX (CPF, CNPJ, e-mail, celular ou chave aleatória) em um QR Code e em um código Copia e Cola — os dois formatos aceitos por qualquer banco brasileiro. Você informa a chave, o nome e a cidade, clica em gerar, e baixa o QR Code pronto para imprimir no balcão ou enviar pelo WhatsApp. Não exige conta bancária nova nem cadastro em plataforma de pagamentos.
+
+  Use o [gerador pix do GeraCode](/gerador-de-qr-code-pix) direto no navegador. Sem instalar nada, sem criar conta.
 
   ## QR Code PIX vs. código Copia e Cola: qual a diferença?
 
