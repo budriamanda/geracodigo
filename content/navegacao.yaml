@@ -45,6 +45,8 @@ footerConteudo:
 footerInstitucional:
   - href: "/sobre"
     label: "Sobre"
+  - href: "/contato"
+    label: "Contato"
   - href: "/privacidade"
     label: "Privacidade"
   - href: "/termos"

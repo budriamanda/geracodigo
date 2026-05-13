@@ -32,6 +32,7 @@ const defaultConteudo: FooterLink[] = [
 
 const defaultInstitucional: FooterLink[] = [
   { href: '/sobre', label: 'Sobre' },
+  { href: '/contato', label: 'Contato' },
   { href: '/privacidade', label: 'Privacidade' },
   { href: '/termos', label: 'Termos de Uso' },
 ]
