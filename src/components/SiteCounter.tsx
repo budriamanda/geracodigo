@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 
 const FALLBACK = 50_000
+const REAL_THRESHOLD = 100
 
 export default function SiteCounter() {
   const [count, setCount] = useState<number>(FALLBACK)
@@ -11,7 +12,7 @@ export default function SiteCounter() {
     fetch('/api/counter')
       .then((r) => r.json())
       .then((data: { count: number }) => {
-        if (data.count > FALLBACK) setCount(data.count)
+        if (data.count >= REAL_THRESHOLD) setCount(data.count)
       })
       .catch(() => {})
   }, [])
