@@ -6,7 +6,7 @@ subtitle: "Quando o número abaixo das barras é obrigatório, quando pode ser e
 resumo: "O número impresso abaixo do código de barras tem nome técnico: HRI (Human Readable Interpretation). O padrão GS1 exige o HRI em produtos vendidos no varejo, mas ele pode ser omitido em usos internos de estoque e logística. Este guia explica quando cada situação se aplica e como gerar os dois formatos."
 categoria: codigo-barras
 persona: lojista-ecommerce
-dataPublicacao: "2026-04-28"
+dataPublicacao: "2026-03-25"
 dataAtualizacao: "2026-05-07"
 autor: Amanda Budri
 tempoLeitura: 8

@@ -6,7 +6,7 @@ subtitle: "Diferença entre SKU e EAN, como montar uma estrutura de código inte
 resumo: "SKU (Stock Keeping Unit) é o código interno que você cria para identificar cada variação de produto no seu estoque. É diferente do EAN/código de barras; o SKU é seu, o EAN é do fabricante. Este guia explica o que é SKU, como montar uma estrutura que funciona na prática e como integrar com sistemas de gestão como Bling, Tiny e Omie."
 categoria: codigo-barras
 persona: lojista-ecommerce
-dataPublicacao: "2026-04-28"
+dataPublicacao: "2026-03-20"
 dataAtualizacao: "2026-05-02"
 autor: Amanda Budri
 tempoLeitura: 16
