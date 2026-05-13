@@ -6,16 +6,18 @@ const FALLBACK = 50_000
 const REAL_THRESHOLD = 100
 
 export default function SiteCounter() {
-  const [count, setCount] = useState<number>(FALLBACK)
+  const [count, setCount] = useState<number | null>(null)
 
   useEffect(() => {
     fetch('/api/counter')
       .then((r) => r.json())
       .then((data: { count: number }) => {
-        if (data.count >= REAL_THRESHOLD) setCount(data.count)
+        setCount(data.count >= REAL_THRESHOLD ? data.count : FALLBACK)
       })
-      .catch(() => {})
+      .catch(() => setCount(FALLBACK))
   }, [])
+
+  if (count === null) return null
 
   const formatted = new Intl.NumberFormat('pt-BR').format(count)
   return (
