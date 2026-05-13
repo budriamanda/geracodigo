@@ -12,9 +12,9 @@ export default function SiteCounter() {
     fetch('/api/counter')
       .then((r) => r.json())
       .then((data: { count: number }) => {
-        setCount(data.count >= REAL_THRESHOLD ? data.count : FALLBACK)
+        if (data.count >= REAL_THRESHOLD) setCount(data.count)
       })
-      .catch(() => setCount(FALLBACK))
+      .catch(() => {})
   }, [])
 
   if (count === null) return null
