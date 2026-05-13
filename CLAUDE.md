@@ -115,6 +115,8 @@ vercel deploy --prod
 
 **Armadilha comum:** worktrees Claude ficam em `.claude/worktrees/[nome]/`. Commits feitos na worktree chegam ao origin via `git push origin HEAD:master`, mas o diretório principal precisa de `git pull` antes do deploy ou o arquivo novo não é incluído no upload.
 
+**Armadilha comum — navegação/footer:** Os links do header e footer são lidos do CMS, não dos defaults do componente. Para adicionar ou remover links de navegação, edite `content/navegacao.yaml` (campos `headerLinks`, `footerFerramentas`, `footerConteudo`, `footerInstitucional`). Editar `src/components/Footer.tsx` ou `Header.tsx` só afeta o fallback quando o YAML está vazio.
+
 ## Git
 
 - Commitar apenas arquivos do site: `src/`, `content/`, `public/`, configs de raiz
