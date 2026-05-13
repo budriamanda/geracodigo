@@ -249,7 +249,16 @@ export function trackShare(method: 'whatsapp' | 'copy_link', contentType: 'tool'
   })
 }
 
+function incrementCounter(amount = 1) {
+  fetch('/api/counter', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ amount }),
+  }).catch(() => {})
+}
+
 export function trackGenerate(tool: ToolName, format: string) {
+  incrementCounter()
   maybeFireToolStart(tool)
   const eventId = generateEventId()
   maybeFireToolComplete(tool, {
@@ -265,6 +274,7 @@ export function trackGenerate(tool: ToolName, format: string) {
 }
 
 export function trackBatchGenerate(tool: ToolName, format: string, batchSuccessCount: number) {
+  incrementCounter(batchSuccessCount)
   maybeFireToolStart(tool)
   const eventId = generateEventId()
   sendEvent('batch_action', {
@@ -306,6 +316,7 @@ export function trackDownload(tool: ToolName, format: string, fileType: string) 
 }
 
 export function trackScan(format: string) {
+  incrementCounter()
   const tool = 'barcode_reader' as const
   maybeFireToolStart(tool)
   const eventId = generateEventId()
