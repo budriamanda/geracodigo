@@ -40,6 +40,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
 
   const allPosts = await reader.collections.posts.all()
   const posts: BlogIndexEntry[] = allPosts
+    .filter((p) => p.slug !== '_template')
     .map((p) => ({
       slug: p.slug,
       title: p.entry.title,
