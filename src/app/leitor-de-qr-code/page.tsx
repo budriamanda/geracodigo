@@ -15,7 +15,7 @@ import { reader } from '@/lib/content'
 import { buildToolSchemas } from '@/lib/tool-schemas'
 
 const SLUG = 'leitor-de-qr-code'
-const BarcodeReader = dynamic(() => import('../leitor-de-codigo-de-barras/BarcodeReader'), {
+const QrCodeReader = dynamic(() => import('./QrCodeReader'), {
   loading: () => <GeneratorSkeleton />,
 })
 
@@ -98,7 +98,7 @@ export default async function QrCodeReaderPage() {
       </div>
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="flex-1 min-w-0">
-          <BarcodeReader />
+          <QrCodeReader />
         </div>
         <aside className="lg:w-[300px] flex justify-center lg:justify-start">
           <AdSlot slot={`${adPrefix}-sidebar`} format="rectangle" />

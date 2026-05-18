@@ -32,6 +32,11 @@ const configs: Record<string, ShareConfig> = {
     whatsappText: `Gerador de SKU gratuito pra organizar estoque: ${SITE_URL}/gerador-de-sku?utm_source=whatsapp&utm_medium=share&utm_campaign=sku`,
     shareUrl: `${SITE_URL}/gerador-de-sku?utm_source=copy&utm_medium=share&utm_campaign=sku`,
   },
+  'leitor-de-qr-code': {
+    toolSlug: 'leitor-de-qr-code',
+    whatsappText: `Leitor de QR Code gratuito, lê link, Pix e Wi-Fi sem instalar nada: ${SITE_URL}/leitor-de-qr-code?utm_source=whatsapp&utm_medium=share&utm_campaign=qr-reader`,
+    shareUrl: `${SITE_URL}/leitor-de-qr-code?utm_source=copy&utm_medium=share&utm_campaign=qr-reader`,
+  },
   'leitor-de-codigo-de-barras': {
     toolSlug: 'leitor-de-codigo-de-barras',
     whatsappText: `Leitor de código de barras gratuito, usa a câmera do celular sem instalar nada: ${SITE_URL}/leitor-de-codigo-de-barras?utm_source=whatsapp&utm_medium=share&utm_campaign=reader`,
