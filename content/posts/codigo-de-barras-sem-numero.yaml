@@ -32,6 +32,8 @@ twitterDescription: "HRI obrigatório no varejo, opcional no estoque interno. Gu
 bodyMarkdown: |
   Código de barras sem número é possível e tem nome técnico: quando você omite os dígitos impressos abaixo das barras, está removendo o HRI (Human Readable Interpretation). Se isso é permitido depende de onde o código vai ser usado — no varejo com PDV o número é obrigatório; em estoque interno, pode ser suprimido sem problema. Este guia explica cada situação.
 
+  ![Código de barras sem número visível: explicação do HRI e como o número abaixo das barras funciona](/blog/codigo-de-barras-sem-numero/hero.webp)
+
   ## O que é o número abaixo do código de barras?
 
   O número impresso abaixo (ou ao lado) das barras tem nome técnico: **HRI**, *Human Readable Interpretation*, ou "interpretação legível por humanos" em tradução livre. Ele representa o mesmo dado que está codificado nas barras, em formato que qualquer pessoa pode ler sem equipamento.

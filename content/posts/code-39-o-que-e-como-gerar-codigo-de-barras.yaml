@@ -38,6 +38,8 @@ bodyMarkdown: |
 
   **Resposta rápida:** o código de barras 39 é um formato alfanumérico de comprimento variável que codifica letras maiúsculas (A–Z), números (0–9) e 8 símbolos especiais — sem dígito verificador obrigatório e lido por praticamente qualquer leitor do mercado. Diferente do EAN-13, que aceita apenas dígitos numéricos, o código de barras 39 permite criar identificadores como `TI-0042` ou `EQUIP-LAB-003`, o que o torna o padrão preferido para controle de patrimônio, estoque industrial e logística interna em empresas brasileiras.
 
+  ![Código de barras Code 39 com exemplo de identificador alfanumérico para controle de patrimônio e estoque](/blog/code-39-o-que-e-como-gerar-codigo-de-barras/hero.webp)
+
   ## O que é o código de barras 39 (Code 39)?
 
   O código de barras 39 (também chamado de "3 of 9" ou Code 39) é um formato alfanumérico criado em 1974 pela empresa Intermec. O nome vem da sua estrutura interna: cada caractere é representado por 9 elementos (5 barras e 4 espaços), dos quais exatamente 3 são largos.

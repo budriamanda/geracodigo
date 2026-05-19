@@ -36,6 +36,8 @@ twitterDescription: "Formato certo, GTIN, geração grátis e impressão de etiq
 bodyMarkdown: |
   Código de barras para produtos é obrigatório em qualquer canal de venda estruturado: loja física com PDV, marketplace como Mercado Livre e Shopee, e-commerce ou rede de supermercado. Sem ele, você não consegue dar entrada automatizada no estoque nem anunciar corretamente nessas plataformas. Para vendas informais, feiras e artesanato, o código é opcional; mas facilita a gestão. Este guia explica o essencial sem enrolação.
 
+  ![Código de barras para produtos: caixa com etiqueta EAN-13, scanner e tela de cadastro de produto](/blog/codigo-de-barras-para-produtos-guia-completo/hero.webp)
+
   ## O que é GTIN e por que os marketplaces pedem?
 
   GTIN significa *Global Trade Item Number*, é o número que identifica um produto de forma única no mundo inteiro. O EAN-13, o EAN-8 e o UPC-A são todos formas de GTIN.

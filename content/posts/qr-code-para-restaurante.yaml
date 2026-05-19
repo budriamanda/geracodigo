@@ -32,6 +32,8 @@ twitterDescription: "Como criar QR Code de cardápio e Pix, onde imprimir e como
 bodyMarkdown: |
   Dois usos de QR Code dominam restaurantes brasileiros: o **cardápio digital** nas mesas e o **QR Code Pix** no balcão ou na comanda. São QR Codes diferentes, criados de formas diferentes; e misturá-los é um erro comum que confunde o cliente. Este guia explica cada um.
 
+  ![QR Code para restaurante: mesa com suporte de QR Code para cardápio digital e smartphone realizando leitura](/blog/qr-code-para-restaurante/hero.webp)
+
   ## QR Code de cardápio: como funciona
 
   O QR Code de cardápio é simplesmente um link (URL) codificado em QR Code. Quando o cliente escaneia, o celular abre o link; que pode ser:

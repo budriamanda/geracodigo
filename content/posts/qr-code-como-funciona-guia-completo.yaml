@@ -36,6 +36,8 @@ twitterDescription: "Do pixel preto-e-branco ao PIX e ao QRishing: explicação 
 bodyMarkdown: |
   QR Code: como funciona esse padrão que está em todo lugar — no cardápio do restaurante, na embalagem do produto, na cobrança do delivery e nas campanhas de marketing? Poucos sabem o que acontece no segundo em que a câmera aponta para aquela matriz de quadradinhos. Este guia explica tudo.
 
+  ![Infográfico mostrando como funciona o QR Code: da codificação dos dados em módulos à leitura pela câmera e decodificação do conteúdo](/blog/qr-code-como-funciona-guia-completo/hero.webp)
+
   ## O que é um QR Code?
 
   QR Code vem de *Quick Response Code*, código de resposta rápida. Foi criado em 1994 pela empresa japonesa Denso Wave para rastrear peças automotivas em linhas de montagem. A ideia era ter um código lido muito mais rápido que o código de barras linear e capaz de armazenar muito mais informação.

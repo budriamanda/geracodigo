@@ -37,6 +37,8 @@ bodyMarkdown: |
 
   **Resposta rápida:** o código de barras 128 (Code 128) é um formato linear de alta densidade que codifica todos os 128 caracteres ASCII — letras maiúsculas e minúsculas, números e símbolos — em comprimento variável, com dígito verificador obrigatório. É o padrão usado em etiquetas de envio, rastreio de volumes, controle de estoque interno e na chave de acesso do DANFE (NF-e). O ITF-14, abordado também neste guia, é a variante para caixas de transporte e pallets da GS1.
 
+  ![Code 128 e ITF-14: formatos de código de barras para logística, estoque e NF-e](/blog/code-128-itf-14-guia-logistica-estoque/hero.webp)
+
   ## O que é o código de barras 128 (Code 128)?
 
   O **Code 128** é um formato de código de barras linear de alta densidade introduzido em 1981. Diferente do EAN-13 (que só aceita números), o Code 128 pode codificar **todos os 128 caracteres ASCII**, letras maiúsculas e minúsculas, números e símbolos.

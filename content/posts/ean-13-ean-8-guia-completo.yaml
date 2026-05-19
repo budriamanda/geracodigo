@@ -33,6 +33,8 @@ twitterDescription: "O que é, como funciona, quando registrar na GS1 e como ger
 bodyMarkdown: |
   Você vê o EAN-13 em toda embalagem de supermercado, farmácia e pet shop; aquelas 13 barras verticais com números embaixo. Mas o que cada bloco de números significa? Quando você precisa registrar na GS1? E por que marketplaces como Mercado Livre e Shopee pedem esse número? Este guia responde tudo.
 
+  ![Estrutura do código EAN-13: prefixo GS1, empresa, referência do produto e dígito verificador](/blog/ean-13-ean-8-guia-completo/hero.webp)
+
   ## O que é EAN-13?
 
   **EAN** significa *European Article Number* (hoje chamado internacionalmente de **GTIN-13**, ou *Global Trade Item Number* de 13 dígitos). É o sistema de identificação de produtos comerciais mais usado no mundo, presente em mais de 100 países e administrado globalmente pela [GS1](https://www.gs1br.org/gs1-no-mundo/); no Brasil, pela [GS1 Brasil](https://www.gs1br.org), fundada em 1983.

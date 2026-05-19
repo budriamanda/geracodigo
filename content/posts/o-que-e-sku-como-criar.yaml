@@ -32,6 +32,8 @@ twitterDescription: "SKU vs EAN, como montar a estrutura e integrar com ERP. Gui
 bodyMarkdown: |
   Todo produto no seu estoque precisa de uma identidade. O código de barras EAN identifica o produto para o mundo; supermercados, marketplaces, fornecedores. O **SKU** é diferente: é o código que você cria para identificar o produto *dentro da sua operação*. Este guia explica o que é SKU, como criar um sistema consistente e quando ele se conecta (ou não) com o código de barras.
 
+  ![O que é SKU: grade de produtos com códigos de identificação para controle de estoque](/blog/o-que-e-sku-como-criar/hero.webp)
+
   ## O que é SKU?
 
   **SKU**, pronuncia-se "eskiu"; é a sigla em inglês para *Stock Keeping Unit*, ou "unidade de manutenção de estoque". É um código alfanumérico que identifica de forma única cada variação de produto no seu catálogo.

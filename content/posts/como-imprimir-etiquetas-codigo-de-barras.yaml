@@ -38,6 +38,8 @@ twitterDescription: "Guia completo: impressora, tamanho, arquivo e impressão em
 bodyMarkdown: |
   Código de barras para etiquetas: parece simples, mas imprimir errado faz o leitor do caixa não reconhecer. Isso acontece com frequência; e quase sempre o problema não é o código em si, mas a forma como ele foi impresso. Este guia explica o que determina a qualidade de uma etiqueta e como acertar na primeira tentativa.
 
+  ![Como imprimir etiquetas com código de barras: rolo de etiquetas, impressora e produto etiquetado](/blog/como-imprimir-etiquetas-codigo-de-barras/hero.webp)
+
   ## GS1 Brasil vs. gerador gratuito: quando cada um é adequado
 
   Antes de imprimir etiquetas, você precisa entender uma distinção legal fundamental que muita gente descobre tarde:
