@@ -384,6 +384,7 @@ export default config({
         twitterDescription: fields.text({ label: 'Twitter Description', multiline: true }),
         bodyMarkdown: fields.text({ label: 'Corpo do post (Markdown)', multiline: true }),
         faqsSlugs: fields.array(fields.text({ label: 'FAQ slug' }), { label: 'FAQs relacionadas (slugs da coleção FAQs)', itemLabel: (p) => p.value }),
+        featured: fields.checkbox({ label: 'Destacar no topo do blog (featured post)', defaultValue: false }),
       },
     }),
 

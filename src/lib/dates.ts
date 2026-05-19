@@ -25,3 +25,13 @@ export function isoOrFallback(iso: string | undefined | null, fallback: string):
   if (!iso) return fallback
   return /^\d{4}-\d{2}-\d{2}/.test(iso) ? iso : fallback
 }
+
+export function formatDateMonthYear(iso: string | undefined | null): string {
+  if (!iso) return ''
+  const match = /^(\d{4})-(\d{2})/.exec(iso)
+  if (!match) return ''
+  const [, yyyy, mm] = match
+  const mes = MESES_PT[parseInt(mm, 10) - 1]
+  if (!mes) return ''
+  return `${mes.slice(0, 3)}/${yyyy.slice(2)}`
+}

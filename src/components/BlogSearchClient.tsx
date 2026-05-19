@@ -1,12 +1,14 @@
 'use client'
 
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCallback, useMemo, useRef, useState } from 'react'
-import BlogIndex, { type BlogIndexEntry } from './BlogIndex'
+import BlogIndex, { CATEGORIA_COLOR, type BlogIndexEntry } from './BlogIndex'
 
 interface BlogSearchClientProps {
   posts: BlogIndexEntry[]
   initialQuery?: string
+  activeCategory?: string
 }
 
 function normalize(str: string) {
@@ -16,9 +18,21 @@ function normalize(str: string) {
     .replace(/[̀-ͯ]/g, '')
 }
 
-export default function BlogSearchClient({ posts, initialQuery = '' }: BlogSearchClientProps) {
+const CATEGORIAS = [
+  { value: '', label: 'Todos' },
+  { value: 'pix', label: 'QR Code Pix' },
+  { value: 'codigo-barras', label: 'Código de Barras' },
+  { value: 'ean', label: 'EAN' },
+  { value: 'sku', label: 'SKU' },
+  { value: 'leitor', label: 'Leitor' },
+  { value: 'qr-code', label: 'QR Code' },
+  { value: 'geral', label: 'Geral' },
+]
+
+export default function BlogSearchClient({ posts, initialQuery = '', activeCategory }: BlogSearchClientProps) {
   const router = useRouter()
   const [query, setQuery] = useState(initialQuery)
+  const [page, setPage] = useState(1)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const filtered = useMemo(() => {
@@ -36,24 +50,65 @@ export default function BlogSearchClient({ posts, initialQuery = '' }: BlogSearc
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value
       setQuery(value)
+      setPage(1)
 
       if (debounceRef.current) clearTimeout(debounceRef.current)
       debounceRef.current = setTimeout(() => {
         const trimmed = value.trim()
-        const url = trimmed ? `/blog?q=${encodeURIComponent(trimmed)}` : '/blog'
+        const base = activeCategory ? `/blog/categoria/${activeCategory}` : '/blog'
+        const url = trimmed ? `${base}?q=${encodeURIComponent(trimmed)}` : base
         router.replace(url, { scroll: false })
       }, 300)
     },
-    [router]
+    [router, activeCategory]
   )
 
   const handleClear = useCallback(() => {
     setQuery('')
-    router.replace('/blog', { scroll: false })
-  }, [router])
+    setPage(1)
+    const base = activeCategory ? `/blog/categoria/${activeCategory}` : '/blog'
+    router.replace(base, { scroll: false })
+  }, [router, activeCategory])
+
+  // Category pill counts (relative to posts passed in, which may already be filtered server-side)
+  const countByCategory = useMemo(() => {
+    const map: Record<string, number> = {}
+    for (const p of posts) {
+      if (p.categoria) map[p.categoria] = (map[p.categoria] ?? 0) + 1
+    }
+    return map
+  }, [posts])
 
   return (
     <div>
+      {/* Category filter pills */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {CATEGORIAS.map(({ value, label }) => {
+          const isActive = (value === '' && !activeCategory) || value === activeCategory
+          const href = value === '' ? '/blog' : `/blog/categoria/${value}`
+          const colorClass = value ? (CATEGORIA_COLOR[value] ?? 'bg-gray-100 text-gray-700') : ''
+
+          return (
+            <Link
+              key={value}
+              href={href}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                isActive
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : `${colorClass || 'bg-gray-100 text-gray-700'} hover:opacity-80`
+              }`}
+            >
+              {label}
+              {value && countByCategory[value] !== undefined && !activeCategory && (
+                <span className={`text-xs ${isActive ? 'text-indigo-200' : 'opacity-60'}`}>
+                  {countByCategory[value]}
+                </span>
+              )}
+            </Link>
+          )
+        })}
+      </div>
+
       {/* Search input */}
       <div className="relative mb-8">
         <label htmlFor="blog-search" className="sr-only">
@@ -81,7 +136,7 @@ export default function BlogSearchClient({ posts, initialQuery = '' }: BlogSearc
             name="q"
             value={query}
             onChange={handleChange}
-            placeholder="Buscar posts: pix, ean-13, etiqueta, mei…"
+            placeholder="Buscar: pix, ean-13, qr code wifi, etiqueta…"
             autoComplete="off"
             className="block w-full rounded-xl border border-gray-200 bg-white py-3 pl-11 pr-10 text-sm text-gray-900 placeholder-gray-400 shadow-sm transition focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
             aria-label="Buscar posts no blog"
@@ -106,7 +161,6 @@ export default function BlogSearchClient({ posts, initialQuery = '' }: BlogSearc
           )}
         </div>
 
-        {/* Result count */}
         {query.trim() && (
           <p className="mt-2 text-sm text-gray-500">
             {filtered.length === 0
@@ -116,8 +170,7 @@ export default function BlogSearchClient({ posts, initialQuery = '' }: BlogSearc
         )}
       </div>
 
-      {/* Post grid */}
-      <BlogIndex posts={filtered} query={query} />
+      <BlogIndex posts={filtered} query={query} page={page} onPageChange={setPage} />
     </div>
   )
 }

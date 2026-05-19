@@ -28,6 +28,7 @@ faqsSlugs:
   - geracode-e-gratuito
   - dados-ficam-seguros
   - funciona-no-celular
+featured: false
 bodyMarkdown: |
   Conteúdo do artigo em markdown aqui.
 
