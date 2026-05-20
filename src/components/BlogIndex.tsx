@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { formatDateMonthYear } from '@/lib/dates'
 
 export interface BlogIndexEntry {
   slug: string
@@ -60,25 +61,75 @@ export const CATEGORIA_BORDER: Record<string, string> = {
   geral: 'border-l-gray-300',
 }
 
-function isUpdated(pub: string, upd?: string): boolean {
-  if (!upd || upd === pub) return false
-  return upd > pub
-}
-
-const CATEGORIA_GRADIENT: Record<string, string> = {
+export const CATEGORIA_GRADIENT: Record<string, string> = {
   pix: 'from-emerald-500 to-teal-400',
   'codigo-barras': 'from-indigo-500 to-blue-400',
   ean: 'from-violet-500 to-purple-400',
   sku: 'from-amber-500 to-orange-400',
   leitor: 'from-sky-500 to-cyan-400',
   'qr-code': 'from-blue-500 to-indigo-400',
-  geral: 'from-gray-500 to-gray-400',
+  geral: 'from-gray-400 to-gray-500',
+}
+
+function CategoriaIcon({ categoria }: { categoria?: string }) {
+  const cls = 'w-12 h-12 text-white/40'
+  switch (categoria) {
+    case 'pix':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+          <path d="M13 3 4 14h8l-2 8L20 10h-8l1-7z"/>
+        </svg>
+      )
+    case 'codigo-barras':
+    case 'ean':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+          <rect x="2" y="5" width="2" height="14"/>
+          <rect x="5" y="5" width="1" height="14"/>
+          <rect x="7" y="5" width="3" height="14"/>
+          <rect x="11" y="5" width="1" height="14"/>
+          <rect x="13" y="5" width="2" height="14"/>
+          <rect x="17" y="5" width="1" height="14"/>
+          <rect x="19" y="5" width="3" height="14"/>
+        </svg>
+      )
+    case 'sku':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+          <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9A2 2 0 0 0 13 22a2 2 0 0 0 1.41-.59l7-7A2 2 0 0 0 22 13a2 2 0 0 0-.59-1.42zM5.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+        </svg>
+      )
+    case 'leitor':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+          <path d="M9 2 7.17 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+        </svg>
+      )
+    case 'qr-code':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+          <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM18 13h-2v2h2v-2zm-4 0h2v2h-2v-2zm2 2h-2v2h2v-2zm-2 2h2v2h-2v-2zm2 2h2v-2h-2v2zm2-4h2v2h-2v-2zm0 4h2v-2h-2v2zm2-6v2h-2v-2h2z"/>
+        </svg>
+      )
+    default:
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+        </svg>
+      )
+  }
+}
+
+function isUpdated(pub: string, upd?: string): boolean {
+  if (!upd || upd === pub) return false
+  return upd > pub
 }
 
 function PostCard({ post }: { post: BlogIndexEntry }) {
   const showUpdated = isUpdated(post.dataPublicacaoIso, post.dataAtualizacaoIso)
   const borderColor = CATEGORIA_BORDER[post.categoria ?? ''] ?? 'border-l-gray-300'
-  const gradient = CATEGORIA_GRADIENT[post.categoria ?? ''] ?? 'from-gray-500 to-gray-400'
+  const gradient = CATEGORIA_GRADIENT[post.categoria ?? ''] ?? 'from-gray-400 to-gray-500'
+  const updatedLabel = showUpdated ? formatDateMonthYear(post.dataAtualizacaoIso) : null
 
   return (
     <article
@@ -88,6 +139,7 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
         href={`/blog/${post.slug}`}
         className="flex flex-col h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-xl"
       >
+        {/* Thumbnail */}
         <div className="relative aspect-video overflow-hidden bg-gray-100">
           {post.heroImage ? (
             <Image
@@ -100,27 +152,26 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
             />
           ) : (
             <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-              <span className="text-white/30 text-5xl font-bold select-none">
-                {(post.categoria ?? 'G').slice(0, 1).toUpperCase()}
-              </span>
+              <CategoriaIcon categoria={post.categoria} />
             </div>
           )}
         </div>
+
+        {/* Content */}
         <div className="p-5 flex flex-col flex-1">
-          <div className="flex flex-wrap gap-2 text-xs mb-3">
+          {/* Meta: categoria (pill colorida) + tempo (texto cinza) */}
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-3">
             {post.categoria && (
-              <span className={`inline-flex items-center px-2.5 py-1 rounded-full font-medium ${CATEGORIA_COLOR[post.categoria] ?? 'bg-gray-100 text-gray-700'}`}>
+              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${CATEGORIA_COLOR[post.categoria] ?? 'bg-gray-100 text-gray-700'}`}>
                 {CATEGORIA_LABEL[post.categoria] ?? post.categoria}
               </span>
             )}
             {post.tempoLeitura && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-gray-100 text-gray-600">
-                {post.tempoLeitura} min
-              </span>
+              <span className="text-xs text-gray-400">· {post.tempoLeitura} min</span>
             )}
-            {showUpdated && post.dataAtualizacaoHumana && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-green-50 text-green-700 font-medium">
-                Atualizado
+            {updatedLabel && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-medium border border-green-200">
+                ↻ Atualizado em {updatedLabel}
               </span>
             )}
           </div>
@@ -130,7 +181,7 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
           </h2>
 
           {(post.resumo || post.subtitle) && (
-            <p className="text-sm text-gray-600 line-clamp-2 mb-3 flex-1">
+            <p className="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">
               {post.resumo || post.subtitle}
             </p>
           )}
@@ -141,7 +192,7 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
           </div>
 
           {post.ferramentaRelacionadaSlug && (
-            <div className="mt-3 pt-3 border-t border-gray-100 text-xs text-indigo-600 font-medium">
+            <div className="mt-3 pt-3 border-t border-gray-100 text-xs text-indigo-600 font-medium line-clamp-1">
               🔧 {post.ferramentaRelacionadaTitulo || post.ferramentaRelacionadaSlug} →
             </div>
           )}
