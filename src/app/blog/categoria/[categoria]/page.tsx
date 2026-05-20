@@ -1,5 +1,3 @@
-import { existsSync } from 'fs'
-import { join } from 'path'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import AdSlot from '@/components/AdSlot'
@@ -89,33 +87,33 @@ export default async function BlogCategoriaPage({ params, searchParams }: PagePr
   ])
 
   const toolTitleMap = new Map(
-    allTools.map((t) => [t.slug, t.entry.h1 || t.entry.title])
+    allTools.map((t) => [t.slug, t.entry.title])
   )
 
   const posts: BlogIndexEntry[] = allPosts
     .filter((p) => p.slug !== '_template' && p.entry.categoria === categoria)
-    .map((p) => ({
-      slug: p.slug,
-      title: p.entry.title,
-      h1: p.entry.h1,
-      resumo: p.entry.resumo,
-      subtitle: p.entry.subtitle,
-      categoria: p.entry.categoria,
-      persona: p.entry.persona,
-      dataPublicacaoIso: p.entry.dataPublicacao,
-      dataPublicacaoHumana: formatDateHuman(p.entry.dataPublicacao),
-      dataAtualizacaoIso: p.entry.dataAtualizacao ?? undefined,
-      dataAtualizacaoHumana: formatDateHuman(p.entry.dataAtualizacao),
-      tempoLeitura: p.entry.tempoLeitura ?? undefined,
-      ferramentaRelacionadaSlug: p.entry.ferramentaRelacionadaSlug ?? undefined,
-      ferramentaRelacionadaTitulo: p.entry.ferramentaRelacionadaSlug
-        ? toolTitleMap.get(p.entry.ferramentaRelacionadaSlug) ?? undefined
-        : undefined,
-      autor: p.entry.autor ?? undefined,
-      heroImage: existsSync(join(process.cwd(), 'public', 'blog', p.slug, 'hero.webp'))
-        ? `/blog/${p.slug}/hero.webp`
-        : undefined,
-    }))
+    .map((p) => {
+      const ferramentaSlug = p.entry.ferramentaRelacionadaSlug ?? undefined
+      const ferramentaTitle = ferramentaSlug ? toolTitleMap.get(ferramentaSlug) : undefined
+      return {
+        slug: p.slug,
+        title: p.entry.title,
+        h1: p.entry.h1,
+        resumo: p.entry.resumo,
+        subtitle: p.entry.subtitle,
+        categoria: p.entry.categoria,
+        persona: p.entry.persona,
+        autor: p.entry.autor ?? undefined,
+        dataPublicacaoIso: p.entry.dataPublicacao,
+        dataPublicacaoHumana: formatDateHuman(p.entry.dataPublicacao),
+        dataAtualizacaoIso: p.entry.dataAtualizacao ?? undefined,
+        dataAtualizacaoHumana: formatDateHuman(p.entry.dataAtualizacao),
+        tempoLeitura: p.entry.tempoLeitura ?? undefined,
+        ferramentaRelacionada: ferramentaSlug && ferramentaTitle
+          ? { slug: ferramentaSlug, title: ferramentaTitle }
+          : undefined,
+      }
+    })
     .sort((a, b) => (a.dataPublicacaoIso < b.dataPublicacaoIso ? 1 : -1))
 
   const schemas = [

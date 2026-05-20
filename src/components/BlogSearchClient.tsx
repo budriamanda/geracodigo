@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useCallback, useMemo, useRef, useState } from 'react'
-import BlogIndex, { CATEGORIA_COLOR, CATEGORIA_LABEL, type BlogIndexEntry } from './BlogIndex'
+import BlogIndex, { CATEGORIA_CONFIG, type BlogIndexEntry } from './BlogIndex'
 
 interface BlogSearchClientProps {
   posts: BlogIndexEntry[]
@@ -157,7 +157,7 @@ export default function BlogSearchClient({ posts, initialQuery = '', activeCateg
         {CATEGORIAS.map(({ value, label }) => {
           const isActive = (value === '' && !activeCategory) || value === activeCategory
           const href = value === '' ? '/blog' : `/blog/categoria/${value}`
-          const colorClass = value ? (CATEGORIA_COLOR[value] ?? 'bg-gray-100 text-gray-700') : ''
+          const pillClass = value ? (CATEGORIA_CONFIG[value]?.pill ?? 'bg-gray-100 text-gray-700') : ''
 
           return (
             <Link
@@ -166,7 +166,7 @@ export default function BlogSearchClient({ posts, initialQuery = '', activeCateg
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                 isActive
                   ? 'bg-indigo-600 text-white shadow-sm'
-                  : `${colorClass || 'bg-gray-100 text-gray-700'} hover:opacity-80`
+                  : `${pillClass || 'bg-gray-100 text-gray-700'} hover:opacity-80`
               }`}
             >
               {label}
@@ -273,8 +273,8 @@ export default function BlogSearchClient({ posts, initialQuery = '', activeCateg
                   </svg>
                   <span className="flex-1 text-sm text-gray-800 truncate font-medium">{post.h1 || post.title}</span>
                   {post.categoria && (
-                    <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full font-medium ${CATEGORIA_COLOR[post.categoria] ?? 'bg-gray-100 text-gray-600'}`}>
-                      {CATEGORIA_LABEL[post.categoria]}
+                    <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full font-medium ${CATEGORIA_CONFIG[post.categoria]?.pill ?? 'bg-gray-100 text-gray-600'}`}>
+                      {CATEGORIA_CONFIG[post.categoria]?.label ?? post.categoria}
                     </span>
                   )}
                 </Link>

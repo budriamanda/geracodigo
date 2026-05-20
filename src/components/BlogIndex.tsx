@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { formatDateMonthYear } from '@/lib/dates'
+import CategoryIcon from './CategoryIcon'
 
 export interface BlogIndexEntry {
   slug: string
@@ -10,15 +9,18 @@ export interface BlogIndexEntry {
   subtitle?: string
   categoria?: string
   persona?: string
+  autor?: string
   dataPublicacaoHumana: string
   dataPublicacaoIso: string
   dataAtualizacaoHumana?: string
   dataAtualizacaoIso?: string
   tempoLeitura?: number
-  ferramentaRelacionadaSlug?: string
-  ferramentaRelacionadaTitulo?: string
+  ferramentaRelacionada?: {
+    slug: string
+    title: string
+  }
+  isPilar?: boolean
   featured?: boolean
-  autor?: string
   heroImage?: string
 }
 
@@ -31,27 +33,65 @@ interface BlogIndexProps {
 
 const POSTS_PER_PAGE = 12
 
-export const CATEGORIA_LABEL: Record<string, string> = {
-  pix: 'QR Code Pix',
-  'codigo-barras': 'Código de Barras',
-  ean: 'EAN',
-  sku: 'SKU',
-  leitor: 'Leitor',
-  'qr-code': 'QR Code',
-  geral: 'Geral',
+export const CATEGORIA_CONFIG: Record<string, {
+  label: string
+  pill: string
+  bg: string
+  iconColor: string
+  linkAccent: string
+}> = {
+  pix: {
+    label: 'QR Code Pix',
+    pill: 'bg-emerald-100 text-emerald-700',
+    bg: 'bg-emerald-500',
+    iconColor: '#fff',
+    linkAccent: 'text-emerald-600 hover:text-emerald-800',
+  },
+  'codigo-barras': {
+    label: 'Código de Barras',
+    pill: 'bg-indigo-100 text-indigo-700',
+    bg: 'bg-indigo-600',
+    iconColor: '#fff',
+    linkAccent: 'text-indigo-600 hover:text-indigo-800',
+  },
+  ean: {
+    label: 'EAN',
+    pill: 'bg-violet-100 text-violet-700',
+    bg: 'bg-violet-600',
+    iconColor: '#fff',
+    linkAccent: 'text-violet-600 hover:text-violet-800',
+  },
+  sku: {
+    label: 'SKU',
+    pill: 'bg-amber-100 text-amber-700',
+    bg: 'bg-amber-500',
+    iconColor: '#fff',
+    linkAccent: 'text-amber-600 hover:text-amber-800',
+  },
+  leitor: {
+    label: 'Leitor',
+    pill: 'bg-sky-100 text-sky-700',
+    bg: 'bg-sky-600',
+    iconColor: '#fff',
+    linkAccent: 'text-sky-600 hover:text-sky-800',
+  },
+  'qr-code': {
+    label: 'QR Code',
+    pill: 'bg-blue-100 text-blue-700',
+    bg: 'bg-blue-600',
+    iconColor: '#fff',
+    linkAccent: 'text-blue-600 hover:text-blue-800',
+  },
+  geral: {
+    label: 'Geral',
+    pill: 'bg-gray-100 text-gray-600',
+    bg: 'bg-gray-500',
+    iconColor: '#fff',
+    linkAccent: 'text-gray-600 hover:text-gray-800',
+  },
 }
 
-export const CATEGORIA_COLOR: Record<string, string> = {
-  pix: 'bg-emerald-100 text-emerald-700',
-  'codigo-barras': 'bg-indigo-100 text-indigo-700',
-  ean: 'bg-violet-100 text-violet-700',
-  sku: 'bg-amber-100 text-amber-700',
-  leitor: 'bg-sky-100 text-sky-700',
-  'qr-code': 'bg-blue-100 text-blue-700',
-  geral: 'bg-gray-100 text-gray-700',
-}
-
-export const CATEGORIA_BORDER: Record<string, string> = {
+const CATEGORIA_BORDER: Record<string, string> = {
   pix: 'border-l-emerald-400',
   'codigo-barras': 'border-l-indigo-400',
   ean: 'border-l-violet-400',
@@ -61,63 +101,11 @@ export const CATEGORIA_BORDER: Record<string, string> = {
   geral: 'border-l-gray-300',
 }
 
-export const CATEGORIA_GRADIENT: Record<string, string> = {
-  pix: 'from-emerald-500 to-teal-400',
-  'codigo-barras': 'from-indigo-500 to-blue-400',
-  ean: 'from-violet-500 to-purple-400',
-  sku: 'from-amber-500 to-orange-400',
-  leitor: 'from-sky-500 to-cyan-400',
-  'qr-code': 'from-blue-500 to-indigo-400',
-  geral: 'from-gray-400 to-gray-500',
-}
-
-function CategoriaIcon({ categoria }: { categoria?: string }) {
-  const cls = 'w-12 h-12 text-white/40'
-  switch (categoria) {
-    case 'pix':
-      return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-          <path d="M13 3 4 14h8l-2 8L20 10h-8l1-7z"/>
-        </svg>
-      )
-    case 'codigo-barras':
-    case 'ean':
-      return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-          <rect x="2" y="5" width="2" height="14"/>
-          <rect x="5" y="5" width="1" height="14"/>
-          <rect x="7" y="5" width="3" height="14"/>
-          <rect x="11" y="5" width="1" height="14"/>
-          <rect x="13" y="5" width="2" height="14"/>
-          <rect x="17" y="5" width="1" height="14"/>
-          <rect x="19" y="5" width="3" height="14"/>
-        </svg>
-      )
-    case 'sku':
-      return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-          <path d="M21.41 11.58l-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.42l9 9A2 2 0 0 0 13 22a2 2 0 0 0 1.41-.59l7-7A2 2 0 0 0 22 13a2 2 0 0 0-.59-1.42zM5.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-        </svg>
-      )
-    case 'leitor':
-      return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-          <path d="M9 2 7.17 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-        </svg>
-      )
-    case 'qr-code':
-      return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-          <path d="M3 11h8V3H3v8zm2-6h4v4H5V5zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM18 13h-2v2h2v-2zm-4 0h2v2h-2v-2zm2 2h-2v2h2v-2zm-2 2h2v2h-2v-2zm2 2h2v-2h-2v2zm2-4h2v2h-2v-2zm0 4h2v-2h-2v2zm2-6v2h-2v-2h2z"/>
-        </svg>
-      )
-    default:
-      return (
-        <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
-        </svg>
-      )
-  }
+function truncateResumo(text: string, maxChars = 120): string {
+  if (!text || text.length <= maxChars) return text
+  const truncated = text.slice(0, maxChars)
+  const lastSpace = truncated.lastIndexOf(' ')
+  return (lastSpace > 90 ? truncated.slice(0, lastSpace) : truncated) + '…'
 }
 
 function isUpdated(pub: string, upd?: string): boolean {
@@ -126,10 +114,9 @@ function isUpdated(pub: string, upd?: string): boolean {
 }
 
 function PostCard({ post }: { post: BlogIndexEntry }) {
+  const config = CATEGORIA_CONFIG[post.categoria ?? 'geral'] ?? CATEGORIA_CONFIG.geral
+  const borderColor = CATEGORIA_BORDER[post.categoria ?? 'geral'] ?? 'border-l-gray-300'
   const showUpdated = isUpdated(post.dataPublicacaoIso, post.dataAtualizacaoIso)
-  const borderColor = CATEGORIA_BORDER[post.categoria ?? ''] ?? 'border-l-gray-300'
-  const gradient = CATEGORIA_GRADIENT[post.categoria ?? ''] ?? 'from-gray-400 to-gray-500'
-  const updatedLabel = showUpdated ? formatDateMonthYear(post.dataAtualizacaoIso) : null
 
   return (
     <article
@@ -140,39 +127,25 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
         className="flex flex-col h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-xl"
       >
         {/* Thumbnail */}
-        <div className="relative aspect-video overflow-hidden bg-gray-100">
-          {post.heroImage ? (
-            <Image
-              src={post.heroImage}
-              alt={post.h1 || post.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              className="object-cover"
-              loading="lazy"
-            />
-          ) : (
-            <div className={`w-full h-full bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-              <CategoriaIcon categoria={post.categoria} />
-            </div>
-          )}
+        <div
+          className={`relative flex items-center justify-center h-28 sm:h-36 ${config.bg}`}
+          aria-hidden="true"
+        >
+          <CategoryIcon categoria={post.categoria ?? 'geral'} size={80} color={config.iconColor} />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent pointer-events-none" />
         </div>
 
         {/* Content */}
         <div className="p-5 flex flex-col flex-1">
-          {/* Meta: categoria (pill colorida) + tempo (texto cinza) */}
+          {/* Categoria + tempo */}
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-3">
             {post.categoria && (
-              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${CATEGORIA_COLOR[post.categoria] ?? 'bg-gray-100 text-gray-700'}`}>
-                {CATEGORIA_LABEL[post.categoria] ?? post.categoria}
+              <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${config.pill}`}>
+                {config.label}
               </span>
             )}
             {post.tempoLeitura && (
               <span className="text-xs text-gray-400">· {post.tempoLeitura} min</span>
-            )}
-            {updatedLabel && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-xs font-medium border border-green-200">
-                ↻ Atualizado em {updatedLabel}
-              </span>
             )}
           </div>
 
@@ -181,19 +154,39 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
           </h2>
 
           {(post.resumo || post.subtitle) && (
-            <p className="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">
-              {post.resumo || post.subtitle}
+            <p className="text-sm text-gray-500 mt-1 leading-relaxed flex-1">
+              {truncateResumo(post.resumo ?? post.subtitle ?? '')}
             </p>
           )}
 
-          <div className="flex items-center justify-between text-xs text-gray-400 mt-auto pt-3 border-t border-gray-100">
+          {/* Rodapé: autor · data · atualizado */}
+          <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 mt-auto pt-3 border-t border-gray-100">
             <span className="font-medium text-gray-500">{post.autor || 'Amanda Budri'}</span>
+            <span aria-hidden="true">·</span>
             <time dateTime={post.dataPublicacaoIso}>{post.dataPublicacaoHumana}</time>
+
+            {showUpdated && post.dataAtualizacaoHumana && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span className="inline-flex items-center gap-1 text-emerald-600 font-medium">
+                  <svg className="w-3 h-3" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                    <path d="M6 1a5 5 0 1 0 0 10A5 5 0 0 0 6 1zm.5 2.5v3.25l2.5 1.5-.5.866L5.5 7.25V3.5h1z"/>
+                  </svg>
+                  Atualizado em {post.dataAtualizacaoHumana}
+                </span>
+              </>
+            )}
           </div>
 
-          {post.ferramentaRelacionadaSlug && (
-            <div className="mt-3 pt-3 border-t border-gray-100 text-xs text-indigo-600 font-medium line-clamp-1">
-              🔧 {post.ferramentaRelacionadaTitulo || post.ferramentaRelacionadaSlug} →
+          {/* Link de ferramenta relacionada */}
+          {post.ferramentaRelacionada && (
+            <div className="mt-3 pt-3 border-t border-gray-100">
+              <span className={`inline-flex items-center gap-1.5 text-xs font-medium ${config.linkAccent}`}>
+                <svg className="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M2 7h10M7 2l5 5-5 5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                {post.ferramentaRelacionada.title}
+              </span>
             </div>
           )}
         </div>
