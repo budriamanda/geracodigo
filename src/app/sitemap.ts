@@ -7,6 +7,16 @@ export const dynamic = 'force-static'
 const BASE = 'https://www.geracodigo.com.br'
 const DEFAULT_LAST_MODIFIED = '2026-03-27'
 
+const BLOG_CATEGORIAS = [
+  'pix',
+  'codigo-barras',
+  'ean',
+  'sku',
+  'leitor',
+  'qr-code',
+  'geral',
+]
+
 const staticPages: Array<{
   path: string
   lastModified: string
@@ -21,7 +31,6 @@ const staticPages: Array<{
   { path: '/leitor-de-codigo-de-barras', lastModified: '2026-03-27', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/leitor-de-qr-code', lastModified: '2026-05-10', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/gerador-de-sku', lastModified: '2026-03-27', changeFrequency: 'weekly', priority: 0.75 },
-  { path: '/blog', lastModified: '2026-03-27', changeFrequency: 'daily', priority: 0.9 },
   { path: '/sobre', lastModified: '2026-03-01', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/autor/amanda-budri', lastModified: '2026-03-01', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/privacidade', lastModified: '2026-01-15', changeFrequency: 'yearly', priority: 0.3 },
@@ -35,6 +44,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     reader.collections.comparacoes.all(),
   ])
 
+  const publishedPosts = posts.filter((p) => p.slug !== '_template')
+
+  // Data do post mais recente para o lastModified do /blog
+  const mostRecentPostDate = publishedPosts.reduce((max, p) => {
+    const date = p.entry.dataAtualizacao || p.entry.dataPublicacao
+    return date > max ? date : max
+  }, DEFAULT_LAST_MODIFIED)
+
   const entries: MetadataRoute.Sitemap = staticPages.map(({ path, lastModified, changeFrequency, priority }) => ({
     url: `${BASE}${path}`,
     lastModified: new Date(lastModified),
@@ -42,7 +59,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority,
   }))
 
-  for (const p of posts) {
+  // /blog com lastModified dinâmico
+  entries.push({
+    url: `${BASE}/blog`,
+    lastModified: new Date(mostRecentPostDate),
+    changeFrequency: 'daily',
+    priority: 0.9,
+  })
+
+  // Páginas de categoria do blog
+  for (const categoria of BLOG_CATEGORIAS) {
+    const postsInCategory = publishedPosts.filter((p) => p.entry.categoria === categoria)
+    if (postsInCategory.length === 0) continue
+    const lastInCategory = postsInCategory.reduce((max, p) => {
+      const date = p.entry.dataAtualizacao || p.entry.dataPublicacao
+      return date > max ? date : max
+    }, DEFAULT_LAST_MODIFIED)
+    entries.push({
+      url: `${BASE}/blog/categoria/${categoria}`,
+      lastModified: new Date(lastInCategory),
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    })
+  }
+
+  // Posts individuais (excluindo _template)
+  for (const p of publishedPosts) {
     const last = isoOrFallback(p.entry.dataAtualizacao || p.entry.dataPublicacao, DEFAULT_LAST_MODIFIED)
     entries.push({
       url: `${BASE}/blog/${p.slug}`,

@@ -153,7 +153,7 @@ export default function BlogSearchClient({ posts, initialQuery = '', activeCateg
   return (
     <div>
       {/* Category filter pills */}
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar por categoria">
         {CATEGORIAS.map(({ value, label }) => {
           const isActive = (value === '' && !activeCategory) || value === activeCategory
           const href = value === '' ? '/blog' : `/blog/categoria/${value}`
@@ -182,8 +182,8 @@ export default function BlogSearchClient({ posts, initialQuery = '', activeCateg
 
       {/* Persona pills + Sort row */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-5 border-b border-gray-100">
-        <div className="flex flex-wrap gap-2 items-center">
-          <span className="text-xs text-gray-400 font-medium uppercase tracking-wide mr-1">Para:</span>
+        <div className="flex flex-wrap gap-2 items-center" role="group" aria-label="Filtrar por perfil">
+          <span className="text-xs text-gray-400 font-medium uppercase tracking-wide mr-1" aria-hidden="true">Para:</span>
           {PERSONAS.map(({ value, label }) => (
             <button
               key={value}

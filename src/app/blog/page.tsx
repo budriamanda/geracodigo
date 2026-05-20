@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: 'Guias práticos, tutoriais e dicas para lojistas, MEIs e restaurantes que usam QR Code Pix, código de barras, EAN e SKU no dia a dia.',
   alternates: { canonical: `${BASE}/blog` },
   openGraph: {
-    title: 'Blog do GeraCode',
+    title: 'Blog — QR Code, Pix e Código de Barras | GeraCode',
     description: 'Guias práticos para MEIs, lojistas e restaurantes: QR Code Pix, código de barras, EAN, SKU.',
     url: `${BASE}/blog`,
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog do GeraCode',
+    title: 'Blog — QR Code, Pix e Código de Barras | GeraCode',
     description: 'Guias práticos de Pix, código de barras e SKU para lojistas brasileiros.',
     images: ['/blog/opengraph-image'],
   },
@@ -98,6 +98,9 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
   // Featured post: explicit featured flag, or fall back to most recent
   const featuredPost = posts.find((p) => p.featured) ?? posts[0]
 
+  // Grid exclui o post destaque para evitar duplicação na página
+  const gridPosts = featuredPost ? posts.filter((p) => p.slug !== featuredPost.slug) : posts
+
   // "Comece por aqui": posts pilares na ordem de PILAR_SLUGS
   const pilarPosts = PILAR_SLUGS
     .map((slug) => posts.find((p) => p.slug === slug))
@@ -108,10 +111,29 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
       '@context': 'https://schema.org',
       '@type': 'Blog',
       name: 'Blog do GeraCode',
-      description: 'Guias práticos, tutoriais e dicas para lojistas, MEIs e restaurantes brasileiros.',
+      description: 'Guias práticos sobre QR Code, Pix, código de barras, EAN e SKU para lojistas, MEIs e restaurantes brasileiros.',
       url: `${BASE}/blog`,
       inLanguage: 'pt-BR',
       publisher: { '@id': `${BASE}/#organization` },
+      about: [
+        { '@type': 'Thing', name: 'QR Code' },
+        { '@type': 'Thing', name: 'QR Code Pix' },
+        { '@type': 'Thing', name: 'Código de Barras' },
+        { '@type': 'Thing', name: 'EAN-13' },
+        { '@type': 'Thing', name: 'SKU' },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: 'Posts em destaque — Blog GeraCode',
+      url: `${BASE}/blog`,
+      itemListElement: posts.slice(0, 12).map((p, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${BASE}/blog/${p.slug}`,
+        name: p.h1 || p.title,
+      })),
     },
     {
       '@context': 'https://schema.org',
@@ -140,9 +162,9 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
       {/* Featured post hero */}
       {featuredPost && (
         <div className="mb-10 rounded-2xl border border-gray-200 overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow group">
-          <Link href={`/blog/${featuredPost.slug}`} className="sm:flex block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-2xl">
+          <Link href={`/blog/${featuredPost.slug}`} className="flex flex-col sm:flex-row focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-2xl">
             {/* Imagem / placeholder lado esquerdo */}
-            <div className="relative sm:w-[45%] aspect-video sm:aspect-auto overflow-hidden min-h-[180px]">
+            <div className="relative w-full sm:w-[45%] aspect-video sm:aspect-auto overflow-hidden min-h-[180px]">
               {featuredPost.heroImage ? (
                 <Image
                   src={featuredPost.heroImage}
@@ -153,7 +175,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
                   priority
                 />
               ) : (
-                <div className={`w-full h-full ${CATEGORIA_CONFIG[featuredPost.categoria ?? 'geral']?.bg ?? 'bg-indigo-600'} flex flex-col items-center justify-center gap-4 p-6`}>
+                <div className={`w-full h-full ${CATEGORIA_CONFIG[featuredPost.categoria ?? 'geral']?.bg ?? 'bg-indigo-600'} flex items-center justify-center`}>
                   <CategoryIcon
                     categoria={featuredPost.categoria ?? 'geral'}
                     size={80}
@@ -250,7 +272,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps) {
         </div>
       </div>
 
-      <BlogSearchClient posts={posts} initialQuery={initialQuery} />
+      <BlogSearchClient posts={gridPosts} initialQuery={initialQuery} />
 
       <div className="flex justify-center mt-12">
         <AdSlot slot="blog-index-bottom" format="responsive" />
