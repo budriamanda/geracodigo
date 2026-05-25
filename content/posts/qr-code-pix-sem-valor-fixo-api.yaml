@@ -1,6 +1,6 @@
 slug: qr-code-pix-sem-valor-fixo-api
-title: "QR Code Pix Sem Valor Fixo via API: guia para devs"
-metaDescription: "Gere QR Code Pix sem valor fixo via API do Banco Central: Pix estático vs dinâmico, estrutura do payload, endpoints e exemplos práticos de código."
+title: "QR Code Pix Sem Valor Fixo via API: Exemplos em Python e JS"
+metaDescription: "Pix estático resolve sem servidor (payload EMV no front-end). Precisa rastrear cobranças? API Pix dinâmica com endpoints, OAuth2 e exemplos prontos em Python e JavaScript."
 h1: "Gerar QR Code Pix Sem Valor Fixo via API: guia completo para desenvolvedores"
 subtitle: "Quando usar Pix estático (sem código) vs API Pix dinâmica; e como implementar cada um."
 resumo: "Precisa gerar QR Code Pix sem valor fixo via API? Este guia explica a diferença entre Pix estático (gerado no navegador, sem código) e Pix dinâmico via API do Banco Central; com endpoints, estrutura do payload e exemplos em Python e JavaScript."
