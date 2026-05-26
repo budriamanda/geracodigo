@@ -79,7 +79,7 @@ bodyMarkdown: |
   | Android 9 ou anterior | — | Requer app de leitura de QR Code (ex: Google Lens) |
   | Windows 10/11 | — | App "Câmera" lê mas não conecta automaticamente |
 
-  Para a grande maioria dos clientes hoje (2026), a câmera nativa já resolve. Dispositivos muito antigos podem precisar de um app adicional; mas esses representam menos de 5% do uso, segundo dados de adoção do Android publicados pelo Google.
+  Para a grande maioria dos clientes hoje (2026), a câmera nativa já resolve. Dispositivos muito antigos podem precisar de um app adicional, como o Google Lens; mas essa situação é cada vez mais rara com a atualização natural do parque de celulares.
 
   ### Redes com segurança WPA3
 

@@ -142,7 +142,7 @@ bodyMarkdown: |
 
   O Brasil tem uma das maiores adoções de código 2D do mundo, impulsionada especialmente pelo PIX.
 
-  **PIX (Banco Central):** o QR Code PIX segue o padrão BRCode EMV, definido pelo Banco Central. Com mais de 60 bilhões de transações em 2024, o QR Code PIX é hoje o código 2D mais escaneado no país.
+  **PIX (Banco Central):** o QR Code PIX segue o padrão BRCode EMV, definido pelo Banco Central. Com [mais de 60 bilhões de transações em 2024](https://www.bcb.gov.br/estabilidadefinanceira/pix), o QR Code PIX é hoje o código 2D mais escaneado no país.
 
   **CNH (CONTRAN):** desde 2021 (Resolução 796/2020), toda CNH emitida no Brasil traz um QR Code com os dados do motorista encriptados. Os agentes de trânsito conseguem verificar a autenticidade do documento offline, sem acesso à internet.
 
