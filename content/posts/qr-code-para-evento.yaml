@@ -1,0 +1,172 @@
+slug: qr-code-para-evento
+title: "QR Code para Evento: 7 Usos e Como Criar Grátis"
+metaDescription: "QR Code para evento: check-in, programação, WiFi, PIX e mais. Aprenda 7 usos práticos e crie o seu grátis em 2 minutos, sem cadastro, sem app."
+h1: "QR Code para Evento: 7 Usos Práticos e Como Criar Grátis"
+subtitle: "Do check-in ao pagamento PIX, como usar QR Codes para simplificar a logística do seu evento."
+resumo: "QR Code para evento serve para check-in, programação, WiFi, pagamento PIX, lista de presença, redes sociais e material complementar. Este guia mostra os 7 usos mais práticos e como criar cada QR Code de graça em menos de dois minutos."
+categoria: qr-code
+persona: geral
+dataPublicacao: "2026-05-26"
+dataAtualizacao: "2026-05-26"
+autor: Amanda Budri
+tempoLeitura: 9
+tags:
+  - qr-code
+  - evento
+  - workshop
+  - feira
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code para evento"
+keywordsSecundarias:
+  - "qr code para evento grátis"
+  - "qr code check-in evento"
+  - "qr code ingresso evento"
+  - "qr code lista de presença"
+ogTitle: "QR Code para Evento: 7 Usos Práticos (Grátis)"
+ogDescription: "7 formas de usar QR Code no seu evento: check-in, programação, WiFi, PIX, presença e mais. Crie grátis, sem cadastro, direto no navegador."
+ogAccent: "#8b5cf6"
+twitterTitle: "QR Code para Evento: 7 Usos e Como Criar Grátis"
+twitterDescription: "Do check-in ao pagamento PIX: 7 formas práticas de usar QR Code no seu evento e como criar cada um de graça."
+faqsSlugs:
+  - geracode-e-gratuito
+  - funciona-no-celular
+  - qr-validade
+  - qr-png-vs-svg
+schemaHowToName: "Como criar QR Code para evento"
+featured: false
+bodyMarkdown: |
+  QR Code para evento é uma imagem escaneável que substitui filas, papéis e processos manuais. O participante aponta a câmera do celular e acessa o que precisa em segundos: a programação, o WiFi, o link de pagamento, o grupo do WhatsApp.
+
+  Se você está organizando um workshop, uma feira, uma conferência ou uma festa, há pelo menos sete usos que simplificam a logística sem custo extra. Este guia mostra cada um e como criar os QR Codes de graça em menos de dois minutos.
+
+  > **Resumo rápido**
+  > - QR Code para evento substitui filas, papéis e processos manuais
+  > - Os 7 usos principais: acesso, programação, WiFi, PIX, presença, redes sociais e material
+  > - Criar é grátis em menos de 2 minutos no GeraCode, sem cadastro
+  > - Use SVG para banners e gráfica, PNG para telas e redes sociais
+  > - Rotule cada QR Code: participante confuso não escaneia
+
+  ## Para que serve QR Code em eventos?
+
+  O QR Code guarda um link ou dado numa imagem. Ao ser escaneado pela câmera do celular, abre o destino automaticamente. No contexto de eventos, cada QR Code pode apontar para um lugar diferente: uma página com a programação, uma rede WiFi, um formulário de presença, uma chave PIX.
+
+  A vantagem sobre o papel: você atualiza o conteúdo sem reimprimir nada, desde que o endereço do link não mude. E o participante não digita nada, só aponta a câmera.
+
+  Segundo a [ABEOC](https://www.abeoc.org.br) (Associação Brasileira de Empresas de Congressos, Convenções e Eventos), a digitalização da experiência do participante é uma das principais tendências do setor. O QR Code é a forma mais barata de começar.
+
+  ## Os 7 usos mais práticos de QR Code em eventos
+
+  ### 1. Controle de acesso e check-in
+
+  O uso mais comum. Cada participante recebe um QR Code no ingresso, digital ou impresso. Na entrada, o organizador escaneia com o celular para confirmar o acesso.
+
+  Para eventos pequenos e informais, um QR Code único igual para todos já resolve: o participante escaneia e acessa a lista de confirmados ou o link da plataforma. Para ingressos individuais, plataformas como Sympla ou Eventbrite geram QR Code por participante automaticamente.
+
+  Fernanda organizou um workshop de cerâmica em Belo Horizonte para 40 pessoas. Ela criou um QR Code único que levava à lista de confirmados no Google Sheets. Na entrada, cada participante escaneava e marcava o próprio nome. Sem fila, sem papel, sem caneta circulando de mão em mão.
+
+  Use o [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) no celular do organizador para escanear QR Codes na entrada sem precisar de equipamento extra.
+
+  ### 2. Programação e informações do evento
+
+  Em vez de imprimir folhetos com a programação, um QR Code na entrada leva o participante a uma página com horários, palestrantes, mapa do local e tudo que ele vai precisar durante o evento.
+
+  Aponte o QR Code para um Google Sites gratuito, uma página Notion pública ou um PDF no Google Drive. Se você atualizar o conteúdo sem mudar o link, os QR Codes já distribuídos continuam funcionando.
+
+  Coloque o QR Code no crachá, no material de mesa e nos banners de entrada. Um rótulo claro embaixo resolve qualquer dúvida: "Acesse a programação completa".
+
+  ### 3. WiFi do evento
+
+  Digitar senha de WiFi em evento é lento e frustrante. Um QR Code de rede WiFi conecta o celular automaticamente ao escanear: sem digitar nada, sem errar a senha.
+
+  Crie o QR Code de WiFi com o [gerador de QR Code do GeraCode](/gerador-de-qr-code): escolha a opção WiFi, insira o nome da rede (SSID), o tipo de segurança e a senha. Imprima e cole em pontos estratégicos do local. Para o passo a passo completo, veja [como criar QR Code de WiFi](/blog/qr-code-wifi-como-criar).
+
+  ### 4. Pagamento via PIX
+
+  Para feiras, workshops com material incluso, bares e alimentação dentro do evento, o QR Code PIX elimina a maquininha.
+
+  O participante escaneia, digita o valor (ou recebe um QR Code com valor fixo já configurado) e paga em segundos. Sem taxa para quem recebe, sem fila no caixa.
+
+  Rafael organizou uma feira de artesanato em Florianópolis com 20 expositores. Ele gerou um QR Code PIX para cada um com o nome e a chave PIX de cada artesão. Em vez de 20 maquininhas, cada barraca tinha um QR Code colado na frente. Os clientes pagavam pelo celular, os expositores recebiam na hora, sem custo.
+
+  Gere o QR Code PIX do seu evento com o [gerador de QR Code PIX do GeraCode](/gerador-de-qr-code-pix): informe a chave, o nome e a cidade. Baixe em SVG para impressão em banners ou acrílico de mesa.
+
+  ### 5. Lista de presença digital
+
+  Um QR Code que leva a um Google Forms com uma pergunta simples ("Confirme sua presença") resolve o controle de presença em treinamentos, workshops corporativos e aulas sem passar papel de mão em mão.
+
+  O participante escaneia, preenche em segundos e os dados vão para uma planilha automaticamente. O organizador acompanha em tempo real quem chegou.
+
+  ### 6. Redes sociais e interação
+
+  Um QR Code pode levar ao perfil do Instagram do evento, ao grupo do WhatsApp ou à hashtag para Stories e Reels durante o evento.
+
+  Para o WhatsApp, gere um QR Code com o link de convite do grupo. Para o Instagram, use a URL do perfil. Os dois são links simples gerados em segundos com o [gerador de QR Code grátis](/gerador-de-qr-code). Coloque em banners, telões e materiais de mesa para incentivar a participação ao vivo.
+
+  ### 7. Material complementar e apostilas
+
+  Em vez de imprimir slides, apostilas e materiais de apoio, distribua um QR Code que aponta para a pasta no Google Drive com tudo.
+
+  O participante leva o material no celular. Sem peso, sem custo de impressão para o organizador e sem risco de perder o papel.
+
+  ## Como criar QR Code para evento grátis
+
+  Para programação, redes sociais, WiFi, lista de presença e material complementar, o processo é o mesmo:
+
+  1. Prepare o link de destino: Google Sites, Drive, Forms, WhatsApp, Instagram.
+  2. Acesse o [gerador de QR Code do GeraCode](/gerador-de-qr-code).
+  3. Cole o link no campo de URL (ou escolha a opção WiFi para rede sem fio).
+  4. Ajuste cor e tamanho se quiser.
+  5. Clique em **Gerar QR Code**.
+  6. Baixe em **SVG** para impressão ou **PNG** para telas e redes sociais.
+
+  Para QR Code PIX, use o [gerador de QR Code PIX](/gerador-de-qr-code-pix) separadamente.
+
+  Sem cadastro. Sem app. Funciona direto no navegador, no celular ou no computador.
+
+  > **Antes de imprimir**: teste cada QR Code com um iPhone e um Android. Confirme que o link abre corretamente. Só depois mande para a gráfica.
+
+  ## Dicas para QR Code funcionar bem em eventos
+
+  **Tamanho mínimo para impressão**: 5 x 5 cm para leitura à distância normal de mesa ou crachá. Para banners e telões, calcule 1 cm de QR Code para cada metro de distância de leitura esperada.
+
+  **SVG para tudo que vai para gráfica**: o formato vetorial mantém qualidade em qualquer tamanho, de adesivo a banner 2 x 2 m.
+
+  **Fundo claro, pontos escuros**: a combinação padrão tem a maior taxa de leitura. Evite fundo escuro com pontos claros em ambientes com pouca luz.
+
+  **Rotule cada QR Code**: participante de evento vê vários QR Codes ao mesmo tempo. Sem rótulo, ele não sabe o que vai abrir. Coloque sempre uma linha embaixo: "Acesse a programação", "Conecte ao WiFi", "Pague aqui".
+
+  **Ofereça alternativa**: nem todo celular escaneia QR Code com a câmera nativa. Tenha o link encurtado disponível também, para quem preferir digitar.
+
+  **Um QR Code por função**: não crie um único QR Code que leva para uma página com vários links. Separe cada função em um QR Code próprio, rotulado. Mais simples para o participante, mais fácil de atualizar para você.
+
+  ## Perguntas frequentes
+
+  **Posso usar o mesmo QR Code para todos os participantes?**
+
+  Sim, para programação, WiFi, PIX e lista de presença coletiva. Para controle de acesso individual com ingresso único por participante, você precisará de uma plataforma de ingresso digital como Sympla, que gera QR Code individual automaticamente.
+
+  **QR Code de evento tem validade?**
+
+  O QR Code estático (gerado pelo GeraCode) não tem validade. Funciona enquanto o link de destino estiver ativo. Se o arquivo for removido do Drive ou a página sair do ar, o QR Code para de funcionar. Mantenha os links ativos pelo menos até o fim do evento.
+
+  **Como escanear QR Code de ingresso sem equipamento específico?**
+
+  Use a câmera nativa do celular (iOS ou Android) ou o [leitor de código de barras do GeraCode](/leitor-de-codigo-de-barras) direto no navegador, sem instalar app. Para eventos com mais de 100 pessoas na entrada, considere um leitor de código de barras USB conectado a um notebook para agilizar o fluxo.
+
+  **QR Code PIX tem limite de valor para eventos?**
+
+  Não há limite imposto pelo QR Code. O limite é definido pelo banco ou fintech do pagador. Para ingressos ou produtos de valor alto, avise os participantes com antecedência para que ajustem o limite PIX antes do evento.
+
+  **Como criar QR Code com logo do evento?**
+
+  O gerador do GeraCode permite personalizar cores. Para adicionar logo, você precisará editar a imagem gerada num editor como Canva após o download, mantendo a zona quieta (borda branca) ao redor do QR Code.
+
+  ## Crie os QR Codes do seu evento agora
+
+  Para um evento completo, você vai precisar de pelo menos três QR Codes:
+
+  - **Programação**: gere com o [gerador de QR Code](/gerador-de-qr-code), aponte para seu Google Sites ou PDF no Drive.
+  - **WiFi**: gere com o [gerador de QR Code](/gerador-de-qr-code), escolha a opção de rede WiFi.
+  - **Pagamento PIX**: gere com o [gerador de QR Code PIX](/gerador-de-qr-code-pix), informe sua chave.
+
+  Os três são gratuitos, sem cadastro, gerados em menos de 2 minutos cada. Baixe em SVG e leve para a gráfica ou imprima direto em casa para testar.
