@@ -5,7 +5,7 @@ import { downloadSvgFromElement, downloadPngFromElement, exportSvgsToPdf } from 
 import { showToast } from '@/components/Toast'
 import { calculateEan13CheckDigit, calculateEan8CheckDigit } from '@/lib/ean-check-digit'
 import { addToHistory } from '@/lib/barcode-history'
-import { trackGenerate, trackDownload } from '@/lib/analytics'
+import { trackGenerate, trackDownload, trackToolAttempt } from '@/lib/analytics'
 import { incrementCount } from '@/lib/counter'
 import ExportActions from '@/components/ExportActions'
 import ShareBlock from '@/components/ShareBlock'
@@ -66,6 +66,7 @@ export default function EanGenerator() {
   }, [input, format, shortDigits])
 
   const generate = useCallback(() => {
+    trackToolAttempt('ean_generator')
     if (!jsBarcodeRef.current || !svgRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     const val = resolveInput()
     if (!val) { setError('Digite o número EAN.'); return }

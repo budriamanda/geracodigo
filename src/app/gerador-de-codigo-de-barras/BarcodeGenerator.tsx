@@ -7,7 +7,7 @@ import PrivacyChip from '@/components/ui/PrivacyChip'
 import { incrementCount } from '@/lib/counter'
 import { createBarcodeService, type BarcodeService, type BatchItem } from '@/lib/barcode-service'
 import { addToHistory, getHistory, removeFromHistory, clearHistory, type BarcodeHistoryItem } from '@/lib/barcode-history'
-import { trackGenerate, trackBatchGenerate, trackDownload, trackPrint } from '@/lib/analytics'
+import { trackGenerate, trackBatchGenerate, trackDownload, trackPrint, trackToolAttempt } from '@/lib/analytics'
 import ConfirmDialog from '@/components/ConfirmDialog'
 import ShareBlock from '@/components/ShareBlock'
 import { getShareConfig } from '@/lib/share-config'
@@ -95,6 +95,7 @@ export default function BarcodeGenerator() {
   }, [input, format])
 
   const generate = useCallback(() => {
+    trackToolAttempt('barcode_generator')
     if (!serviceRef.current || !svgRef.current) { setError('Carregando gerador… tente novamente em instantes.'); return }
     try {
       const resolved = serviceRef.current.renderInto(svgRef.current, input, format as Parameters<typeof serviceRef.current.renderInto>[2], getRenderOptions())
