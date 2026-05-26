@@ -32,7 +32,6 @@ faqsSlugs:
   - funciona-no-celular
   - qr-validade
   - qr-png-vs-svg
-schemaHowToName: "Como criar QR Code para cardápio digital"
 featured: false
 bodyMarkdown: |
   QR Code para cardápio digital é uma imagem que o cliente escaneia com o celular e abre o menu do restaurante na tela. Sem papel, sem espera, sem app para instalar.

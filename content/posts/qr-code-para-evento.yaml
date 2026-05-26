@@ -32,7 +32,6 @@ faqsSlugs:
   - funciona-no-celular
   - qr-validade
   - qr-png-vs-svg
-schemaHowToName: "Como criar QR Code para evento"
 featured: false
 bodyMarkdown: |
   QR Code para evento é uma imagem escaneável que substitui filas, papéis e processos manuais. O participante aponta a câmera do celular e acessa o que precisa em segundos: a programação, o WiFi, o link de pagamento, o grupo do WhatsApp.
