@@ -1,6 +1,6 @@
 slug: qr-code-para-cardapio-digital
-title: "QR Code para Cardápio Digital: Como Criar Grátis em 2 Minutos"
-metaDescription: "Crie QR Code para cardápio digital grátis: passo a passo, onde colocar no restaurante e como combinar com QR Code PIX. Sem cadastro."
+title: "QR Code para Cardápio Digital: Crie Grátis em 2 Minutos"
+metaDescription: "Crie QR Code para cardápio digital grátis em 2 minutos: qual link usar, onde colocar no restaurante e como combinar com QR Code PIX. Sem cadastro, sem app."
 h1: "QR Code para Cardápio Digital: Como Criar e Usar no Restaurante"
 subtitle: "Do link do cardápio ao QR Code impresso na mesa, sem app e sem mensalidade."
 resumo: "Saiba como criar QR Code para cardápio digital de graça em menos de 2 minutos. Este guia cobre qual link usar, onde colocar no restaurante e como combinar com QR Code PIX para receber pagamentos sem maquininha."
@@ -9,7 +9,7 @@ persona: restaurante
 dataPublicacao: "2026-05-26"
 dataAtualizacao: "2026-05-26"
 autor: Amanda Budri
-tempoLeitura: 9
+tempoLeitura: 10
 tags:
   - qr-code
   - restaurante
@@ -32,6 +32,7 @@ faqsSlugs:
   - funciona-no-celular
   - qr-validade
   - qr-png-vs-svg
+schemaHowToName: "Como criar QR Code para cardápio digital"
 featured: false
 bodyMarkdown: |
   QR Code para cardápio digital é uma imagem que o cliente escaneia com o celular e abre o menu do restaurante na tela. Sem papel, sem espera, sem app para instalar.
@@ -39,7 +40,7 @@ bodyMarkdown: |
   Este guia mostra como criar o QR Code do seu cardápio de graça, qual link usar, onde colocar no estabelecimento e como combinar com pagamento via PIX.
 
   > **Resumo rápido**
-  > - O QR Code aponta para um link -- você escolhe o destino (PDF, site, WhatsApp)
+  > - O QR Code aponta para um link: você escolhe o destino (PDF, site, WhatsApp)
   > - Criar é grátis e leva menos de 2 minutos no GeraCode
   > - Baixe em SVG para impressão e PNG para uso digital
   > - Coloque em mesa, balcão, vitrine e embalagem de delivery
@@ -51,35 +52,41 @@ bodyMarkdown: |
 
   O QR Code em si não guarda o cardápio. Ele guarda apenas um endereço. É como uma placa que aponta o caminho: o cliente escaneia, o celular abre o link, o cardápio aparece.
 
-  Isso significa que você pode atualizar o conteúdo do cardápio sem trocar o QR Code -- desde que o endereço do link permaneça o mesmo. Se você usar um PDF no Google Drive e substituir o arquivo mantendo o mesmo link, o QR Code impresso continua funcionando.
-
-  > **Atenção**: O QR Code estático (o tipo gerado pelo GeraCode) guarda o link diretamente na imagem. Se você mudar o endereço do cardápio, precisará gerar e reimprimir um novo QR Code. Por isso, escolha bem o link antes de imprimir em quantidade.
+  Cardápios digitais com fotos dos pratos têm impacto direto no ticket médio: o cliente tende a pedir mais quando consegue visualizar o prato antes de decidir. Segundo a [ABRASEL](https://abrasel.com.br) (Associação Brasileira de Bares e Restaurantes), a digitalização do cardápio é uma das principais ferramentas de redução de custo operacional no setor. Imprimir cardápios de papel pode consumir R$ 200 a R$ 600 por mês em estabelecimentos que atualizam preços com frequência. O QR Code elimina esse custo.
 
   ## O que o QR Code do cardápio deve apontar?
 
-  Antes de gerar o QR Code, você precisa ter o link do cardápio. As opções mais comuns para restaurantes:
+  Antes de gerar o QR Code, você precisa ter o link do cardápio. A escolha do destino define se o QR Code vai precisar ser reimpresso no futuro ou não.
 
-  **PDF no Google Drive**
+  | Destino | Custo | Melhor para | Troca o QR se atualizar? |
+  |---|---|---|---|
+  | PDF no Google Drive | Grátis | Início rápido, cardápio simples | Não, se o link não mudar |
+  | Site próprio ou plataforma | Grátis a pago | Visual profissional, com fotos | Não |
+  | Plataforma de cardápio (Menu Legal, Abrahão) | Grátis no básico | Cardápio interativo com pedido | Não (QR dinâmico) |
+  | iFood / Rappi | Grátis (com conta) | Delivery | Não recomendado para uso físico |
+  | WhatsApp Business com catálogo | Grátis | Delivery informal | Não |
 
-  Salve o cardápio em PDF no Google Drive, configure o arquivo como "qualquer pessoa com o link pode ver" e copie esse endereço. É gratuito, fácil de atualizar e funciona em qualquer celular. A desvantagem: o PDF abre em visualizador do Google, que pode ser lento em conexões ruins.
+  **PDF no Google Drive** é a opção mais rápida para começar. Salve o cardápio em PDF, configure como "qualquer pessoa com o link pode ver" e copie o endereço. A desvantagem: o PDF abre no visualizador do Google, que pode ser lento em conexões ruins.
 
-  **Página do site ou plataforma de cardápio digital**
+  **Plataforma de cardápio digital** (Menu Legal, Abrahão, Cardápio Web) oferece a experiência mais profissional, com fotos, categorias e pedido direto pelo celular. A maioria tem plano gratuito para começar.
 
-  Se você usa Cardápio Web, GrandChef, Anota AI ou tem um site próprio, copie o link do cardápio e use diretamente. Essa é a opção mais profissional.
-
-  **Link do perfil no iFood ou Rappi**
-
-  Funciona, mas tem uma ressalva: o cliente vai parar no app de delivery, não no cardápio físico. Serve para delivery, não é o ideal para uso dentro do estabelecimento.
-
-  **WhatsApp Business com catálogo**
-
-  Se você tem catálogo de produtos configurado no WhatsApp Business, um link `wa.me/55SEUNUMERO` leva o cliente direto para a conversa. Funciona bem para lanchonetes e deliveries informais.
-
-  **Página de links (Linktree ou similar)**
-
-  Para quem quer apontar para mais de uma coisa -- cardápio, PIX, WhatsApp, redes sociais -- uma página de links resolve. O cliente escaneia e escolhe o destino.
+  **WhatsApp Business com catálogo** funciona para lanchonetes e deliveries informais. Um link `wa.me/55SEUNUMERO` leva o cliente direto para a conversa.
 
   Carla, dona de uma lanchonete em Campinas, tentou usar o link do iFood na mesa. Os clientes escaneavam, o app abria, eles se perdiam entre as opções de delivery e iam embora sem pedir. Ela trocou para um PDF simples no Google Drive e o problema acabou. Moral: o link certo depende de onde o cliente vai usar o QR Code.
+
+  ## QR Code de cardápio estático ou dinâmico?
+
+  Esta é a dúvida mais comum antes de imprimir: se eu mudar o cardápio, preciso trocar o QR Code?
+
+  Depende do tipo:
+
+  **QR Code estático** (o que o GeraCode gera) guarda o link diretamente na imagem. Se você mudar o endereço do cardápio, precisa gerar e reimprimir um novo QR Code. Funciona bem para quem usa um link fixo: domínio próprio, Google Drive bem organizado ou plataforma com URL permanente.
+
+  **QR Code dinâmico** é gerado por plataformas específicas de cardápio digital. O link que o cliente escaneia é um intermediário gerenciado pela plataforma. Você pode mudar o destino final sem trocar a imagem impressa. A maioria cobra mensalidade para manter o serviço ativo.
+
+  Para a maioria dos restaurantes, o QR Code estático resolve sem custo. A chave é escolher um link que não vai mudar. Se você atualizar o conteúdo do PDF mantendo o mesmo arquivo no Drive, o QR Code continua funcionando.
+
+  Entenda a diferença completa em [QR Code estático vs dinâmico: qual usar?](/blog/qr-code-dinamico-vs-estatico).
 
   ## Como criar QR Code para cardápio digital grátis
 
@@ -89,39 +96,27 @@ bodyMarkdown: |
   2. Cole o link do cardápio no campo de URL.
   3. Ajuste cor e tamanho se quiser (o padrão preto e branco tem a maior taxa de leitura).
   4. Clique em **Gerar QR Code**.
-  5. Baixe em **SVG** para impressão ou **PNG** para usar em telas e redes sociais.
+  5. Baixe em **SVG** para impressão ou **PNG** para telas e redes sociais.
 
   Sem cadastro. Sem app. Funciona direto no navegador, no celular ou no computador.
-
-  Use o [gerador de QR Code grátis do GeraCode](/gerador-de-qr-code) para criar o seu agora.
 
   > **Antes de imprimir em quantidade**: teste o QR Code com pelo menos dois celulares diferentes, um Android e um iPhone. Escaneie com a câmera nativa, sem aplicativo adicional. Se os dois abrirem o link correto, pode imprimir.
 
   ## Onde colocar o QR Code no restaurante
 
-  A posição do QR Code define se o cliente vai usá-lo ou ignorá-lo.
+  A posição define se o cliente vai usar o QR Code ou ignorá-lo.
 
-  **Mesa**
+  **Mesa** é o lugar mais eficiente. O cliente senta, vê o QR Code e escaneia enquanto espera. Imprima em papel plastificado ou acrílico de mesa. Tamanho mínimo: 5 x 5 cm.
 
-  O lugar mais eficiente. O cliente senta, vê o QR Code e escaneia enquanto espera. Imprima em papel plastificado ou acrílico de mesa. Tamanho mínimo: 5 x 5 cm.
+  **Balcão e caixa** serve para pedidos no balcão e para clientes que querem conferir o cardápio antes de decidir.
 
-  **Balcão e caixa**
+  **Vitrine e entrada** capturam quem passa na calçada. Muita gente decide entrar ou não com base no cardápio. Um QR Code na vitrine com a legenda "Veja nosso cardápio" resolve isso.
 
-  Para pedidos no balcão e para clientes que querem conferir o cardápio antes de decidir.
+  **Embalagem e saquinho de delivery**: o cliente recebe o pedido e já encontra o QR Code para o próximo pedido. Uma etiqueta adesiva 5 x 5 cm no fundo da embalagem já resolve.
 
-  **Vitrine e entrada**
+  **Parede e banners** funcionam para estabelecimentos maiores com área de espera. Imprima em tamanho maior: mínimo 10 x 10 cm para leitura à distância.
 
-  Muita gente decide entrar ou não com base no cardápio. Um QR Code na vitrine com a legenda "Veja nosso cardápio" captura quem passa na calçada.
-
-  **Embalagem e saquinho de delivery**
-
-  O cliente recebe o pedido e já encontra o QR Code para o próximo pedido. Uma etiqueta adesiva 5 x 5 cm no fundo da embalagem já resolve.
-
-  **Parede e banners**
-
-  Para estabelecimentos maiores, com área de espera ou mezanino. Imprima em tamanho maior (mínimo 10 x 10 cm para leitura à distância).
-
-  João, dono de uma pizzaria em São Paulo, colocou o QR Code apenas nas mesas. Funcionou bem para quem já estava sentado, mas ele continuava perdendo clientes que paravam na calçada para ver o cardápio e iam embora sem entrar. Depois de colocar um QR Code na vitrine com o texto "Nosso cardápio aqui", o movimento de clientes novos aumentou nas primeiras duas semanas.
+  João, dono de uma pizzaria em São Paulo, colocou o QR Code apenas nas mesas. Funcionou bem para quem já estava sentado, mas ele continuava perdendo clientes que paravam na calçada, conferiam o cardápio e iam embora sem entrar. Depois de colocar um QR Code na vitrine com o texto "Nosso cardápio aqui", o movimento de clientes novos aumentou nas primeiras duas semanas.
 
   ## QR Code de cardápio e QR Code PIX: usando os dois juntos
 
@@ -130,55 +125,61 @@ bodyMarkdown: |
   - **QR Code de cardápio**: aponta para o link do menu. Gere com o [gerador de QR Code](/gerador-de-qr-code).
   - **QR Code PIX**: contém os dados da sua chave PIX. O cliente escaneia e o valor cai direto na sua conta. Gere com o [gerador de QR Code PIX](/gerador-de-qr-code-pix).
 
+  O QR Code PIX segue o padrão [BR Code EMV definido pelo Banco Central do Brasil](https://www.bcb.gov.br/estabilidadefinanceira/pix), aceito por todos os bancos e fintechs participantes do sistema.
+
   A combinação elimina o ciclo de entregar cardápio, recolher cardápio, chamar o garçom, trazer a maquininha. O cliente consulta o menu, pede, consome e paga pelo celular.
 
   Imprima os dois lado a lado com rótulos claros ("Cardápio" e "Pagar via PIX") no mesmo suporte acrílico de mesa. Custo do suporte: menos de R$ 5 na maioria das gráficas rápidas.
 
-  Para restaurantes que ainda não aceitam PIX sem maquininha, veja o guia completo de [QR Code PIX para MEI](/blog/qr-code-pix-para-mei-guia-completo) -- o processo é o mesmo para qualquer CNPJ.
+  Para restaurantes que ainda não aceitam PIX sem maquininha, veja o guia completo de [QR Code PIX para MEI](/blog/qr-code-pix-para-mei-guia-completo).
 
   ## Dicas para o QR Code do cardápio funcionar sempre
 
-  **Use SVG para impressão**
+  **Use SVG para impressão**: o SVG é um formato vetorial e não perde qualidade ao ampliar. Se você imprimir um QR Code PNG em tamanho grande, pode ficar pixelado e difícil de ler.
 
-  O SVG é um formato vetorial: não perde qualidade ao ampliar. Se você imprimir um QR Code PNG em tamanho grande, ele pode ficar pixelado e difícil de ler. SVG resolve esse problema.
+  **Fundo branco, QR escuro**: a combinação padrão tem a maior taxa de leitura. Evite QR Code colorido em fundo escuro para uso físico.
 
-  **Fundo branco, QR escuro**
+  **Mantenha a margem ao redor**: o QR Code precisa de uma área branca ao redor, chamada de "zona quieta". Não recorte a imagem rente à borda.
 
-  A combinação padrão tem a maior taxa de leitura. Evite QR Code colorido em fundo escuro para uso físico -- em condições de pouca luz, câmeras de celular têm dificuldade.
+  **Link curto melhora a leitura**: URLs longas geram QR Codes mais densos e difíceis de ler. Use um encurtador gratuito como Bitly se o link do cardápio for extenso.
 
-  **Mantenha a margem ao redor**
+  **Ofereça WiFi aos clientes**: o QR Code abre um link online, então o cliente precisa de internet. Se o sinal de celular for fraco no estabelecimento, compartilhe a senha do WiFi. Você pode criar um [QR Code de WiFi](/blog/qr-code-wifi-como-criar) e colocar junto ao QR do cardápio.
 
-  O QR Code precisa de uma área branca ao redor, chamada de "zona quieta". Não recorte a imagem rente à borda nem coloque texto muito próximo.
-
-  **Link curto melhora a leitura**
-
-  URLs longas geram QR Codes com mais pontos, mais densos e mais difíceis de ler em baixa resolução. Se o link do seu cardápio for extenso, use um encurtador gratuito como Bitly ou TinyURL antes de gerar o QR Code.
-
-  **Atualize o conteúdo, não o link**
-
-  Se você precisar mudar pratos ou preços, atualize o PDF ou a página que o QR Code aponta -- sem mexer no link. Assim, os QR Codes já impressos continuam funcionando.
+  **Atualize o conteúdo, não o link**: se precisar mudar pratos ou preços, atualize o PDF ou a página sem mexer no endereço. Assim, os QR Codes já impressos continuam funcionando.
 
   ## Quanto custa criar um QR Code para cardápio?
 
   Gerar o QR Code é gratuito. O GeraCode não cobra nada, sem limite de geração, sem cadastro obrigatório.
 
-  O único custo possível é a impressão física. Para começar:
+  O único custo possível é a impressão física:
 
-  - **Impressão caseira em papel A4 + plastificação com fita transparente**: grátis ou quase.
+  - **Impressão caseira em papel A4 plastificado**: grátis ou quase.
   - **Gráfica rápida em papel couché plastificado**: R$ 1 a R$ 3 por unidade em quantidade.
-  - **Suporte acrílico de mesa com QR Code impresso**: R$ 5 a R$ 15, dependendo do fornecedor.
+  - **Suporte acrílico de mesa com QR Code**: R$ 5 a R$ 15, dependendo do fornecedor.
 
-  Para testar a solução antes de investir, a impressão caseira já resolve. Quando funcionar bem, você manda para a gráfica.
+  Para testar antes de investir, a impressão caseira já resolve. Quando funcionar bem, você manda para a gráfica.
 
-  ## QR Code para cardápio resolve mesmo?
+  ## Perguntas frequentes
 
-  Sim, com uma condição: o cardápio do outro lado precisa funcionar bem no celular.
+  **Preciso trocar o QR Code se mudar o cardápio?**
 
-  Um PDF bem formatado abre sem problema. Uma página de site responsiva, melhor ainda. O que não funciona é um PDF escaneado de baixa resolução, que o cliente precisa dar zoom infinito para ler.
+  Só se o link mudar. Se você atualizar o conteúdo do PDF ou do site mantendo o mesmo endereço, o QR Code impresso continua funcionando. Para nunca precisar reimprimir, use uma plataforma de cardápio digital com QR dinâmico.
 
-  Se você ainda não tem um cardápio digital, a opção mais rápida é criar um PDF no Canva (gratuito), salvar no Google Drive e usar esse link no QR Code. Em menos de uma hora você tem tudo no ar.
+  **O cliente precisa de internet para ver o cardápio?**
 
-  Para restaurantes que já têm sistema de cardápio digital, o QR Code é só a ponte entre o papel e a tela -- e essa ponte o GeraCode cria em 2 minutos.
+  Sim. O QR Code abre um link online, então o cliente precisa de acesso à internet pelo plano de dados ou pelo WiFi do estabelecimento. Oferecer a senha do WiFi via [QR Code de WiFi](/blog/qr-code-wifi-como-criar) resolve o problema com elegância.
+
+  **QR Code de cardápio funciona em qualquer celular?**
+
+  Sim. iOS e Android leem QR Code com a câmera nativa sem precisar de app adicional. Funciona desde o iOS 11 (2017) e Android 9 (2018) em diante.
+
+  **Posso usar o mesmo QR Code para cardápio e PIX?**
+
+  Não. São dois QR Codes com funções diferentes. Um aponta para o link do cardápio; o outro contém os dados da sua chave PIX. O ideal é colocar os dois lado a lado na mesa com rótulos claros.
+
+  **O QR Code do GeraCode tem validade?**
+
+  Não. O QR Code estático funciona enquanto o link de destino estiver no ar. Não expira e não requer renovação ou mensalidade.
 
   ## Como criar seu QR Code agora
 
