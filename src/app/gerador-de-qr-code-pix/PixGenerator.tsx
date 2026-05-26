@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import QRCode from 'qrcode'
 import { buildPixPayload, validatePixForm, KEY_TYPES, KEY_META, type PixKeyType } from '@/lib/pix'
-import { trackGenerate, trackDownload, trackCopy } from '@/lib/analytics'
+import { trackGenerate, trackDownload, trackCopy, trackToolAttempt } from '@/lib/analytics'
 import { incrementCount } from '@/lib/counter'
 import { downloadDataUrl, downloadBlob } from '@/lib/download'
 import ShareBlock from '@/components/ShareBlock'
@@ -97,6 +97,10 @@ export default function PixGenerator() {
   }
 
   const handleGenerate = useCallback(async () => {
+    // Dispara tool_start na primeira tentativa da sessão, mesmo que a validação falhe.
+    // Permite medir usuários que tentam usar a ferramenta mas não conseguem concluir.
+    trackToolAttempt('pix_generator')
+
     const result = buildPixPayload({ keyType, key, name, city, value, txid, description })
     if (!result.ok) {
       setFieldErrors(result.errors)

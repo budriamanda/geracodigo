@@ -119,6 +119,15 @@ function maybeFireToolStart(tool: ToolName) {
 }
 
 /**
+ * Dispara `tool_start` quando o usuário clica em "Gerar" (antes de validação/geração).
+ * Permite medir tentativas de uso mesmo que a geração falhe por erro de validação ou runtime.
+ * Deduplica por sessão, igual ao maybeFireToolStart interno.
+ */
+export function trackToolAttempt(tool: ToolName) {
+  maybeFireToolStart(tool)
+}
+
+/**
  * Dispara `tool_complete` no GA4 uma única vez por ferramenta por sessão.
  * O objetivo é medir "o usuário converteu nesta sessão?" — não contar cada ação individual.
  * Conversões individuais (generate, download…) continuam sendo enviadas ao Google Ads
