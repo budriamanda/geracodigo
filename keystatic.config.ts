@@ -169,16 +169,6 @@ export default config({
         schemaAppName: fields.text({ label: 'Schema: Nome do app' }),
         schemaAppDescription: fields.text({ label: 'Schema: Descrição do app', multiline: true }),
         schemaFeatureList: fields.array(fields.text({ label: 'Feature' }), { label: 'Schema: Feature list', itemLabel: (p) => p.value }),
-        schemaHowToName: fields.text({ label: 'Schema: Nome do HowTo' }),
-        schemaHowToDescription: fields.text({ label: 'Schema: Descrição do HowTo', multiline: true }),
-        schemaHowToTotalTime: fields.text({ label: 'Schema: Tempo total (ex: PT2M)', defaultValue: 'PT2M' }),
-        schemaHowToSteps: fields.array(
-          fields.object({
-            nome: fields.text({ label: 'Nome do passo' }),
-            texto: fields.text({ label: 'Texto do passo', multiline: true }),
-          }),
-          { label: 'Schema: Passos do HowTo', itemLabel: (p) => p.fields.nome.value },
-        ),
         schemaAboutName: fields.text({ label: 'Schema: About (nome do assunto)' }),
         schemaDatePublished: fields.text({ label: 'Schema: Data de publicação (YYYY-MM-DD)' }),
         schemaDateModified: fields.text({ label: 'Schema: Data de modificação (YYYY-MM-DD)' }),

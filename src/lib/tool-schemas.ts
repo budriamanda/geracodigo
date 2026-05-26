@@ -6,10 +6,6 @@ interface ToolSchemaData {
   schemaAppName?: string
   schemaAppDescription?: string
   schemaFeatureList?: string[]
-  schemaHowToName?: string
-  schemaHowToDescription?: string
-  schemaHowToTotalTime?: string
-  schemaHowToSteps?: { nome: string; texto: string }[]
   schemaAboutName?: string
   schemaDatePublished?: string
   schemaDateModified?: string
@@ -36,26 +32,6 @@ export function buildToolSchemas(tool: ToolSchemaData): object[] {
       ...(tool.schemaFeatureList && tool.schemaFeatureList.length > 0
         ? { featureList: tool.schemaFeatureList }
         : {}),
-    })
-  }
-
-  // HowTo
-  if (tool.schemaHowToName && tool.schemaHowToSteps && tool.schemaHowToSteps.length > 0) {
-    schemas.push({
-      '@context': 'https://schema.org',
-      '@type': 'HowTo',
-      name: tool.schemaHowToName,
-      description: tool.schemaHowToDescription || '',
-      totalTime: tool.schemaHowToTotalTime || 'PT2M',
-      inLanguage: 'pt-BR',
-      tool: { '@type': 'HowToTool', name: `GeraCode: ${tool.schemaAppName || tool.h1}` },
-      step: tool.schemaHowToSteps.map((s, i) => ({
-        '@type': 'HowToStep',
-        position: i + 1,
-        name: s.nome,
-        text: s.texto,
-        url: `${url}#passo-${i + 1}`,
-      })),
     })
   }
 
