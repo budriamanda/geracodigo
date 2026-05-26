@@ -122,9 +122,10 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
     <article
       className={`bg-white rounded-xl border border-gray-200 border-l-4 ${borderColor} overflow-hidden transition-all hover:border-indigo-300 hover:shadow-lg hover:-translate-y-0.5 flex flex-col`}
     >
+      {/* Thumbnail + conteúdo principal: link para o post */}
       <Link
         href={`/blog/${post.slug}`}
-        className="flex flex-col h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-xl"
+        className="flex flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded-t-xl"
       >
         {/* Thumbnail */}
         <div
@@ -154,13 +155,13 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
           </h2>
 
           {(post.resumo || post.subtitle) && (
-            <p className="text-sm text-gray-500 mt-1 leading-relaxed flex-1">
+            <p className="text-sm text-gray-500 mt-1 leading-relaxed">
               {truncateResumo(post.resumo ?? post.subtitle ?? '')}
             </p>
           )}
 
           {/* Rodapé: autor · data · atualizado */}
-          <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 mt-auto pt-3 border-t border-gray-100">
+          <div className="flex flex-wrap items-center gap-2 text-xs text-gray-400 mt-4 pt-3 border-t border-gray-100">
             <span className="font-medium text-gray-500">{post.autor || 'Amanda Budri'}</span>
             <span aria-hidden="true">·</span>
             <time dateTime={post.dataPublicacaoIso}>{post.dataPublicacaoHumana}</time>
@@ -177,20 +178,23 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
               </>
             )}
           </div>
-
-          {/* Link de ferramenta relacionada */}
-          {post.ferramentaRelacionada && (
-            <div className="mt-3 pt-3 border-t border-gray-100">
-              <span className={`inline-flex items-center gap-1.5 text-xs font-medium ${config.linkAccent}`}>
-                <svg className="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M2 7h10M7 2l5 5-5 5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {post.ferramentaRelacionada.title}
-              </span>
-            </div>
-          )}
         </div>
       </Link>
+
+      {/* Link de ferramenta relacionada: fora do link do post para evitar <a> aninhado */}
+      {post.ferramentaRelacionada && (
+        <div className="px-5 pb-4 pt-0">
+          <Link
+            href={`/${post.ferramentaRelacionada.slug}`}
+            className={`inline-flex items-center gap-1.5 text-xs font-medium ${config.linkAccent}`}
+          >
+            <svg className="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M2 7h10M7 2l5 5-5 5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            {post.ferramentaRelacionada.title}
+          </Link>
+        </div>
+      )}
     </article>
   )
 }
