@@ -135,12 +135,12 @@ export default async function HomePage() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
       <SchemaMarkup schema={schemas} />
 
       {/* Hero */}
-      <section className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      <section className="text-center mb-8 md:mb-16">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
           {home?.heroH1 ?? 'Gerador de Código de Barras, QR Code Pix e SKU Grátis'}
         </h1>
         <p className="text-xl text-gray-600 mb-2 max-w-2xl mx-auto">
@@ -167,7 +167,7 @@ export default async function HomePage() {
       {/* Ferramentas */}
       <section aria-labelledby="tools-heading" id="ferramentas">
         <h2 id="tools-heading" className="text-2xl font-bold text-gray-900 mb-6">{home?.ferramentasSectionTitle ?? 'Ferramentas Disponíveis'}</h2>
-        <ul role="list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <ul role="list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8 md:mb-16">
           {tools.map((tool) => (
             <li key={tool.href}>
               <Link
