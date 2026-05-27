@@ -198,12 +198,17 @@ export function trackPageViewTool(tool: ToolName) {
   })
 }
 
+/** Rotas de admin/CMS que não devem gerar hits no GA4. */
+const SKIP_PAGE_VIEW_RE = /^\/(keystatic|api\/keystatic)\b|^\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i
+
 /**
  * page_view padrão do GA4 — dispara no carregamento inicial e em toda navegação SPA.
  * Envia page_location (URL completa), page_title e page_referrer para atribuição de canal.
+ * Ignora rotas de admin (/keystatic) e paths com formato UUID (gerados pelo CMS internamente).
  */
 export function trackPageView() {
   if (typeof window === 'undefined') return
+  if (SKIP_PAGE_VIEW_RE.test(window.location.pathname)) return
   sendEvent('page_view', {
     ...baseParams(),
     event_id: generateEventId(),
