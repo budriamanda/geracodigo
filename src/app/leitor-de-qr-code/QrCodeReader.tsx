@@ -246,6 +246,7 @@ export default function QrCodeReader() {
   const [showClearConfirm, setShowClearConfirm] = useState(false)
   const [showShare, setShowShare] = useState(false)
   const [revealedWifi, setRevealedWifi] = useState<Set<number>>(new Set())
+  const [browserWarning, setBrowserWarning] = useState<string | null>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const streamRef = useRef<MediaStream | null>(null)
@@ -259,6 +260,21 @@ export default function QrCodeReader() {
       streamRef.current = null
     }
     setIsScanning(false)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (typeof BarcodeDetector === 'undefined') {
+      const ua = navigator.userAgent
+      const isSafari = /Safari/.test(ua) && !/Chrome/.test(ua)
+      const isFirefox = /Firefox/.test(ua)
+      const browserName = isSafari ? 'Safari' : isFirefox ? 'Firefox' : 'seu navegador'
+      setBrowserWarning(
+        `${browserName} não suporta a API de leitura automática (BarcodeDetector). ` +
+        'Use Chrome 83+, Edge 83+ ou Opera 69+ para escanear pela câmera ou foto. ' +
+        'O campo de entrada manual abaixo funciona em qualquer navegador.'
+      )
+    }
   }, [])
 
   useEffect(() => () => {
@@ -420,6 +436,15 @@ export default function QrCodeReader() {
 
   return (
     <div className="space-y-6">
+      {browserWarning && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3" role="alert">
+          <span className="text-amber-500 text-xl shrink-0" aria-hidden="true">⚠️</span>
+          <div>
+            <p className="text-sm font-medium text-amber-800 mb-1">Navegador incompatível com leitura automática</p>
+            <p className="text-sm text-amber-700">{browserWarning}</p>
+          </div>
+        </div>
+      )}
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         {/* Camera area */}
         <div className="relative bg-gray-900 rounded-lg overflow-hidden mb-4 min-h-[300px]">
