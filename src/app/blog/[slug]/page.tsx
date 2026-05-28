@@ -14,7 +14,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const posts = await reader.collections.posts.all()
-  return posts.map((p) => ({ slug: p.slug }))
+  return posts.filter((p) => p.slug !== '_template').map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -50,6 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params
+  if (slug === '_template') notFound()
   const post = await reader.collections.posts.read(slug)
   if (!post) notFound()
 
