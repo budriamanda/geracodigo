@@ -34,6 +34,7 @@ export default function SkuGeneratorClient() {
   const [separator, setSeparator] = useState('-')
   const [batchCount, setBatchCount] = useState(1)
   const [results, setResults] = useState<string[]>([])
+  const [duplicateCount, setDuplicateCount] = useState(0)
   const [copied, setCopied] = useState(false)
   const [copyError, setCopyError] = useState(false)
   const [validationError, setValidationError] = useState('')
@@ -68,6 +69,7 @@ export default function SkuGeneratorClient() {
       ? generateSkuBatch(config, batchCount)
       : [generateSku(config)]
     setResults(skus)
+    setDuplicateCount(skus.length - new Set(skus).size)
     if (batchCount > 1) {
       trackBatchGenerate('sku_generator', 'sku', skus.length)
     } else {
@@ -238,6 +240,11 @@ export default function SkuGeneratorClient() {
         </div>
         {results.length > 0 ? (
           <div className="bg-white rounded-xl border border-gray-200 p-6">
+            {duplicateCount > 0 && (
+              <p className="text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-xs mb-4" role="status">
+                ⚠ {duplicateCount} SKU{duplicateCount > 1 ? 's' : ''} duplicado{duplicateCount > 1 ? 's' : ''}. Ative o campo sequencial para gerar SKUs únicos.
+              </p>
+            )}
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-sm font-semibold text-gray-700">SKUs gerados ({results.length})</h3>
               <div className="flex gap-2">

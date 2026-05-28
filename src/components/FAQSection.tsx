@@ -1,3 +1,5 @@
+import MarkdownContent from '@/components/MarkdownContent'
+
 interface FAQItem {
   question: string
   answer: string
@@ -41,7 +43,10 @@ export default function FAQSection({ items }: FAQSectionProps) {
               <span className="text-indigo-500 text-xl shrink-0 group-open:rotate-45 transition-transform duration-200" aria-hidden="true">+</span>
             </summary>
             <div className="px-6 pb-6">
-              <p className="text-gray-600 leading-relaxed">{item.answer}</p>
+              <MarkdownContent
+                content={item.answer}
+                className="[&_p]:text-gray-600 [&_p]:leading-relaxed [&_p:last-child]:mb-0 [&_ul]:mt-2 [&_li]:mt-1 [&_a]:text-indigo-600 [&_a]:underline"
+              />
             </div>
           </details>
         ))}

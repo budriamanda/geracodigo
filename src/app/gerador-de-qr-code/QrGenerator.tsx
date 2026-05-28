@@ -198,11 +198,11 @@ export default function QrGenerator() {
         <img src={qrDataUrl!} alt="Preview do QR Code gerado" width={size} height={size} className="rounded-lg max-w-full animate-fade-in" style={{ maxWidth: `${Math.min(size, 300)}px` }} />
         <div className="w-full">
           <ExportActions
-            disabled={exporting !== 'idle'}
+            disabled={exporting !== 'idle' || lowContrast}
             actions={[
-              { label: 'PNG', ariaLabel: 'Baixar QR Code em formato PNG', onClick: downloadPng, variant: 'primary' },
-              { label: 'SVG', ariaLabel: 'Baixar QR Code em formato SVG', onClick: downloadSvg, variant: 'secondary' },
-              { label: 'PDF', ariaLabel: 'Baixar QR Code em formato PDF', onClick: downloadPdf, variant: 'secondary', loading: exporting === 'pdf', loadingLabel: 'Gerando…' },
+              { label: 'PNG', ariaLabel: lowContrast ? 'Baixar indisponível: contraste baixo' : 'Baixar QR Code em formato PNG', onClick: downloadPng, variant: 'primary' },
+              { label: 'SVG', ariaLabel: lowContrast ? 'Baixar indisponível: contraste baixo' : 'Baixar QR Code em formato SVG', onClick: downloadSvg, variant: 'secondary' },
+              { label: 'PDF', ariaLabel: lowContrast ? 'Baixar indisponível: contraste baixo' : 'Baixar QR Code em formato PDF', onClick: downloadPdf, variant: 'secondary', loading: exporting === 'pdf', loadingLabel: 'Gerando…' },
             ]}
           />
           <ShareBlock visible={showShare} toolSlug={SHARE.toolSlug} whatsappText={SHARE.whatsappText} shareUrl={SHARE.shareUrl} />

@@ -433,6 +433,7 @@ function renderToken(t: InlineToken): ReactNode {
       ) : (
         <a href={t.href} target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline hover:text-indigo-800">
           {t.text}
+          <span className="sr-only"> (abre em nova aba)</span>
         </a>
       )
   }

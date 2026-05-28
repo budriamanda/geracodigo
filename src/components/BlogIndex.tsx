@@ -105,7 +105,8 @@ function truncateResumo(text: string, maxChars = 120): string {
   if (!text || text.length <= maxChars) return text
   const truncated = text.slice(0, maxChars)
   const lastSpace = truncated.lastIndexOf(' ')
-  return (lastSpace > 90 ? truncated.slice(0, lastSpace) : truncated) + '…'
+  const cut = lastSpace > maxChars * 0.75 ? truncated.slice(0, lastSpace) : truncated
+  return cut + '…'
 }
 
 function isUpdated(pub: string, upd?: string): boolean {
