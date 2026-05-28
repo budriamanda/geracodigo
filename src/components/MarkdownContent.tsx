@@ -9,6 +9,7 @@ import { Fragment, type ReactNode } from 'react'
  * - Cabeçalhos: ## H2, ### H3
  * - Listas não-ordenadas (linhas iniciando com "- ") e ordenadas (linhas "1. ")
  * - Blockquote (> texto)
+ * - Blocos de código: ```lang ... ``` (code fence)
  * - Links internos e externos: [texto](url)
  * - Negrito: **texto**
  * - Itálico: *texto* ou _texto_
@@ -46,6 +47,7 @@ type Block =
   | { type: 'ol'; items: string[] }
   | { type: 'blockquote'; lines: string[] }
   | { type: 'table'; headers: string[]; rows: string[][] }
+  | { type: 'code'; lang: string; lines: string[] }
   | { type: 'hr' }
 
 function parseBlocks(input: string): Block[] {
@@ -63,6 +65,9 @@ function parseBlocks(input: string): Block[] {
   }
   let bqBuffer: string[] = []
   let tableBuffer: string[] = []
+  let codeBuffer: string[] = []
+  let codeLang = ''
+  let inCodeFence = false
 
   const flushTable = () => {
     if (tableBuffer.length < 2) { tableBuffer = []; return }
@@ -90,6 +95,31 @@ function parseBlocks(input: string): Block[] {
 
   for (const rawLine of lines) {
     const line = rawLine.trimEnd()
+
+    // Code fence: abre ou fecha bloco ```
+    if (line.trimStart().startsWith('```')) {
+      if (!inCodeFence) {
+        flushParagraph()
+        flushList()
+        flushBlockquote()
+        flushTable()
+        inCodeFence = true
+        codeLang = line.trimStart().slice(3).trim()
+        codeBuffer = []
+      } else {
+        blocks.push({ type: 'code', lang: codeLang, lines: codeBuffer })
+        codeBuffer = []
+        codeLang = ''
+        inCodeFence = false
+      }
+      continue
+    }
+
+    // Dentro de code fence: acumula literalmente sem parsing
+    if (inCodeFence) {
+      codeBuffer.push(rawLine)
+      continue
+    }
 
     // Linha em branco separa blocos
     if (line.trim() === '') {
@@ -178,6 +208,10 @@ function parseBlocks(input: string): Block[] {
   flushList()
   flushBlockquote()
   flushTable()
+  // Fecha code fence não terminada (edge case)
+  if (inCodeFence && codeBuffer.length > 0) {
+    blocks.push({ type: 'code', lang: codeLang, lines: codeBuffer })
+  }
   return blocks
 }
 
@@ -261,6 +295,19 @@ function renderBlock(block: Block, key: number): ReactNode {
               ))}
             </tbody>
           </table>
+        </div>
+      )
+    case 'code':
+      return (
+        <div key={key} className="my-6 rounded-lg overflow-hidden border border-gray-200">
+          {block.lang && (
+            <div className="bg-gray-800 px-4 py-1.5 text-xs text-gray-400 font-mono">
+              {block.lang}
+            </div>
+          )}
+          <pre className="bg-gray-900 text-gray-100 px-4 py-4 overflow-x-auto text-sm leading-relaxed">
+            <code>{block.lines.join('\n')}</code>
+          </pre>
         </div>
       )
     case 'hr':
