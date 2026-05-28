@@ -21,17 +21,12 @@ export default function ShareBlock({ toolSlug, whatsappText, shareUrl, visible }
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(shareUrl)
+      setCopied(true)
+      trackShare('copy_link', 'tool', toolSlug)
+      setTimeout(() => setCopied(false), 2000)
     } catch {
-      const el = document.createElement('textarea')
-      el.value = shareUrl
-      document.body.appendChild(el)
-      el.select()
-      document.execCommand('copy')
-      document.body.removeChild(el)
+      /* clipboard API não disponível — ignora silenciosamente */
     }
-    setCopied(true)
-    trackShare('copy_link', 'tool', toolSlug)
-    setTimeout(() => setCopied(false), 2000)
   }
 
   if (!visible) return <div className="min-h-0" aria-hidden="true" />

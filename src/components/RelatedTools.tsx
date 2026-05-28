@@ -12,6 +12,7 @@ const DEFAULT_TOOLS: ToolEntry[] = [
   { href: '/gerador-de-ean', label: 'EAN-13 / EAN-8', desc: 'Códigos EAN para produtos e varejo' },
   { href: '/gerador-de-qr-code', label: 'QR Code', desc: 'QR Code para links, textos e conteúdos' },
   { href: '/leitor-de-codigo-de-barras', label: 'Leitor de Código de Barras', desc: 'Leia códigos pela câmera, sem app' },
+  { href: '/leitor-de-qr-code', label: 'Leitor de QR Code', desc: 'Escaneie QR Codes pela câmera, sem app' },
   { href: '/gerador-de-sku', label: 'Gerador de SKU', desc: 'Crie SKUs padronizados para estoque' },
 ]
 

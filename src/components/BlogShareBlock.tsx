@@ -28,12 +28,7 @@ export default function BlogShareBlock({ slug, h1, resumo }: BlogShareBlockProps
     try {
       await navigator.clipboard.writeText(copyUrl)
     } catch {
-      const el = document.createElement('textarea')
-      el.value = copyUrl
-      document.body.appendChild(el)
-      el.select()
-      document.execCommand('copy')
-      document.body.removeChild(el)
+      return /* clipboard API não disponível — ignora silenciosamente */
     }
     setCopied(true)
     trackShare('copy_link', 'blog', slug)
