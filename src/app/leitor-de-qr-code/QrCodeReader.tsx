@@ -199,6 +199,8 @@ function ResultCard({ result, index, copied, wifiRevealed, onCopy, onToggleWifi 
                 <button
                   type="button"
                   onClick={onToggleWifi}
+                  aria-pressed={wifiRevealed}
+                  aria-label={wifiRevealed ? 'Ocultar senha Wi-Fi' : 'Revelar senha Wi-Fi'}
                   className="text-xs text-gray-400 hover:text-gray-600 px-2 py-1 rounded shrink-0 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 >
                   {wifiRevealed ? 'Ocultar' : 'Revelar'}

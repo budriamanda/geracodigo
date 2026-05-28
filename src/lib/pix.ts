@@ -48,6 +48,32 @@ export interface PixFormFields {
 
 export type PixFieldErrors = Partial<Record<'key' | 'name' | 'city', string>>
 
+function isValidCpf(digits: string): boolean {
+  if (/^(\d)\1{10}$/.test(digits)) return false
+  let sum = 0
+  for (let i = 0; i < 9; i++) sum += parseInt(digits[i]) * (10 - i)
+  let r = (sum * 10) % 11
+  if (r === 10 || r === 11) r = 0
+  if (r !== parseInt(digits[9])) return false
+  sum = 0
+  for (let i = 0; i < 10; i++) sum += parseInt(digits[i]) * (11 - i)
+  r = (sum * 10) % 11
+  if (r === 10 || r === 11) r = 0
+  return r === parseInt(digits[10])
+}
+
+function isValidCnpj(digits: string): boolean {
+  if (/^(\d)\1{13}$/.test(digits)) return false
+  const weights1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+  const weights2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+  const calc = (w: number[]) => {
+    const sum = w.reduce((acc, wt, i) => acc + parseInt(digits[i]) * wt, 0)
+    const r = sum % 11
+    return r < 2 ? 0 : 11 - r
+  }
+  return calc(weights1) === parseInt(digits[12]) && calc(weights2) === parseInt(digits[13])
+}
+
 export function validatePixForm(fields: PixFormFields): PixFieldErrors {
   const errors: PixFieldErrors = {}
   const { keyType, key, name, city } = fields
@@ -57,14 +83,22 @@ export function validatePixForm(fields: PixFormFields): PixFieldErrors {
     errors.key = 'Informe a chave Pix'
   } else {
     const digits = trimmedKey.replace(/\D/g, '')
-    if (keyType === 'CPF' && digits.length !== 11) {
-      errors.key = 'CPF deve ter 11 dígitos'
-    } else if (keyType === 'CNPJ' && digits.length !== 14) {
-      errors.key = 'CNPJ deve ter 14 dígitos'
+    if (keyType === 'CPF') {
+      if (digits.length !== 11) errors.key = 'CPF deve ter 11 dígitos'
+      else if (!isValidCpf(digits)) errors.key = 'CPF inválido'
+    } else if (keyType === 'CNPJ') {
+      if (digits.length !== 14) errors.key = 'CNPJ deve ter 14 dígitos'
+      else if (!isValidCnpj(digits)) errors.key = 'CNPJ inválido'
     } else if (keyType === 'EMAIL' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedKey)) {
       errors.key = 'Informe um e-mail válido'
-    } else if (keyType === 'TELEFONE' && !/^\+\d{10,14}$/.test(trimmedKey)) {
-      errors.key = 'Telefone deve iniciar com + e código do país (ex: +5511999998888)'
+    } else if (keyType === 'TELEFONE') {
+      // Strip formatting (spaces, dashes, parens) but require the leading +
+      const normalized = trimmedKey.startsWith('+')
+        ? '+' + trimmedKey.slice(1).replace(/\D/g, '')
+        : trimmedKey
+      if (!/^\+\d{10,14}$/.test(normalized)) {
+        errors.key = 'Telefone deve iniciar com + e código do país (ex: +5511999998888)'
+      }
     } else if (keyType === 'ALEATORIA' && !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(trimmedKey)) {
       errors.key = 'Chave aleatória deve estar no formato UUID'
     }
@@ -116,6 +150,9 @@ export function buildPixPayload(fields: PixFormFields): BuildResult {
 function normalizePixKey(keyType: PixKeyType, key: string): string {
   if (keyType === 'CPF' || keyType === 'CNPJ') {
     return key.replace(/\D/g, '')
+  }
+  if (keyType === 'TELEFONE') {
+    return key.startsWith('+') ? '+' + key.slice(1).replace(/\D/g, '') : key
   }
   return key
 }

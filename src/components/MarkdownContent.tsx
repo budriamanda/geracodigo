@@ -30,11 +30,19 @@ interface MarkdownContentProps {
 export default function MarkdownContent({ content, className }: MarkdownContentProps) {
   if (!content) return null
   const blocks = parseBlocks(content.trim())
+  const slugCount = new Map<string, number>()
   return (
     <div className={className}>
-      {blocks.map((block, i) => (
-        <Fragment key={i}>{renderBlock(block, i)}</Fragment>
-      ))}
+      {blocks.map((block, i) => {
+        let headingId: string | undefined
+        if (block.type === 'h2' || block.type === 'h3') {
+          const base = slugify(block.text)
+          const count = slugCount.get(base) ?? 0
+          slugCount.set(base, count + 1)
+          headingId = count === 0 ? base : `${base}-${count + 1}`
+        }
+        return <Fragment key={i}>{renderBlock(block, i, headingId)}</Fragment>
+      })}
     </div>
   )
 }
@@ -224,17 +232,17 @@ function slugify(text: string): string {
     .replace(/^-+|-+$/g, '')
 }
 
-function renderBlock(block: Block, key: number): ReactNode {
+function renderBlock(block: Block, key: number, headingId?: string): ReactNode {
   switch (block.type) {
     case 'h2':
       return (
-        <h2 key={key} id={slugify(block.text)} className="text-2xl font-bold text-gray-900 mt-12 mb-4">
+        <h2 key={key} id={headingId ?? slugify(block.text)} className="text-2xl font-bold text-gray-900 mt-12 mb-4">
           {renderInline(block.text)}
         </h2>
       )
     case 'h3':
       return (
-        <h3 key={key} id={slugify(block.text)} className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+        <h3 key={key} id={headingId ?? slugify(block.text)} className="text-xl font-semibold text-gray-900 mt-8 mb-3">
           {renderInline(block.text)}
         </h3>
       )

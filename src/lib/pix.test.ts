@@ -40,8 +40,13 @@ describe('validatePixForm', () => {
   })
 
   it('accepts CPF with 11 digits stripped of formatting', () => {
-    const r = validatePixForm({ ...baseFields, keyType: 'CPF', key: '123.456.789-00' })
+    const r = validatePixForm({ ...baseFields, keyType: 'CPF', key: '529.982.247-25' })
     expect(r.key).toBeUndefined()
+  })
+
+  it('errors on CPF with invalid check digits', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'CPF', key: '123.456.789-00' })
+    expect(r.key).toMatch(/inválido/)
   })
 
   it('errors on CNPJ with wrong digit count', () => {
@@ -50,8 +55,13 @@ describe('validatePixForm', () => {
   })
 
   it('accepts CNPJ with 14 digits', () => {
-    const r = validatePixForm({ ...baseFields, keyType: 'CNPJ', key: '12.345.678/0001-90' })
+    const r = validatePixForm({ ...baseFields, keyType: 'CNPJ', key: '11.222.333/0001-81' })
     expect(r.key).toBeUndefined()
+  })
+
+  it('errors on CNPJ with invalid check digits', () => {
+    const r = validatePixForm({ ...baseFields, keyType: 'CNPJ', key: '12.345.678/0001-90' })
+    expect(r.key).toMatch(/inválido/)
   })
 
   it('errors on invalid EMAIL', () => {
