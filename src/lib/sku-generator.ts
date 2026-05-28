@@ -29,7 +29,8 @@ export function generateSku(config: SkuConfig): string {
     }
   }
   if (config.sequential > 0) {
-    parts.push(config.sequential.toString().padStart(4, '0'))
+    const seq = config.sequential.toString()
+    parts.push(seq.length < 4 ? seq.padStart(4, '0') : seq)
   }
 
   return parts.join(config.separator ?? '-')

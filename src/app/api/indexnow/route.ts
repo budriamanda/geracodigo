@@ -11,6 +11,7 @@ const ALL_URLS = [
   '/gerador-de-ean',
   '/gerador-de-qr-code',
   '/leitor-de-codigo-de-barras',
+  '/leitor-de-qr-code',
   '/gerador-de-sku',
   '/sobre',
   '/termos',
@@ -44,7 +45,7 @@ export async function POST(request: Request) {
     urlList: urls,
   }
 
-  const [indexNowRes, googlePingRes] = await Promise.all([
+  const [indexNowRes, googlePingRes] = await Promise.allSettled([
     fetch('https://api.indexnow.org/indexnow', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -54,8 +55,12 @@ export async function POST(request: Request) {
   ])
 
   return NextResponse.json({
-    indexNow: { status: indexNowRes.status, submitted: urls.length },
-    googlePing: { status: googlePingRes.status, sitemap: SITEMAP_URL },
+    indexNow: indexNowRes.status === 'fulfilled'
+      ? { status: indexNowRes.value.status, submitted: urls.length }
+      : { error: 'IndexNow request failed' },
+    googlePing: googlePingRes.status === 'fulfilled'
+      ? { status: googlePingRes.value.status, sitemap: SITEMAP_URL }
+      : { error: 'Google ping failed' },
     urls,
   })
 }

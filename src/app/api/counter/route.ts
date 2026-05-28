@@ -31,7 +31,9 @@ export async function POST(request: Request) {
     const redis = getRedis()
     if (!redis) return NextResponse.json({ count: 0 })
     const { amount = 1 } = await request.json().catch(() => ({}))
-    const count = await redis.incrby(COUNTER_KEY, Math.max(1, Number(amount)))
+    const parsed = parseInt(String(amount), 10)
+    const increment = Number.isFinite(parsed) && parsed > 0 ? parsed : 1
+    const count = await redis.incrby(COUNTER_KEY, increment)
     return NextResponse.json({ count })
   } catch (err) {
     console.error('[counter] POST error:', err)

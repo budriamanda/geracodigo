@@ -150,9 +150,9 @@ function PostCard({ post }: { post: BlogIndexEntry }) {
             )}
           </div>
 
-          <h2 className="text-base font-semibold text-gray-900 mb-2 leading-snug line-clamp-2">
+          <h3 className="text-base font-semibold text-gray-900 mb-2 leading-snug line-clamp-2">
             {post.h1 || post.title}
-          </h2>
+          </h3>
 
           {(post.resumo || post.subtitle) && (
             <p className="text-sm text-gray-500 mt-1 leading-relaxed">

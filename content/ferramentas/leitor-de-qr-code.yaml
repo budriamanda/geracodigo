@@ -12,7 +12,7 @@ badge: ""
 badgeColor: ""
 icon: "📷"
 cardDescription: "Escaneie QR Code pela câmera do celular ou computador. Sem instalar nenhum aplicativo. Funciona com links, Pix, Wi-Fi e qualquer QR Code."
-ordem: 6
+ordem: 7
 
 ogAccent: "#0ea5e9"
 keywordPrimaria: "leitor de qr code"

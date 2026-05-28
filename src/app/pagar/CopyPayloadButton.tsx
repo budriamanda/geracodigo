@@ -41,6 +41,7 @@ export default function CopyPayloadButton({ payload }: CopyPayloadButtonProps) {
       </div>
       <button
         onClick={handleCopy}
+        aria-live="polite"
         className={`w-full px-4 py-3 rounded-lg font-semibold text-sm transition-colors min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 ${
           copied
             ? 'bg-green-600 text-white'
