@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback, useEffect } from 'react'
-import { trackScan, trackCopy } from '@/lib/analytics'
+import { trackScan, trackCopy, trackToolAttempt } from '@/lib/analytics'
 import { showToast } from '@/components/Toast'
 import ConfirmDialog from '@/components/ConfirmDialog'
 import ShareBlock from '@/components/ShareBlock'
@@ -267,6 +267,7 @@ export default function QrCodeReader() {
   }, [stopCamera])
 
   const startCamera = useCallback(async () => {
+    trackToolAttempt('qr_reader')
     setError('')
     if (typeof BarcodeDetector === 'undefined') {
       const ua = navigator.userAgent
