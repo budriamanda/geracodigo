@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts: RelatedPost[] = post.categoria
     ? allPosts
-        .filter((p) => p.slug !== slug && p.entry.categoria === post.categoria)
+        .filter((p) => p.slug !== slug && p.slug !== '_template' && p.entry.categoria === post.categoria)
         .slice(0, 3)
         .map((p) => {
           const pIso = isoOrFallback(p.entry.dataPublicacao, LAST_UPDATED_ISO)

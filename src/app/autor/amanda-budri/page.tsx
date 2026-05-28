@@ -56,7 +56,7 @@ export default async function AutorAmandaBudriPage() {
   const allPosts = await reader.collections.posts.all()
 
   const posts = allPosts
-    .filter((p) => p.entry.autor === 'Amanda Budri')
+    .filter((p) => p.slug !== '_template' && p.entry.autor === 'Amanda Budri')
     .map((p) => ({
       slug: p.slug,
       title: p.entry.title,

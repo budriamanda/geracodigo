@@ -11,7 +11,7 @@ interface Props {
 
 export async function generateStaticParams() {
   const posts = await reader.collections.posts.all()
-  return posts.map((p) => ({ slug: p.slug }))
+  return posts.filter((p) => p.slug !== '_template').map((p) => ({ slug: p.slug }))
 }
 
 export default async function OGImage({ params }: Props) {
