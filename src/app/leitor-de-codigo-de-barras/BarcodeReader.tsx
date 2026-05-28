@@ -24,6 +24,7 @@ export default function BarcodeReader() {
   const [results, setResults] = useState<DecodedResult[]>([])
   const [error, setError] = useState('')
   const [copied, setCopied] = useState<string | null>(null)
+  const [browserWarning, setBrowserWarning] = useState<string | null>(null)
   const [manualInput, setManualInput] = useState('')
   const [showClearConfirm, setShowClearConfirm] = useState(false)
   const [showShare, setShowShare] = useState(false)
@@ -33,6 +34,21 @@ export default function BarcodeReader() {
   const detectorRef = useRef<BarcodeDetector | null>(null)
   const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (typeof BarcodeDetector === 'undefined') {
+      const ua = navigator.userAgent
+      const isSafari = /Safari/.test(ua) && !/Chrome/.test(ua)
+      const isFirefox = /Firefox/.test(ua)
+      const browserName = isSafari ? 'Safari' : isFirefox ? 'Firefox' : 'seu navegador'
+      setBrowserWarning(
+        `${browserName} não suporta a API de leitura automática (BarcodeDetector). ` +
+        'Use Chrome 83+, Edge 83+ ou Opera 69+ para escanear pela câmera ou foto. ' +
+        'O campo de entrada manual abaixo funciona em qualquer navegador.'
+      )
+    }
+  }, [])
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
@@ -231,6 +247,15 @@ export default function BarcodeReader() {
 
   return (
     <div className="space-y-6">
+      {browserWarning && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-3" role="alert">
+          <span className="text-amber-500 text-xl shrink-0" aria-hidden="true">⚠️</span>
+          <div>
+            <p className="text-sm font-medium text-amber-800 mb-1">Navegador incompatível com leitura automática</p>
+            <p className="text-sm text-amber-700">{browserWarning}</p>
+          </div>
+        </div>
+      )}
       <div className="bg-white rounded-xl border border-gray-200 p-6">
         {/* Camera area */}
         <div className="relative bg-gray-900 rounded-lg overflow-hidden mb-4 min-h-[300px]">
