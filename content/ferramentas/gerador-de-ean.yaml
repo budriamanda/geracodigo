@@ -199,6 +199,11 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/codigo-de-barras-mercado-livre"
+        label: "Código de barras para Mercado Livre: EAN-13, GTIN e como gerar"
+        descricao: "Quando o ML exige EAN, o que fazer sem GTIN registrado, como cadastrar no anúncio e como evitar os erros mais comuns de GTIN inválido."
+        badgeText: "Guia"
+        badgeColor: "text-yellow-700 bg-yellow-50"
       - href: "/blog/codigo-de-barras-para-produtos-guia-completo"
         label: "Código de barras para produtos: guia completo"
         descricao: "Qual formato usar, GTIN, quando registrar na GS1, o que Mercado Livre e Shopee exigem, e como imprimir etiquetas."

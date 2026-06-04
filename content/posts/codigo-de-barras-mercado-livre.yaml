@@ -7,7 +7,7 @@ resumo: "O Mercado Livre exige código de barras EAN-13 em várias categorias, m
 categoria: ean
 persona: lojista-ecommerce
 dataPublicacao: "2026-05-10"
-dataAtualizacao: "2026-05-10"
+dataAtualizacao: "2026-06-04"
 autor: Amanda Budri
 tempoLeitura: 11
 tags:
@@ -34,6 +34,9 @@ twitterDescription: "Quando é obrigatório, como gerar grátis e o que fazer qu
 faqsSlugs:
   - geracode-e-gratuito
   - funciona-no-celular
+  - ean-mercado-livre
+  - ean-calcular-digito
+  - ean-funciona-leitores
 bodyMarkdown: |
   Código de barras para Mercado Livre é uma das dúvidas mais frequentes de quem começa a vender na plataforma. O ML exige código de barras em várias categorias — mas a lógica de quando é obrigatório, qual formato usar e o que acontece sem ele confunde muita gente. Este guia responde tudo com exemplos práticos.
 
