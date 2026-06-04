@@ -1,6 +1,6 @@
 # GeraCode — Documentação Completa
 
-> Ferramentas gratuitas de geração de código de barras, QR Code, leitura de códigos e SKU para lojistas brasileiros. 100% client-side — nenhum dado é enviado para servidores.
+> Ferramentas gratuitas de geração e leitura de código de barras, QR Code, QR Code Pix, EAN e SKU para lojistas brasileiros. 100% client-side — nenhum dado é enviado para servidores.
 
 ---
 
@@ -149,6 +149,30 @@ Exemplo: `NK-CAL-VRM-M-001` (Nike, Calçado, Vermelho, M, item 001)
 - Controle de estoque em lojas físicas
 - Organização de catálogos de produtos
 - Padronização de nomenclatura entre canais de venda
+
+---
+
+## 7. Leitor de QR Code
+
+**URL:** https://www.geracodigo.com.br/leitor-de-qr-code
+
+Leitor online de QR Codes que funciona diretamente no navegador usando a câmera do celular ou computador. Não é necessário instalar nenhum aplicativo.
+
+### Funcionalidades
+- Leitura via câmera do dispositivo (celular ou webcam)
+- Suporte a todos os tipos de QR Code: links, texto, Pix, Wi-Fi, contatos, e-mail
+- Detecção automática e exibição imediata do conteúdo
+- 100% client-side — nenhum dado é enviado para servidores
+- Sem instalação de aplicativos
+- Funciona em celular Android, iPhone e computadores com webcam
+
+### Como usar
+1. Acesse o leitor no navegador do celular ou computador
+2. Clique em "Iniciar Câmera" e permita o acesso quando solicitado
+3. Aponte a câmera para o QR Code — a leitura é automática e instantânea
+
+### Diferença em relação ao Leitor de Código de Barras
+O Leitor de QR Code é otimizado exclusivamente para QR Codes. Para ler códigos de barras lineares (EAN-13, Code 128, etc.), use o [Leitor de Código de Barras](https://www.geracodigo.com.br/leitor-de-codigo-de-barras).
 
 ---
 
