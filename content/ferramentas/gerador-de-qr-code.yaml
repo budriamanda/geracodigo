@@ -1,11 +1,11 @@
 slug: gerador-de-qr-code
-title: "Gerador de QR Code Grátis Online"
-metaDescription: "Gere QR Code grátis para links, Wi-Fi, WhatsApp, vCard e texto. Download PNG e SVG em alta resolução. Sem cadastro, 100% privado, gerado no navegador."
+title: "Gerador de QR Code Grátis: Crie Online em Segundos"
+metaDescription: "Gerador de QR Code grátis e gratuito online. Crie QR Code para links, WhatsApp, Wi-Fi, Instagram e texto em segundos. Download PNG e SVG. Sem cadastro."
 ogTitle: "Gerador de QR Code Grátis Online | GeraCode"
-ogDescription: "Gere QR Code para links, textos e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro."
-twitterTitle: "Gerador de QR Code Grátis | GeraCode"
-twitterDescription: "Links, textos e qualquer conteúdo. Color picker incluso. Download PNG e SVG. Sem cadastro."
-h1: "Gerador de QR Code Grátis: Link, Wi-Fi, WhatsApp, vCard, PNG e SVG"
+ogDescription: "Gere QR Code gratuito para links, WhatsApp, Wi-Fi, Instagram e qualquer conteúdo. Color picker, download PNG e SVG. Sem cadastro, 100% no navegador."
+twitterTitle: "Gerador de QR Code Grátis Online | GeraCode"
+twitterDescription: "QR Code gratuito para links, WhatsApp, Wi-Fi e Instagram. Color picker incluso. Download PNG e SVG. Sem cadastro."
+h1: "Gerador de QR Code Grátis: Link, WhatsApp, Wi-Fi e Instagram"
 subtitle: "Gere QR Code para links, textos e qualquer conteúdo. Gratuito, sem cadastro."
 privacyBadgeText: "Gerado direto no seu navegador. Seus dados nunca saem do seu computador"
 badge: ""
@@ -15,12 +15,17 @@ cardDescription: "Gere QR Code para links, textos e qualquer conteúdo. Color pi
 ordem: 4
 
 ogAccent: "#4f46e5"
-keywordPrimaria: "gerador qr code"
+keywordPrimaria: "gerador de qr code gratis"
 keywordsSecundarias:
-  - "qr code grátis"
+  - "gerador qr code"
+  - "gerador de qr code gratuito"
   - "gerar qr code online"
+  - "qr code grátis"
+  - "qr code whatsapp"
+  - "qr code wifi"
+  - "qr code instagram"
   - "qr code personalizado"
-  - "qr code com cor"
+  - "criar qr code grátis"
 dataAtualizacao: "2026-05-02"
 canonicalOverride: ""
 robotsNoindex: false
@@ -88,30 +93,30 @@ secoesConteudo:
     tags: []
     links: []
   - tipo: cards
-    titulo: "Tipos de Conteúdo para QR Code"
+    titulo: "Tipos de QR Code: URL, WhatsApp, Wi-Fi, Instagram e Mais"
     subtitulo: ""
     conteudo: ""
     stepColor: "indigo"
     bgCard: false
     columns: "2"
     items:
-      - titulo: "URLs e links"
+      - titulo: "QR Code para Link e URL"
         descricao: "Direcione para sites, landing pages, formulários de contato, páginas de produto, cardápios digitais ou qualquer endereço na web."
         icone: ""
-      - titulo: "WhatsApp"
+      - titulo: "QR Code para WhatsApp"
         descricao: "Use o formato wa.me/5511999999999 para que clientes iniciem uma conversa com você no WhatsApp com um simples escaneamento."
         icone: ""
-      - titulo: "Wi-Fi"
+      - titulo: "QR Code para Wi-Fi"
         descricao: "Compartilhe a senha do Wi-Fi do seu estabelecimento. Use o formato: WIFI:T:WPA;S:NomeDaRede;P:SenhaAqui;; para conexão automática."
         icone: ""
-      - titulo: "Texto livre"
+      - titulo: "QR Code para Instagram e Redes Sociais"
+        descricao: "Crie QR Code com o link do seu perfil no Instagram, TikTok, LinkedIn ou qualquer rede social. Ideal para link na bio, embalagens e materiais impressos."
+        icone: ""
+      - titulo: "QR Code para Texto Livre"
         descricao: "Codifique qualquer texto, mensagem, instrução ou informação que caiba em um QR Code (até ~4.296 caracteres alfanuméricos)."
         icone: ""
-      - titulo: "E-mail"
+      - titulo: "QR Code para E-mail"
         descricao: "Use o formato mailto:email@exemplo.com para que o escaneamento abra o app de e-mail com o destinatário já preenchido."
-        icone: ""
-      - titulo: "Localização"
-        descricao: "Compartilhe coordenadas geográficas usando o formato geo:latitude,longitude para abrir diretamente no app de mapas."
         icone: ""
     tags: []
     links: []
@@ -129,16 +134,6 @@ secoesConteudo:
     titulo: "QR Code Estático vs Dinâmico: qual usar?"
     subtitulo: ""
     conteudo: "Essa é a dúvida mais comum; e a resposta determina o custo, a flexibilidade e o que você pode rastrear.\n\n**QR Code estático** (o que o GeraCode gera):\n- O conteúdo é gravado diretamente no código no momento da geração\n- Não pode ser alterado depois; se você imprimir 1.000 flyers e o link mudar, precisa reimprimir tudo\n- Não tem analytics nativo; você não sabe quantas pessoas escanearam\n- **Gratuito, para sempre**, funciona sem conta, sem servidor\n- Ideal para: cartões de visita, embalagens, placas com Wi-Fi, pagamento Pix, materiais duráveis com URL permanente\n\n**QR Code dinâmico**:\n- Aponta para um link curto intermediário que você pode redirecionar sem reimprimir o código\n- Permite analytics: quantos scans, quando, de qual cidade e dispositivo\n- Requer conta em um serviço pago (a partir de ~R$ 30/mês)\n- Ideal para: campanhas de marketing com prazo, materiais com trocas frequentes de destino, gestão de múltiplos QR Codes\n\n**Regra prática:** se você vai imprimir em material descartável (flyers, cartazes de promoção), use dinâmico. Se vai imprimir em material permanente (embalagem de produto, placa de negócio, cartão de visita), use estático; e garanta que a URL seja duradoura."
-    stepColor: "indigo"
-    bgCard: true
-    columns: "3"
-    items: []
-    tags: []
-    links: []
-  - tipo: prose
-    titulo: "Como adicionar logo no QR Code sem quebrar a leitura"
-    subtitulo: ""
-    conteudo: "QR Codes com logo no centro são visualmente mais atrativos e reforçam a marca; mas existem regras técnicas para não quebrar a leitura.\n\n**Como funciona:** o padrão QR Code tem quatro níveis de correção de erro (L, M, Q, H). O nível H tolera até **30% de dados corrompidos ou obstruídos**. Um logo no centro usa justamente essa tolerância.\n\n**Passos para QR Code com logo:**\n1. Gere o QR Code no GeraCode em tamanho grande (mínimo 512 × 512 px) e exporte em **SVG ou PNG**\n2. Use nível de correção de erro **H** (se o gerador oferece essa opção)\n3. No Canva, Figma, Adobe Illustrator ou qualquer editor, sobreponha o logo no centro do QR\n4. O logo deve cobrir no **máximo 25%** da área total do QR Code (para nível H)\n5. Mantenha o fundo do logo sólido; logo com fundo transparente expõe os módulos e pode confundir o leitor\n6. **Teste obrigatório:** escaneie com pelo menos 3 apps (câmera nativa do iPhone, câmera nativa do Android e o app do banco, se for um Pix) antes de aprovar a arte final\n\n**Tamanhos de logo seguros:** logo ocupando 15-20% da área raramente falha. Logos acima de 25% têm taxa de falha crescente, especialmente em impressões pequenas."
     stepColor: "indigo"
     bgCard: true
     columns: "3"
@@ -243,8 +238,8 @@ faqFallbacks:
     resposta: "O QR Code estático gerado aqui não tem prazo de validade; ele funciona indefinidamente enquanto a informação codificada (URL, texto, etc.) continuar válida. Se você codificou uma URL que depois mudou ou foi removida, o QR Code abre mas o link fica quebrado. Para QR Codes que você precisa alterar o destino sem reimprimir, use um serviço de QR Code dinâmico (geralmente pago)."
   - pergunta: "Qual a diferença entre QR Code estático e dinâmico?"
     resposta: "QR Code estático (gerado aqui): o conteúdo é gravado diretamente no código, não pode ser alterado depois, é gratuito e funciona para sempre sem conta. QR Code dinâmico: aponta para um link intermediário que você pode redirecionar; permite analytics (quantos scans, quando, de onde) e mudança de destino sem reimprimir. O dinâmico exige conta em serviço pago (a partir de ~R$ 30/mês)."
-  - pergunta: "Posso colocar minha logo no meio do QR Code?"
-    resposta: "Sim, com moderação. O QR Code tem correção de erro (nível H) que tolera até 30% de dados obstruídos. Gere o QR Code aqui em PNG ou SVG, abra no Canva ou Figma e sobreponha o logo ocupando no máximo 20-25% da área central. O fundo do logo deve ser sólido (não transparente). Teste obrigatório: escaneie com iPhone e Android antes de aprovar a arte final."
+  - pergunta: "Como criar QR Code para Instagram?"
+    resposta: "Copie o link do seu perfil do Instagram (ex: https://instagram.com/seuperfil), cole no campo de conteúdo do gerador e clique em gerar. O QR Code vai direcionar quem escanear direto para o seu perfil. Ideal para colocar em embalagens, cartões de visita, cardápios e qualquer material impresso como link na bio físico."
   - pergunta: "Como criar QR Code para Wi-Fi?"
     resposta: "Digite o texto com o formato padrão: WIFI:T:WPA;S:NomeDaRede;P:SenhaAqui;;, substituindo NomeDaRede e SenhaAqui pelos dados reais. Use T:WEP para redes mais antigas ou T:nopass para redes abertas. Ao escanear, o celular oferece conectar automaticamente sem o cliente precisar digitar a senha."
   - pergunta: "Qual tamanho mínimo para imprimir um QR Code?"
