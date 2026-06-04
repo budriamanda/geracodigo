@@ -235,6 +235,11 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/gerador-de-codigo-gratis-qual-usar"
+        label: "Gerador de código grátis: qual usar para cada caso?"
+        descricao: "Código de barras, QR Code ou QR Pix? Tabela de decisão direta para lojistas escolherem a ferramenta certa."
+        badgeText: "Guia"
+        badgeColor: "text-indigo-600 bg-indigo-50"
       - href: "/blog/codigo-de-barras-para-produtos-guia-completo"
         label: "Código de barras para produtos: guia completo"
         descricao: "Qual formato usar, quando registrar na GS1, como imprimir etiquetas e o que os marketplaces exigem."
