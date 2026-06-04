@@ -217,6 +217,11 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/qr-code-instagram-link-na-bio"
+        label: "QR Code para Instagram: como criar e usar como link na bio"
+        descricao: "Como transformar material impresso em seguidores: embalagens, cartões de visita, cardápios e vitrines como entrada para o seu perfil."
+        badgeText: "Guia"
+        badgeColor: "text-pink-600 bg-pink-50"
       - href: "/blog/como-gerar-qr-code-gratis-passo-a-passo"
         label: "Como gerar QR Code grátis: passo a passo"
         descricao: "Estático vs dinâmico, formatos PNG e SVG, tamanho certo para cada uso e dicas para QR Codes que sempre funcionam."
@@ -227,11 +232,6 @@ secoesConteudo:
         descricao: "O que o QR Code armazena, como é lido, tipos, níveis de correção de erro e como se proteger de QRishing."
         badgeText: "Guia"
         badgeColor: "text-indigo-600 bg-indigo-50"
-      - href: "/gerador-de-qr-code-pix"
-        label: "Gerador de QR Code Pix grátis"
-        descricao: "QR Code para receber pagamentos via Pix. Payload BR Code EMV válido, compatível com todos os bancos brasileiros."
-        badgeText: "Ferramenta"
-        badgeColor: "text-blue-600 bg-blue-50"
 
 faqFallbacks:
   - pergunta: "O QR Code gerado tem prazo de validade?"

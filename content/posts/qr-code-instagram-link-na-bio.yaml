@@ -7,7 +7,7 @@ resumo: "Criar um QR Code para o Instagram é a forma mais rápida de converter 
 categoria: qr-code
 persona: lojista-ecommerce
 dataPublicacao: "2026-05-10"
-dataAtualizacao: "2026-05-10"
+dataAtualizacao: "2026-06-04"
 autor: Amanda Budri
 tempoLeitura: 10
 tags:
@@ -137,15 +137,14 @@ bodyMarkdown: |
   Você pode colocar a logo do Instagram (ou da sua marca) no centro do QR Code. Os QR Codes têm redundância embutida: até 30% do código pode estar coberto e ele ainda é lido corretamente.
 
   No [gerador de QR Code do GeraCode](/gerador-de-qr-code), você pode personalizar:
-  - Cor das barras (combine com a identidade visual)
-  - Cor do fundo
-  - Logo ou ícone no centro (upload de imagem)
-  - Estilo dos módulos (quadrado ou arredondado)
+  - **Cor das barras** (combine com a identidade visual da marca)
+  - **Cor do fundo** (branco padrão, mas pode mudar para qualquer cor clara)
+
+  Para colocar logo no centro, gere o QR Code aqui em SVG ou PNG, depois abra no Canva ou Figma e sobreponha a imagem manualmente. O logo pode cobrir até 25% da área central sem quebrar a leitura (o QR Code tem redundância embutida para isso).
 
   **Cuidados com QR Code personalizado:**
   - Sempre teste com 3 câmeras diferentes após customizar
   - Não use cores muito claras para as barras (contraste baixo = falha de leitura)
-  - A logo no centro não deve ultrapassar 25% da área do QR Code
   - Fundo branco ou muito claro funciona melhor — evite fundos escuros
 
   ## Como medir quantas pessoas escanearam o QR Code
