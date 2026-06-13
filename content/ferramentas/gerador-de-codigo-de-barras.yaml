@@ -1,5 +1,5 @@
 slug: gerador-de-codigo-de-barras
-title: "Gerador de Código de Barras Grátis | 12 Formatos"
+title: "Gerador de Código de Barras Online Grátis | 12 Formatos"
 metaDescription: "Gere códigos de barras grátis em 12 formatos: EAN-13, Code 128, ITF-14, UPC-A e mais. Geração em lote, PNG/SVG/PDF e etiquetas. Sem cadastro, 100% privado."
 ogTitle: "Gerador de Código de Barras Grátis | 12+ Formatos | GeraCode"
 ogDescription: "Gerador grátis com EAN-13, Code 128, Code 93, UPC-A, ITF-14, Codabar e mais. Lote, PDF, etiquetas. Sem cadastro."
@@ -19,10 +19,14 @@ keywordPrimaria: "gerador codigo de barras"
 keywordsSecundarias:
   - "gerador de código de barras grátis"
   - "gerar codigo de barras online"
+  - "criar codigo de barras online"
+  - "como gerar codigo de barras"
+  - "gerador de codigo de barras online"
+  - "codigo de barras gratis"
   - "codigo de barras ean-13"
   - "code 128 gerador"
   - "codigo de barras para produtos"
-dataAtualizacao: "2026-05-02"
+dataAtualizacao: "2026-06-13"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "barcode"
@@ -51,11 +55,21 @@ schemaFeatureList:
   - "100% client-side"
 schemaAboutName: "Código de barras"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-05-02"
+schemaDateModified: "2026-06-13"
 
 secoesConteudo:
+  - tipo: prose
+    titulo: "Gerador de código de barras online e grátis"
+    subtitulo: ""
+    conteudo: "Este **gerador de código de barras** cria códigos em 12 formatos direto no navegador, **grátis e sem cadastro**. Digite o valor ou cole uma lista do Excel para **gerar código de barras** em lote (EAN-13, Code 128, ITF-14, UPC-A e mais) e baixe em PNG, SVG ou PDF, pronto para imprimir etiquetas.\n\nTudo é processado no seu computador (100% client-side): nenhum número enviado sai do seu dispositivo. O dígito verificador do EAN-13 e EAN-8 é calculado automaticamente, e você ainda personaliza altura, largura, cores e fonte do código."
+    stepColor: "indigo"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
   - tipo: cards
-    titulo: "Funcionalidades exclusivas do GeraCode"
+    titulo: "Funcionalidades do gerador de código de barras"
     subtitulo: ""
     conteudo: ""
     stepColor: "indigo"
@@ -267,6 +281,10 @@ secoesConteudo:
         badgeColor: "text-indigo-600 bg-indigo-50"
 
 faqFallbacks:
+  - pergunta: "Como gerar um código de barras grátis online?"
+    resposta: "Escolha o formato (EAN-13, Code 128, etc.), digite o valor ou cole uma lista do Excel e clique para gerar. O código aparece na hora e pode ser baixado em PNG, SVG ou PDF. É grátis, sem cadastro e sem marca d'água, e tudo é gerado direto no seu navegador."
+  - pergunta: "Preciso registrar na GS1 para gerar um código de barras?"
+    resposta: "Não para gerar. O GeraCode cria o código de barras na hora, sem registro. O registro na GS1 Brasil só é obrigatório quando você vai vender em grandes redes varejistas e marketplaces que exigem EAN/GTIN oficial. Para controle interno de estoque, e-commerce próprio, ativos ou testes, o código gerado aqui já atende."
   - pergunta: "Qual formato de código de barras usar para produtos vendidos em supermercados?"
     resposta: "EAN-13. É o padrão universal para produtos de consumo no varejo brasileiro e aceito em todos os caixas (PDV) e marketplaces. Para embalagens pequenas, use EAN-8. Para caixas de transporte e logística, use ITF-14."
   - pergunta: "O gerador funciona para geração em lote?"
