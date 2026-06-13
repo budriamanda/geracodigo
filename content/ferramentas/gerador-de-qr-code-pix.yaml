@@ -18,14 +18,19 @@ ogAccent: "#16a34a"
 keywordPrimaria: "gerador pix"
 keywordsSecundarias:
   - "gerador de pix"
+  - "gerador de pix gratuito"
+  - "gerador de qr code pix gratuito"
+  - "gerador pix copia e cola"
+  - "gerador chave pix"
   - "gerador pix qr code"
   - "gerador qr pix"
   - "gerador qr code pix"
   - "qr code pix grátis"
   - "gerar qr code pix online"
   - "qr code pix cpf cnpj"
+  - "qr code pix com descrição"
   - "payload br code emv"
-dataAtualizacao: "2026-05-02"
+dataAtualizacao: "2026-06-13"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "pix"
@@ -41,9 +46,19 @@ schemaFeatureList:
   - "100% client-side"
 schemaAboutName: "Pix (Sistema de Pagamentos Instantâneos do Banco Central)"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-05-02"
+schemaDateModified: "2026-06-13"
 
 secoesConteudo:
+  - tipo: prose
+    titulo: "Gerador de Pix gratuito: QR Code e copia e cola"
+    subtitulo: ""
+    conteudo: "Este **gerador de Pix** cria seu **QR Code Pix gratuito** em segundos, sem cadastro e direto no navegador. Informe a chave (CPF, CNPJ, e-mail, telefone ou aleatória), o nome do recebedor e a cidade, e baixe o QR Code em PNG ou SVG, ou copie o código **Pix copia e cola** (o próprio payload BR Code EMV) para colar onde quiser.\n\nO código gerado segue o padrão oficial do Banco Central, com dígito verificador CRC16 calculado automaticamente, e funciona em todos os bancos: Nubank, Itaú, Caixa, Banco do Brasil, Inter, Mercado Pago e demais. Opcionalmente você define valor fixo e descrição da cobrança. Nada é enviado a servidores externos."
+    stepColor: "green"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
   - tipo: steps
     titulo: "Como gerar QR Code Pix"
     subtitulo: ""
@@ -232,6 +247,10 @@ secoesConteudo:
     links: []
 
 faqFallbacks:
+  - pergunta: "Este gerador de Pix é gratuito?"
+    resposta: "Sim, 100% gratuito e sem cadastro. Você gera quantos QR Codes Pix quiser, baixa em PNG ou SVG e copia o código Pix copia e cola sem pagar nada e sem marca d'água. A ferramenta roda inteira no seu navegador."
+  - pergunta: "Dá para gerar o Pix copia e cola, não só o QR Code?"
+    resposta: "Sim. Além do QR Code, a ferramenta mostra o código Pix copia e cola (o payload BR Code EMV completo) com um botão para copiar. É o mesmo código que aparece nos apps dos bancos: basta colar onde o cliente vai pagar."
   - pergunta: "O QR Code Pix gerado aqui é válido?"
     resposta: "Sim. O payload segue o padrão BR Code EMV definido pelo Banco Central do Brasil. O QR Code é testado com o algoritmo CRC16 e funciona em todos os bancos participantes do Pix."
   - pergunta: "Meus dados ficam salvos em algum servidor?"
