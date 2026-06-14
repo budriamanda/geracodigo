@@ -2,12 +2,12 @@ slug: gerador-pix-gratis-como-criar-qr-code-pix
 title: "Gerador Pix Grátis: crie QR Code + Copia e Cola em 2 minutos"
 metaDescription: "Gerador pix grátis: crie QR Code PIX e código Copia e Cola em menos de 2 minutos, sem cadastro. Funciona para imprimir no balcão, WhatsApp e loja virtual."
 h1: "Gerador pix grátis: QR Code + Copia e Cola sem cadastro"
-subtitle: "Configure a chave, o valor e baixe o QR Code ou copie o código PIX — tudo no navegador, sem criar conta."
+subtitle: "Configure a chave, o valor e baixe o QR Code ou copie o código PIX, tudo no navegador, sem criar conta."
 resumo: "Quer receber pagamentos via PIX com QR Code, mas não sabe como gerar? Este guia mostra como criar QR Code PIX gratuito em menos de 2 minutos, para usar no balcão, no cardápio, no site ou no WhatsApp; incluindo o código Copia e Cola."
 categoria: pix
 persona: mei
 dataPublicacao: "2026-04-17"
-dataAtualizacao: "2026-05-13"
+dataAtualizacao: "2026-06-14"
 autor: Amanda Budri
 tempoLeitura: 10
 tags:
@@ -26,6 +26,8 @@ keywordsSecundarias:
   - "como criar qr code pix"
   - "codigo pix copia e cola"
   - "gerador pix qr code"
+  - "como receber pix sem maquininha"
+  - "receber pix sem maquininha"
 ogTitle: "Gerador Pix Grátis: QR Code + Copia e Cola sem cadastro"
 ogDescription: "Gerador pix grátis: QR Code e Copia e Cola prontos em 2 minutos. Funciona em qualquer banco. Sem cadastro."
 ogAccent: "#10b981"
@@ -34,9 +36,24 @@ twitterDescription: "Configure a chave, o valor e baixe o QR Code ou copie o có
 bodyMarkdown: |
   O PIX (sistema de pagamento instantâneo do Banco Central) virou o método de pagamento mais usado no Brasil, com [mais de 60 bilhões de transações em 2024](https://www.bcb.gov.br/estabilidadefinanceira/pix), segundo dados do próprio Banco Central. A forma mais prática de receber em loja, restaurante ou pelo WhatsApp é com um QR Code fixo: o cliente escaneia, confirma o valor no banco e o dinheiro cai na hora. Este guia mostra como usar um gerador pix grátis para criar o seu em menos de 2 minutos, sem cadastro.
 
-  **O que é um gerador pix?** É uma ferramenta que transforma sua chave PIX (CPF, CNPJ, e-mail, celular ou chave aleatória) em um QR Code e em um código Copia e Cola — os dois formatos aceitos por qualquer banco brasileiro. Você informa a chave, o nome e a cidade, clica em gerar, e baixa o QR Code pronto para imprimir no balcão ou enviar pelo WhatsApp. Não exige conta bancária nova nem cadastro em plataforma de pagamentos.
+  **O que é um gerador pix?** É uma ferramenta que transforma sua chave PIX (CPF, CNPJ, e-mail, celular ou chave aleatória) em um QR Code e em um código Copia e Cola, os dois formatos aceitos por qualquer banco brasileiro. Você informa a chave, o nome e a cidade, clica em gerar, e baixa o QR Code pronto para imprimir no balcão ou enviar pelo WhatsApp. Não exige conta bancária nova nem cadastro em plataforma de pagamentos.
 
   Use o [gerador pix do GeraCode](/gerador-de-qr-code-pix) direto no navegador. Sem instalar nada, sem criar conta.
+
+  ## Como receber PIX sem maquininha
+
+  A maquininha cobra taxa por transação: entre 1% e 3% no débito e crédito, dependendo do operador e do plano. No PIX, a taxa para o recebedor é zero. Você não paga nada para receber, independentemente do valor e da frequência.
+
+  Para aceitar PIX sem maquininha, você precisa de apenas três coisas: uma chave PIX cadastrada no seu banco, o nome do recebedor e a cidade. O QR Code é gerado uma vez e serve para sempre no balcão.
+
+  O processo completo:
+
+  1. Gere o QR Code PIX gratuitamente com o [gerador de QR Code PIX do GeraCode](/gerador-de-qr-code-pix).
+  2. Imprima em A5 e plastifique, custa menos de R$ 5 na papelaria.
+  3. Cole no balcão, no cardápio ou em qualquer ponto de pagamento.
+  4. O cliente aponta a câmera do banco, confirma o valor e o dinheiro cai na hora.
+
+  Sem aluguel de maquininha, sem mensalidade, sem taxa por transação. Para MEI, lojistas físicos, feirantes e restaurantes, o QR Code PIX estático substitui a maquininha na grande maioria dos pagamentos presenciais.
 
   ## QR Code PIX vs. código Copia e Cola: qual a diferença?
 
