@@ -1,0 +1,167 @@
+slug: qr-code-dinamico-o-que-e-quando-usar
+title: "QR Code Dinâmico: O Que É e Quando Usar — GeraCode"
+metaDescription: "QR Code dinâmico permite trocar o destino sem reimprimir. Saiba quando vale a pena e quando o estático gratuito resolve para o seu negócio."
+h1: "QR Code Dinâmico: O Que É e Quando Vale a Pena Para o Seu Negócio"
+subtitle: "Entenda a diferença entre estático e dinâmico, quando cada um faz sentido e por que a maioria dos lojistas não precisa pagar nada."
+resumo: "QR Code dinâmico permite editar o destino depois de impresso, sem criar um novo código. Mas para pagamento PIX, cardápio e WhatsApp, o estático gratuito resolve. Veja quando vale pagar por dinâmico, e quando não vale."
+categoria: qr-code
+persona: geral
+dataPublicacao: "2026-06-14"
+dataAtualizacao: "2026-06-14"
+autor: Amanda Budri
+tempoLeitura: 8
+tags:
+  - qr-code
+  - qr-code-dinamico
+  - qr-code-estatico
+  - pix
+  - lojista
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code dinâmico"
+keywordsSecundarias:
+  - "qr code estático"
+  - "diferença qr code estático e dinâmico"
+  - "qr code dinâmico grátis"
+  - "quando usar qr code dinâmico"
+  - "pix dinâmico qr code"
+ogTitle: "QR Code Dinâmico: O Que É e Quando Usar"
+ogDescription: "Dinâmico ou estático? Saiba qual faz sentido para o seu negócio, e quando o grátis resolve."
+ogAccent: "#4f46e5"
+twitterTitle: "QR Code Dinâmico: Quando Vale a Pena (e Quando Não Vale)"
+twitterDescription: "Para PIX no balcão, cardápio e WhatsApp, o estático gratuito resolve. Dinâmico tem casos específicos. Veja quais."
+faqsSlugs:
+  - pix-estatico-vs-dinamico
+  - qr-validade
+  - geracode-e-gratuito
+  - dados-ficam-seguros
+featured: false
+bodyMarkdown: |
+  QR Code dinâmico é um código que aponta para uma URL intermediária, o que permite trocar o destino depois de impresso, sem criar um novo código. Para a maioria dos lojistas brasileiros que usam QR Code no balcão, no cardápio ou para receber PIX, o estático gratuito resolve com custo zero. Dinâmico faz sentido em situações específicas: embalagem de produto físico em escala, campanhas de marketing com rastreamento de cliques, links que mudam toda semana.
+
+  > **Pontos principais**
+  > - QR Code dinâmico permite editar o destino sem reimprimir, mas a maioria das ferramentas custa R$ 30–150/mês
+  > - PIX dinâmico é um conceito diferente: padrão do Banco Central para cobranças com ID de transação, não tem relação com QR Code de marketing
+  > - Para PIX no balcão, cardápio digital e WhatsApp: QR Code estático gratuito é suficiente
+  > - Dinâmico faz sentido para embalagens físicas em volume e campanhas com rastreamento
+  > - Ferramenta gratuita de qualidade para dinâmico: não existe na prática
+
+  ## O que é QR Code dinâmico
+
+  Um QR Code estático guarda a informação diretamente no código. Se você gera um QR Code para o endereço `geracodigo.com.br`, esse endereço está codificado nos quadradinhos pretos e brancos da imagem. Para mudar o destino, você precisa gerar um novo código e reimprimir.
+
+  Um QR Code dinâmico funciona de forma diferente. Ele guarda no código uma URL intermediária, algo como `qrco.de/abc123`, que redireciona para o destino real. Quando você muda o destino no painel da ferramenta, o código não muda: quem escaneia ainda chega ao lugar certo.
+
+  É como ter um encurtador de link impresso. O papel não muda, mas o link pode ir para onde você quiser.
+
+  | Característica | QR Code estático | QR Code dinâmico |
+  |---|---|---|
+  | Destino editável após impressão | Não | Sim |
+  | Analytics de escaneamentos | Não | Sim |
+  | Funciona sem internet | Sim | Não (precisa redirecionar) |
+  | Custo | Grátis | R$ 30–150/mês |
+  | Privacidade | Total | Dados passam pelo servidor do provedor |
+
+  ## Quando usar QR Code dinâmico
+
+  Existem situações em que o dinâmico é a escolha certa. São casos onde reimprimir não é viável ou onde rastrear escaneamentos tem valor real de negócio.
+
+  **Embalagem física de produto em escala**
+
+  Imagine uma fabricante de alimentos que imprime 50.000 embalagens com QR Code para a receita do produto. Meses depois, a receita muda. Reimprimir as embalagens custa caro. Com QR Code dinâmico, a empresa só atualiza o destino no painel, e as embalagens já nas prateleiras continuam funcionando.
+
+  Para o lojista menor, essa situação raramente acontece. Mas para quem produz materiais gráficos em volume (adesivos, embalagens, caixas impressas), é um cenário real.
+
+  **Campanhas de marketing com rastreamento**
+
+  Um QR Code dinâmico registra quantas vezes foi escaneado, em qual horário, em qual cidade. Mariana, gerente de marketing de uma rede de farmácias em Minas Gerais, usou códigos dinâmicos diferentes em panfletos distribuídos em três bairros. No fim da campanha, ela sabia qual bairro converteu mais, sem precisar perguntar para o cliente.
+
+  Para quem faz campanhas com volume e precisa dessas métricas, o custo da ferramenta pode ser justificado. Para quem coloca um QR Code no cardápio e não quer relatório de analytics, não faz sentido.
+
+  **Links que mudam com muita frequência**
+
+  Se você tem um QR Code impresso em um cartaz e o destino muda toda semana (por exemplo, um link para a promoção da semana), o dinâmico evita reimprimir o cartaz.
+
+  Mas atenção: se o cartaz já precisa ser atualizado com o texto da promoção, você vai reimprimir de qualquer jeito. Nesse caso, o dinâmico não resolve nada.
+
+  ## Quando o QR Code estático é suficiente
+
+  Para a maioria dos casos do lojista brasileiro, o estático resolve, e de graça.
+
+  **Pagamento PIX no balcão**
+
+  QR Code PIX estático é o caso de uso mais comum. Você gera uma vez, imprime, plastifica e cola no balcão. Funciona para sempre, para qualquer valor (o cliente digita o valor no app do banco), sem mensalidade.
+
+  Use o [gerador de QR Code PIX](/gerador-de-qr-code-pix) para criar o seu agora, sem cadastro, funciona direto no navegador.
+
+  **Cardápio digital**
+
+  Rodrigo, dono de uma pizzaria no interior de São Paulo, queria colocar QR Code nas mesas apontando para o cardápio digital. Encontrou uma ferramenta de QR Code dinâmico por R$ 49/mês, "para poder atualizar o link sem reimprimir as placas de mesa".
+
+  O problema: o cardápio dele muda uma vez por mês, no máximo. Ele pagaria R$ 588 por ano para evitar reimprimir 10 placas de mesa uma vez por mês, que custam R$ 5 cada na gráfica local. Com o estático gratuito, ele gastou R$ 50 em placas plastificadas e resolveu o problema sem mensalidade.
+
+  Para cardápios que mudam raramente, o custo de reimprimir é muito menor que a assinatura de uma ferramenta dinâmica. Para saber como usar QR Code no seu restaurante, leia [QR Code para restaurante: cardápio, PIX e WiFi](/blog/qr-code-para-restaurante).
+
+  **WhatsApp, WiFi, redes sociais, site**
+
+  Links para WhatsApp Business, rede de WiFi, Instagram ou site da loja raramente mudam. QR Code estático gratuito é suficiente para todos esses casos.
+
+  Use o [gerador de QR Code do GeraCode](/gerador-de-qr-code) para criar QR Code para qualquer link, grátis, sem app, sem cadastro.
+
+  ## PIX dinâmico: esse é outro assunto
+
+  Muita gente pesquisa "QR Code dinâmico" querendo entender o **PIX dinâmico**. São coisas diferentes, e a confusão é comum.
+
+  O PIX dinâmico é um padrão técnico do Banco Central do Brasil, definido na especificação BR Code EMV. Ele é usado para cobranças com valor fixo, prazo de vencimento e identificador de transação, o banco gera um código diferente para cada cobrança. É o que plataformas de e-commerce e sistemas de gestão integram via API bancária.
+
+  Quando você usa o app do banco para cobrar R$ 150,00 de um cliente específico, o banco gera um QR Code dinâmico no sentido do PIX: aquele código tem um ID único, data de vencimento, e o pagamento é registrado individualmente.
+
+  O QR Code PIX estático, o que o GeraCode gera, é diferente. Ele contém a chave, o nome e a cidade. O cliente escaneia, digita o valor e paga. É para balcão, cardápio, WhatsApp, links fixos de cobrança.
+
+  > **Resumindo**: quer cobrar PIX no balcão? Estático gratuito. Quer emitir cobranças com vencimento e ID de transação via sistema de gestão? PIX dinâmico via API bancária. Outro assunto, outro nível de complexidade.
+
+  Para entender como integrar PIX dinâmico em sistemas via API, leia [QR Code PIX sem valor fixo via API](/blog/qr-code-pix-sem-valor-fixo-api).
+
+  ## QR Code dinâmico grátis existe?
+
+  Tecnicamente, alguns serviços oferecem plano gratuito com QR Code dinâmico. Na prática, com qualidade suficiente para uso profissional sem restrições sérias: dificilmente.
+
+  As principais ferramentas cobram assinatura mensal porque precisam manter um servidor de redirecionamento funcionando 24 horas, sete dias por semana. Se o servidor cair ou a empresa fechar, todos os QR Codes impressos param de funcionar. Os estáticos, não.
+
+  Ferramentas com plano "gratuito" de dinâmico costumam ter uma ou mais das seguintes limitações:
+
+  - Limite de 1–3 códigos ativos
+  - Código expira após 30 dias
+  - Marca d'água na imagem
+  - Analytics bloqueados no plano gratuito
+  - Redirecionamento lento (afeta a experiência do usuário)
+
+  Se você precisa de dinâmico de verdade para uma situação específica, vale pagar, mas verifique o histórico da empresa antes de imprimir materiais em volume. Se o serviço fechar, os códigos param de funcionar.
+
+  ## Como gerar QR Code estático grátis agora
+
+  Se você concluiu que o estático resolve para o seu caso, o processo é simples.
+
+  Para **QR Code genérico** (URL, WhatsApp, WiFi, texto, contato):
+
+  1. Acesse o [gerador de QR Code](/gerador-de-qr-code)
+  2. Cole o link ou texto
+  3. Ajuste a cor e o tamanho se quiser
+  4. Baixe em PNG (para tela) ou SVG (para impressão, mantém qualidade em qualquer tamanho)
+
+  Para **QR Code PIX** (receber pagamentos no balcão, cardápio, WhatsApp):
+
+  1. Acesse o [gerador de QR Code PIX](/gerador-de-qr-code-pix)
+  2. Selecione o tipo de chave (CPF, CNPJ, e-mail, celular ou aleatória)
+  3. Preencha o nome (até 25 caracteres — use o nome fantasia, não a razão social completa) e a cidade
+  4. Opcionalmente, defina um valor fixo
+  5. Baixe a imagem PNG e copie o código Copia e Cola
+
+  Os dois geradores são gratuitos, sem cadastro, 100% no navegador. Nenhum dado (chave PIX, CNPJ, link) é enviado para servidores.
+
+  Para um passo a passo completo de criação de QR Code, leia [como gerar QR Code grátis passo a passo](/blog/como-gerar-qr-code-gratis-passo-a-passo).
+
+  ---
+
+  QR Code dinâmico resolve problemas específicos: embalagens físicas em volume, campanhas com rastreamento, links de alta rotatividade. Para o dia a dia do lojista brasileiro — PIX no balcão, cardápio, WhatsApp, redes sociais — o estático gratuito entrega o resultado sem mensalidade.
+
+  Crie o seu agora com o [gerador de QR Code do GeraCode](/gerador-de-qr-code), sem criar conta, sem instalar nada.
