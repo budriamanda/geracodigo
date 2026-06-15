@@ -1,0 +1,88 @@
+slug: qr-code-vs-codigo-de-barras
+termoA: "QR Code"
+termoB: "Código de barras"
+title: "QR Code vs Código de Barras: Qual Usar? | GeraCode"
+metaDescription: "QR Code ou código de barras? Diferença entre 2D e 1D, capacidade de dados, leitura, custo e qual usar no seu produto, vitrine ou pagamento. Guia comparativo."
+h1: "QR Code vs código de barras: qual usar no seu negócio?"
+subtitle: "Comparação prática entre os dois tipos de código para você escolher o certo para produto, estoque, pagamento ou divulgação."
+introducao: |
+  O **código de barras** e o **QR Code** resolvem problemas diferentes. O código de barras é linear (1D) e guarda um número curto que identifica o produto, usado no varejo e no estoque. O QR Code é bidimensional (2D), guarda muito mais informação (links, texto, Pix, Wi-Fi) e é lido pela câmera de qualquer celular. Na prática, muitos negócios usam os dois ao mesmo tempo.
+tabelaComparativa:
+  - criterio: "Tipo"
+    valorA: "Bidimensional (2D), matriz de quadrados."
+    valorB: "Linear (1D), barras verticais paralelas."
+  - criterio: "Capacidade de dados"
+    valorA: "Alta: até milhares de caracteres (links, texto, Pix, contato)."
+    valorB: "Baixa: apenas um número curto (8 a 14 dígitos no varejo)."
+  - criterio: "O que costuma armazenar"
+    valorA: "Link, texto, chave Pix, rede Wi-Fi, cartão de contato."
+    valorB: "Identificador do produto (EAN-13, UPC, Code 128)."
+  - criterio: "Como é lido"
+    valorA: "Câmera de qualquer celular, sem app dedicado."
+    valorB: "Leitor a laser ou app de leitura; câmera também lê."
+  - criterio: "Precisa de internet"
+    valorA: "Só se o conteúdo for um link. Pix e texto funcionam offline."
+    valorB: "Não. A leitura é local."
+  - criterio: "Registro e custo"
+    valorA: "Grátis para gerar. Sem registro."
+    valorB: "Grátis para gerar; para vender no varejo o EAN exige registro GS1."
+  - criterio: "Tolerância a dano"
+    valorA: "Alta: corrige erros e lê mesmo parcialmente danificado."
+    valorB: "Baixa: um risco sobre as barras pode impedir a leitura."
+  - criterio: "Tamanho de impressão"
+    valorA: "Compacto; fica legível mesmo pequeno e quadrado."
+    valorB: "Precisa de largura mínima; não funciona muito reduzido."
+  - criterio: "Melhor para"
+    valorA: "Pagamento, cardápio, divulgação, link na embalagem."
+    valorB: "Caixa de loja, controle de estoque, etiqueta de preço."
+quandoUsarA: |
+  - Você quer receber pagamento via Pix no balcão, mesa ou adesivo.
+  - Quer levar o cliente para um link, cardápio, WhatsApp ou rede social.
+  - Precisa compartilhar Wi-Fi, contato ou texto sem digitação.
+  - Quer algo lido pela câmera do celular, sem leitor dedicado.
+quandoUsarB: |
+  - Você vende produtos e precisa passar no caixa (PDV).
+  - Faz controle de estoque com leitor a laser.
+  - Vai cadastrar produto em marketplace que pede EAN-13.
+  - Precisa de etiqueta de preço padronizada para o varejo.
+veredito: |
+  Não é um substituir o outro: eles convivem. Use **código de barras (EAN-13)** para identificar o produto no caixa e no estoque, e **QR Code** para pagamento, divulgação e qualquer coisa que envolva link ou mais dados. Uma embalagem bem resolvida muitas vezes traz os dois: o código de barras para o varejo e um QR Code levando ao site, ao manual ou ao Pix.
+ferramentasRelacionadasSlugs:
+  - gerador-de-qr-code
+  - gerador-de-codigo-de-barras
+  - gerador-de-qr-code-pix
+faqsSlugs:
+  - cb-qual-formato-usar
+  - qr-funciona-sem-internet
+  - qr-validade
+postsRelacionadosSlugs:
+  - codigo-2d-o-que-e-tipos-quando-usar
+  - qr-code-como-funciona-guia-completo
+  - codigo-de-barras-para-produtos-guia-completo
+conteudoExtra: |
+  ## O que é código de barras?
+
+  O código de barras é um código linear (1D) formado por barras e espaços de larguras diferentes que representam um número. No varejo, o formato mais comum é o **EAN-13**, com 13 dígitos que identificam o fabricante e o produto. Ele foi feito para uma única tarefa: identificar rapidamente um item no caixa ou no estoque.
+
+  ## O que é QR Code?
+
+  O QR Code (Quick Response) é um código bidimensional (2D) que armazena informação na horizontal e na vertical. Por isso cabe muito mais dado: um link, um texto, uma chave Pix ou uma rede Wi-Fi inteira. Ele é lido pela câmera de qualquer celular moderno e corrige erros, ou seja, continua legível mesmo com parte da imagem danificada.
+
+  ## Qual é a principal diferença?
+
+  A diferença central é capacidade e finalidade. O código de barras guarda um **número curto** e serve para identificar produtos; o QR Code guarda **conteúdo** (link, pagamento, texto) e serve para conectar o mundo físico ao digital. Um aponta para um item no sistema da loja; o outro leva a uma ação.
+
+  ## Posso usar os dois juntos?
+
+  Sim, e é o cenário mais comum. Em uma loja física você usa o **código de barras** na etiqueta para passar no caixa e controlar estoque, e um **QR Code** na vitrine ou na embalagem para receber Pix, mostrar o cardápio ou levar ao seu Instagram. Eles não competem: cada um faz o que faz melhor.
+
+  ## Qual é mais barato?
+
+  Gerar qualquer um dos dois é grátis no GeraCode. A diferença de custo aparece no varejo: para vender em grandes redes e marketplaces, o código de barras costuma exigir um **EAN-13 registrado na GS1** (que é pago). O QR Code não tem registro nem licença; é só gerar e usar.
+keywordPrimaria: "qr code vs codigo de barras"
+ogTitle: "QR Code vs Código de Barras: Qual Usar"
+ogDescription: "Diferença entre 2D e 1D e qual código usar no seu produto, estoque ou pagamento."
+ogAccent: "#4f46e5"
+twitterTitle: "QR Code vs código de barras"
+twitterDescription: "Qual código usar no seu negócio? Comparação completa e prática."
+dataAtualizacao: "2026-06-15"

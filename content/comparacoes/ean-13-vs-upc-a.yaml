@@ -1,0 +1,80 @@
+slug: ean-13-vs-upc-a
+termoA: "EAN-13"
+termoB: "UPC-A"
+title: "EAN-13 vs UPC-A: Diferenças e Qual Usar | GeraCode"
+metaDescription: "EAN-13 ou UPC-A? Diferença entre os dois códigos de barras de varejo, quantos dígitos cada um tem, onde são usados e qual escolher no Brasil. Guia comparativo."
+h1: "EAN-13 vs UPC-A: qual código usar no seu produto?"
+subtitle: "Comparação entre os dois principais padrões de código de barras de varejo para você saber qual cadastrar e imprimir."
+introducao: |
+  **EAN-13** e **UPC-A** são padrões de código de barras de varejo da mesma família (GS1). A diferença prática é a origem e o tamanho: o UPC-A tem 12 dígitos e nasceu nos Estados Unidos; o EAN-13 tem 13 dígitos e é o padrão usado no Brasil, na Europa e na maior parte do mundo. Na verdade, todo UPC-A é um EAN-13 com um zero na frente, e leitores modernos leem os dois.
+tabelaComparativa:
+  - criterio: "Número de dígitos"
+    valorA: "13 dígitos."
+    valorB: "12 dígitos."
+  - criterio: "Onde é usado"
+    valorA: "Brasil, Europa e maioria dos países."
+    valorB: "Estados Unidos e Canadá."
+  - criterio: "Quem administra"
+    valorA: "GS1 (prefixo 789 e 790 para o Brasil)."
+    valorB: "GS1 US (prefixo 0)."
+  - criterio: "Relação entre eles"
+    valorA: "Padrão mais amplo; engloba o UPC-A."
+    valorB: "É um EAN-13 com zero à esquerda."
+  - criterio: "Estrutura"
+    valorA: "Prefixo do país + empresa + produto + dígito verificador."
+    valorB: "Sistema numérico + empresa + produto + dígito verificador."
+  - criterio: "Compatibilidade de leitura"
+    valorA: "Lido por praticamente qualquer leitor no mundo."
+    valorB: "Lido no mundo todo; alguns sistemas antigos dos EUA só liam UPC."
+  - criterio: "Registro"
+    valorA: "Exige prefixo GS1 para vender no varejo formal."
+    valorB: "Exige prefixo GS1 US."
+  - criterio: "Melhor para"
+    valorA: "Vender no Brasil e exportar para a maioria dos países."
+    valorB: "Vender especificamente no mercado dos EUA/Canadá."
+quandoUsarA: |
+  - Você vende no Brasil, na Europa ou exporta para a maioria dos países.
+  - Vai cadastrar produto em marketplace ou rede de varejo brasileira.
+  - Quer o padrão mais universal e aceito globalmente.
+  - Já tem (ou vai registrar) prefixo na GS1 Brasil.
+quandoUsarB: |
+  - Seu mercado-alvo principal é Estados Unidos ou Canadá.
+  - Um varejista americano específico pediu UPC-A no cadastro.
+  - Você já tem prefixo GS1 US.
+  - Precisa caber em embalagem que segue o padrão norte-americano.
+veredito: |
+  Para quem vende no Brasil, a resposta é simples: use **EAN-13**. É o padrão nacional, aceito em todo o varejo e nos marketplaces, e funciona também no exterior. O **UPC-A** só faz sentido quando o foco é o mercado dos Estados Unidos ou Canadá. Como os dois são compatíveis e o EAN-13 engloba o UPC-A, padronizar no EAN-13 evita retrabalho.
+ferramentasRelacionadasSlugs:
+  - gerador-de-ean
+  - gerador-de-codigo-de-barras
+faqsSlugs:
+  - ean-funciona-leitores
+  - ean-registrar-gs1
+  - cb-qual-formato-usar
+postsRelacionadosSlugs:
+  - ean-13-ean-8-guia-completo
+  - codigo-de-barras-para-produtos-guia-completo
+  - como-cadastrar-produto-mercado-livre
+conteudoExtra: |
+  ## O que é EAN-13?
+
+  O EAN-13 (European Article Number) é o código de barras de varejo com 13 dígitos usado no Brasil e na maioria dos países. Ele identifica o país de registro, a empresa e o produto, mais um dígito verificador que confirma a leitura. No Brasil, os prefixos começam em **789** e **790**, administrados pela GS1 Brasil.
+
+  ## O que é UPC-A?
+
+  O UPC-A (Universal Product Code) é o código de barras de 12 dígitos criado nos Estados Unidos, o primeiro padrão de varejo a se popularizar. Ele segue a mesma lógica do EAN-13, com sistema numérico, empresa, produto e dígito verificador, mas com um dígito a menos.
+
+  ## EAN-13 e UPC-A são a mesma coisa?
+
+  São da mesma família e compatíveis, mas não idênticos. Tecnicamente, um UPC-A é um EAN-13 com um **zero na frente**. Por isso um leitor que entende EAN-13 lê um UPC-A sem problema. A diferença é histórica e geográfica, não de funcionamento.
+
+  ## Qual usar para vender no Brasil?
+
+  Use **EAN-13**. É o padrão exigido pelo varejo e pelos marketplaces brasileiros. Para vender no varejo formal você precisa de um prefixo registrado na **GS1 Brasil**; só então o código é único e reconhecido na cadeia. Para testes, etiquetas internas ou controle próprio, dá para gerar um EAN-13 com dígito verificador correto sem registro.
+keywordPrimaria: "ean-13 vs upc-a"
+ogTitle: "EAN-13 vs UPC-A: Qual Usar"
+ogDescription: "Diferença entre os dois códigos de barras de varejo e qual escolher no Brasil."
+ogAccent: "#0ea5e9"
+twitterTitle: "EAN-13 vs UPC-A"
+twitterDescription: "Qual código de barras de varejo usar? Comparação completa."
+dataAtualizacao: "2026-06-15"

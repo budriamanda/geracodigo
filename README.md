@@ -12,8 +12,10 @@ Plataforma gratuita com ferramentas de geração de códigos para lojistas brasi
 | EAN | `/gerador-de-ean` | EAN-13 e EAN-8 com cálculo automático do dígito verificador |
 | QR Code | `/gerador-de-qr-code` | QR Code genérico com cores e tamanho personalizáveis |
 | QR Code Pix | `/gerador-de-qr-code-pix` | Pix estático com todos os tipos de chave (CPF, CNPJ, e-mail, telefone, aleatória) |
-| Leitor | `/leitor-de-codigo-de-barras` | Leitura de códigos de barras e QR Code via câmera |
+| Leitor de Código de Barras | `/leitor-de-codigo-de-barras` | Leitura de códigos de barras via câmera |
+| Leitor de QR Code | `/leitor-de-qr-code` | Leitura de QR Code via câmera, sem instalar app |
 | SKU | `/gerador-de-sku` | Gerador de SKU com regras configuráveis |
+| Etiquetas | `/gerador-de-etiquetas` | Etiquetas de produto (nome, preço, código) em PNG/PDF, lote por folha A4 |
 
 ## Tech Stack
 

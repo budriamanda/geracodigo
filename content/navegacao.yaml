@@ -41,6 +41,14 @@ footerConteudo:
     label: "QR Code Pix para MEI"
   - href: "/blog/como-gerar-qr-code-gratis-passo-a-passo"
     label: "Como Gerar QR Code Grátis"
+  - href: "/comparar/qr-code-vs-codigo-de-barras"
+    label: "QR Code vs Código de Barras"
+  - href: "/comparar/ean-13-vs-upc-a"
+    label: "EAN-13 vs UPC-A"
+  - href: "/comparar/code-128-vs-code-39"
+    label: "Code 128 vs Code 39"
+  - href: "/comparar/pix-estatico-vs-dinamico"
+    label: "Pix Estático vs Dinâmico"
 
 footerInstitucional:
   - href: "/sobre"

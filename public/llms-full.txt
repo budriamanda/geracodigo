@@ -176,6 +176,26 @@ O Leitor de QR Code é otimizado exclusivamente para QR Codes. Para ler códigos
 
 ---
 
+## 8. Gerador de Etiquetas
+
+**URL:** https://www.geracodigo.com.br/gerador-de-etiquetas
+
+Cria etiquetas de produto prontas para impressão, com nome, preço e código de barras EAN-13 ou QR Code. Ideal para lojistas, feirantes, produtos artesanais e organização de estoque.
+
+### Funcionalidades
+- Etiqueta com nome do produto, preço e código (EAN-13 ou QR Code)
+- Exportação em PNG ou PDF
+- Múltiplas cópias por folha A4 (impressão em lote)
+- 100% client-side — nenhum dado é enviado para servidores
+- Sem cadastro e sem marca d'água
+
+### Como usar
+1. Acesse a ferramenta no navegador
+2. Preencha nome, preço e o código do produto (EAN-13 ou conteúdo do QR Code)
+3. Ajuste a quantidade de cópias por folha e baixe em PNG ou PDF para imprimir
+
+---
+
 ## Privacidade e Segurança
 
 Todas as ferramentas do GeraCode funcionam 100% no navegador do usuário (client-side). Nenhum dado — chave Pix, nome, valor, código de barras — é enviado para servidores externos. O processamento acontece inteiramente no dispositivo do usuário.

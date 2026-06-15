@@ -1,0 +1,79 @@
+slug: code-128-vs-code-39
+termoA: "Code 128"
+termoB: "Code 39"
+title: "Code 128 vs Code 39: Diferenças e Qual Usar | GeraCode"
+metaDescription: "Code 128 ou Code 39? Diferença entre os dois códigos de barras alfanuméricos: densidade, caracteres suportados, tamanho e qual usar em logística e estoque."
+h1: "Code 128 vs Code 39: qual código de barras usar?"
+subtitle: "Comparação prática entre os dois códigos de barras alfanuméricos mais usados em logística, estoque e etiquetas internas."
+introducao: |
+  **Code 128** e **Code 39** são códigos de barras lineares (1D) que aceitam letras e números, usados fora do varejo de produtos: logística, estoque, ativos e etiquetas internas. O Code 39 é mais antigo e simples; o Code 128 é mais novo, mais compacto e aceita mais caracteres. Para a maioria dos casos hoje, o Code 128 é a escolha mais eficiente.
+tabelaComparativa:
+  - criterio: "Caracteres suportados"
+    valorA: "ASCII completo (128 caracteres), incluindo minúsculas."
+    valorB: "Maiúsculas (A-Z), números e alguns símbolos."
+  - criterio: "Densidade"
+    valorA: "Alta: armazena mais em menos espaço."
+    valorB: "Baixa: o código fica mais comprido."
+  - criterio: "Dígito verificador"
+    valorA: "Obrigatório (módulo 103), calculado automaticamente."
+    valorB: "Opcional."
+  - criterio: "Tamanho do código impresso"
+    valorA: "Mais curto para o mesmo conteúdo."
+    valorB: "Mais longo; ocupa mais largura."
+  - criterio: "Idade e adoção"
+    valorA: "Mais novo; padrão em logística moderna (base do GS1-128)."
+    valorB: "Mais antigo; muito legado em indústria e defesa."
+  - criterio: "Compatibilidade com leitores antigos"
+    valorA: "Ampla, mas alguns sistemas muito antigos preferem Code 39."
+    valorB: "Altíssima; lido por praticamente qualquer leitor."
+  - criterio: "Complexidade"
+    valorA: "Maior (três subconjuntos A, B e C)."
+    valorB: "Menor; estrutura simples com start/stop."
+  - criterio: "Melhor para"
+    valorA: "Logística, transporte, supply chain, muito dado em pouco espaço."
+    valorB: "Etiquetas internas simples e ambientes com leitores legados."
+quandoUsarA: |
+  - Você precisa de muito conteúdo (letras e números) em pouco espaço.
+  - Trabalha com logística, transporte ou cadeia de suprimentos.
+  - Quer um código mais compacto e com verificação embutida.
+  - Vai seguir o padrão GS1-128 para embalagem e remessa.
+quandoUsarB: |
+  - Precisa de algo simples para etiqueta interna ou de ativo.
+  - O ambiente tem leitores antigos que exigem Code 39.
+  - O conteúdo é curto e só usa letras maiúsculas e números.
+  - Você quer a maior compatibilidade possível, sem se preocupar com densidade.
+veredito: |
+  Para a maioria dos casos novos, escolha **Code 128**: ele cabe mais informação em menos espaço, tem dígito verificador automático e é a base da logística moderna. Use **Code 39** quando o conteúdo for curto, o ambiente tiver leitores legados ou você quiser a simplicidade máxima. Nenhum dos dois serve para identificar produto no caixa do varejo; para isso, use EAN-13.
+ferramentasRelacionadasSlugs:
+  - gerador-de-codigo-de-barras
+faqsSlugs:
+  - cb-qual-formato-usar
+  - cb-quantos-formatos
+  - ean-funciona-leitores
+postsRelacionadosSlugs:
+  - code-128-itf-14-guia-logistica-estoque
+  - code-39-o-que-e-como-gerar-codigo-de-barras
+  - codigo-de-barras-para-produtos-guia-completo
+conteudoExtra: |
+  ## O que é Code 128?
+
+  O Code 128 é um código de barras linear de alta densidade que codifica todo o conjunto ASCII (128 caracteres), incluindo letras maiúsculas e minúsculas, números e símbolos. Ele usa três subconjuntos (A, B e C) para otimizar o espaço e exige um dígito verificador calculado automaticamente. É a base do **GS1-128**, muito usado em logística e remessa.
+
+  ## O que é Code 39?
+
+  O Code 39 é um dos códigos de barras mais antigos ainda em uso. Codifica letras maiúsculas (A-Z), números (0-9) e alguns símbolos, com um caractere de início e fim. É simples, dispensa dígito verificador e tem compatibilidade altíssima, por isso permanece comum em indústria, defesa e controle de ativos.
+
+  ## Qual é a principal diferença?
+
+  A diferença central é **densidade e conjunto de caracteres**. O Code 128 guarda mais dado em menos espaço e aceita ASCII completo (com minúsculas); o Code 39 é mais simples, mais longo para o mesmo conteúdo e limitado a maiúsculas. Em troca, o Code 39 é ainda mais universal em leitores muito antigos.
+
+  ## Code 128 ou Code 39 para estoque?
+
+  Para um sistema de estoque novo, o **Code 128** costuma ser melhor: etiquetas menores, mais informação e verificação embutida reduzem erro de leitura. O **Code 39** continua válido se você já tem um parque de leitores antigos ou precisa de algo extremamente simples. Para produtos que passam no caixa do varejo, nenhum dos dois substitui o EAN-13.
+keywordPrimaria: "code 128 vs code 39"
+ogTitle: "Code 128 vs Code 39: Qual Usar"
+ogDescription: "Diferença entre os dois códigos de barras alfanuméricos e qual usar em logística."
+ogAccent: "#16a34a"
+twitterTitle: "Code 128 vs Code 39"
+twitterDescription: "Qual código de barras alfanumérico usar? Comparação completa."
+dataAtualizacao: "2026-06-15"
