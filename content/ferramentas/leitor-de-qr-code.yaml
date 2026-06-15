@@ -15,8 +15,9 @@ cardDescription: "Escaneie QR Code pela câmera do celular ou computador. Sem in
 ordem: 7
 
 ogAccent: "#0ea5e9"
-keywordPrimaria: "leitor de qr code"
+keywordPrimaria: "leitor de qr code online"
 keywordsSecundarias:
+  - "leitor de qr code"
   - "escanear qr code"
   - "leitor qr code online"
   - "scanner qr code"
@@ -24,7 +25,8 @@ keywordsSecundarias:
   - "leitor qrcode"
   - "scanner de qr code online"
   - "qrcode leitor"
-dataAtualizacao: "2026-05-10"
+  - "ler qr code online gratis"
+dataAtualizacao: "2026-06-15"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "qr-reader"
@@ -42,7 +44,7 @@ schemaFeatureList:
   - "Sem instalação"
 schemaAboutName: "QR Code (Quick Response Code)"
 schemaDatePublished: "2026-05-10"
-schemaDateModified: "2026-05-10"
+schemaDateModified: "2026-06-15"
 
 secoesConteudo:
   - tipo: steps
