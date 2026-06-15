@@ -1,0 +1,154 @@
+slug: qr-code-personalizado-com-logo
+title: "QR Code Personalizado com Logo: Como Criar — GeraCode"
+metaDescription: "Aprenda a criar QR Code personalizado com logo sem quebrar o código. Regra dos 25%, passo a passo com Canva e color picker grátis para identidade visual."
+h1: "QR Code Personalizado com Logo: Como Criar Sem Quebrar o Código"
+subtitle: "A regra que ninguém explica, o passo a passo gratuito com Canva e quando a cor da sua marca já resolve sem precisar de logo."
+resumo: "Para criar QR Code personalizado com logo, o logo deve ocupar no máximo 25% da área central — acima disso, o código quebra. Este guia mostra como personalizar cores no GeraCode e adicionar logo via Canva sem pagar nada."
+categoria: qr-code
+persona: lojista-fisico
+dataPublicacao: "2026-06-14"
+dataAtualizacao: "2026-06-14"
+autor: Amanda Budri
+tempoLeitura: 8
+tags:
+  - qr-code
+  - personalizado
+  - logo
+  - identidade-visual
+  - canva
+ferramentaRelacionadaSlug: gerador-de-qr-code
+keywordPrimaria: "qr code personalizado com logo"
+keywordsSecundarias:
+  - "como criar qr code com logo"
+  - "qr code com logo gratis"
+  - "qr code personalizado"
+  - "como adicionar logo no qr code"
+  - "qr code cor personalizada"
+ogTitle: "QR Code Personalizado com Logo: Como Criar Certo"
+ogDescription: "Logo no QR Code? A regra dos 25% que você precisa saber antes de imprimir. Passo a passo grátis com GeraCode + Canva."
+ogAccent: "#4f46e5"
+twitterTitle: "QR Code com Logo: Como Criar Sem Quebrar o Código"
+twitterDescription: "Logo maior que 25% da área e o código não lê. Veja a regra técnica e o passo a passo grátis com Canva."
+faqsSlugs:
+  - qr-personalizar-cores
+  - qr-png-vs-svg
+  - qr-validade
+  - geracode-e-gratuito
+featured: false
+bodyMarkdown: |
+  Para criar um QR Code personalizado com logo, o logo deve ocupar no máximo 25% da área central do código. Acima disso, câmeras de celular mais antigas e apps de banco com leitura lenta começam a falhar. O processo completo é gratuito: gere o QR Code base com as cores da sua marca no GeraCode, adicione o logo no Canva e teste em três celulares antes de imprimir.
+
+  > **Pontos principais**
+  > - Logo no QR Code funciona se ocupar no máximo 25% da área central (limite de segurança do nível H de correção de erro)
+  > - GeraCode personaliza cor dos módulos e cor de fundo gratuitamente, sem cadastro
+  > - Workaround gratuito: gerar SVG no GeraCode, adicionar logo no Canva
+  > - Testar com câmera nativa do iPhone, Android e app de banco antes de qualquer impressão
+  > - Para balcão, vitrine e cardápio: cor da marca resolve sem logo, com zero risco de código quebrado
+
+  ## Por que QR Code com logo pode quebrar
+
+  QR Codes têm redundância embutida. A especificação ISO 18004 define quatro níveis de correção de erro, que determinam quanto do código pode ser coberto ou danificado sem perder a leitura:
+
+  | Nível | Sigla | Dano tolerado |
+  |---|---|---|
+  | Baixo | L | 7% |
+  | Médio | M | 15% |
+  | Quartil | Q | 25% |
+  | Alto | H | 30% |
+
+  O logo cobre módulos (os quadradinhos do QR Code). Para o logo não quebrar a leitura, o gerador precisa usar nível H de correção de erro. Mesmo assim, o logo deve ocupar no máximo 25% da área total, não os 30% teóricos, porque na prática há variação entre leitores e condições de iluminação.
+
+  Fábio organizou uma feira de artesanato em Belo Horizonte em abril de 2026. Mandou imprimir 300 cartões com QR Code personalizado com o logo do evento no centro. Na hora da feira, os clientes escaneavam o código, mas um em cada quatro celulares não lia. A câmera do iPhone abria, tentava focar e desistia. O logo tinha sido redimensionado para 35% da área, passando o limite seguro. Fábio perdeu a tarde refazendo os cartões na gráfica local a custo extra.
+
+  A solução não é evitar logos. É respeitar a regra dos 25%.
+
+  ## Personalizar QR Code com as cores da sua marca (grátis)
+
+  Para a maioria dos lojistas, personalizar as cores já entrega identidade visual suficiente no balcão, cardápio ou vitrine. Sem logo, sem risco de código quebrado.
+
+  O [gerador de QR Code do GeraCode](/gerador-de-qr-code) tem três opções de personalização:
+
+  - **Cor dos módulos**: escolha a cor principal da sua marca para os quadradinhos escuros
+  - **Cor de fundo**: defina a cor de fundo (mantenha contraste alto)
+  - **Tamanho**: de 200 a 500px (baixe em SVG para impressão sem perda de qualidade em qualquer tamanho)
+
+  > **Atenção ao contraste**: QR Code verde escuro sobre fundo branco funciona. QR Code amarelo sobre fundo branco, não. Mantenha contraste mínimo de 4:1 entre módulos e fundo. QR Code claro sobre fundo escuro funciona em alguns apps, mas falha em outros, prefira sempre escuro sobre claro.
+
+  Gere o seu QR Code personalizado agora com o [gerador de QR Code grátis do GeraCode](/gerador-de-qr-code), sem cadastro, funciona direto no navegador.
+
+  ## Como adicionar logo no QR Code passo a passo (via Canva)
+
+  Se você precisa do logo, o processo completo usando ferramentas gratuitas:
+
+  **Passo 1: Gere o QR Code base no GeraCode**
+
+  1. Acesse o [gerador de QR Code](/gerador-de-qr-code)
+  2. Cole o link ou texto que o QR Code vai abrir
+  3. Defina as cores da sua marca
+  4. Baixe em **SVG** (qualidade vetorial, ideal para impressão e para editar no Canva)
+
+  **Passo 2: Adicione o logo no Canva**
+
+  1. Abra o Canva e crie um design quadrado, 500 x 500px
+  2. Faça upload do SVG do QR Code e coloque como fundo do design
+  3. Faça upload do logo da sua marca
+  4. Posicione o logo no **centro exato** do QR Code
+  5. Redimensione o logo para no máximo **125 x 125px**, que representa 25% de um QR de 500px
+  6. Exporte em PNG com qualidade máxima
+
+  **Passo 3: Teste antes de qualquer impressão**
+
+  Este passo não é opcional. Abra o QR Code nos seguintes dispositivos e confirme que todos leem corretamente:
+
+  - Câmera nativa do iPhone (versão mais antiga que você tiver acesso)
+  - Câmera nativa de um Android (Samsung ou Motorola)
+  - App de banco brasileiro (Nubank, Itaú, Bradesco ou outro)
+
+  Se algum falhar, o logo está grande demais. Reduza para 20% da área, equivalente a 100 x 100px no design de 500px, e teste de novo.
+
+  ## Quando a cor basta (e o logo não é necessário)
+
+  Tatiana tem uma confeitaria em Recife. Ela queria o logo da confeitaria no QR Code do cardápio. Depois de duas tentativas no Canva com o logo quebrando a leitura em celulares com câmera ruim, ela desistiu do logo e simplesmente usou o gerador do GeraCode com a cor rosa-escuro da marca nos módulos e fundo branco. O resultado ficou consistente com a identidade visual e nenhum cliente teve problema para escanear desde então.
+
+  Situações onde as cores da marca resolvem sem logo:
+
+  - QR Code PIX no balcão (o cliente precisa escanear rápido, o logo pode distrair)
+  - QR Code de WhatsApp ou site na vitrine ou cardápio
+  - QR Code de WiFi no restaurante ou hotel
+  - Qualquer situação de uso frequente onde confiabilidade de leitura é prioridade
+
+  Situações onde o logo agrega valor real:
+
+  - Cartão de visita (espaço pequeno, o logo reforça a marca)
+  - Material de feira ou evento com concorrência visual de outras bancas
+  - Embalagem de produto onde a identidade visual é parte do produto
+
+  Para QR Code PIX com identidade visual, veja também [como gerar QR Code PIX grátis passo a passo](/blog/gerador-pix-gratis-como-criar-qr-code-pix).
+
+  ## Erros que quebram QR Code personalizado com logo
+
+  **Logo maior que 25% da área**
+
+  O mais comum. Lojistas que redimensionam o logo "no olho" acabam passando do limite. Use sempre as medidas exatas: para um QR Code de 500px, o logo deve ser no máximo 125 x 125px.
+
+  **Contraste insuficiente entre módulos e fundo**
+
+  Fundo colorido com módulos em cor próxima faz o leitor confundir os quadradinhos com o fundo. Teste sempre com o fundo branco primeiro. Se precisar de fundo colorido, escureça os módulos ao máximo.
+
+  **Logo com sombra ou transparência sobre os módulos**
+
+  PNG com sombra projetada ou borda com transparência parcial cobre módulos nas bordas do logo. Isso aumenta a área efetiva do bloqueio além do que você mediu. Use o logo sem sombras e sem bordas com gradiente.
+
+  **Exportar em resolução baixa**
+
+  PNG abaixo de 150dpi fica pixelado na impressão. Para impressão física, exporte sempre em resolução máxima no Canva ou use o SVG do GeraCode diretamente na gráfica.
+
+  **Não testar em escala antes de imprimir em quantidade**
+
+  O erro mais caro. Antes de mandar 200 cartões para a gráfica, imprima um em casa ou peça uma prova da gráfica e escaneie com pelo menos três dispositivos diferentes. Um código quebrado numa tiragem inteira é custo e retrabalho que a regra dos 25% evita.
+
+  ---
+
+  QR Code personalizado com logo é possível e gratuito: GeraCode para o QR Code base em SVG com as cores da sua marca, Canva para inserir o logo no centro com no máximo 25% da área, e teste em três dispositivos antes de imprimir.
+
+  Para começar agora com personalização de cores, use o [gerador de QR Code do GeraCode](/gerador-de-qr-code), sem criar conta, sem instalar nada. Para [QR Code para restaurante com cardápio digital](/blog/qr-code-para-restaurante), veja também o guia específico.
