@@ -18,11 +18,13 @@ ogAccent: "#f59e0b"
 keywordPrimaria: "gerador ean-13"
 keywordsSecundarias:
   - "gerador ean-8"
+  - "ean-13 gratis"
   - "código ean grátis"
   - "gerar ean online"
   - "código de barras ean-13"
+  - "ean-13 mercado livre"
   - "ean para produtos"
-dataAtualizacao: "2026-05-02"
+dataAtualizacao: "2026-06-14"
 canonicalOverride: ""
 robotsNoindex: false
 adSlotPrefix: "ean"
@@ -37,7 +39,7 @@ schemaFeatureList:
   - "100% client-side"
 schemaAboutName: "EAN (European Article Number / GTIN)"
 schemaDatePublished: "2026-01-15"
-schemaDateModified: "2026-05-02"
+schemaDateModified: "2026-06-14"
 
 secoesConteudo:
   - tipo: steps
@@ -199,6 +201,11 @@ secoesConteudo:
     items: []
     tags: []
     links:
+      - href: "/blog/como-cadastrar-produto-mercado-livre"
+        label: "Como cadastrar produto no Mercado Livre: 7 passos"
+        descricao: "Passo a passo completo do cadastro no ML, quando o EAN é obrigatório por categoria e o que fazer quando o produto não tem código de barras."
+        badgeText: "Guia"
+        badgeColor: "text-yellow-700 bg-yellow-50"
       - href: "/blog/codigo-de-barras-mercado-livre"
         label: "Código de barras para Mercado Livre: EAN-13, GTIN e como gerar"
         descricao: "Quando o ML exige EAN, o que fazer sem GTIN registrado, como cadastrar no anúncio e como evitar os erros mais comuns de GTIN inválido."
