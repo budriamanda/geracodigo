@@ -42,6 +42,11 @@ const configs: Record<string, ShareConfig> = {
     whatsappText: `Leitor de código de barras gratuito, usa a câmera do celular sem instalar nada: ${SITE_URL}/leitor-de-codigo-de-barras?utm_source=whatsapp&utm_medium=share&utm_campaign=reader`,
     shareUrl: `${SITE_URL}/leitor-de-codigo-de-barras?utm_source=copy&utm_medium=share&utm_campaign=reader`,
   },
+  'gerador-de-etiquetas': {
+    toolSlug: 'gerador-de-etiquetas',
+    whatsappText: `Gerador de etiquetas de produto gratuito, cria com nome, preço e código de barras, baixa em PDF: ${SITE_URL}/gerador-de-etiquetas?utm_source=whatsapp&utm_medium=share&utm_campaign=etiqueta`,
+    shareUrl: `${SITE_URL}/gerador-de-etiquetas?utm_source=copy&utm_medium=share&utm_campaign=etiqueta`,
+  },
 }
 
 export function getShareConfig(toolSlug: string): ShareConfig {

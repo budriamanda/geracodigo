@@ -299,6 +299,7 @@ export default config({
             { label: 'QR Code', value: 'qr-code' },
             { label: 'Leitor', value: 'leitor' },
             { label: 'SKU', value: 'sku' },
+            { label: 'Etiquetas', value: 'etiqueta' },
           ],
           defaultValue: 'home',
         }),

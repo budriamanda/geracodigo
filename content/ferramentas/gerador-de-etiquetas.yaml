@@ -1,0 +1,153 @@
+slug: gerador-de-etiquetas
+title: "Gerador de Etiquetas de Produto Grátis | GeraCode"
+metaDescription: "Gere etiquetas de produto com nome, preço e código de barras EAN-13 ou QR Code. Baixe em PNG ou PDF com múltiplas cópias por folha. Grátis, sem cadastro."
+ogTitle: "Gerador de Etiquetas de Produto Grátis | GeraCode"
+ogDescription: "Crie etiquetas com nome, preço e código de barras. Baixe em PNG ou PDF, imprime em casa em papel adesivo. Sem cadastro."
+twitterTitle: "Gerador de Etiquetas de Produto Grátis | GeraCode"
+twitterDescription: "Etiqueta com nome, preço e código de barras em segundos. Download PNG ou PDF. Grátis."
+h1: "Gerador de Etiquetas de Produto: crie e baixe em PNG ou PDF"
+subtitle: "Preencha os campos, escolha o tamanho e baixe a etiqueta pronta para imprimir em papel adesivo."
+privacyBadgeText: "Tudo processado no seu navegador. Nenhum dado é enviado para servidores"
+badge: ""
+badgeColor: ""
+icon: "🏷️"
+cardDescription: "Crie etiquetas de produto com nome, preço e código de barras EAN-13 ou QR Code. Baixe em PNG ou PDF com múltiplas cópias por folha A4."
+ordem: 8
+
+ogAccent: "#059669"
+keywordPrimaria: "gerador de etiquetas"
+keywordsSecundarias:
+  - "etiqueta de produto"
+  - "criar etiqueta produto"
+  - "gerador etiqueta gratis"
+  - "etiqueta com codigo de barras"
+  - "etiqueta com qr code"
+  - "fazer etiqueta produto gratis"
+  - "etiqueta para produto artesanal"
+  - "imprimir etiqueta produto"
+dataAtualizacao: "2026-06-15"
+canonicalOverride: ""
+robotsNoindex: false
+adSlotPrefix: "etiqueta"
+
+schemaAppName: "Gerador de Etiquetas de Produto"
+schemaAppDescription: "Crie etiquetas de produto personalizadas com nome, preço e código de barras EAN-13 ou QR Code. Baixe em PNG ou PDF para imprimir em papel adesivo. Gratuito, sem cadastro."
+schemaFeatureList:
+  - "Etiqueta com nome do produto"
+  - "Etiqueta com preço"
+  - "Código de barras EAN-13"
+  - "QR Code na etiqueta"
+  - "Múltiplos tamanhos (50×30mm, 70×40mm, 100×50mm, 100×70mm)"
+  - "Download PNG"
+  - "Download PDF com múltiplas cópias"
+  - "100% client-side"
+schemaAboutName: "Etiqueta de produto"
+schemaDatePublished: "2026-06-15"
+schemaDateModified: "2026-06-15"
+
+secoesConteudo:
+  - tipo: steps
+    titulo: "Como gerar sua etiqueta"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "emerald"
+    bgCard: false
+    columns: "3"
+    items:
+      - titulo: "Preencha os campos"
+        descricao: "Digite o nome do produto, preço e o código de barras EAN-13 ou a URL para QR Code. Todos os campos são opcionais — você pode gerar etiqueta só com preço, por exemplo."
+        icone: ""
+      - titulo: "Escolha o tamanho"
+        descricao: "Selecione entre 50×30mm, 70×40mm, 100×50mm ou 100×70mm. O preview atualiza em tempo real para você ver como vai ficar antes de baixar."
+        icone: ""
+      - titulo: "Baixe e imprima"
+        descricao: "Baixe em PNG para usar em qualquer editor, ou em PDF para imprimir direto — o PDF coloca múltiplas cópias por folha A4 para economizar papel adesivo."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: cards
+    titulo: "O que você pode incluir na etiqueta"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "emerald"
+    bgCard: false
+    columns: "2"
+    items:
+      - titulo: "Nome do produto"
+        descricao: "O nome aparece em destaque no topo da etiqueta. Use até 30 caracteres para garantir boa legibilidade no tamanho menor (50×30mm)."
+        icone: ""
+      - titulo: "Preço (R$)"
+        descricao: "O preço é exibido em fonte grande para facilitar a leitura rápida. Digite somente o valor — o prefixo R$ é adicionado automaticamente."
+        icone: ""
+      - titulo: "Código de barras EAN-13"
+        descricao: "Adicione um EAN-13 de 12 ou 13 dígitos. O dígito verificador é calculado automaticamente se você digitar 12 dígitos. Use o gerador de EAN do GeraCode se ainda não tiver um código."
+        icone: ""
+      - titulo: "QR Code (link, Pix, WhatsApp)"
+        descricao: "Em vez de código de barras, gere um QR Code com qualquer URL ou texto — link do produto, chave Pix, número do WhatsApp ou outra informação."
+        icone: ""
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Como imprimir etiquetas em casa ou no escritório"
+    subtitulo: ""
+    conteudo: "Qualquer impressora jato de tinta ou laser imprime as etiquetas geradas aqui. Para etiquetas profissionais sem corte manual, use **papel adesivo A4** — disponível em papelarias por R$ 2 a R$ 5 por folha.\n\n**Opções de papel para impressão:**\n\n- **Papel adesivo A4 brilhante**: aparência mais profissional, boa para etiquetas de preço e produtos que ficam em prateleira\n- **Papel adesivo A4 fosco**: melhor para leitura de QR Code (evita reflexo da câmera ao escanear)\n- **Etiqueta Pimaco ou similar**: se tiver impressora de etiqueta (Zebra, Argox, Elgin), baixe em PNG e importe no software da impressora\n\n**Dica de corte**: imprima o PDF, que já vem com múltiplas cópias alinhadas na folha. Use guilhotina ou tesoura. Para volume maior, gráficas rápidas (como Fast Color e similares) imprimem e cortam folhas de etiqueta por R$ 1 a R$ 3 por folha."
+    stepColor: "emerald"
+    bgCard: true
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: prose
+    titulo: "Para quem é este gerador de etiquetas"
+    subtitulo: ""
+    conteudo: "Este gerador foi feito para quem precisa de etiquetas funcionais sem pagar por software de design ou contratar uma gráfica para pequenas quantidades.\n\n**Ideal para:**\n\n- **MEI e autônomos**: etiquetar produtos artesanais, cosméticos, alimentos caseiros, bijuterias, roupas\n- **Lojas físicas**: reposição rápida de etiqueta de preço sem depender da equipe de marketing\n- **E-commerce pequeno**: etiquetas de identificação para estoque antes de fotografar e listar nos marketplaces\n- **Feirantes e bazares**: etiquetas para eventos, bazares beneficentes, feiras de artesanato\n- **Revendedores**: quem compra produto sem etiqueta e precisa identificar antes de revender\n\nPara quem precisa de código de barras EAN-13 e ainda não tem um, use o [gerador de EAN do GeraCode](/gerador-de-ean) para criar um código interno gratuito antes de gerar a etiqueta."
+    stepColor: "emerald"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links: []
+  - tipo: links
+    titulo: "Ferramentas relacionadas"
+    subtitulo: ""
+    conteudo: ""
+    stepColor: "emerald"
+    bgCard: false
+    columns: "3"
+    items: []
+    tags: []
+    links:
+      - href: "/gerador-de-ean"
+        label: "Gerador de EAN-13"
+        descricao: "Gere o código EAN-13 para o produto antes de criar a etiqueta. Dígito verificador calculado automaticamente."
+        badgeText: "Ferramenta"
+        badgeColor: "text-indigo-600 bg-indigo-50"
+      - href: "/gerador-de-codigo-de-barras"
+        label: "Gerador de Código de Barras"
+        descricao: "EAN-13, EAN-8, Code 128, Code 39 e mais. Baixe em PNG ou SVG."
+        badgeText: "Ferramenta"
+        badgeColor: "text-indigo-600 bg-indigo-50"
+      - href: "/gerador-de-qr-code"
+        label: "Gerador de QR Code"
+        descricao: "Crie QR Codes para links, texto, WhatsApp e Wi-Fi. Personalize cores."
+        badgeText: "Ferramenta"
+        badgeColor: "text-blue-600 bg-blue-50"
+      - href: "/blog/como-imprimir-etiquetas-codigo-de-barras"
+        label: "Como imprimir etiquetas com código de barras"
+        descricao: "Guia completo de impressoras, papéis e softwares para etiquetagem de produtos."
+        badgeText: "Guia"
+        badgeColor: "text-emerald-600 bg-emerald-50"
+
+faqFallbacks:
+  - pergunta: "Como imprimir a etiqueta gerada?"
+    resposta: "Baixe em PDF e imprima em papel adesivo A4 comum (disponível em papelarias por R$ 2 a R$ 5 por folha). O PDF coloca múltiplas cópias alinhadas para economizar papel. Para impressão em PNG, abra no celular ou no computador e imprima ajustando o tamanho manualmente."
+  - pergunta: "Qual tamanho de etiqueta escolher?"
+    resposta: "Para produtos pequenos (bijuteria, cosmético, alimento embalado): 50×30mm. Para roupas e calçados: 70×40mm. Para produtos maiores com mais informações: 100×50mm ou 100×70mm. O preview atualiza em tempo real para você ver antes de baixar."
+  - pergunta: "Posso usar qualquer número EAN-13 na etiqueta?"
+    resposta: "Sim. Se você já tem o EAN-13 do produto (impresso na embalagem original ou gerado no GeraCode), basta digitar os 12 ou 13 dígitos. O gerador valida o dígito verificador automaticamente. Se o código for inválido, uma mensagem de erro aparece antes de gerar a etiqueta."
+  - pergunta: "A etiqueta tem qualidade suficiente para impressão profissional?"
+    resposta: "Sim. As etiquetas são geradas em alta resolução (8px/mm, equivalente a 200 DPI). Para uso em prateleira e balcão, a qualidade é adequada com qualquer impressora jato de tinta ou laser. Para gráficas e impressoras industriais de etiqueta, baixe o PNG e importe no software da impressora."
+  - pergunta: "Funciona no celular?"
+    resposta: "Sim. O gerador funciona no celular e no computador, em qualquer navegador moderno. O download de PDF e PNG funciona normalmente no Android (Chrome) e no iPhone (Chrome ou Safari)."
+  - pergunta: "Posso adicionar logo ou imagem à etiqueta?"
+    resposta: "Por enquanto, o gerador não suporta upload de logo. Você pode adicionar um QR Code com o link da sua loja ou rede social como elemento de identidade visual na etiqueta."
