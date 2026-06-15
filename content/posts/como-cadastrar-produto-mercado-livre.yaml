@@ -1,0 +1,188 @@
+slug: como-cadastrar-produto-mercado-livre
+title: "Cadastrar Produto no Mercado Livre: 7 Passos — GeraCode"
+metaDescription: "Aprenda a cadastrar produto no Mercado Livre em 7 passos. O que fazer quando não tem código de barras e como gerar EAN grátis para regularizar o anúncio."
+h1: "Como Cadastrar Produto no Mercado Livre: 7 Passos e o Que Fazer com o Código de Barras"
+subtitle: "Do título ao código de barras, o guia completo para listar seu produto corretamente e aparecer nos resultados do ML."
+resumo: "Cadastrar produto no Mercado Livre tem 7 passos e leva 10 a 15 minutos por item. O ponto que mais trava lojistas novos é o código de barras: este guia explica quando o EAN é obrigatório, quando não é, e o que fazer quando o produto não tem código de barras."
+categoria: ean
+persona: lojista-ecommerce
+dataPublicacao: "2026-06-14"
+dataAtualizacao: "2026-06-14"
+autor: Amanda Budri
+tempoLeitura: 9
+tags:
+  - mercado-livre
+  - codigo-de-barras
+  - ean
+  - cadastro-produto
+  - marketplace
+ferramentaRelacionadaSlug: gerador-de-ean
+keywordPrimaria: "como cadastrar produto no mercado livre"
+keywordsSecundarias:
+  - "cadastrar produto mercado livre"
+  - "código de barras obrigatório mercado livre"
+  - "ean mercado livre obrigatório"
+  - "cadastro produto mercado livre sem código de barras"
+  - "como vender no mercado livre passo a passo"
+ogTitle: "Como Cadastrar Produto no Mercado Livre: 7 Passos"
+ogDescription: "7 passos para cadastrar produto no ML e o que fazer quando não tem código de barras. EAN grátis sem precisar da GS1."
+ogAccent: "#f59e0b"
+twitterTitle: "Cadastrar Produto no Mercado Livre: 7 Passos + Solução para EAN"
+twitterDescription: "O campo de código de barras trava mais vendedores do que devia. Veja quando é obrigatório e como resolver sem pagar."
+faqsSlugs:
+  - geracode-e-gratuito
+  - dados-ficam-seguros
+  - funciona-no-celular
+featured: false
+bodyMarkdown: |
+  Para cadastrar produto no Mercado Livre, o processo tem 7 passos e leva entre 10 e 15 minutos por item. O ponto que mais trava lojistas novos é o campo de código de barras (EAN/GTIN): algumas categorias exigem o campo preenchido, e quem vende produto artesanal ou de marca própria fica preso na tela sem saber o que fazer.
+
+  Priscila tem uma linha de velas aromáticas produzidas em casa, em Goiânia. Em março de 2026, tentou cadastrar o primeiro produto no Mercado Livre. Chegou no campo "código de barras" e travou. Pesquisou por uma hora, leu que precisaria contratar um código na GS1 Brasil por R$ 995 por ano e desistiu. Só mais tarde descobriu que a categoria "Artesanato" aceita produto sem GTIN e que, para quem precisar de um código interno, dá para gerar um EAN grátis no GeraCode sem precisar se filiar à GS1.
+
+  Este guia cobre os 7 passos do cadastro e explica exatamente o que fazer quando o produto não tem código de barras.
+
+  > **Pontos principais**
+  > - Cadastro completo tem 7 passos, leva 10 a 15 minutos por produto
+  > - Código de barras EAN é obrigatório em Eletrônicos, Saúde e Beleza e Alimentos embalados, mas não em Artesanato, roupas sem tag e produto próprio
+  > - Produto sem GTIN: verifique se a categoria aceita "Sem código de barras" antes de qualquer gasto
+  > - EAN gerado pelo GeraCode é válido como código interno para produto próprio, não é GTIN registrado na GS1
+  > - SKU é campo separado e interno, não substitui o código de barras para o ML
+
+  ## O que você precisa antes de começar
+
+  Separe antes de abrir o painel de cadastro para não precisar pausar no meio:
+
+  - **Conta vendedor ativa** no Mercado Livre (se não tiver, acesse mercadolivre.com.br e clique em "Venda no Mercado Livre")
+  - **Fotos do produto**: fundo branco, mínimo 500 x 500px, sem logotipo ou marca d'água sobre a imagem
+  - **Código de barras EAN-13 ou GTIN**, se a categoria exigir (veja a seção abaixo para saber se é o seu caso)
+  - **Preço de venda** definido
+  - **Estoque disponível**: número de unidades
+  - **Peso e dimensões** do produto embalado para o Mercado Envios calcular o frete
+
+  Com tudo em mãos, o cadastro fica fluido do começo ao fim.
+
+  ## Como cadastrar produto no Mercado Livre em 7 passos
+
+  ### Passo 1: Acesse a área de listagem
+
+  Faça login na sua conta vendedor. No menu superior, clique em **"Vender"**, depois em **"Listar um produto"**. Se for sua primeira vez, o ML pode pedir para completar o perfil de vendedor com CPF ou CNPJ antes de prosseguir.
+
+  ### Passo 2: Pesquise a categoria correta
+
+  Digite o nome do produto na barra de busca. O Mercado Livre vai sugerir categorias. Escolha a mais específica possível: a categoria define quais atributos aparecem no cadastro. Categoria errada significa campos errados e produto mal posicionado nas buscas internas do ML.
+
+  > **Dica**: Se não encontrar a categoria exata, use a mais próxima. É possível editar depois, mas a alteração exige aprovação manual do ML e pode demorar alguns dias.
+
+  ### Passo 3: Preencha o título do produto
+
+  O título é o fator mais importante para aparecer nas buscas internas do ML. Estrutura recomendada: **Marca + Produto + Atributo diferenciador + Quantidade ou Tamanho**.
+
+  Para uma vela aromática:
+  - ✅ "Vela Aromática Lavanda 200g Vegana Artesanal"
+  - ❌ "Vela super perfumada de alta qualidade imperdível"
+
+  Palavras proibidas no título: "o melhor", "barato", "promoção", "frete grátis". O ML pode remover o anúncio se detectar.
+
+  ### Passo 4: Adicione as fotos
+
+  O ML exige fundo branco, sem marca d'água e sem texto sobreposto à imagem principal. Mínimo exigido: 1 foto. Recomendado: 6 ou mais fotos mostrando ângulos diferentes, detalhe da embalagem e produto em uso ou contexto.
+
+  Resolução mínima: 500 x 500px. Resolução ideal: 1.200 x 1.200px para o zoom funcionar e impressionar o comprador.
+
+  ### Passo 5: Preencha os atributos técnicos
+
+  Cada categoria tem seus próprios atributos. Aqui aparece o campo de código de barras (GTIN ou EAN). Se o campo for obrigatório na sua categoria, veja a seção abaixo sobre o que fazer. Preencha todos os atributos disponíveis: quanto mais completo, melhor o ranqueamento interno do ML.
+
+  ### Passo 6: Defina preço, estoque e envio
+
+  - **Preço**: o ML mostra a comissão estimada e o valor líquido antes de confirmar
+  - **Estoque**: quantidade disponível; o anúncio é pausado automaticamente quando chegar a zero
+  - **Envio**: Mercado Envios (frete calculado pelo ML com base no peso e dimensões) ou envio próprio; para a maioria dos vendedores, Mercado Envios reduz atrito com o comprador
+
+  ### Passo 7: Publique e acompanhe
+
+  Revise todas as informações e clique em **"Publicar"**. O anúncio vai ao ar imediatamente na maioria das categorias. Algumas categorias, especialmente Saúde e Beleza, passam por revisão manual que pode levar até 48 horas.
+
+  Nos primeiros dias, acompanhe as métricas do anúncio no painel: impressões, cliques e conversão. Baixa taxa de cliques geralmente indica problema no título ou nas fotos.
+
+  ## Código de barras no Mercado Livre: quando é obrigatório
+
+  O Mercado Livre exige o GTIN (Global Trade Item Number, sendo o EAN-13 o formato mais comum) em categorias de produtos industrializados com código de barras original na embalagem. As principais categorias que exigem:
+
+  - Eletrônicos e Informática
+  - Saúde e Beleza (cosméticos, medicamentos, suplementos)
+  - Alimentos e Bebidas embalados
+  - Eletrodomésticos
+  - Livros (ISBN no lugar do EAN)
+
+  Categorias que geralmente não exigem código de barras:
+
+  - Artesanato e produtos feitos à mão
+  - Roupas e acessórios sem tag de código de barras original
+  - Produtos usados
+  - Partes e acessórios sem embalagem original
+
+  **Como saber com certeza:** O campo aparece como "obrigatório" com asterisco no cadastro da sua categoria específica. Se aparecer como "opcional", o produto pode ser listado sem código de barras.
+
+  ## Meu produto não tem código de barras: o que fazer?
+
+  Três caminhos, dependendo do caso:
+
+  **Caminho 1: Verifique se a categoria aceita "Sem código de barras"**
+
+  Em algumas categorias o ML aceita a resposta "Este produto não tem código de barras". Antes de qualquer gasto, verifique se essa opção aparece no campo de GTIN/EAN. Se aparecer, use ela e siga em frente.
+
+  **Caminho 2: Gere um EAN-13 grátis como código interno**
+
+  Para produtos próprios, artesanais ou de marca própria sem embalagem original com código de barras, você pode gerar um EAN-13 interno com o [gerador de EAN do GeraCode](/gerador-de-ean).
+
+  > **Importante:** EAN gerado pelo GeraCode é um código interno válido para controle e identificação do produto. Não é um GTIN registrado na GS1 Brasil, que exige afiliação paga. Para produto próprio de marca própria, o código interno funciona para o cadastro no ML na maioria das categorias de produto não industrializado. Para produto de terceiros com EAN original na embalagem, use sempre o EAN original.
+
+  Paulo vende kits de skincare artesanal em São Paulo. Quando foi cadastrar no Mercado Livre, o campo de código de barras apareceu como opcional na categoria "Artesanato". Mesmo assim, ele decidiu criar EANs internos para controle de estoque: cada variação de kit tem um EAN diferente no seu sistema. Para gerar, usou o [GeraCode](/gerador-de-ean): sem pagar, sem se filiar à GS1, em menos de dois minutos por código. O controle de estoque ficou mais organizado e o cadastro no ML ficou com o campo preenchido.
+
+  **Caminho 3: Adquirir prefixo GS1 Brasil (para escala e múltiplos canais)**
+
+  Se você vende em vários marketplaces, tem marca registrada ou quer que seus produtos apareçam em bases de dados globais, a afiliação à [GS1 Brasil](https://www.gs1br.org) é o caminho correto. O plano básico começa em R$ 995/ano para prefixo com 100 GTINs. Para quem está começando, raramente é o primeiro passo necessário.
+
+  Para entender os tipos de código de barras aceitos no Mercado Livre e quando cada um se aplica, veja o guia completo sobre [código de barras para Mercado Livre](/blog/codigo-de-barras-mercado-livre).
+
+  ## SKU vs código de barras: a confusão mais comum
+
+  Muitos lojistas novos acham que SKU e código de barras são a mesma coisa. São campos diferentes com funções diferentes:
+
+  | Campo | O que é | Quem vê |
+  |---|---|---|
+  | **Código de barras (EAN/GTIN)** | Código universal do produto | Compradores e o algoritmo do ML |
+  | **SKU** | Código interno seu para controle de estoque | Só você, não aparece para o comprador |
+
+  O SKU é definido por você e não tem formato obrigatório. Pode ser "VELA-LAV-200G" ou "001-A". O importante é ser consistente para facilitar o controle de estoque entre diferentes canais de venda.
+
+  Use o [gerador de SKU do GeraCode](/gerador-de-sku) para padronizar os SKUs de todo o seu catálogo em minutos. O padrão recomendado para produto com variações: CATEGORIA-ATRIBUTO1-ATRIBUTO2. Para vela aromática lavanda 200g: VELA-LAV-200G.
+
+  Para aprofundar sobre como criar um sistema de SKUs consistente, veja [o que é SKU e como criar para produtos](/blog/o-que-e-sku-como-criar).
+
+  ## Dicas para aparecer melhor nos resultados do Mercado Livre
+
+  O algoritmo do ML considera vários fatores para ordenar anúncios. As variáveis que você controla desde a publicação:
+
+  **Título com o termo que o comprador usa**
+
+  Pesquise no ML o que aparece nas sugestões ao digitar a categoria do produto. Use o termo que o comprador digitaria, não o nome interno que você dá ao produto.
+
+  **Ficha técnica preenchida ao máximo**
+
+  Atributos como material, cor, tamanho, peso, voltagem e país de origem aumentam a chance de aparecer nos filtros. Produto com ficha técnica completa tem melhor posição que produto com campos vazios, mesmo com preço igual.
+
+  **Fotos de qualidade que convertem**
+
+  A taxa de conversão afeta o ranqueamento ao longo do tempo. Uma foto de baixa qualidade reduz cliques e vendas, o que derruba a posição do anúncio progressivamente. Invista nas fotos antes de qualquer outra otimização.
+
+  **Histórico de vendas e avaliações**
+
+  As primeiras vendas são sempre as mais difíceis. Considere lançar com preço competitivo para acumular avaliações iniciais. Um anúncio com cinco avaliações positivas rankeia muito melhor do que um sem histórico.
+
+  ---
+
+  Cadastrar produto no Mercado Livre segue um caminho previsível com atenção especial em dois pontos: escolha da categoria correta e preenchimento completo da ficha técnica. O campo de código de barras trava mais vendedores do que devia, mas tem solução sem gasto na maioria dos casos.
+
+  Para gerar o EAN quando o produto precisa de um, use o [gerador de EAN do GeraCode](/gerador-de-ean), gratuito, sem cadastro, resultado em menos de dois minutos. Para entender os formatos de código de barras que o ML aceita, veja o guia sobre [código de barras para Mercado Livre](/blog/codigo-de-barras-mercado-livre).
