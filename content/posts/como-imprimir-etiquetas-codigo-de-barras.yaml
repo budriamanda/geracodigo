@@ -293,7 +293,8 @@ bodyMarkdown: |
 
   - Para entender quais formatos usar para cada tipo de venda: [código de barras para produtos: guia completo](/blog/codigo-de-barras-para-produtos-guia-completo).
   - Para testar se sua etiqueta impressa está correta: [leitor de código de barras online](/leitor-de-codigo-de-barras).
-  - Para gerar e baixar etiquetas em lote: [gerador de código de barras](/gerador-de-codigo-de-barras).
+  - Para montar etiquetas prontas com nome, preço e código (PNG ou PDF, várias por folha): [gerador de etiquetas](/gerador-de-etiquetas).
+  - Para gerar e baixar só o código de barras em lote: [gerador de código de barras](/gerador-de-codigo-de-barras).
 faqsSlugs:
   - cb-imprimir-etiquetas
   - cb-png-svg-pdf

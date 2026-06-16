@@ -183,3 +183,5 @@ bodyMarkdown: |
   - Você roda campanhas com múltiplos destinos por QR Code
 
   Para gerar QR Code estático gratuitamente agora: [gerador de QR Code](/gerador-de-qr-code). Para o QR Code Pix em específico: [gerador Pix grátis](/gerador-de-qr-code-pix). Para entender a diferença no contexto de pagamentos Pix (dinâmico vs. estático no sentido bancário), veja a [comparação oficial do Banco Central sobre Pix dinâmico](https://www.bcb.gov.br/estabilidadefinanceira/pagamentosinstantaneos).
+
+  Quer só entender o conceito antes de decidir? Leia [QR Code dinâmico: o que é e quando usar](/blog/qr-code-dinamico-o-que-e-quando-usar).

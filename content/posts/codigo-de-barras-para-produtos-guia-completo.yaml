@@ -242,6 +242,8 @@ bodyMarkdown: |
   **Imprimir sem o número embaixo.** O EAN-13 precisa ter os 13 dígitos em texto abaixo das barras; é exigido pelo padrão GS1 e serve de backup quando o scanner não consegue ler a imagem.
 
   **Não testar antes de imprimir em escala.** Um código com dígito verificador errado ou impresso pequeno demais vai falhar no leitor; sempre valide antes de produzir em quantidade.
+
+  Vai usar o código só para organização interna, sem vender no varejo? Veja quando dá para usar um [código de barras sem número](/blog/codigo-de-barras-sem-numero) de GTIN registrado.
 faqsSlugs:
   - cb-qual-formato-usar
   - cb-quantos-formatos

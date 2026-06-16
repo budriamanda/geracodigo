@@ -13,6 +13,8 @@ headerLinks:
     label: "Leitor de QR Code"
   - href: "/gerador-de-sku"
     label: "SKU"
+  - href: "/gerador-de-etiquetas"
+    label: "Etiquetas"
   - href: "/blog"
     label: "Blog"
 
@@ -31,6 +33,8 @@ footerFerramentas:
     label: "Leitor de QR Code"
   - href: "/gerador-de-sku"
     label: "Gerador de SKU"
+  - href: "/gerador-de-etiquetas"
+    label: "Gerador de Etiquetas"
 
 footerConteudo:
   - href: "/blog"

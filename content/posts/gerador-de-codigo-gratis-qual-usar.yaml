@@ -191,7 +191,7 @@ bodyMarkdown: |
 
   1. **Abra a ferramenta certa**, use a tabela de decisão acima para escolher o tipo de código
   2. **Preencha os dados**, número do produto, chave Pix, URL ou referência interna, dependendo do tipo
-  3. **Baixe ou imprima**, PNG para uso digital, SVG para impressão profissional, PDF para etiquetas em lote
+  3. **Baixe ou imprima**, PNG para uso digital, SVG para impressão profissional, PDF para etiquetas em lote. Para etiquetas prontas com nome, preço e código, use o [gerador de etiquetas](/gerador-de-etiquetas).
 
   Não há cadastro, tempo de espera nem watermark. O código fica disponível imediatamente para download.
 

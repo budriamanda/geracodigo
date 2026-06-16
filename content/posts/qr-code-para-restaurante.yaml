@@ -211,6 +211,7 @@ bodyMarkdown: |
   - Para criar o QR Code do cardápio: [gerador de QR Code](/gerador-de-qr-code).
   - Para criar o QR Code Pix: [gerador de QR Code Pix](/gerador-de-qr-code-pix).
   - Quer entender como o QR Code funciona por dentro? [Como funciona o QR Code](/blog/qr-code-como-funciona-guia-completo).
+  - Montando o cardápio digital do zero? [QR Code para cardápio digital](/blog/qr-code-para-cardapio-digital).
 faqsSlugs:
   - qr-validade
   - qr-tamanho-minimo

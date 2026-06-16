@@ -161,7 +161,7 @@ bodyMarkdown: |
 
   O **UPC-A** é o equivalente americano do EAN-13, tem 12 dígitos em vez de 13. Tecnicamente, um UPC-A é equivalente a um EAN-13 com "0" na frente: o UPC-A `012345678905` é lido como EAN-13 `0012345678905`. Todos os leitores modernos leem os dois formatos.
 
-  Se você vende no **Amazon Brasil** ou planeja **exportar para os Estados Unidos**, pode precisar de UPC registrado na GS1 US (gs1us.org); ou verificar com o comprador se o EAN-13 brasileiro é aceito. Para a maioria dos marketplaces brasileiros, o EAN-13 (prefixo 789/790) é o formato correto.
+  Se você vende no **Amazon Brasil** ou planeja **exportar para os Estados Unidos**, pode precisar de UPC registrado na GS1 US (gs1us.org); ou verificar com o comprador se o EAN-13 brasileiro é aceito. Para a maioria dos marketplaces brasileiros, o EAN-13 (prefixo 789/790) é o formato correto. Veja as diferenças lado a lado em [EAN-13 vs UPC-A](/comparar/ean-13-vs-upc-a).
 
   ## Quanto custa registrar na GS1 Brasil?
 

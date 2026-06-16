@@ -59,7 +59,7 @@ bodyMarkdown: |
   | Padrão no varejo | EAN-13 obrigatório para GTINs | QR Code para links, PIX, rastreio |
   | Custo de geração | Grátis | Grátis |
 
-  **Quando continuar usando 1D**: produtos que vão para varejo ou marketplace (EAN-13 é obrigatório para GTIN), sistemas legados configurados para leitores 1D e leitores de PDV antigos sem câmera 2D.
+  **Quando continuar usando 1D**: produtos que vão para varejo ou marketplace (EAN-13 é obrigatório para GTIN), sistemas legados configurados para leitores 1D e leitores de PDV antigos sem câmera 2D. Para decidir caso a caso, veja a comparação prática [QR Code vs código de barras](/comparar/qr-code-vs-codigo-de-barras).
 
   ## Os 4 principais tipos de código 2D
 

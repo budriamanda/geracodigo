@@ -79,7 +79,7 @@ bodyMarkdown: |
   | Compatibilidade | Universal (leitores modernos) | Universal (incluindo leitores antigos dos anos 80) |
   | Uso ideal | Logística, estoque, envio | Patrimônio, saúde, defesa (sistemas legados) |
 
-  Se você está começando do zero, prefira Code 128. Code 39 só faz sentido quando há leitores muito antigos que não suportam Code 128, o que é raro em instalações novas. Para saber mais sobre Code 39, veja o [guia completo sobre Code 39](/blog/code-39-o-que-e-como-gerar-codigo-de-barras).
+  Se você está começando do zero, prefira Code 128. Code 39 só faz sentido quando há leitores muito antigos que não suportam Code 128, o que é raro em instalações novas. Para saber mais sobre Code 39, veja o [guia completo sobre Code 39](/blog/code-39-o-que-e-como-gerar-codigo-de-barras) ou a comparação direta [Code 128 vs Code 39](/comparar/code-128-vs-code-39).
 
   ## O que é código de barras ITF e o ITF-14?
 

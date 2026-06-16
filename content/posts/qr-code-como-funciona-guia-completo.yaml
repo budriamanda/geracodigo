@@ -140,7 +140,7 @@ bodyMarkdown: |
   - **Verifique o URL antes de acessar**: quando você escaneia um QR Code, o celular mostra o link antes de abrir. Se o endereço parece estranho ou diferente do esperado, não clique.
   - **Desconfie de QR Codes colados sobre outros**: em restaurantes e bares, golpistas colam etiquetas sobre QR Codes legítimos. Verifique se a etiqueta está íntegra.
   - **Não insira dados sensíveis após escanear um QR Code desconhecido**: banco, senha ou dados de cartão nunca são pedidos por link de QR Code legítimo.
-  - **Use um leitor que mostra o conteúdo antes de agir**: o [leitor do GeraCode](/leitor-de-codigo-de-barras) exibe o texto decodificado para que você possa verificar antes de abrir qualquer link.
+  - **Use um leitor que mostra o conteúdo antes de agir**: o [leitor do GeraCode](/leitor-de-codigo-de-barras) exibe o texto decodificado para que você possa verificar antes de abrir qualquer link. Para QR Code, há também o [leitor de QR Code online](/leitor-de-qr-code) dedicado.
 
   ## Versões do QR Code: de 1 a 40
 
